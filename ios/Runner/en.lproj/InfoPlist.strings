@@ -1,0 +1,2 @@
+NSBluetoothAlwaysUsageDescription = "in order to connect to new devices and plugs, this app requries permission to access the bluetooth";
+PermissionGroupNotification = "in order to send alerts and power anomolies, this app requries permission to access the Notfication";
