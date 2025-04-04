@@ -1,4 +1,4 @@
-name: iOS-ipa-build
+name: iOS-ipa-MadeByAmr
 
 on:
   workflow_dispatch:
