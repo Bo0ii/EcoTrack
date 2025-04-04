@@ -1,0 +1,75 @@
+name: iOS-ipa-build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    name: IOS-Build-MadeByAmr
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.27.3'
+          architecture: x64
+
+      - name: Cache Flutter pub packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-flutter-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-pub-
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v3
+        with:
+          path: |
+            ios/Pods
+            ios/Podfile.lock
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Update Pod repo
+        run: pod repo update
+        working-directory: ios
+
+      - name: Build iOS release (no codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Create Payload folder
+        run: mkdir Payload
+        working-directory: build/ios/iphoneos
+
+      - name: Move .app to Payload
+        run: mv Runner.app Payload
+        working-directory: build/ios/iphoneos
+
+      - name: Extract App Name from Info.plist
+        id: appname
+        run: |
+          APP_NAME=$(/usr/libexec/PlistBuddy -c "Print :CFBundleName" build/ios/iphoneos/Payload/Runner.app/Info.plist)
+          echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
+          echo "ipa_name=IOS-Build-MadeByAmr-${APP_NAME}.ipa" >> $GITHUB_OUTPUT
+
+      - name: Zip Payload into .ipa
+        run: zip -qq -r -9 "${{ steps.appname.outputs.ipa_name }}" Payload
+        working-directory: build/ios/iphoneos
+
+      - name: Upload .ipa to GitHub Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build/ios/iphoneos/${{ steps.appname.outputs.ipa_name }}
+          tag: v1.0
+          overwrite: true
+          body: "IOS-Build-MadeByAmr – automatic release using real app name"
