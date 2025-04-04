@@ -1,13 +1,12 @@
-name: iOS-ipa-build
+name: iOS-ipa-MadeByAmr
 
 on:
   workflow_dispatch:
 
 jobs:
   build-ios:
-    name: IOS-Build-MadeByAmr
+    name: iOS Build
     runs-on: macos-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -51,25 +50,18 @@ jobs:
         working-directory: build/ios/iphoneos
 
       - name: Move .app to Payload
-        run: mv Runner.app Payload
+        run: mv Runner.app/ Payload
         working-directory: build/ios/iphoneos
 
-      - name: Extract App Name from Info.plist
-        id: appname
-        run: |
-          APP_NAME=$(/usr/libexec/PlistBuddy -c "Print :CFBundleName" build/ios/iphoneos/Payload/Runner.app/Info.plist)
-          echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
-          echo "ipa_name=IOS-Build-MadeByAmr-${APP_NAME}.ipa" >> $GITHUB_OUTPUT
-
-      - name: Zip Payload into .ipa
-        run: zip -qq -r -9 "${{ steps.appname.outputs.ipa_name }}" Payload
+      - name: Zip output
+        run: zip -qq -r -9 FlutterIpaExport.ipa Payload
         working-directory: build/ios/iphoneos
 
-      - name: Upload .ipa to GitHub Release
+      - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/ios/iphoneos/${{ steps.appname.outputs.ipa_name }}
+          file: build/ios/iphoneos/Flutter.ipa
           tag: v1.0
           overwrite: true
-          body: "IOS-Build-MadeByAmr – automatic release using real app name"
+          body: "This is a release build"
