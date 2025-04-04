@@ -5,11 +5,11 @@ on:
 
 jobs:
   build-android:
-    name:  Android Build
+    name: Android Build
     runs-on: ubuntu-latest
 
     steps:
-      - name:  Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Flutter
@@ -18,17 +18,35 @@ jobs:
           flutter-version: '3.27.3'
           architecture: x64
 
-      - name: Install dependencies
+      - name: Cache Flutter pub packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-flutter-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-pub-
+
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name:  Build APK (release)
+      - name: Build Android APK (release)
         run: flutter build apk --release
 
-      - name:  Upload APK to release
+      - name: Upload APK to GitHub Release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/app/outputs/flutter-apk/app-release.apk
+          file: build/app/outputs/flutter-apk/FlutterAndroid.apk
           tag: v1.0
           overwrite: true
-          body: "This is the Android release APK"
+          body: "This is the Android release"
