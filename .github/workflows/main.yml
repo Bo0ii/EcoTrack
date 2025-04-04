@@ -1,30 +1,30 @@
-name: Android-apk-build
+name: Android-apk-MadeByAmr
 
 on:
   workflow_dispatch:
 
 jobs:
   build-android:
-    name: 🤖 Android Build
+    name:  Android Build
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
+      - name:  Checkout code
         uses: actions/checkout@v3
 
-      - name: 💻 Set up Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.27.3'
           architecture: x64
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: flutter pub get
 
-      - name: 🏗️ Build APK (release)
+      - name:  Build APK (release)
         run: flutter build apk --release
 
-      - name: 📤 Upload APK to release
+      - name:  Upload APK to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
