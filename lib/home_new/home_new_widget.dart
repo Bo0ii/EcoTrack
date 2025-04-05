@@ -739,10 +739,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                   ],
                                                 ),
                                                 Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'hlqby4lp' /* $418.75 */,
-                                                  ),
+                                                  FFAppState()
+                                                      .currentCost
+                                                      .toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineMedium
@@ -948,7 +947,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                           queryBuilder: (devicesRecord) =>
                                               devicesRecord.where(
                                             'userView',
-                                            arrayContains: currentUserEmail,
+                                            arrayContains: widget.email,
                                           ),
                                         ),
                                         builder: (context, snapshot) {
@@ -1269,15 +1268,16 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               style: FlutterFlowTheme.of(context).headlineMedium.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w300,
+                                                                                    fontWeight: FontWeight.normal,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineMediumFamily),
                                                                                   ),
                                                                             ),
                                                                             duration:
                                                                                 Duration(milliseconds: 4000),
                                                                             backgroundColor:
-                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                                Color(0x87E21C3D),
                                                                           ),
                                                                         );
                                                                       }
@@ -1534,8 +1534,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                         ),
                                                                                   ),
                                                                                   Text(
-                                                                                    FFLocalizations.of(context).getText(
-                                                                                      'cbzqhgtl' /* 69.65  */,
+                                                                                    valueOrDefault<String>(
+                                                                                      FFAppState().currentCost.toString(),
+                                                                                      '69',
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Plus Jakarta Sans',
@@ -1626,41 +1627,49 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   ),
                                                                 ],
                                                               ),
-                                                              Container(
-                                                                width: 154.32,
-                                                                height: 171.5,
-                                                                decoration:
-                                                                    BoxDecoration(),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            4.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            9.0),
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              0.0),
-                                                                      child: Image
-                                                                          .asset(
-                                                                        'assets/images/11.png',
-                                                                        width:
-                                                                            149.28,
-                                                                        height:
-                                                                            177.3,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                        alignment: Alignment(
-                                                                            -1.0,
+                                                                            10.0,
                                                                             0.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 144.47,
+                                                                  height: 171.5,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          9.0),
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(0.0),
+                                                                        child: Image
+                                                                            .asset(
+                                                                          'assets/images/15.png',
+                                                                          width:
+                                                                              156.1,
+                                                                          height:
+                                                                              164.63,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                          alignment: Alignment(
+                                                                              -1.0,
+                                                                              0.0),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),

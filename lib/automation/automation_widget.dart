@@ -679,8 +679,8 @@ class _AutomationWidgetState extends State<AutomationWidget>
                         child: Align(
                           alignment: AlignmentDirectional(1.0, 1.0),
                           child: Container(
-                            width: 60.0,
-                            height: 60.0,
+                            width: 68.33,
+                            height: 68.33,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).primary,
                               shape: BoxShape.circle,

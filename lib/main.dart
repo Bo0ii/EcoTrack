@@ -159,9 +159,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'HomeNew': HomeNewWidget(),
       'Profile': ProfileWidget(),
       'Automation': AutomationWidget(),
-      'HomeNew': HomeNewWidget(),
       'GradiantContanerCopy': GradiantContanerCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -181,6 +181,20 @@ class _NavBarPageState extends State<NavBarPage> {
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24.0,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 29.0,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'ekaexsfw' /* Home */,
+            ),
+            tooltip: '',
+          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person_outlined,
@@ -206,20 +220,6 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: FFLocalizations.of(context).getText(
               'xg4oqths' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24.0,
-            ),
-            activeIcon: Icon(
-              Icons.home,
-              size: 29.0,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'ekaexsfw' /* Home */,
             ),
             tooltip: '',
           ),

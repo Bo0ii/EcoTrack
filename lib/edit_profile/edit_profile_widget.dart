@@ -18,7 +18,7 @@ class EditProfileWidget extends StatefulWidget {
     this.userProfile,
   });
 
-  final UsersRecord? userProfile;
+  final DocumentReference? userProfile;
 
   static String routeName = 'EditProfile';
   static String routePath = '/editProfile';
@@ -226,7 +226,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
-                                          'https://cdn-icons-png.flaticon.com/256/9327/9327831.png',
+                                          valueOrDefault<String>(
+                                            editProfileUsersRecord?.photoUrl,
+                                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/finance-app-sample-kugwu4/assets/ijvuhvqbvns6/uiAvatar@2x.png',
+                                          ),
                                           fit: BoxFit.cover,
                                         ),
                                       ),

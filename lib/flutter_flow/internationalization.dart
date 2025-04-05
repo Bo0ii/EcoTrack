@@ -1662,12 +1662,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'hlqby4lp': {
-      'en': '\$418.75',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'yl2z6s0l': {
       'en': 'Energy Usage ',
       'ar': '',
@@ -1748,12 +1742,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'qg3wn1vg': {
       'en': 'Cost                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'cbzqhgtl': {
-      'en': '69.65 ',
       'ar': '',
       'de': '',
       'es': '',

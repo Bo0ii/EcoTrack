@@ -104,23 +104,19 @@ class _GradiantContanerCopyWidgetState extends State<GradiantContanerCopyWidget>
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.0, -1.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 100.0, 0.0, 0.0),
-                              child: Container(
-                                width: 391.9,
-                                height: 653.17,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: FlutterFlowWebView(
-                                  content: 'https://www.speedtest.net/',
-                                  bypass: true,
-                                  height: 266.46,
-                                  verticalScroll: false,
-                                  horizontalScroll: false,
-                                ),
+                            child: Container(
+                              width: 391.9,
+                              height: 752.4,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: FlutterFlowWebView(
+                                content: 'https://www.speedtest.net/',
+                                bypass: true,
+                                height: 266.46,
+                                verticalScroll: false,
+                                horizontalScroll: false,
                               ),
                             ),
                           ),

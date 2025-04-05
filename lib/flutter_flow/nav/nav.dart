@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -189,13 +188,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: EditProfileWidget.routeName,
           path: EditProfileWidget.routePath,
-          asyncParams: {
-            'userProfile': getDoc(['users'], UsersRecord.fromSnapshot),
-          },
           builder: (context, params) => EditProfileWidget(
             userProfile: params.getParam(
               'userProfile',
-              ParamType.Document,
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
             ),
           ),
         ),
