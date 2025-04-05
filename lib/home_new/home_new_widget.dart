@@ -62,7 +62,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           singleRecord: true,
         ).then((s) => s.firstOrNull);
         FFAppState().deviceIdAppState = _model.deviceRef!.reference.id;
-        safeSetState(() {});
         while (FFAppState().isLooping == true) {
           _model.sensordataAPIpageload = await GetSensorDataCall.call(
             deviceId: _model.deviceRef?.deviceId,
@@ -382,10 +381,17 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                '00onw8ns' /* My Home */,
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                FFAppState().isAdmin
+                                                                    ? _model
+                                                                        .adminUser
+                                                                        ?.nameOfHouse
+                                                                    : _model
+                                                                        .userinhouseholdREF
+                                                                        ?.parentReference
+                                                                        .id,
+                                                                'My home',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -472,8 +478,17 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                        ConnectWidget
-                                                            .routeName);
+                                                      ConnectWidget.routeName,
+                                                      queryParameters: {
+                                                        'adminREF':
+                                                            serializeParam(
+                                                          _model.adminUser
+                                                              ?.reference,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
                                                   },
                                                   child: Icon(
                                                     Icons

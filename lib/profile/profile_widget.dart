@@ -809,7 +809,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                           PageTransitionType
                                                               .bottomToTop,
                                                       duration: Duration(
-                                                          milliseconds: 200),
+                                                          milliseconds: 350),
                                                     ),
                                                   },
                                                 );

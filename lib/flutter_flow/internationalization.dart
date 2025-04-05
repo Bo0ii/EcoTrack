@@ -1614,12 +1614,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '00onw8ns': {
-      'en': 'My Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'twtru3br': {
       'en': 'Cancel',
       'ar': '',

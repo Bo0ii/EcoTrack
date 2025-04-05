@@ -362,28 +362,14 @@ class _OldmainpageWidgetState extends State<OldmainpageWidget> {
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          context.pushNamed(
-                                                              ConnectWidget
-                                                                  .routeName);
-                                                        },
-                                                        child: Icon(
-                                                          Icons
-                                                              .add_circle_outline,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          size: 28.0,
-                                                        ),
+                                                      child: Icon(
+                                                        Icons
+                                                            .add_circle_outline,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        size: 28.0,
                                                       ),
                                                     ),
                                                   ].divide(

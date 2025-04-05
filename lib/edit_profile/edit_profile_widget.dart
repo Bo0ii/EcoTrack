@@ -1,12 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'edit_profile_model.dart';
@@ -27,10 +29,13 @@ class EditProfileWidget extends StatefulWidget {
   State<EditProfileWidget> createState() => _EditProfileWidgetState();
 }
 
-class _EditProfileWidgetState extends State<EditProfileWidget> {
+class _EditProfileWidgetState extends State<EditProfileWidget>
+    with TickerProviderStateMixin {
   late EditProfileModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -44,6 +49,57 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     _model.yourTitleFocusNode1 ??= FocusNode();
 
     _model.yourTitleFocusNode2 ??= FocusNode();
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 1070.0.ms,
+            begin: Offset(0.0, 23.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'richTextOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 1070.0.ms,
+            begin: Offset(0.0, 23.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 1030.0.ms,
+            begin: Offset(0.0, 23.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 1100.0.ms,
+            begin: Offset(0.0, 21.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -143,7 +199,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               ),
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['rowOnPageLoadAnimation']!),
                       ),
                     ),
                     Expanded(
@@ -199,7 +256,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                                         .headlineMediumFamily),
                                           ),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'richTextOnPageLoadAnimation']!),
                                 ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
@@ -802,7 +860,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       ),
                                     ),
                                   ],
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'columnOnPageLoadAnimation']!),
                               ),
                             ),
                           ],
@@ -856,7 +915,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                             borderRadius: BorderRadius.circular(16.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation']!),
                       ),
                     ),
                   ],

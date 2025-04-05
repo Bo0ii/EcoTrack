@@ -140,7 +140,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ConnectWidget.routeName,
           path: ConnectWidget.routePath,
-          builder: (context, params) => ConnectWidget(),
+          builder: (context, params) => ConnectWidget(
+            adminREF: params.getParam(
+              'adminREF',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         ),
         FFRoute(
           name: ForgetPasswordWidget.routeName,
