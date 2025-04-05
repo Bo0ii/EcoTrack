@@ -7,6 +7,7 @@ jobs:
   build-ios:
     name: iOS Build
     runs-on: macos-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -50,7 +51,7 @@ jobs:
         working-directory: build/ios/iphoneos
 
       - name: Move .app to Payload
-        run: mv Runner.app/ Payload
+        run: mv Runner.app Payload
         working-directory: build/ios/iphoneos
 
       - name: Zip output
@@ -61,7 +62,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/ios/iphoneos/Flutter.ipa
+          file: build/ios/iphoneos/FlutterIpaExport.ipa
           tag: v1.0
           overwrite: true
           body: "This is a release build"
