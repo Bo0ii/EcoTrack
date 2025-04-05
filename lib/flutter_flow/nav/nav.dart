@@ -280,6 +280,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: NotifactionpageWidget.routeName,
           path: NotifactionpageWidget.routePath,
           builder: (context, params) => NotifactionpageWidget(),
+        ),
+        FFRoute(
+          name: GradiantContanerCopyWidget.routeName,
+          path: GradiantContanerCopyWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'GradiantContanerCopy')
+              : GradiantContanerCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

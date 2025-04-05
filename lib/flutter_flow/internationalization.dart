@@ -1218,6 +1218,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    '5uju8qt8': {
+      'en': 'Change Photo',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'hjz0xunk': {
       'en': 'Your Name',
       'ar': '',
@@ -2100,6 +2106,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'jm8bqf2z': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // GradiantContanerCopy
+  {
+    '3vvae7l8': {
       'en': 'Home',
       'ar': '',
       'de': '',
