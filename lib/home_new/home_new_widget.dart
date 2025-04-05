@@ -1293,7 +1293,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         () {});
                                                                     if (listViewDevicesRecord
                                                                             .userControl
-                                                                            .contains(widget.email) ==
+                                                                            .contains(currentUserEmail) ==
                                                                         true) {
                                                                       if (FFAppState()
                                                                               .relayStatus ==
