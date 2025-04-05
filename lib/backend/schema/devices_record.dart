@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -30,12 +31,24 @@ class DevicesRecord extends FirestoreRecord {
   String get householdId => _householdId ?? '';
   bool hasHouseholdId() => _householdId != null;
 
+  // "userView" field.
+  List<String>? _userView;
+  List<String> get userView => _userView ?? const [];
+  bool hasUserView() => _userView != null;
+
+  // "userControl" field.
+  List<String>? _userControl;
+  List<String> get userControl => _userControl ?? const [];
+  bool hasUserControl() => _userControl != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _deviceId = snapshotData['deviceId'] as String?;
     _friendlyName = snapshotData['friendlyName'] as String?;
     _householdId = snapshotData['householdId'] as String?;
+    _userView = getDataList(snapshotData['userView']);
+    _userControl = getDataList(snapshotData['userControl']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -98,14 +111,22 @@ class DevicesRecordDocumentEquality implements Equality<DevicesRecord> {
 
   @override
   bool equals(DevicesRecord? e1, DevicesRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.deviceId == e2?.deviceId &&
         e1?.friendlyName == e2?.friendlyName &&
-        e1?.householdId == e2?.householdId;
+        e1?.householdId == e2?.householdId &&
+        listEquality.equals(e1?.userView, e2?.userView) &&
+        listEquality.equals(e1?.userControl, e2?.userControl);
   }
 
   @override
-  int hash(DevicesRecord? e) =>
-      const ListEquality().hash([e?.deviceId, e?.friendlyName, e?.householdId]);
+  int hash(DevicesRecord? e) => const ListEquality().hash([
+        e?.deviceId,
+        e?.friendlyName,
+        e?.householdId,
+        e?.userView,
+        e?.userControl
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is DevicesRecord;

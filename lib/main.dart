@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      Duration(milliseconds: 1000),
+      Duration(milliseconds: 1500),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -146,7 +146,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomeNewCopy';
+  String _currentPageName = 'HomeNew';
   late Widget? _currentPage;
 
   @override
@@ -159,7 +159,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomeNewCopy': HomeNewCopyWidget(),
+      'HomeNew': HomeNewWidget(),
       'Profile': ProfileWidget(),
       'Automation': AutomationWidget(),
     };

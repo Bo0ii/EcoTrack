@@ -546,7 +546,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // HomeNew
+  // OLDMAINPAGE
   {
     'n52gbdwl': {
       'en': 'Welcome',
@@ -656,12 +656,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '9ntxue6l': {
-      'en': '69',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'gh1ljzwe': {
       'en': ' W',
       'ar': '',
@@ -670,12 +664,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '715mx34s': {
       'en': ' | ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'eqqsg3d7': {
-      'en': 'OFF',
       'ar': '',
       'de': '',
       'es': '',
@@ -1111,130 +1099,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     't8vv2ish': {
-      'en': 'Continue',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
-  // S3
-  {
-    'coooei15': {
-      'en': '2/3',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'lpb33zss': {
-      'en': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '3g0k3isj': {
-      'en': 'Add ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'cabxhid8': {
-      'en': 'New ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'r21tvzhh': {
-      'en': 'Device',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'avegjq8m': {
-      'en':
-          'Select the rooms in your house. Don\'t worry, you can add more later.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'pd4ixwt9': {
-      'en': 'Light bulbs                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'gtpic197': {
-      'en': 'Home lighting                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'mxvtiuzt': {
-      'en': 'LED strips                   ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'uwilbtys': {
-      'en': 'Sensors                          ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'h7bys5q2': {
-      'en': 'Sockets               ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'ssgo5yw2': {
-      'en': 'Switches                   ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'lye00a2n': {
-      'en': 'Hubs and remotes',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '5twvr0k0': {
-      'en': 'Security cameras',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '8m8m2z44': {
-      'en': 'Televisions',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '65xr8v4z': {
-      'en': 'Air conditioners',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'wbsbt9n4': {
-      'en': 'Fridges',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'hy75cz8q': {
-      'en': 'Laptops',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'tmxvi0uo': {
-      'en': 'Previous',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'bldnjt80': {
       'en': 'Continue',
       'ar': '',
       'de': '',
@@ -1708,6 +1572,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    'hcvdyd5s': {
+      'en': 'Reset Power Readings',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '9mwunvmg': {
+      'en': 'Permissions',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'g7sqpkmq': {
       'en': 'Home',
       'ar': '',
@@ -1724,119 +1600,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // S3Copy
-  {
-    'ewkr9nqu': {
-      'en': '2/3',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '4slunbhd': {
-      'en': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'zo1vr24c': {
-      'en': 'Add ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '9tuhecn2': {
-      'en': 'New ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '12dkwpe7': {
-      'en': 'Device',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'tdma5ubg': {
-      'en':
-          'Select the rooms in your house. Don\'t worry, you can add more later.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'f4m0lc0w': {
-      'en': 'Light bulbs                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '5528x8ky': {
-      'en': 'Home lighting                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'ttsqnrdo': {
-      'en': 'LED strips                   ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'dcmxa43t': {
-      'en': 'Sensors                          ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '8xy242tg': {
-      'en': 'Sockets               ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'l6m8x2cq': {
-      'en': 'Switches                   ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'asdyi41x': {
-      'en': 'Hubs and remotes',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'g4qmm1a0': {
-      'en': 'Security cameras',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'k59gyz42': {
-      'en': 'Televisions',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'm251ulpx': {
-      'en': 'Air conditioners',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '6ojmry2a': {
-      'en': 'Fridges',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'xf2y05j2': {
-      'en': 'Laptops',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
-  // HomeNewCopy
+  // HomeNew
   {
     'a66m8mjv': {
       'en': 'Welcome',
@@ -1922,38 +1686,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'keiq57v4': {
-      'en': 'View Historical Data',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'nvrth914': {
-      'en': 'Reset Power Readings',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     '6rf9skog': {
       'en': 'Living room | ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'zk0bgagh': {
-      'en': 'Power : ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'sh12ckdx': {
-      'en': '69',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'uavfaycc': {
-      'en': ' W',
       'ar': '',
       'de': '',
       'es': '',
@@ -1964,8 +1698,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'qwav4dbn': {
-      'en': 'OFF',
+    'zk0bgagh': {
+      'en': 'Power : ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'uavfaycc': {
+      'en': ' W',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'liftgzmw': {
+      'en': ' | ',
       'ar': '',
       'de': '',
       'es': '',
@@ -2038,6 +1784,322 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'ekaexsfw': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // UserViewSelect
+  {
+    '38gsw9po': {
+      'en': 'Invite Friends',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'gp2biyji': {
+      'en': '#',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'j7o4fmu7': {
+      'en': 'Selected',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'z3izyygw': {
+      'en': 'Friend Name',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'wa6moz7a': {
+      'en': 'City, State',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'oe4znlpw': {
+      'en': 'Friend Name',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '0nvuir23': {
+      'en': 'City, State',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '9k9i8xd3': {
+      'en': 'Friend Name',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'i3mq5w06': {
+      'en': 'City, State',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '2zzp2jb5': {
+      'en': 'Friend Name',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '17cj4pev': {
+      'en': 'City, State',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'exrzqev0': {
+      'en': 'Friend Name',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'lvgw7mhb': {
+      'en': 'City, State',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'fxsyluou': {
+      'en': 'Send Invites',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'hrgpiucg': {
+      'en': 'Invite Friends',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'f6u0ysgu': {
+      'en': 'Invite your friends to join you!',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '9xfgm82v': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // permissionList
+  {
+    'rk5bq10b': {
+      'en': 'Permissions',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'icmg6gur': {
+      'en': 'Control the permissions of the users',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'l2w3hl7x': {
+      'en': 'User',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'umzuqfkd': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // S3
+  {
+    'ouefurm9': {
+      'en': '2/3',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'b44huvon': {
+      'en': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '7g1bo4eh': {
+      'en': 'Add ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jnvsatui': {
+      'en': 'New ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'lns31xvm': {
+      'en': 'Device',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jtj05zv6': {
+      'en':
+          'Select the rooms in your house. Don\'t worry, you can add more later.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'qpg6i5o7': {
+      'en': 'Light bulbs                 ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'ga61d2iz': {
+      'en': 'Home lighting                 ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'p02um42d': {
+      'en': 'LED strips                   ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'vu7m0brk': {
+      'en': 'Sensors                          ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zzwo6wny': {
+      'en': 'Sockets               ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'qs7ihfba': {
+      'en': 'Switches                   ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '9i8s61hy': {
+      'en': 'Hubs and remotes',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '3hzryux2': {
+      'en': 'Security cameras',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'gvkdeoza': {
+      'en': 'Televisions',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'pnmswxc7': {
+      'en': 'Air conditioners',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '46v8dtm3': {
+      'en': 'Fridges',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '1yu46h7d': {
+      'en': 'Laptops',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'weqct8zt': {
+      'en': 'Previous',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'dihehefy': {
+      'en': 'Continue',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'p3bxa7nj': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // Notifactionpage
+  {
+    'e50x4ad4': {
+      'en': 'Push Notifications',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'rrx166ap': {
+      'en':
+          'Receive Push notifications from our application on a semi regular basis.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'e5wswlxp': {
+      'en': 'Email Notifications',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zbsm9zqa': {
+      'en':
+          'Receive email notifications from our marketing team about new features.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'm4o3rzgz': {
+      'en': 'Location Services',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    's8h1qkff': {
+      'en':
+          'Allow us to track your location, this helps keep track of spending and keeps you safe.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'oqrff2pq': {
+      'en': 'Save Changes',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jm8bqf2z': {
       'en': 'Home',
       'ar': '',
       'de': '',

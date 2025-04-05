@@ -3,9 +3,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -66,37 +68,25 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
     });
 
     animationsMap.addAll({
-      'stackOnPageLoadAnimation1': AnimationInfo(
+      'stackOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 900.0.ms,
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1550.0.ms,
             begin: Offset(0.0, 100.0),
             end: Offset(0.0, 0.0),
           ),
         ],
       ),
-      'stackOnPageLoadAnimation2': AnimationInfo(
+      'pageViewOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 380.0.ms,
-            begin: Offset(0.0, 54.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 640.0.ms,
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1210.0.ms,
             begin: Offset(0.0, 100.0),
             end: Offset(0.0, 0.0),
           ),
@@ -106,9 +96,9 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1460.0.ms,
             begin: Offset(0.0, 100.0),
             end: Offset(0.0, 0.0),
           ),
@@ -193,7 +183,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 20.0, 0.0, 0.0),
+                                        0.0, 50.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -335,7 +325,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                   0.0, 5.0, 0.0, 0.0),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 366.47,
+                                            height: 366.5,
                                             child: Stack(
                                               children: [
                                                 Padding(
@@ -393,9 +383,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                             .historyData,
                                                                   ),
                                                                 ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'containerOnPageLoadAnimation']!),
+                                                              ),
                                                             ),
                                                           ),
                                                         ],
@@ -466,7 +454,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                 ),
                                               ],
                                             ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'pageViewOnPageLoadAnimation']!),
                                         ),
                                       ),
                                     ],
@@ -1524,9 +1513,151 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               ),
                                             ].divide(SizedBox(height: 12.0)),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 18.0, 0.0, 12.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Button pressed ...');
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'hcvdyd5s' /* Reset Power Readings */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: 140.73,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xFFF29D7D),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                      elevation: 0.9,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                        PermissionListWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'email':
+                                                              serializeParam(
+                                                            widget.email,
+                                                            ParamType.String,
+                                                          ),
+                                                          'deviceId':
+                                                              serializeParam(
+                                                            widget.deviceId,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      '9mwunvmg' /* Permissions */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: 148.21,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xFFF29D7D),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                      elevation: 0.9,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ].divide(SizedBox(width: 25.0)),
+                                            ),
+                                          ),
                                           Container(
                                             width: 400.6,
-                                            height: 73.53,
+                                            height: 73.5,
                                             decoration: BoxDecoration(),
                                           ),
                                         ].divide(SizedBox(height: 16.0)),
@@ -1547,15 +1678,16 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: 393.0,
-                    height: 97.67,
+                    height: 137.03,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
                           Color(0xFFEBFEFF),
                           Color(0xFFEBFEFF),
-                          Color(0x44EBFEFF)
+                          Color(0x38FFFFFF),
+                          Color(0x00EBFEFF)
                         ],
-                        stops: [0.0, 0.5, 1.0],
+                        stops: [0.0, 0.5, 0.85, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
                       ),
@@ -1564,8 +1696,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                     child: Align(
                       alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 100.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1608,12 +1740,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                   ),
                 ),
               ],
-            ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation2']!),
+            ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
               child: Container(
                 width: 393.0,
-                height: 77.72,
+                height: 62.6,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0x11FFFFFF), Color(0xFFEBFEFF)],
@@ -1625,7 +1757,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
               ),
             ),
           ],
-        ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation1']!),
+        ),
       ),
     );
   }

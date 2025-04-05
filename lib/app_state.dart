@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -188,5 +190,35 @@ class FFAppState extends ChangeNotifier {
 
   void insertAtIndexInHistoryData(int index, dynamic value) {
     historyData.insert(index, value);
+  }
+
+  String _deviceOnTime = '00:00';
+  String get deviceOnTime => _deviceOnTime;
+  set deviceOnTime(String value) {
+    _deviceOnTime = value;
+  }
+
+  String _deviceOffTime = '23:00';
+  String get deviceOffTime => _deviceOffTime;
+  set deviceOffTime(String value) {
+    _deviceOffTime = value;
+  }
+
+  bool _isAdmin = false;
+  bool get isAdmin => _isAdmin;
+  set isAdmin(bool value) {
+    _isAdmin = value;
+  }
+
+  String _userState = '';
+  String get userState => _userState;
+  set userState(String value) {
+    _userState = value;
+  }
+
+  DocumentReference? _adminREF;
+  DocumentReference? get adminREF => _adminREF;
+  set adminREF(DocumentReference? value) {
+    _adminREF = value;
   }
 }

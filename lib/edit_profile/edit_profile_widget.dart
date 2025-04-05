@@ -12,42 +12,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'edit_profile_model.dart';
 export 'edit_profile_model.dart';
 
-/// The second step in the setup process focuses on allowing users to define
-/// the rooms in their home.
-///
-/// The step progress indicator at the top now highlights the second step in
-/// blue, while the first step remains blue and the remaining two steps stay
-/// gray, indicating that the user has progressed. The back arrow remains on
-/// the left side, allowing navigation back to the previous step, while the
-/// fraction indicator updates to "2/4" to reflect the current stage.
-///
-/// The main heading, "Add Rooms," appears in bold black text, with "Rooms"
-/// highlighted in blue. Below this, a short gray instruction reads, "Select
-/// the rooms in your house. Don't worry, you can add more later." This
-/// reassures the user that they are not making a final decision and can
-/// modify their selections later.
-///
-/// The room selection interface consists of a grid layout with two columns,
-/// where each room type is represented by a rounded rectangular card with a
-/// light gray background. Inside each card, there is a blue icon at the top
-/// depicting the room type, followed by the room name in bold black text
-/// centered below it. Available rooms include Bedroom, Living Room, Dining
-/// Room, Kitchen, Bathroom, and Study Room. Selected rooms are visually
-/// differentiated by a blue checkmark icon in the top-right corner, while
-/// unselected rooms have an empty gray circle in the same position.
-///
-/// At the bottom of the screen, two horizontally aligned buttons allow
-/// navigation. The left button ("Previous") is gray with black text, enabling
-/// users to go back to Step 1, while the right button ("Continue") is blue
-/// with white text, allowing them to proceed once they have selected their
-/// rooms.
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
     super.key,
     this.userProfile,
   });
 
-  final DocumentReference? userProfile;
+  final UsersRecord? userProfile;
 
   static String routeName = 'EditProfile';
   static String routePath = '/editProfile';
@@ -66,6 +37,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     super.initState();
     _model = createModel(context, () => EditProfileModel());
 
+    _model.yourNameTextController ??=
+        TextEditingController(text: widget.userProfile?.displayName);
     _model.yourNameFocusNode ??= FocusNode();
 
     _model.yourAgeFocusNode ??= FocusNode();
@@ -366,11 +339,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                             0.0, 20.0, 0.0, 0.0),
                                         child: TextFormField(
                                           controller:
-                                              _model.yourNameTextController ??=
-                                                  TextEditingController(
-                                            text: editProfileUsersRecord
-                                                ?.displayName,
-                                          ),
+                                              _model.yourNameTextController,
                                           focusNode: _model.yourNameFocusNode,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -846,7 +815,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ));
 
                             context.pushNamed(
-                              HomeNewCopyWidget.routeName,
+                              HomeNewWidget.routeName,
                               queryParameters: {
                                 'email': serializeParam(
                                   '',

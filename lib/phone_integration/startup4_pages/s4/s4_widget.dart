@@ -248,46 +248,53 @@ class _S4WidgetState extends State<S4Widget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      RichText(
-                                        textScaler:
-                                            MediaQuery.of(context).textScaler,
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'gm0rr9u9' /* Set Up Your  */,
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: RichText(
+                                          textScaler:
+                                              MediaQuery.of(context).textScaler,
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'gm0rr9u9' /* Set Up Your  */,
+                                                ),
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                ),
                                               ),
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'vznnuz6h' /* Profile */,
-                                              ),
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            )
-                                          ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMediumFamily,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(FlutterFlowTheme
-                                                            .of(context)
-                                                        .headlineMediumFamily),
-                                              ),
+                                              TextSpan(
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'vznnuz6h' /* Profile */,
+                                                ),
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
+                                              )
+                                            ],
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineMediumFamily,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(FlutterFlowTheme
+                                                              .of(context)
+                                                          .headlineMediumFamily),
+                                                ),
+                                          ),
                                         ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),

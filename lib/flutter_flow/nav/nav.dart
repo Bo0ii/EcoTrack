@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -119,9 +120,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => FirstpageWidget(),
         ),
         FFRoute(
-          name: HomeNewWidget.routeName,
-          path: HomeNewWidget.routePath,
-          builder: (context, params) => HomeNewWidget(
+          name: OldmainpageWidget.routeName,
+          path: OldmainpageWidget.routePath,
+          builder: (context, params) => OldmainpageWidget(
             email: params.getParam(
               'email',
               ParamType.String,
@@ -174,11 +175,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => S1Widget(),
         ),
         FFRoute(
-          name: S3Widget.routeName,
-          path: S3Widget.routePath,
-          builder: (context, params) => S3Widget(),
-        ),
-        FFRoute(
           name: S4Widget.routeName,
           path: S4Widget.routePath,
           builder: (context, params) => S4Widget(
@@ -193,12 +189,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: EditProfileWidget.routeName,
           path: EditProfileWidget.routePath,
+          asyncParams: {
+            'userProfile': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
           builder: (context, params) => EditProfileWidget(
             userProfile: params.getParam(
               'userProfile',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+              ParamType.Document,
             ),
           ),
         ),
@@ -232,24 +229,57 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => GradiantContainerDarkWidget(),
         ),
         FFRoute(
-          name: S3CopyWidget.routeName,
-          path: S3CopyWidget.routePath,
-          builder: (context, params) => S3CopyWidget(),
-        ),
-        FFRoute(
-          name: HomeNewCopyWidget.routeName,
-          path: HomeNewCopyWidget.routePath,
+          name: HomeNewWidget.routeName,
+          path: HomeNewWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'HomeNewCopy')
+              ? NavBarPage(initialPage: 'HomeNew')
               : NavBarPage(
-                  initialPage: 'HomeNewCopy',
-                  page: HomeNewCopyWidget(
+                  initialPage: 'HomeNew',
+                  page: HomeNewWidget(
                     email: params.getParam(
                       'email',
                       ParamType.String,
                     ),
                   ),
                 ),
+        ),
+        FFRoute(
+          name: UserViewSelectWidget.routeName,
+          path: UserViewSelectWidget.routePath,
+          builder: (context, params) => UserViewSelectWidget(),
+        ),
+        FFRoute(
+          name: PermissionListWidget.routeName,
+          path: PermissionListWidget.routePath,
+          builder: (context, params) => PermissionListWidget(
+            email: params.getParam(
+              'email',
+              ParamType.String,
+            ),
+            deviceId: params.getParam(
+              'deviceId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: S3Widget.routeName,
+          path: S3Widget.routePath,
+          builder: (context, params) => S3Widget(
+            email: params.getParam(
+              'email',
+              ParamType.String,
+            ),
+            deviceId: params.getParam(
+              'deviceId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: NotifactionpageWidget.routeName,
+          path: NotifactionpageWidget.routePath,
+          builder: (context, params) => NotifactionpageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

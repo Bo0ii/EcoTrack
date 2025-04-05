@@ -135,7 +135,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                       0.0, 5.0, 0.0, 0.0),
                                   child: Image.asset(
                                     'assets/images/BN_(2).png',
-                                    width: 97.63,
+                                    width: 97.6,
                                     height: 88.5,
                                     fit: BoxFit.fitWidth,
                                   ),
