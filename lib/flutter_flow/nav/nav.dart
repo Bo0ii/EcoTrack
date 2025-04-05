@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -76,13 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : FirstpageWidget(),
+          appStateNotifier.loggedIn ? HomeNewWidget() : FirstpageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : FirstpageWidget(),
+              appStateNotifier.loggedIn ? HomeNewWidget() : FirstpageWidget(),
         ),
         FFRoute(
           name: LoginPageWidget.routeName,
@@ -131,12 +130,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ProfileWidget.routeName,
           path: ProfileWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Profile')
-              : NavBarPage(
-                  initialPage: 'Profile',
-                  page: ProfileWidget(),
-                ),
+          builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: SecondpageWidget.routeName,
@@ -200,21 +194,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: AutomationWidget.routeName,
           path: AutomationWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Automation')
-              : NavBarPage(
-                  initialPage: 'Automation',
-                  page: AutomationWidget(),
-                ),
+          builder: (context, params) => AutomationWidget(),
         ),
         FFRoute(
           name: DetailedDeviceInfoWidget.routeName,
           path: DetailedDeviceInfoWidget.routePath,
           builder: (context, params) => DetailedDeviceInfoWidget(
-            email: params.getParam(
-              'email',
-              ParamType.String,
-            ),
             deviceId: params.getParam(
               'deviceId',
               ParamType.String,
@@ -229,17 +214,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: HomeNewWidget.routeName,
           path: HomeNewWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'HomeNew')
-              : NavBarPage(
-                  initialPage: 'HomeNew',
-                  page: HomeNewWidget(
-                    email: params.getParam(
-                      'email',
-                      ParamType.String,
-                    ),
-                  ),
-                ),
+          builder: (context, params) => HomeNewWidget(
+            email: params.getParam(
+              'email',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: UserViewSelectWidget.routeName,
@@ -282,9 +262,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: GradiantContanerCopyWidget.routeName,
           path: GradiantContanerCopyWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'GradiantContanerCopy')
-              : GradiantContanerCopyWidget(),
+          builder: (context, params) => GradiantContanerCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

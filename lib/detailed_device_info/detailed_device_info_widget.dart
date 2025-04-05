@@ -22,11 +22,9 @@ export 'detailed_device_info_model.dart';
 class DetailedDeviceInfoWidget extends StatefulWidget {
   const DetailedDeviceInfoWidget({
     super.key,
-    required this.email,
     required this.deviceId,
   });
 
-  final String? email;
   final String? deviceId;
 
   static String routeName = 'DetailedDeviceInfo';
@@ -74,8 +72,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 150.0.ms,
-            duration: 1550.0.ms,
-            begin: Offset(0.0, 100.0),
+            duration: 1370.0.ms,
+            begin: Offset(0.0, 84.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -86,8 +84,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 150.0.ms,
-            duration: 1210.0.ms,
-            begin: Offset(0.0, 100.0),
+            duration: 1510.0.ms,
+            begin: Offset(0.0, 36.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -98,8 +96,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 150.0.ms,
-            duration: 1460.0.ms,
-            begin: Offset(0.0, 100.0),
+            duration: 1350.0.ms,
+            begin: Offset(0.0, 53.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -203,6 +201,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     .getText(
                                                   'bpndu0y5' /* Device name */,
                                                 ),
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
@@ -228,8 +227,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
+                                                    MainAxisAlignment.start,
                                                 children: [
                                                   Text(
                                                     FFLocalizations.of(context)
@@ -305,7 +303,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 20.0, 16.0),
+                                                  16.0, 16.0, 28.0, 16.0),
                                           child: Icon(
                                             Icons.link_off,
                                             color: Color(0xFFD00425),
@@ -1580,78 +1578,77 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () async {
-                                                      context.pushNamed(
-                                                        PermissionListWidget
-                                                            .routeName,
-                                                        queryParameters: {
-                                                          'email':
-                                                              serializeParam(
-                                                            widget.email,
-                                                            ParamType.String,
-                                                          ),
-                                                          'deviceId':
-                                                              serializeParam(
-                                                            widget.deviceId,
-                                                            ParamType.String,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    },
-                                                    text: FFLocalizations.of(
-                                                            context)
-                                                        .getText(
-                                                      '9mwunvmg' /* Permissions */,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      width: 148.21,
-                                                      height: 50.0,
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: Color(0xFFF29D7D),
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 11.0,
-                                                                letterSpacing:
+                                                if (FFAppState().isAdmin ==
+                                                    true)
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        context.pushNamed(
+                                                          PermissionListWidget
+                                                              .routeName,
+                                                          queryParameters: {
+                                                            'deviceId':
+                                                                serializeParam(
+                                                              widget.deviceId,
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '9mwunvmg' /* Permissions */,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 148.21,
+                                                        height: 50.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
-                                                              ),
-                                                      elevation: 0.9,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            Color(0xFFF29D7D),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                      11.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                        elevation: 0.9,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(18.0),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
                                               ].divide(SizedBox(width: 25.0)),
                                             ),
                                           ),
@@ -1678,7 +1675,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: 393.0,
-                    height: 137.03,
+                    height: 125.63,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [

@@ -4,8 +4,8 @@ import 'schema/util/firestore_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/users_in_household_record.dart';
-import 'schema/user_list_record.dart';
 import 'schema/devices_record.dart';
+import 'schema/user_directory_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -16,8 +16,8 @@ export 'schema/util/schema_util.dart';
 
 export 'schema/users_record.dart';
 export 'schema/users_in_household_record.dart';
-export 'schema/user_list_record.dart';
 export 'schema/devices_record.dart';
+export 'schema/user_directory_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -96,43 +96,6 @@ Future<List<UsersInHouseholdRecord>> queryUsersInHouseholdRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query UserListRecords (as a Stream and as a Future).
-Future<int> queryUserListRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      UserListRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<UserListRecord>> queryUserListRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      UserListRecord.collection,
-      UserListRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<UserListRecord>> queryUserListRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      UserListRecord.collection,
-      UserListRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
 /// Functions to query DevicesRecords (as a Stream and as a Future).
 Future<int> queryDevicesRecordCount({
   DocumentReference? parent,
@@ -168,6 +131,43 @@ Future<List<DevicesRecord>> queryDevicesRecordOnce({
     queryCollectionOnce(
       DevicesRecord.collection(parent),
       DevicesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query UserDirectoryRecords (as a Stream and as a Future).
+Future<int> queryUserDirectoryRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserDirectoryRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserDirectoryRecord>> queryUserDirectoryRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserDirectoryRecord.collection,
+      UserDirectoryRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserDirectoryRecord>> queryUserDirectoryRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserDirectoryRecord.collection,
+      UserDirectoryRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -1372,13 +1372,6 @@ class _OldmainpageWidgetState extends State<OldmainpageWidget> {
                                                                           .routeName,
                                                                       queryParameters:
                                                                           {
-                                                                        'email':
-                                                                            serializeParam(
-                                                                          oldmainpageUsersRecord
-                                                                              ?.email,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
                                                                         'deviceId':
                                                                             serializeParam(
                                                                           listViewDevicesRecord

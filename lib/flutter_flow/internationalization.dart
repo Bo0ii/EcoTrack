@@ -738,79 +738,79 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Profile
   {
-    'jlxkbgiq': {
+    'ej2omlgm': {
       'en': 'Family',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'qdcvtjbo': {
+    'aj7vk850': {
       'en': 'Notifications',
       'ar': '',
       'de': '',
       'es': '',
     },
-    's084vgnp': {
+    'j6yxfgc9': {
       'en': 'Help Center',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '0jt7y3dl': {
+    'nwdwuw26': {
       'en': 'Settings',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'brh4f54m': {
+    '1hzza2kf': {
       'en': 'Notification Settings',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'w4aruek2': {
+    'pqq2ay92': {
       'en': 'Language',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '36enqi08': {
+    'std2essd': {
       'en': 'English (eng)',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '9t6hbyot': {
+    '3dhhypzd': {
       'en': 'Currency',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'fa2su5ie': {
+    'c59fkx1h': {
       'en': 'US Dollar (\$)',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'xc8ihf3k': {
+    'q35d8d4j': {
       'en': 'Profile Settings',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '0sm01n6s': {
+    'pwqa78ki': {
       'en': 'Edit Profile',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'dop9v87a': {
+    'zhkqlqxd': {
       'en': 'Log out of account',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'rl7so1sm': {
+    'mowy985d': {
       'en': 'Log Out?',
       'ar': '',
       'de': '',
@@ -1305,49 +1305,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Automation
   {
-    'wvyvacew': {
+    '4k35f01s': {
       'en': 'Turn On All the Lights',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'aywilaq4': {
+    '5967xbqh': {
       'en': '1 task',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'tv4ftfsb': {
+    'kvrh075z': {
       'en': 'Go to Office',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'a0518ar5': {
+    '6aet0z08': {
       'en': '2 tasks',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'yflf2zt7': {
+    'kpjxlzrh': {
       'en': 'Energy Saver Mode',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'ez666agi': {
+    'dvcx8ptu': {
       'en': '2 tasks',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'yosu5i9x': {
+    'q9y230ct': {
       'en': 'Work Mode Activate',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'dzvt62ww': {
+    'au2ycjg0': {
       'en': '1 task',
       'ar': '',
       'de': '',
@@ -1614,6 +1614,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    '00onw8ns': {
+      'en': 'My Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'twtru3br': {
       'en': 'Cancel',
       'ar': '',
@@ -1662,6 +1668,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    'hlqby4lp': {
+      'en': '\$418.75',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'yl2z6s0l': {
       'en': 'Energy Usage ',
       'ar': '',
@@ -1688,12 +1700,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '6rf9skog': {
       'en': 'Living room | ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'w142hbxz': {
-      'en': ' | ',
       'ar': '',
       'de': '',
       'es': '',
@@ -2102,7 +2108,79 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // GradiantContanerCopy
   {
-    '3vvae7l8': {
+    'twllucs1': {
+      'en': 'Light bulbs                 ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '96btxfo7': {
+      'en': 'Home lighting                 ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '3uf8q6h7': {
+      'en': 'LED strips                   ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'hug3t1zd': {
+      'en': 'Sensors                          ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    's6ttnhex': {
+      'en': 'Sockets               ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'ige192t2': {
+      'en': 'Switches                   ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '5io8v3oo': {
+      'en': 'Hubs and remotes',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'hth48bpa': {
+      'en': 'Security cameras',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'tzwz2jgk': {
+      'en': 'Televisions',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'ictcp12e': {
+      'en': 'Air conditioners',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '8sez0wpe': {
+      'en': 'Fridges',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '6o3hlezu': {
+      'en': 'Laptops',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zigslkla': {
       'en': 'Home',
       'ar': '',
       'de': '',
@@ -2155,6 +2233,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'c387mvl8': {
       'en': 'Ok',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // NavBar
+  {
+    '5uuzclk7': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'degm4x7v': {
+      'en': 'Ai',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zwnag98c': {
+      'en': 'Smart',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '2qvomys8': {
+      'en': 'Me',
       'ar': '',
       'de': '',
       'es': '',

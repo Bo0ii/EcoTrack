@@ -43,8 +43,8 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
           ShimmerEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 790.0.ms,
-            color: Color(0x4FA9A9A9),
+            duration: 1060.0.ms,
+            color: Color(0x4F959595),
             angle: 0.419,
           ),
         ],

@@ -30,12 +30,18 @@ class UsersInHouseholdRecord extends FirestoreRecord {
   String get householdId => _householdId ?? '';
   bool hasHouseholdId() => _householdId != null;
 
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _password = snapshotData['password'] as String?;
     _householdId = snapshotData['householdId'] as String?;
+    _displayName = snapshotData['display_name'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -82,12 +88,14 @@ Map<String, dynamic> createUsersInHouseholdRecordData({
   String? email,
   String? password,
   String? householdId,
+  String? displayName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'email': email,
       'password': password,
       'householdId': householdId,
+      'display_name': displayName,
     }.withoutNulls,
   );
 
@@ -102,12 +110,13 @@ class UsersInHouseholdRecordDocumentEquality
   bool equals(UsersInHouseholdRecord? e1, UsersInHouseholdRecord? e2) {
     return e1?.email == e2?.email &&
         e1?.password == e2?.password &&
-        e1?.householdId == e2?.householdId;
+        e1?.householdId == e2?.householdId &&
+        e1?.displayName == e2?.displayName;
   }
 
   @override
-  int hash(UsersInHouseholdRecord? e) =>
-      const ListEquality().hash([e?.email, e?.password, e?.householdId]);
+  int hash(UsersInHouseholdRecord? e) => const ListEquality()
+      .hash([e?.email, e?.password, e?.householdId, e?.displayName]);
 
   @override
   bool isValidKey(Object? o) => o is UsersInHouseholdRecord;

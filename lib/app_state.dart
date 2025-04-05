@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -216,9 +214,9 @@ class FFAppState extends ChangeNotifier {
     _userState = value;
   }
 
-  DocumentReference? _adminREF;
-  DocumentReference? get adminREF => _adminREF;
-  set adminREF(DocumentReference? value) {
-    _adminREF = value;
+  String _currentPage = 'home';
+  String get currentPage => _currentPage;
+  set currentPage(String value) {
+    _currentPage = value;
   }
 }

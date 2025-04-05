@@ -1,3 +1,4 @@
+import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'automation_widget.dart' show AutomationWidget;
 import 'package:flutter/material.dart';
@@ -17,10 +18,16 @@ class AutomationModel extends FlutterFlowModel<AutomationWidget> {
   bool? switchValue3;
   // State field(s) for Switch widget.
   bool? switchValue4;
+  // Model for NavBar component.
+  late NavBarModel navBarModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    navBarModel = createModel(context, () => NavBarModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    navBarModel.dispose();
+  }
 }

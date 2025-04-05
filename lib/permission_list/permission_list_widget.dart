@@ -16,7 +16,7 @@ export 'permission_list_model.dart';
 class PermissionListWidget extends StatefulWidget {
   const PermissionListWidget({
     super.key,
-    required this.email,
+    this.email,
     required this.deviceId,
   });
 

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'home_new_widget.dart' show HomeNewWidget;
@@ -9,20 +10,34 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in HomeNew widget.
-  UsersRecord? userREF;
+  UsersRecord? adminUser;
   // Stores action output result for [Firestore Query - Query a collection] action in HomeNew widget.
   DevicesRecord? deviceRef;
   // Stores action output result for [Backend Call - API (GetSensorData)] action in HomeNew widget.
   ApiCallResponse? sensordataAPIpageload;
+  // Stores action output result for [Firestore Query - Query a collection] action in HomeNew widget.
+  UserDirectoryRecord? userDirectoryEntry;
+  // Stores action output result for [Firestore Query - Query a collection] action in HomeNew widget.
+  UsersInHouseholdRecord? userinhouseholdREF;
+  // Stores action output result for [Firestore Query - Query a collection] action in HomeNew widget.
+  DevicesRecord? deviceRef2;
+  // Stores action output result for [Backend Call - API (GetSensorData)] action in HomeNew widget.
+  ApiCallResponse? sensordataAPIpageload2;
   var scanDeviceId = '';
   // Stores action output result for [Backend Call - API (ToggleRelayOn)] action in Container widget.
   ApiCallResponse? apiResultxizCopy;
   // Stores action output result for [Backend Call - API (ToggleRelayOFF)] action in Container widget.
   ApiCallResponse? apiResultghqCopy;
+  // Model for NavBar component.
+  late NavBarModel navBarModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    navBarModel = createModel(context, () => NavBarModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    navBarModel.dispose();
+  }
 }
