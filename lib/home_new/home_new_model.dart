@@ -23,7 +23,6 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   DevicesRecord? deviceRef2;
   // Stores action output result for [Backend Call - API (GetSensorData)] action in HomeNew widget.
   ApiCallResponse? sensordataAPIpageload2;
-  var scanDeviceId = '';
   // Stores action output result for [Backend Call - API (ToggleRelayOn)] action in Container widget.
   ApiCallResponse? apiResultxizCopy;
   // Stores action output result for [Backend Call - API (ToggleRelayOFF)] action in Container widget.

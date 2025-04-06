@@ -57,3 +57,37 @@ String getRelayState(
 
   return "unknown";
 }
+
+String? getDeviceID(String? input) {
+  String? getDeviceID(String input) {
+    // Check if input is null or empty
+    if (input == null || input.isEmpty) {
+      return null;
+    }
+    // Split the string by comma
+    List<String> parts = input.split(',');
+    // Return the first part, trimmed, if it exists
+    if (parts.isNotEmpty) {
+      return parts[0].trim();
+    } else {
+      return null;
+    }
+  }
+}
+
+String? getFriendlyName(String? input) {
+  String? getFriendlyName(String input) {
+    // Check if input is null or empty
+    if (input == null || input.isEmpty) {
+      return null;
+    }
+    // Split the string by comma
+    List<String> parts = input.split(',');
+    // Return the second part, trimmed, if it exists
+    if (parts.length > 1) {
+      return parts[1].trim();
+    } else {
+      return null;
+    }
+  }
+}

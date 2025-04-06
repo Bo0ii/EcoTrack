@@ -10,7 +10,6 @@ import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -320,40 +319,6 @@ class _OldmainpageWidgetState extends State<OldmainpageWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        _model.scanDeviceId =
-                                                            await FlutterBarcodeScanner
-                                                                .scanBarcode(
-                                                          '#C62828', // scanning line color
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'anfdcn4n' /* Cancel */,
-                                                          ), // cancel button text
-                                                          true, // whether to show the flash icon
-                                                          ScanMode.QR,
-                                                        );
-
-                                                        safeSetState(() {});
-                                                      },
-                                                      child: Icon(
-                                                        Icons.qr_code_scanner,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        size: 28.0,
-                                                      ),
-                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional

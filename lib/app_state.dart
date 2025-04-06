@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -13,12 +14,26 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _isDeviceSaved = prefs.getBool('ff_isDeviceSaved') ?? _isDeviceSaved;
+    });
+    _safeInit(() {
+      _savedDeviceID = prefs.getString('ff_savedDeviceID') ?? _savedDeviceID;
+    });
+    _safeInit(() {
+      _savedFriendlyName =
+          prefs.getString('ff_savedFriendlyName') ?? _savedFriendlyName;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   List<double> _powerState = [];
   List<double> get powerState => _powerState;
@@ -112,12 +127,6 @@ class FFAppState extends ChangeNotifier {
   double get currentCost => _currentCost;
   set currentCost(double value) {
     _currentCost = value;
-  }
-
-  String _deviceId = 'ecot2';
-  String get deviceId => _deviceId;
-  set deviceId(String value) {
-    _deviceId = value;
   }
 
   List<dynamic> _sensorData = [];
@@ -220,15 +229,48 @@ class FFAppState extends ChangeNotifier {
     _currentPage = value;
   }
 
-  String _friendlyName = 'Ecotrack Device Name';
+  String _friendlyName = '';
   String get friendlyName => _friendlyName;
   set friendlyName(String value) {
     _friendlyName = value;
   }
 
-  String _scannedQRValue = '';
-  String get scannedQRValue => _scannedQRValue;
-  set scannedQRValue(String value) {
-    _scannedQRValue = value;
+  String _deviceID = '';
+  String get deviceID => _deviceID;
+  set deviceID(String value) {
+    _deviceID = value;
   }
+
+  bool _isDeviceSaved = false;
+  bool get isDeviceSaved => _isDeviceSaved;
+  set isDeviceSaved(bool value) {
+    _isDeviceSaved = value;
+    prefs.setBool('ff_isDeviceSaved', value);
+  }
+
+  String _savedDeviceID = '';
+  String get savedDeviceID => _savedDeviceID;
+  set savedDeviceID(String value) {
+    _savedDeviceID = value;
+    prefs.setString('ff_savedDeviceID', value);
+  }
+
+  String _savedFriendlyName = '';
+  String get savedFriendlyName => _savedFriendlyName;
+  set savedFriendlyName(String value) {
+    _savedFriendlyName = value;
+    prefs.setString('ff_savedFriendlyName', value);
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

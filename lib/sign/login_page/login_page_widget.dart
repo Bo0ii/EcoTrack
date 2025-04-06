@@ -3,10 +3,12 @@ import '/components/dark_light/dark_light_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -701,23 +703,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Container(
-                                  width: 392.9,
-                                  height: 271.2,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Opacity(
-                                    opacity: 0.7,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/Untitled_design_(4).png',
-                                        width: double.infinity,
-                                        fit: BoxFit.cover,
-                                        alignment: Alignment(0.0, 1.0),
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(),
+                                  child: ClipRect(
+                                    child: ImageFiltered(
+                                      imageFilter: ImageFilter.blur(
+                                        sigmaX: 6.0,
+                                        sigmaY: 6.0,
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 1.0),
+                                        child: Lottie.asset(
+                                          'assets/jsons/Animation_-_1743951402234.json',
+                                          width: 562.3,
+                                          height: 255.4,
+                                          fit: BoxFit.contain,
+                                          frameRate: FrameRate(120.0),
+                                          reverse: true,
+                                          animate: true,
+                                        ),
                                       ),
                                     ),
                                   ),

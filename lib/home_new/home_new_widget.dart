@@ -11,8 +11,8 @@ import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_new_model.dart';
@@ -61,7 +61,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           parent: _model.adminUser?.reference,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        FFAppState().deviceId = _model.deviceRef!.reference.id;
+        FFAppState().deviceID = FFAppState().deviceID;
         while (FFAppState().isLooping == true) {
           _model.sensordataAPIpageload = await GetSensorDataCall.call(
             deviceId: _model.deviceRef?.deviceId,
@@ -444,20 +444,21 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    _model.scanDeviceId =
-                                                        await FlutterBarcodeScanner
-                                                            .scanBarcode(
-                                                      '#C62828', // scanning line color
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'twtru3br' /* Cancel */,
-                                                      ), // cancel button text
-                                                      true, // whether to show the flash icon
-                                                      ScanMode.QR,
+                                                    context.pushNamed(
+                                                      QRDeviceWidget.routeName,
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .bottomToTop,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  320),
+                                                        ),
+                                                      },
                                                     );
-
-                                                    safeSetState(() {});
                                                   },
                                                   child: Icon(
                                                     Icons.qr_code_scanner,
@@ -1294,6 +1295,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             listViewDevicesRecord.deviceId);
                                                                     safeSetState(
                                                                         () {});
+                                                                    HapticFeedback
+                                                                        .mediumImpact();
                                                                     if (listViewDevicesRecord
                                                                             .userControl
                                                                             .contains(currentUserEmail) ==
@@ -1421,7 +1424,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         .bottomToTop,
                                                                 duration: Duration(
                                                                     milliseconds:
-                                                                        350),
+                                                                        320),
                                                               ),
                                                             },
                                                           );

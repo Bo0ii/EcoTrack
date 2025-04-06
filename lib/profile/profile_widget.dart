@@ -7,7 +7,6 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -133,7 +132,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFFADCBCB),
+            backgroundColor: Color(0xFF83BABA),
             body: Center(
               child: SizedBox(
                 width: 40.0,
@@ -158,7 +157,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
           },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFFADCBCB),
+            backgroundColor: Color(0xFF83BABA),
             body: Stack(
               children: [
                 Align(
@@ -351,62 +350,6 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          HapticFeedback.lightImpact();
-                                        },
-                                        child: Container(
-                                          width: 44.0,
-                                          height: 44.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Icon(
-                                            Icons.notifications_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'aj7vk850' /* Notifications */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily),
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 12.0),
                                       child: Container(
                                         width: 44.0,
                                         height: 44.0,
@@ -521,8 +464,19 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                                NotifactionpageWidget
-                                                    .routeName);
+                                              NotifactionpageWidget.routeName,
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .bottomToTop,
+                                                  duration: Duration(
+                                                      milliseconds: 350),
+                                                ),
+                                              },
+                                            );
                                           },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,

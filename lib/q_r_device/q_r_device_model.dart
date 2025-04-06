@@ -5,11 +5,24 @@ import 'package:flutter/material.dart';
 class QRDeviceModel extends FlutterFlowModel<QRDeviceWidget> {
   ///  Local state fields for this page.
 
-  bool isEmailValid = true;
+  String? qrCodeString;
+
+  String? editedFriendlyName;
+
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for plugname widget.
+  FocusNode? plugnameFocusNode;
+  TextEditingController? plugnameTextController;
+  String? Function(BuildContext, String?)? plugnameTextControllerValidator;
+  var qrCodeR = '';
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    plugnameFocusNode?.dispose();
+    plugnameTextController?.dispose();
+  }
 }

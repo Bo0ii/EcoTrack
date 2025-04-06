@@ -554,12 +554,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'anfdcn4n': {
-      'en': 'Cancel',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     '01f6l04r': {
       'en': '35%',
       'ar': '',
@@ -740,12 +734,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'ej2omlgm': {
       'en': 'Family',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'aj7vk850': {
-      'en': 'Notifications',
       'ar': '',
       'de': '',
       'es': '',
@@ -1614,12 +1602,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'twtru3br': {
-      'en': 'Cancel',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'wou3jv4i': {
       'en': '35%',
       'ar': '',
@@ -1891,20 +1873,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // permissionList
   {
-    'rk5bq10b': {
-      'en': 'Permissions',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'icmg6gur': {
-      'en': 'Control the permissions of the users',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'l2w3hl7x': {
       'en': 'User',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '5f4q23tv': {
+      'en': 'Permissons of ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jevywbkc': {
+      'en': 'Users ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'kdz55hqr': {
+      'en':
+          'Control the users in your houseld weither to view or control the plugsi nyour houshold ',
       'ar': '',
       'de': '',
       'es': '',
@@ -2183,6 +2172,79 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // QRDevice
   {
+    'xd1oek3n': {
+      'en': 'Scan a New ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zoeas37l': {
+      'en': 'Device',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'sjqdwaq4': {
+      'en': 'Use your camera to scan the QR code found on the device label',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'cbtkv0uo': {
+      'en': 'DeviceID ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'feez9fy4': {
+      'en': '( cant be changed )',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'recira3f': {
+      'en': 'Device Name ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'aitpbt7m': {
+      'en': '( change if needed )',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'uz4fmurd': {
+      'en': '',
+      'ar': 'عنوان البريد الالكترونى',
+      'de': 'E-Mail-Addresse',
+      'es': 'Dirección de correo electrónico',
+    },
+    'fgurz041': {
+      'en': 'Save Device',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'o0c3nn63': {
+      'en':
+          'Note: Once the device is saved, it cannot be modified unless you delink it and repeat the setup process.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'adrkrdwx': {
+      'en': 'Scan QR Code',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zz558dg1': {
+      'en': 'Cancel',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'g5lxnu8r': {
       'en': 'Home',
       'ar': '',
@@ -2263,6 +2325,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '2qvomys8': {
       'en': 'Me',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // Signout
+  {
+    'g8k6isnh': {
+      'en': 'You have successfully registered and logged in.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'nlyc059p': {
+      'en': 'Continue to setup',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // ProccessingQR
+  {
+    'kgjve6zb': {
+      'en': 'You have successfully registered your device !',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jwvh4eaq': {
+      'en': 'Back to home',
       'ar': '',
       'de': '',
       'es': '',

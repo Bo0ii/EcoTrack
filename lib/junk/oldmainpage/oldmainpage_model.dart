@@ -16,7 +16,6 @@ class OldmainpageModel extends FlutterFlowModel<OldmainpageWidget> {
   // Stores action output result for [Backend Call - API (GetSensorData)] action in OLDMAINPAGE widget.
   ApiCallResponse? sensordataAPIpageload;
   Completer<ApiCallResponse>? apiRequestCompleter;
-  var scanDeviceId = '';
   // Stores action output result for [Backend Call - API (ToggleRelayOn)] action in Container widget.
   ApiCallResponse? apiResultxizCopy;
   // Stores action output result for [Backend Call - API (ToggleRelayOFF)] action in Container widget.
