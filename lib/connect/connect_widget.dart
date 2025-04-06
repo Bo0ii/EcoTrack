@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -706,11 +707,31 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                       ),
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation5']!),
-                                    Image.asset(
-                                      'assets/images/14.png',
-                                      width: 83.3,
-                                      height: 88.58,
-                                      fit: BoxFit.cover,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          QRDeviceWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 350),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: Image.asset(
+                                        'assets/images/14.png',
+                                        width: 83.3,
+                                        height: 88.58,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ).animateOnPageLoad(animationsMap[
                                         'imageOnPageLoadAnimation2']!),
                                   ],

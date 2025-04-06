@@ -114,10 +114,10 @@ class FFAppState extends ChangeNotifier {
     _currentCost = value;
   }
 
-  String _deviceIdAppState = 'ecot2';
-  String get deviceIdAppState => _deviceIdAppState;
-  set deviceIdAppState(String value) {
-    _deviceIdAppState = value;
+  String _deviceId = 'ecot2';
+  String get deviceId => _deviceId;
+  set deviceId(String value) {
+    _deviceId = value;
   }
 
   List<dynamic> _sensorData = [];
@@ -218,5 +218,17 @@ class FFAppState extends ChangeNotifier {
   String get currentPage => _currentPage;
   set currentPage(String value) {
     _currentPage = value;
+  }
+
+  String _friendlyName = 'Ecotrack Device Name';
+  String get friendlyName => _friendlyName;
+  set friendlyName(String value) {
+    _friendlyName = value;
+  }
+
+  String _scannedQRValue = '';
+  String get scannedQRValue => _scannedQRValue;
+  set scannedQRValue(String value) {
+    _scannedQRValue = value;
   }
 }

@@ -61,7 +61,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           parent: _model.adminUser?.reference,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        FFAppState().deviceIdAppState = _model.deviceRef!.reference.id;
+        FFAppState().deviceId = _model.deviceRef!.reference.id;
         while (FFAppState().isLooping == true) {
           _model.sensordataAPIpageload = await GetSensorDataCall.call(
             deviceId: _model.deviceRef?.deviceId,
@@ -467,38 +467,41 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                     size: 28.0,
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      ConnectWidget.routeName,
-                                                      queryParameters: {
-                                                        'adminREF':
-                                                            serializeParam(
-                                                          _model.adminUser
-                                                              ?.reference,
-                                                          ParamType
-                                                              .DocumentReference,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Icon(
-                                                    Icons
-                                                        .add_circle_outline_sharp,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 28.0,
+                                                if (FFAppState().isAdmin ==
+                                                    true)
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        ConnectWidget.routeName,
+                                                        queryParameters: {
+                                                          'adminREF':
+                                                              serializeParam(
+                                                            _model.adminUser
+                                                                ?.reference,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Icon(
+                                                      Icons
+                                                          .add_circle_outline_sharp,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 28.0,
+                                                    ),
                                                   ),
-                                                ),
                                               ].divide(SizedBox(width: 18.0)),
                                             ),
                                           ],

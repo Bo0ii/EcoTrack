@@ -270,6 +270,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: GradiantContanerCopyWidget.routeName,
           path: GradiantContanerCopyWidget.routePath,
           builder: (context, params) => GradiantContanerCopyWidget(),
+        ),
+        FFRoute(
+          name: QRDeviceWidget.routeName,
+          path: QRDeviceWidget.routePath,
+          builder: (context, params) => QRDeviceWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

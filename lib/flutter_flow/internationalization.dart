@@ -2181,6 +2181,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
+  // QRDevice
+  {
+    'g5lxnu8r': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
   // Dashboard01RecentActivity
   {
     'fatcmz8i': {
