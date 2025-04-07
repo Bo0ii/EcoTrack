@@ -1905,136 +1905,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // S3
-  {
-    'ouefurm9': {
-      'en': '2/3',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'b44huvon': {
-      'en': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '7g1bo4eh': {
-      'en': 'Add ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'jnvsatui': {
-      'en': 'New ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'lns31xvm': {
-      'en': 'Device',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'jtj05zv6': {
-      'en':
-          'Select the rooms in your house. Don\'t worry, you can add more later.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'qpg6i5o7': {
-      'en': 'Light bulbs                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'ga61d2iz': {
-      'en': 'Home lighting                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'p02um42d': {
-      'en': 'LED strips                   ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'vu7m0brk': {
-      'en': 'Sensors                          ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'zzwo6wny': {
-      'en': 'Sockets               ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'qs7ihfba': {
-      'en': 'Switches                   ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '9i8s61hy': {
-      'en': 'Hubs and remotes',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '3hzryux2': {
-      'en': 'Security cameras',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'gvkdeoza': {
-      'en': 'Televisions',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'pnmswxc7': {
-      'en': 'Air conditioners',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '46v8dtm3': {
-      'en': 'Fridges',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '1yu46h7d': {
-      'en': 'Laptops',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'weqct8zt': {
-      'en': 'Previous',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'dihehefy': {
-      'en': 'Continue',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'p3bxa7nj': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
   // Notifactionpage
   {
     'e50x4ad4': {
@@ -2089,76 +1959,119 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // GradiantContanerCopy
+  // S3
   {
-    'twllucs1': {
+    'lln3eihg': {
+      'en': '2/3',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '7e8fft30': {
+      'en': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'pitjxl1j': {
+      'en': 'Scan a New ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '22d6c4oz': {
+      'en': 'Device',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'q3xjroai': {
+      'en':
+          'Select the rooms in your house. Don\'t worry, you can add more later.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '8o38s3x7': {
       'en': 'Light bulbs                 ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '96btxfo7': {
+    '8k1l6oq7': {
       'en': 'Home lighting                 ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '3uf8q6h7': {
+    'd6vuz15c': {
       'en': 'LED strips                   ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'hug3t1zd': {
+    'tlk30uvk': {
       'en': 'Sensors                          ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    's6ttnhex': {
+    'l0hyo863': {
       'en': 'Sockets               ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'ige192t2': {
+    'kwc6xze3': {
       'en': 'Switches                   ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '5io8v3oo': {
+    'wi3ml5t0': {
       'en': 'Hubs and remotes',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'hth48bpa': {
+    '36hxl5u1': {
       'en': 'Security cameras',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'tzwz2jgk': {
+    '6qu0633t': {
       'en': 'Televisions',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'ictcp12e': {
+    'y6bgarqj': {
       'en': 'Air conditioners',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '8sez0wpe': {
+    'urikajql': {
       'en': 'Fridges',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '6o3hlezu': {
+    '73llmur9': {
       'en': 'Laptops',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'ehuytjgb': {
+      'en': 'Previous',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'oqbhli8d': {
+      'en': 'Continue',
       'ar': '',
       'de': '',
       'es': '',

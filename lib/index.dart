@@ -27,9 +27,7 @@ export '/home_new/home_new_widget.dart' show HomeNewWidget;
 export '/user_view_select/user_view_select_widget.dart'
     show UserViewSelectWidget;
 export '/permission_list/permission_list_widget.dart' show PermissionListWidget;
-export '/phone_integration/startup4_pages/s3/s3_widget.dart' show S3Widget;
 export '/notifactionpage/notifactionpage_widget.dart'
     show NotifactionpageWidget;
-export '/phone_integration/startup4_pages/gradiant_contaner_copy/gradiant_contaner_copy_widget.dart'
-    show GradiantContanerCopyWidget;
+export '/phone_integration/startup4_pages/s3/s3_widget.dart' show S3Widget;
 export '/q_r_device/q_r_device_widget.dart' show QRDeviceWidget;

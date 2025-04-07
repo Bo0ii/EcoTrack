@@ -248,28 +248,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: S3Widget.routeName,
-          path: S3Widget.routePath,
-          builder: (context, params) => S3Widget(
-            email: params.getParam(
-              'email',
-              ParamType.String,
-            ),
-            deviceId: params.getParam(
-              'deviceId',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: NotifactionpageWidget.routeName,
           path: NotifactionpageWidget.routePath,
           builder: (context, params) => NotifactionpageWidget(),
         ),
         FFRoute(
-          name: GradiantContanerCopyWidget.routeName,
-          path: GradiantContanerCopyWidget.routePath,
-          builder: (context, params) => GradiantContanerCopyWidget(),
+          name: S3Widget.routeName,
+          path: S3Widget.routePath,
+          builder: (context, params) => S3Widget(),
         ),
         FFRoute(
           name: QRDeviceWidget.routeName,

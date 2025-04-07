@@ -469,7 +469,7 @@ class _S1WidgetState extends State<S1Widget> {
                                           ));
 
                                           context.pushNamed(
-                                            S4Widget.routeName,
+                                            S3Widget.routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(

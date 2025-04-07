@@ -104,6 +104,7 @@ class _SuccsessWidgetState extends State<SuccsessWidget> {
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.leftToRight,
+                          duration: Duration(milliseconds: 250),
                         ),
                       },
                     );
