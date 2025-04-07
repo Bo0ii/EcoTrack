@@ -2,9 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -301,12 +301,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 12.0),
+                                    Container(
+                                      width: 84.05,
+                                      height: 48.6,
+                                      decoration: BoxDecoration(),
                                       child: Container(
-                                        width: 44.0,
-                                        height: 44.0,
+                                        width: 49.13,
+                                        height: 49.13,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
@@ -347,12 +348,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 12.0),
+                                    Container(
+                                      width: 94.12,
+                                      height: 48.6,
+                                      decoration: BoxDecoration(),
                                       child: Container(
-                                        width: 44.0,
-                                        height: 44.0,
+                                        width: 25.33,
+                                        height: 25.33,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,

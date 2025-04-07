@@ -1,7 +1,7 @@
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -49,7 +49,7 @@ class _ProccessingQRWidgetState extends State<ProccessingQRWidget> {
           height: 236.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.white, Color(0xFFD1E7E9)],
+              colors: [Color(0xFFD1E7E9), Colors.white],
               stops: [0.0, 1.0],
               begin: AlignmentDirectional(0.0, -1.0),
               end: AlignmentDirectional(0, 1.0),
