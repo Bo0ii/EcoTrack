@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'firstpage_widget.dart' show FirstpageWidget;
+import 'first_page_widget.dart' show FirstPageWidget;
 import 'package:flutter/material.dart';
 
-class FirstpageModel extends FlutterFlowModel<FirstpageWidget> {
+class FirstPageModel extends FlutterFlowModel<FirstPageWidget> {
   @override
   void initState(BuildContext context) {}
 

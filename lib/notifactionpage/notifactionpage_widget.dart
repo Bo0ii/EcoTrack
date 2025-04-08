@@ -293,10 +293,10 @@ class _NotifactionpageWidgetState extends State<NotifactionpageWidget>
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 24.0, 0.0, 0.0),
+                                  0.0, 24.0, 0.0, 50.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   context.pop();

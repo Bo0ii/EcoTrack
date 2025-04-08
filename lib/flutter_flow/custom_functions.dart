@@ -25,7 +25,7 @@ String getSensorState(
   String sensorType,
 ) {
   // The entity_id format is: sensor.{deviceId}_pzem_{sensorType}
-  String targetId = "sensor." + deviceId + "_pzem_" + sensorType;
+  String targetId = "sensor." + deviceId + "_" + sensorType;
 
   // Loop through each sensor object in the list
   for (var sensor in sensorList) {

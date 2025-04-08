@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 's4_model.dart';
-export 's4_model.dart';
+import 's6_model.dart';
+export 's6_model.dart';
 
 /// The second step in the setup process focuses on allowing users to define
 /// the rooms in their home.
@@ -43,30 +43,30 @@ export 's4_model.dart';
 /// users to go back to Step 1, while the right button ("Continue") is blue
 /// with white text, allowing them to proceed once they have selected their
 /// rooms.
-class S4Widget extends StatefulWidget {
-  const S4Widget({
+class S6Widget extends StatefulWidget {
+  const S6Widget({
     super.key,
     this.userProfile,
   });
 
   final DocumentReference? userProfile;
 
-  static String routeName = 'S4';
-  static String routePath = '/s4';
+  static String routeName = 's6';
+  static String routePath = '/s6';
 
   @override
-  State<S4Widget> createState() => _S4WidgetState();
+  State<S6Widget> createState() => _S6WidgetState();
 }
 
-class _S4WidgetState extends State<S4Widget> {
-  late S4Model _model;
+class _S6WidgetState extends State<S6Widget> {
+  late S6Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => S4Model());
+    _model = createModel(context, () => S6Model());
 
     _model.yourNameTextController ??= TextEditingController();
     _model.yourNameFocusNode ??= FocusNode();
@@ -110,9 +110,9 @@ class _S4WidgetState extends State<S4Widget> {
             ),
           );
         }
-        List<UsersRecord> s4UsersRecordList = snapshot.data!;
-        final s4UsersRecord =
-            s4UsersRecordList.isNotEmpty ? s4UsersRecordList.first : null;
+        List<UsersRecord> s6UsersRecordList = snapshot.data!;
+        final s6UsersRecord =
+            s6UsersRecordList.isNotEmpty ? s6UsersRecordList.first : null;
 
         return GestureDetector(
           onTap: () {
@@ -311,8 +311,8 @@ class _S4WidgetState extends State<S4Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
-                                            width: 100.0,
-                                            height: 100.0,
+                                            width: 104.14,
+                                            height: 105.7,
                                             decoration: BoxDecoration(),
                                             child: Padding(
                                               padding: EdgeInsets.all(4.0),
@@ -434,7 +434,7 @@ class _S4WidgetState extends State<S4Widget> {
                                                       'https://cdn-icons-png.flaticon.com/256/9327/9327831.png',
                                                     ),
                                                     width: 44.0,
-                                                    height: 44.0,
+                                                    height: 47.18,
                                                     fit: BoxFit.cover,
                                                     errorBuilder: (context,
                                                             error,
@@ -442,7 +442,7 @@ class _S4WidgetState extends State<S4Widget> {
                                                         Image.asset(
                                                       'assets/images/error_image.png',
                                                       width: 44.0,
-                                                      height: 44.0,
+                                                      height: 47.18,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
@@ -828,7 +828,7 @@ class _S4WidgetState extends State<S4Widget> {
                                                       0.0, 60.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  await s4UsersRecord!.reference
+                                                  await s6UsersRecord!.reference
                                                       .update(
                                                           createUsersRecordData(
                                                     displayName: _model

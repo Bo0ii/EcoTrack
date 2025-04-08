@@ -14,6 +14,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,9 +26,11 @@ class DetailedDeviceInfoWidget extends StatefulWidget {
   const DetailedDeviceInfoWidget({
     super.key,
     required this.deviceId,
+    this.deviceName,
   });
 
   final String? deviceId;
+  final String? deviceName;
 
   static String routeName = 'DetailedDeviceInfo';
   static String routePath = '/detailedDeviceInfo';
@@ -52,19 +55,39 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      while (FFAppState().isLooping == true) {
-        _model.powerXthreshhold = await PowerXthreshholdCall.call();
+      await Future.wait([
+        Future(() async {
+          while (FFAppState().isLooping == true) {
+            _model.powerXthreshhold = await PowerXthreshholdCall.call();
 
-        FFAppState().historyData = getJsonField(
-          (_model.powerXthreshhold?.jsonBody ?? ''),
-          r'''$''',
-          true,
-        )!
-            .toList()
-            .cast<dynamic>();
-        safeSetState(() {});
-        await Future.delayed(const Duration(milliseconds: 60000));
-      }
+            FFAppState().historyData = getJsonField(
+              (_model.powerXthreshhold?.jsonBody ?? ''),
+              r'''$''',
+              true,
+            )!
+                .toList()
+                .cast<dynamic>();
+            await Future.delayed(const Duration(milliseconds: 60000));
+          }
+        }),
+        Future(() async {
+          while (FFAppState().isLooping == true) {
+            _model.sensordataAPIpageload = await GetSensorDataCall.call(
+              deviceId: widget.deviceId,
+            );
+
+            FFAppState().sensorData = getJsonField(
+              (_model.sensordataAPIpageload?.jsonBody ?? ''),
+              r'''$''',
+              true,
+            )!
+                .toList()
+                .cast<dynamic>();
+            safeSetState(() {});
+            await Future.delayed(const Duration(milliseconds: 2000));
+          }
+        }),
+      ]);
     });
 
     animationsMap.addAll({
@@ -101,6 +124,20 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
             duration: 1350.0.ms,
             begin: Offset(0.0, 53.0),
             end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        loop: true,
+        reverse: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 70.0.ms,
+            duration: 1210.0.ms,
+            color: Color(0x90FFFFFF),
+            angle: 0.524,
           ),
         ],
       ),
@@ -224,9 +261,9 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'bpndu0y5' /* Device name */,
+                                                    valueOrDefault<String>(
+                                                      widget.deviceName,
+                                                      'Device Name',
                                                     ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
@@ -258,10 +295,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         MainAxisAlignment.start,
                                                     children: [
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'w7lelomu' /* Duration */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'calculation_duration'),
+                                                          'duration',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -304,10 +345,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'yxfjfc3l' /* safe */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'power_error'),
+                                                          'power error',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -569,15 +614,111 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, 1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  31.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0),
+                                                            0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                                .relayStatus =
+                                                            functions
+                                                                .getRelayState(
+                                                                    getJsonField(
+                                                                      (_model.sensordataAPIpageload
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                      r'''$''',
+                                                                      true,
+                                                                    )!,
+                                                                    widget
+                                                                        .deviceId!);
+                                                        safeSetState(() {});
+                                                        HapticFeedback
+                                                            .mediumImpact();
+                                                        if (FFAppState()
+                                                                .isAdmin ==
+                                                            true) {
+                                                          if (FFAppState()
+                                                                  .relayStatus ==
+                                                              'off') {
+                                                            FFAppState()
+                                                                    .toggleBody =
+                                                                functions
+                                                                    .buildToggleBody(
+                                                                        widget
+                                                                            .deviceId!);
+                                                            safeSetState(() {});
+                                                            _model.apiResultxizCopy =
+                                                                await ToggleRelayOnCall
+                                                                    .call(
+                                                              myEntityId:
+                                                                  FFAppState()
+                                                                      .toggleBody,
+                                                            );
+                                                          } else {
+                                                            FFAppState()
+                                                                    .toggleBody =
+                                                                functions
+                                                                    .buildToggleBody(
+                                                                        widget
+                                                                            .deviceId!);
+                                                            safeSetState(() {});
+                                                            _model.apiResultghqCopy =
+                                                                await ToggleRelayOFFCall
+                                                                    .call(
+                                                              myEntityId:
+                                                                  FFAppState()
+                                                                      .toggleBody,
+                                                            );
+                                                          }
+                                                        } else {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'You can\'t control the device',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineMediumFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontSize:
+                                                                          12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).headlineMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      4000),
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0x87E21C3D),
+                                                            ),
+                                                          );
+                                                        }
+
+                                                        safeSetState(() {});
+                                                      },
                                                       child: Container(
                                                         width: 50.3,
                                                         height: 43.3,
@@ -593,10 +734,28 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         child: Icon(
                                                           Icons
                                                               .power_settings_new,
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            functions.getSensorState(
+                                                                        FFAppState()
+                                                                            .sensorData
+                                                                            .toList(),
+                                                                        widget
+                                                                            .deviceId!,
+                                                                        'pzem_current') ==
+                                                                    '0.000'
+                                                                ? Color(
+                                                                    0xFF979797)
+                                                                : Color(
+                                                                    0xFF00BEC8),
+                                                            Color(0xFF737373),
+                                                          ),
                                                           size: 27.0,
                                                         ),
                                                       ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation']!),
                                                   ),
                                                 ].divide(SizedBox(width: 8.0)),
                                               ),
@@ -859,7 +1018,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                       .toList(),
                                                                   widget
                                                                       .deviceId!,
-                                                                  'power'),
+                                                                  'pzem_power'),
                                                           'power',
                                                         ),
                                                         style:
@@ -913,14 +1072,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          functions
-                                                              .getSensorState(
-                                                                  FFAppState()
-                                                                      .sensorData
-                                                                      .toList(),
-                                                                  widget
-                                                                      .deviceId!,
-                                                                  'current'),
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'pzem_current'),
                                                           'current',
                                                         ),
                                                         style:
@@ -974,14 +1131,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          functions
-                                                              .getSensorState(
-                                                                  FFAppState()
-                                                                      .sensorData
-                                                                      .toList(),
-                                                                  widget
-                                                                      .deviceId!,
-                                                                  'voltage'),
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'pzem_voltage'),
                                                           'voltage',
                                                         ),
                                                         style:
@@ -1034,10 +1189,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '17fkp1s6' /* 5.7 */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'pzem_frequency'),
+                                                          'frequency',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1089,7 +1248,15 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFAppState().energyData,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'pzem_energy_kwh'),
+                                                          'Energy',
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1281,9 +1448,17 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFAppState()
-                                                            .currentCost
-                                                            .toString(),
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'current_cost'),
+                                                          'current cost',
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1334,10 +1509,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'kn20cbz0' /* 391 */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'projected_daily_cost'),
+                                                          'tomorrow\'s cost',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1389,10 +1568,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'kunbndet' /* 5.7 */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'projected_monthly_cost'),
+                                                          'monthly cost',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1498,10 +1681,16 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'vzg791bz' /* 60w */,
+                                                        valueOrDefault<String>(
+                                                          functions
+                                                              .getSensorState(
+                                                                  FFAppState()
+                                                                      .sensorData
+                                                                      .toList(),
+                                                                  widget
+                                                                      .deviceId!,
+                                                                  'threshold'),
+                                                          'threshold',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1533,7 +1722,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'knblbvgc' /* Mean Power */,
+                                                          'knblbvgc' /* Learning Phase */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1553,10 +1742,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '7wmxc9ik' /* 391 */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'learning_phase_status'),
+                                                          'learning phase status',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1588,7 +1781,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'b5baiz4n' /* Standard deviation */,
+                                                          'b5baiz4n' /* Device's Health */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1608,10 +1801,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 ),
                                                       ),
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'a0what33' /* 5.7 */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'power_error'),
+                                                          'power error',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1638,12 +1835,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 18.0, 0.0, 12.0),
+                                                        16.0, 18.0, 16.0, 12.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.center,
+                                                      MainAxisAlignment.start,
                                                   children: [
                                                     Align(
                                                       alignment:
@@ -1662,7 +1859,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         ),
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 140.73,
+                                                          width: 164.3,
                                                           height: 50.0,
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -1736,7 +1933,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                           ),
                                                           options:
                                                               FFButtonOptions(
-                                                            width: 148.21,
+                                                            width: 127.4,
                                                             height: 50.0,
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1796,6 +1993,21 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                             'columnOnPageLoadAnimation']!),
                                       ],
                                     ),
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '4ldtuqh1' /*  V */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Lexend',
+                                          fontSize: 13.0,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Lexend'),
+                                          lineHeight: 0.0,
+                                        ),
                                   ),
                                 ],
                               ),

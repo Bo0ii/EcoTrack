@@ -444,46 +444,43 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Align(
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.8),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'sqodoskq' /* Cant find your Device? */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          23.0, 0.0, 4.0, 0.0),
-                                                  child: Text(
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  S4qrWidget.routeName,
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 280),
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'nxo3vtwz' /* Press here */,
+                                                      'sqodoskq' /* Cant find your Device? */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -493,8 +490,6 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF355F5F),
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
@@ -505,15 +500,47 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                                                       .bodyMediumFamily),
                                                         ),
                                                   ),
-                                                ),
-                                                Icon(
-                                                  Icons.arrow_forward_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  size: 24.0,
-                                                ),
-                                              ],
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(23.0, 0.0,
+                                                                4.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'nxo3vtwz' /* Press here */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: Color(
+                                                                    0xFF355F5F),
+                                                                fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                    ),
+                                                  ),
+                                                  Icon(
+                                                    Icons.arrow_forward_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    size: 24.0,
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -624,7 +651,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                         child: SelectionArea(
                                             child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'o0tevk9p' /* ANDY'S PHONE */,
+                                            'o0tevk9p' /* ecot2 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -685,7 +712,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                         child: SelectionArea(
                                             child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'wfha0poz' /* MY PC */,
+                                            'wfha0poz' /* ecot */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -714,7 +741,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          QRDeviceWidget.routeName,
+                                          S4qrWidget.routeName,
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
@@ -766,7 +793,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                         child: SelectionArea(
                                             child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'jh0fjujg' /* MY PHONE */,
+                                            'jh0fjujg' /* eco */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium

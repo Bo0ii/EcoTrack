@@ -34,34 +34,86 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
     _model = createModel(context, () => S3Model());
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(3.0, 3.0),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'columnOnPageLoadAnimation': AnimationInfo(
+      'rowOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 0.0.ms,
-            duration: 990.0.ms,
-            begin: Offset(0.0, 22.0),
+            delay: 50.0.ms,
+            duration: 1400.0.ms,
+            begin: Offset(-34.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 50.0.ms,
+            duration: 1290.0.ms,
+            begin: Offset(-35.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'richTextOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 50.0.ms,
+            duration: 1290.0.ms,
+            begin: Offset(-37.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 50.0.ms,
+            duration: 1290.0.ms,
+            begin: Offset(-37.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'gridViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 50.0.ms,
+            duration: 1480.0.ms,
+            begin: Offset(-37.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 50.0.ms,
+            duration: 1290.0.ms,
+            begin: Offset(-37.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 50.0.ms,
+            duration: 1290.0.ms,
+            begin: Offset(-37.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -166,7 +218,8 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                               ),
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['rowOnPageLoadAnimation']!),
                       ),
                     ),
                     Align(
@@ -197,7 +250,8 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                               padding: EdgeInsets.zero,
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation']!),
                       ),
                     ),
                     Padding(
@@ -236,7 +290,8 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                         .headlineMediumFamily),
                               ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['richTextOnPageLoadAnimation']!),
                     ),
                     Padding(
                       padding:
@@ -254,7 +309,8 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                   FlutterFlowTheme.of(context)
                                       .bodyMediumFamily),
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ),
                     Expanded(
                       child: Padding(
@@ -1220,14 +1276,14 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                               ),
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['gridViewOnPageLoadAnimation']!),
                       ),
                     ),
                   ],
-                ).animateOnPageLoad(
-                    animationsMap['columnOnPageLoadAnimation']!),
+                ),
               ),
-            ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
+            ),
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
               child: Container(
@@ -1253,19 +1309,19 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(
-                              S1Widget.routeName,
+                              S6Widget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
-                                      PageTransitionType.leftToRight,
+                                      PageTransitionType.rightToLeft,
                                   duration: Duration(milliseconds: 200),
                                 ),
                               },
                             );
                           },
                           text: FFLocalizations.of(context).getText(
-                            'ehuytjgb' /* Previous */,
+                            'ehuytjgb' /* Later */,
                           ),
                           options: FFButtonOptions(
                             width: 129.3,
@@ -1294,7 +1350,8 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation1']!),
                       ),
                     ),
                     Align(
@@ -1305,13 +1362,13 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(
-                              S4Widget.routeName,
+                              S4qrWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
-                                      PageTransitionType.rightToLeft,
-                                  duration: Duration(milliseconds: 200),
+                                      PageTransitionType.leftToRight,
+                                  duration: Duration(milliseconds: 300),
                                 ),
                               },
                             );
@@ -1347,7 +1404,8 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           showLoadingIndicator: false,
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation2']!),
                       ),
                     ),
                   ],

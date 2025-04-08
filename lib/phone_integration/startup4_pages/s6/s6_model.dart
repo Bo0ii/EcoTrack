@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 's4_widget.dart' show S4Widget;
+import 's6_widget.dart' show S6Widget;
 import 'package:flutter/material.dart';
 
-class S4Model extends FlutterFlowModel<S4Widget> {
+class S6Model extends FlutterFlowModel<S6Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();

@@ -1,10 +1,10 @@
-import '/components/proccessing_q_r/proccessing_q_r_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -12,22 +12,21 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'q_r_device_model.dart';
-export 'q_r_device_model.dart';
+import 's4qr_model.dart';
+export 's4qr_model.dart';
 
-class QRDeviceWidget extends StatefulWidget {
-  const QRDeviceWidget({super.key});
+class S4qrWidget extends StatefulWidget {
+  const S4qrWidget({super.key});
 
-  static String routeName = 'QRDevice';
-  static String routePath = '/qRDevice';
+  static String routeName = 'S4QR';
+  static String routePath = '/s4qr';
 
   @override
-  State<QRDeviceWidget> createState() => _QRDeviceWidgetState();
+  State<S4qrWidget> createState() => _S4qrWidgetState();
 }
 
-class _QRDeviceWidgetState extends State<QRDeviceWidget>
-    with TickerProviderStateMixin {
-  late QRDeviceModel _model;
+class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
+  late S4qrModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -36,7 +35,7 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => QRDeviceModel());
+    _model = createModel(context, () => S4qrModel());
 
     _model.plugnameTextController ??=
         TextEditingController(text: FFAppState().friendlyName);
@@ -49,8 +48,8 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 990.0.ms,
-            begin: Offset(0.0, 22.0),
+            duration: 1200.0.ms,
+            begin: Offset(-29.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -73,8 +72,8 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 890.0.ms,
-            begin: Offset(0.0, 14.999999999999986),
+            duration: 1290.0.ms,
+            begin: Offset(-33.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -85,8 +84,8 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 960.0.ms,
-            begin: Offset(0.0, 12.000000000000014),
+            duration: 1200.0.ms,
+            begin: Offset(-29.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -97,8 +96,20 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 960.0.ms,
-            begin: Offset(0.0, 12.000000000000014),
+            duration: 1200.0.ms,
+            begin: Offset(-29.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: Offset(-29.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -109,8 +120,8 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 830.0.ms,
-            begin: Offset(0.0, 18.0),
+            duration: 1290.0.ms,
+            begin: Offset(-39.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -503,51 +514,23 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
                                   0.0, 55.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  await Future.wait([
-                                    Future(() async {
-                                      FFAppState().savedDeviceID =
-                                          FFAppState().deviceID;
-                                      safeSetState(() {});
-                                    }),
-                                    Future(() async {
-                                      FFAppState().savedFriendlyName =
-                                          FFAppState().friendlyName;
-                                      safeSetState(() {});
-                                    }),
-                                  ]);
-                                  FFAppState().isDeviceSaved =
-                                      !(FFAppState().isDeviceSaved ?? true);
-                                  safeSetState(() {});
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    isDismissible: false,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: 550.0,
-                                            child: ProccessingQRWidget(),
-                                          ),
-                                        ),
-                                      );
+                                  context.pushNamed(
+                                    S5NetworkWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 280),
+                                      ),
                                     },
-                                  ).then((value) => safeSetState(() {}));
+                                  );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'fgurz041' /* Save Device */,
+                                  'fgurz041' /* Next  */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 254.9,
+                                  width: 217.98,
                                   height: 50.0,
                                   padding: EdgeInsets.all(8.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -636,7 +619,8 @@ class _QRDeviceWidgetState extends State<QRDeviceWidget>
                               ),
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['rowOnPageLoadAnimation']!),
                       ),
                     ),
                     Align(

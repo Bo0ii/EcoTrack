@@ -15,6 +15,8 @@ class DetailedDeviceInfoModel
 
   // Stores action output result for [Backend Call - API (powerXthreshhold)] action in DetailedDeviceInfo widget.
   ApiCallResponse? powerXthreshhold;
+  // Stores action output result for [Backend Call - API (GetSensorData)] action in DetailedDeviceInfo widget.
+  ApiCallResponse? sensordataAPIpageload;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -23,6 +25,10 @@ class DetailedDeviceInfoModel
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // Stores action output result for [Backend Call - API (ToggleRelayOn)] action in Container widget.
+  ApiCallResponse? apiResultxizCopy;
+  // Stores action output result for [Backend Call - API (ToggleRelayOFF)] action in Container widget.
+  ApiCallResponse? apiResultghqCopy;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

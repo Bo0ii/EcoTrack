@@ -1,45 +1,18 @@
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 's1_model.dart';
 export 's1_model.dart';
 
-/// The second step in the setup process focuses on allowing users to define
-/// the rooms in their home.
-///
-/// The step progress indicator at the top now highlights the second step in
-/// blue, while the first step remains blue and the remaining two steps stay
-/// gray, indicating that the user has progressed. The back arrow remains on
-/// the left side, allowing navigation back to the previous step, while the
-/// fraction indicator updates to "2/4" to reflect the current stage.
-///
-/// The main heading, "Add Rooms," appears in bold black text, with "Rooms"
-/// highlighted in blue. Below this, a short gray instruction reads, "Select
-/// the rooms in your house. Don't worry, you can add more later." This
-/// reassures the user that they are not making a final decision and can
-/// modify their selections later.
-///
-/// The room selection interface consists of a grid layout with two columns,
-/// where each room type is represented by a rounded rectangular card with a
-/// light gray background. Inside each card, there is a blue icon at the top
-/// depicting the room type, followed by the room name in bold black text
-/// centered below it. Available rooms include Bedroom, Living Room, Dining
-/// Room, Kitchen, Bathroom, and Study Room. Selected rooms are visually
-/// differentiated by a blue checkmark icon in the top-right corner, while
-/// unselected rooms have an empty gray circle in the same position.
-///
-/// At the bottom of the screen, two horizontally aligned buttons allow
-/// navigation. The left button ("Previous") is gray with black text, enabling
-/// users to go back to Step 1, while the right button ("Continue") is blue
-/// with white text, allowing them to proceed once they have selected their
-/// rooms.
 class S1Widget extends StatefulWidget {
   const S1Widget({super.key});
 
@@ -50,10 +23,12 @@ class S1Widget extends StatefulWidget {
   State<S1Widget> createState() => _S1WidgetState();
 }
 
-class _S1WidgetState extends State<S1Widget> {
+class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
   late S1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -62,6 +37,69 @@ class _S1WidgetState extends State<S1Widget> {
 
     _model.myHomeTextController ??= TextEditingController();
     _model.myHomeFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1410.0.ms,
+            begin: Offset(0.0, 21.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1200.0.ms,
+            begin: Offset(0.0, 21.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1300.0.ms,
+            begin: Offset(0.0, 21.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1290.0.ms,
+            begin: Offset(0.0, 21.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 150.0.ms,
+            duration: 1760.0.ms,
+            begin: Offset(0.0, 14.999999999999986),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -189,7 +227,8 @@ class _S1WidgetState extends State<S1Widget> {
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['rowOnPageLoadAnimation']!),
                           ),
                         ),
                         Align(
@@ -220,7 +259,8 @@ class _S1WidgetState extends State<S1Widget> {
                                   padding: EdgeInsets.zero,
                                 ),
                               ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['containerOnPageLoadAnimation']!),
                           ),
                         ),
                         Expanded(
@@ -307,7 +347,8 @@ class _S1WidgetState extends State<S1Widget> {
                                         ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'columnOnPageLoadAnimation']!),
                                 ),
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
@@ -450,7 +491,8 @@ class _S1WidgetState extends State<S1Widget> {
                                               .myHomeTextControllerValidator
                                               .asValidator(context),
                                         ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textFieldOnPageLoadAnimation']!),
                                     ].divide(SizedBox(height: 8.0)),
                                   ),
                                 ),
@@ -519,7 +561,8 @@ class _S1WidgetState extends State<S1Widget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         showLoadingIndicator: false,
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'buttonOnPageLoadAnimation']!),
                                     ),
                                   ),
                                 ),

@@ -2,26 +2,28 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'firstpage_model.dart';
-export 'firstpage_model.dart';
+import 'package:lottie/lottie.dart';
+import 'first_page_model.dart';
+export 'first_page_model.dart';
 
-class FirstpageWidget extends StatefulWidget {
-  const FirstpageWidget({super.key});
+class FirstPageWidget extends StatefulWidget {
+  const FirstPageWidget({super.key});
 
-  static String routeName = 'Firstpage';
-  static String routePath = '/firstpage';
+  static String routeName = 'FirstPage';
+  static String routePath = '/firstPage';
 
   @override
-  State<FirstpageWidget> createState() => _FirstpageWidgetState();
+  State<FirstPageWidget> createState() => _FirstPageWidgetState();
 }
 
-class _FirstpageWidgetState extends State<FirstpageWidget>
+class _FirstPageWidgetState extends State<FirstPageWidget>
     with TickerProviderStateMixin {
-  late FirstpageModel _model;
+  late FirstPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -30,10 +32,10 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FirstpageModel());
+    _model = createModel(context, () => FirstPageModel());
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation1': AnimationInfo(
+      'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 1.ms),
@@ -53,23 +55,15 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 300.ms),
           FadeEffect(
             curve: Curves.easeInOut,
-            delay: 300.0.ms,
-            duration: 300.0.ms,
+            delay: 110.0.ms,
+            duration: 1720.0.ms,
             begin: 0.0,
             end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.bounceOut,
-            delay: 300.0.ms,
-            duration: 300.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -197,66 +191,70 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 120.0, 0.0, 0.0),
-                          child: Container(
-                            width: 158.98,
-                            height: 158.98,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Stack(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 8.0, 8.0, 8.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(6.0),
-                                    child: Image.asset(
-                                      'assets/images/BN_(2).png',
-                                      width: 126.2,
-                                      height: 92.3,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                        child: Stack(
+                          alignment: AlignmentDirectional(0.0, -1.0),
+                          children: [
+                            ClipRect(
+                              child: ImageFiltered(
+                                imageFilter: ImageFilter.blur(
+                                  sigmaX: 12.0,
+                                  sigmaY: 12.0,
                                 ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.02, 0.63),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'fi38cktm' /* A new era of power */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          color: Color(0x98111417),
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
+                                child: Stack(
+                                  children: [
+                                    Opacity(
+                                      opacity: 0.3,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(7.2, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 50.0, 0.0, 0.0),
+                                          child: Lottie.asset(
+                                            'assets/jsons/Animation_-_1743979661781.json',
+                                            width: 404.3,
+                                            height: 256.0,
+                                            fit: BoxFit.contain,
+                                            frameRate: FrameRate(120.0),
+                                            reverse: true,
+                                            animate: true,
+                                          ).animateOnPageLoad(animationsMap[
+                                              'lottieAnimationOnPageLoadAnimation']!),
                                         ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-0.01, -1.07),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 125.0, 8.0, 8.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(6.0),
+                                  child: Image.asset(
+                                    'assets/images/BN_(2).png',
+                                    width: 126.2,
+                                    height: 92.3,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation2']!),
+                          ],
                         ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 300.0, 0.0, 0.0),
+                              20.0, 280.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'isyqs3a0' /* Welcome! */,
+                              'bi2nao8p' /* Welcome! */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
@@ -279,7 +277,7 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
                               20.0, 0.0, 20.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '92pr3p01' /* Thanks for joining! Access or ... */,
+                              'zbttwnxe' /* Thanks for joining! Access or ... */,
                             ),
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
@@ -318,7 +316,7 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
                                             SecondpageWidget.routeName);
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'ltpmkebs' /* Get Started */,
+                                        'qrfz0bc7' /* Get Started */,
                                       ),
                                       options: FFButtonOptions(
                                         width: 230.0,
@@ -379,7 +377,7 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'so8u1695' /* Sign in */,
+                                        'bsw4qslx' /* Sign in */,
                                       ),
                                       options: FFButtonOptions(
                                         width: 230.0,
@@ -427,7 +425,7 @@ class _FirstpageWidgetState extends State<FirstpageWidget>
                   ),
                 ),
               ).animateOnPageLoad(
-                  animationsMap['containerOnPageLoadAnimation1']!),
+                  animationsMap['containerOnPageLoadAnimation']!),
             ),
           ],
         ),

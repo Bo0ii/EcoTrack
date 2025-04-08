@@ -75,13 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomeNewWidget() : FirstpageWidget(),
+          appStateNotifier.loggedIn ? HomeNewWidget() : FirstPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomeNewWidget() : FirstpageWidget(),
+              appStateNotifier.loggedIn ? HomeNewWidget() : FirstPageWidget(),
         ),
         FFRoute(
           name: LoginPageWidget.routeName,
@@ -111,11 +111,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SignUpUserWidget.routeName,
           path: SignUpUserWidget.routePath,
           builder: (context, params) => SignUpUserWidget(),
-        ),
-        FFRoute(
-          name: FirstpageWidget.routeName,
-          path: FirstpageWidget.routePath,
-          builder: (context, params) => FirstpageWidget(),
         ),
         FFRoute(
           name: OldmainpageWidget.routeName,
@@ -175,9 +170,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => S1Widget(),
         ),
         FFRoute(
-          name: S4Widget.routeName,
-          path: S4Widget.routePath,
-          builder: (context, params) => S4Widget(
+          name: S6Widget.routeName,
+          path: S6Widget.routePath,
+          builder: (context, params) => S6Widget(
             userProfile: params.getParam(
               'userProfile',
               ParamType.DocumentReference,
@@ -211,6 +206,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'deviceId',
               ParamType.String,
             ),
+            deviceName: params.getParam(
+              'deviceName',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -227,11 +226,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
-        ),
-        FFRoute(
-          name: UserViewSelectWidget.routeName,
-          path: UserViewSelectWidget.routePath,
-          builder: (context, params) => UserViewSelectWidget(),
         ),
         FFRoute(
           name: PermissionListWidget.routeName,
@@ -258,9 +252,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => S3Widget(),
         ),
         FFRoute(
-          name: QRDeviceWidget.routeName,
-          path: QRDeviceWidget.routePath,
-          builder: (context, params) => QRDeviceWidget(),
+          name: S4qrWidget.routeName,
+          path: S4qrWidget.routePath,
+          builder: (context, params) => S4qrWidget(),
+        ),
+        FFRoute(
+          name: S5NetworkWidget.routeName,
+          path: S5NetworkWidget.routePath,
+          builder: (context, params) => S5NetworkWidget(),
+        ),
+        FFRoute(
+          name: GradiantContanerCopyWidget.routeName,
+          path: GradiantContanerCopyWidget.routePath,
+          builder: (context, params) => GradiantContanerCopyWidget(),
+        ),
+        FFRoute(
+          name: FirstPageWidget.routeName,
+          path: FirstPageWidget.routePath,
+          builder: (context, params) => FirstPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -431,7 +440,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/firstpage';
+            return '/firstPage';
           }
           return null;
         },

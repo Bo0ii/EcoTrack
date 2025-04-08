@@ -85,10 +85,9 @@ class _GradiantContainerDarkWidgetState
                       Color(0xA3476666),
                       Color(0xFF030303),
                       Color(0xFF030303),
-                      Color(0xFF030303),
                       Color(0xFF030303)
                     ],
-                    stops: [0.0, 0.4, 0.6, 0.7, 0.95],
+                    stops: [0.0, 0.6, 0.7, 0.95],
                     begin: AlignmentDirectional(-1.0, -0.98),
                     end: AlignmentDirectional(1.0, 0.98),
                   ),

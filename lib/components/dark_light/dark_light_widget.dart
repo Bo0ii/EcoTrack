@@ -89,8 +89,8 @@ class _DarkLightWidgetState extends State<DarkLightWidget>
           }
         },
         child: Container(
-          width: 55.6,
-          height: 30.76,
+          width: 66.4,
+          height: 37.5,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
             borderRadius: BorderRadius.circular(20.0),

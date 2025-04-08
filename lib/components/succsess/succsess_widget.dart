@@ -103,8 +103,8 @@ class _SuccsessWidgetState extends State<SuccsessWidget> {
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
-                          transitionType: PageTransitionType.leftToRight,
-                          duration: Duration(milliseconds: 250),
+                          transitionType: PageTransitionType.bottomToTop,
+                          duration: Duration(milliseconds: 280),
                         ),
                       },
                     );

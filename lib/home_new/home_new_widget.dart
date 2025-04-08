@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/loading/loading_widget.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_new_model.dart';
@@ -216,7 +216,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           ShimmerEffect(
             curve: Curves.easeInOut,
             delay: 70.0.ms,
-            duration: 1210.0.ms,
+            duration: 1790.0.ms,
             color: Color(0x90FFFFFF),
             angle: 0.524,
           ),
@@ -434,40 +434,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      QRDeviceWidget.routeName,
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .bottomToTop,
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  320),
-                                                        ),
-                                                      },
-                                                    );
-                                                  },
-                                                  child: Icon(
-                                                    Icons.qr_code_scanner,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 28.0,
-                                                  ),
-                                                ),
                                                 if (FFAppState().isAdmin ==
                                                     true)
                                                   InkWell(
@@ -500,7 +466,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
-                                                      size: 28.0,
+                                                      size: 29.0,
                                                     ),
                                                   ),
                                               ].divide(SizedBox(width: 18.0)),
@@ -1036,16 +1002,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
                                           return Center(
-                                            child: SizedBox(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: SpinKitFadingFour(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 40.0,
-                                              ),
-                                            ),
+                                            child: LoadingWidget(),
                                           );
                                         }
                                         List<DevicesRecord>
@@ -1077,8 +1034,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           8.0),
                                                 ),
                                                 child: Container(
-                                                  width: 226.9,
-                                                  height: 257.77,
+                                                  width: 184.9,
+                                                  height: 273.1,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -1086,6 +1043,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFEFEFEF),
+                                                    ),
                                                   ),
                                                   child: Column(
                                                     mainAxisSize:
@@ -1136,49 +1096,23 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             -1.0,
                                                                             0.0),
                                                                         child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            context.pushNamed(
-                                                                              DetailedDeviceInfoWidget.routeName,
-                                                                              queryParameters: {
-                                                                                'deviceId': serializeParam(
-                                                                                  listViewDevicesRecord.deviceId,
-                                                                                  ParamType.String,
-                                                                                ),
-                                                                              }.withoutNulls,
-                                                                              extra: <String, dynamic>{
-                                                                                kTransitionInfoKey: TransitionInfo(
-                                                                                  hasTransition: true,
-                                                                                  transitionType: PageTransitionType.bottomToTop,
-                                                                                ),
-                                                                              },
-                                                                            );
-                                                                          },
-                                                                          child:
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              listViewDevicesRecord.friendlyName,
-                                                                              'Plug',
-                                                                            ),
-                                                                            textAlign:
-                                                                                TextAlign.start,
-                                                                            style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
-                                                                                  color: Colors.black,
-                                                                                  fontSize: 21.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
-                                                                                ),
+                                                                            Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            listViewDevicesRecord.friendlyName,
+                                                                            'Plug',
                                                                           ),
+                                                                          textAlign:
+                                                                              TextAlign.start,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .titleMedium
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
+                                                                                color: Colors.black,
+                                                                                fontSize: 21.0,
+                                                                                letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
+                                                                              ),
                                                                         ),
                                                                       ),
                                                                       Row(
@@ -1213,7 +1147,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           ),
                                                                           Text(
                                                                             valueOrDefault<String>(
-                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'power'),
+                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_power'),
                                                                               'power',
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1344,7 +1278,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             style: FlutterFlowTheme.of(context).headlineMedium.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 12.0,
+                                                                                  fontSize: 13.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineMediumFamily),
@@ -1353,7 +1287,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           duration:
                                                                               Duration(milliseconds: 4000),
                                                                           backgroundColor:
-                                                                              Color(0x87E21C3D),
+                                                                              Color(0xEECD0E32),
                                                                         ),
                                                                       );
                                                                     }
@@ -1381,7 +1315,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           .power_settings_new,
                                                                       color: valueOrDefault<
                                                                           Color>(
-                                                                        functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'current') ==
+                                                                        functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current') ==
                                                                                 '0.000'
                                                                             ? Color(0xFF979797)
                                                                             : Color(0xFF00BEC8),
@@ -1418,6 +1352,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   serializeParam(
                                                                 listViewDevicesRecord
                                                                     .deviceId,
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'deviceName':
+                                                                  serializeParam(
+                                                                listViewDevicesRecord
+                                                                    .friendlyName,
                                                                 ParamType
                                                                     .String,
                                                               ),
@@ -1485,7 +1426,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
-                                                                                      'n79mija1' /* Voltage         */,
+                                                                                      'n79mija1' /* Voltage             */,
                                                                                     ),
                                                                                     textAlign: TextAlign.start,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1501,7 +1442,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                 ),
                                                                                 Text(
                                                                                   valueOrDefault<String>(
-                                                                                    functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'voltage'),
+                                                                                    functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_voltage'),
                                                                                     'voltage',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1535,7 +1476,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   FFLocalizations.of(context).getText(
-                                                                                    'n2h2iw8n' /* Current          */,
+                                                                                    'n2h2iw8n' /* Current              */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Plus Jakarta Sans',
@@ -1561,7 +1502,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   curve: Curves.easeIn,
                                                                                   child: Text(
                                                                                     valueOrDefault<String>(
-                                                                                      functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'current'),
+                                                                                      functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current'),
                                                                                       'current',
                                                                                     ),
                                                                                   ),
@@ -1591,7 +1532,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   FFLocalizations.of(context).getText(
-                                                                                    'qg3wn1vg' /* Cost                  */,
+                                                                                    'qg3wn1vg' /* Cost                     */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Plus Jakarta Sans',
@@ -1605,8 +1546,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                 ),
                                                                                 Text(
                                                                                   valueOrDefault<String>(
-                                                                                    FFAppState().currentCost.toString(),
-                                                                                    '69',
+                                                                                    functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'current_cost'),
+                                                                                    'cost',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Plus Jakarta Sans',
@@ -1639,7 +1580,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   FFLocalizations.of(context).getText(
-                                                                                    '3rfnacnq' /* Status            */,
+                                                                                    '3rfnacnq' /* Status        */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Plus Jakarta Sans',
@@ -1656,7 +1597,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   child: Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                                     child: Container(
-                                                                                      width: 55.77,
+                                                                                      width: 90.07,
                                                                                       height: 25.8,
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).tertiary,
@@ -1722,7 +1663,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             4.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            9.0),
+                                                                            0.0),
                                                                     child:
                                                                         ClipRRect(
                                                                       borderRadius:
@@ -1747,6 +1688,114 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               ),
                                                             ),
                                                           ],
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      7.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                DetailedDeviceInfoWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'deviceId':
+                                                                      serializeParam(
+                                                                    listViewDevicesRecord
+                                                                        .deviceId,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'deviceName':
+                                                                      serializeParam(
+                                                                    listViewDevicesRecord
+                                                                        .friendlyName,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  kTransitionInfoKey:
+                                                                      TransitionInfo(
+                                                                    hasTransition:
+                                                                        true,
+                                                                    transitionType:
+                                                                        PageTransitionType
+                                                                            .bottomToTop,
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            320),
+                                                                  ),
+                                                                },
+                                                              );
+                                                            },
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        Opacity(
+                                                                          opacity:
+                                                                              0.4,
+                                                                          child:
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              FFLocalizations.of(context).getText(
+                                                                                'jyqqfwl1' /* View Detailes  */,
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                    fontSize: 13.0,
+                                                                                    letterSpacing: 1.0,
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
                                                         ),
                                                       ),
                                                     ],

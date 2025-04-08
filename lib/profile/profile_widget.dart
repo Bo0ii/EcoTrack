@@ -864,7 +864,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                     .clearRedirectLocation();
 
                                                 context.goNamedAuth(
-                                                    FirstpageWidget.routeName,
+                                                    FirstPageWidget.routeName,
                                                     context.mounted);
                                               },
                                               child: Text(

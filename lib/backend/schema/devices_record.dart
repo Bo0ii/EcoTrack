@@ -41,6 +41,11 @@ class DevicesRecord extends FirestoreRecord {
   List<String> get userControl => _userControl ?? const [];
   bool hasUserControl() => _userControl != null;
 
+  // "cost" field.
+  String? _cost;
+  String get cost => _cost ?? '';
+  bool hasCost() => _cost != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -49,6 +54,7 @@ class DevicesRecord extends FirestoreRecord {
     _householdId = snapshotData['householdId'] as String?;
     _userView = getDataList(snapshotData['userView']);
     _userControl = getDataList(snapshotData['userControl']);
+    _cost = snapshotData['cost'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -94,12 +100,14 @@ Map<String, dynamic> createDevicesRecordData({
   String? deviceId,
   String? friendlyName,
   String? householdId,
+  String? cost,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'deviceId': deviceId,
       'friendlyName': friendlyName,
       'householdId': householdId,
+      'cost': cost,
     }.withoutNulls,
   );
 
@@ -116,7 +124,8 @@ class DevicesRecordDocumentEquality implements Equality<DevicesRecord> {
         e1?.friendlyName == e2?.friendlyName &&
         e1?.householdId == e2?.householdId &&
         listEquality.equals(e1?.userView, e2?.userView) &&
-        listEquality.equals(e1?.userControl, e2?.userControl);
+        listEquality.equals(e1?.userControl, e2?.userControl) &&
+        e1?.cost == e2?.cost;
   }
 
   @override
@@ -125,7 +134,8 @@ class DevicesRecordDocumentEquality implements Equality<DevicesRecord> {
         e?.friendlyName,
         e?.householdId,
         e?.userView,
-        e?.userControl
+        e?.userControl,
+        e?.cost
       ]);
 
   @override

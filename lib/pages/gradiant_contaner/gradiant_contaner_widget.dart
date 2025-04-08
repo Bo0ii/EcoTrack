@@ -87,9 +87,9 @@ class _GradiantContanerWidgetState extends State<GradiantContanerWidget>
                       Colors.white,
                       Colors.white
                     ],
-                    stops: [0.0, 0.4, 0.6, 0.7, 0.95],
-                    begin: AlignmentDirectional(-1.0, -0.98),
-                    end: AlignmentDirectional(1.0, 0.98),
+                    stops: [0.0, 0.6, 0.6, 0.7, 0.95],
+                    begin: AlignmentDirectional(-1.0, -0.34),
+                    end: AlignmentDirectional(1.0, 0.34),
                   ),
                 ),
               ).animateOnPageLoad(

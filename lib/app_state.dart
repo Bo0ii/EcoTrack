@@ -261,6 +261,12 @@ class FFAppState extends ChangeNotifier {
     _savedFriendlyName = value;
     prefs.setString('ff_savedFriendlyName', value);
   }
+
+  String _selectedDeviceImagePath = '';
+  String get selectedDeviceImagePath => _selectedDeviceImagePath;
+  set selectedDeviceImagePath(String value) {
+    _selectedDeviceImagePath = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

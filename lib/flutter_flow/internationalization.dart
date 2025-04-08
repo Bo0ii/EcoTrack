@@ -506,46 +506,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Casa',
     },
   },
-  // Firstpage
-  {
-    'fi38cktm': {
-      'en': 'A new era of power',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'isyqs3a0': {
-      'en': 'Welcome!',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '92pr3p01': {
-      'en':
-          'Thanks for joining! Access or create your account below, and get started on your journey!',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'ltpmkebs': {
-      'en': 'Get Started',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'so8u1695': {
-      'en': 'Sign in',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'q27ypsq9': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
   // OLDMAINPAGE
   {
     'n52gbdwl': {
@@ -884,19 +844,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '¿No tienes una cuenta?',
     },
     'o0tevk9p': {
-      'en': 'ANDY\'S PHONE',
+      'en': 'ecot2',
       'ar': '',
       'de': '',
       'es': '',
     },
     'wfha0poz': {
-      'en': 'MY PC',
+      'en': 'ecot',
       'ar': '',
       'de': '',
       'es': '',
     },
     'jh0fjujg': {
-      'en': 'MY PHONE',
+      'en': 'eco',
       'ar': '',
       'de': '',
       'es': '',
@@ -1093,7 +1053,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // S4
+  // s6
   {
     '93nnyk5b': {
       'en': '3/3',
@@ -1350,26 +1310,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DetailedDeviceInfo
   {
-    'bpndu0y5': {
-      'en': 'Device name',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'w7lelomu': {
-      'en': 'Duration',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'is8st656': {
       'en': '|',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'yxfjfc3l': {
-      'en': 'safe',
       'ar': '',
       'de': '',
       'es': '',
@@ -1440,12 +1382,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '17fkp1s6': {
-      'en': '5.7',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'n5145gge': {
       'en': 'Energy',
       'ar': '',
@@ -1506,20 +1442,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'kn20cbz0': {
-      'en': '391',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'ewrwwbmr': {
       'en': 'Projected Monthly Cost',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'kunbndet': {
-      'en': '5.7',
       'ar': '',
       'de': '',
       'es': '',
@@ -1536,32 +1460,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'vzg791bz': {
-      'en': '60w',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'knblbvgc': {
-      'en': 'Mean Power',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '7wmxc9ik': {
-      'en': '391',
+      'en': 'Learning Phase',
       'ar': '',
       'de': '',
       'es': '',
     },
     'b5baiz4n': {
-      'en': 'Standard deviation',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'a0what33': {
-      'en': '5.7',
+      'en': 'Device\'s Health',
       'ar': '',
       'de': '',
       'es': '',
@@ -1574,6 +1480,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '9mwunvmg': {
       'en': 'Permissions',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '4ldtuqh1': {
+      'en': ' V',
       'ar': '',
       'de': '',
       'es': '',
@@ -1699,7 +1611,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'n79mija1': {
-      'en': 'Voltage        ',
+      'en': 'Voltage            ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1711,7 +1623,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'n2h2iw8n': {
-      'en': 'Current         ',
+      'en': 'Current             ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1723,7 +1635,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'qg3wn1vg': {
-      'en': 'Cost                 ',
+      'en': 'Cost                    ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1735,13 +1647,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '3rfnacnq': {
-      'en': 'Status           ',
+      'en': 'Status       ',
       'ar': '',
       'de': '',
       'es': '',
     },
     '17sfxzw9': {
       'en': 'Safe',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jyqqfwl1': {
+      'en': 'View Detailes ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1760,111 +1678,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'ekaexsfw': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
-  // UserViewSelect
-  {
-    '38gsw9po': {
-      'en': 'Invite Friends',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'gp2biyji': {
-      'en': '#',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'j7o4fmu7': {
-      'en': 'Selected',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'z3izyygw': {
-      'en': 'Friend Name',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'wa6moz7a': {
-      'en': 'City, State',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'oe4znlpw': {
-      'en': 'Friend Name',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '0nvuir23': {
-      'en': 'City, State',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '9k9i8xd3': {
-      'en': 'Friend Name',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'i3mq5w06': {
-      'en': 'City, State',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '2zzp2jb5': {
-      'en': 'Friend Name',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '17cj4pev': {
-      'en': 'City, State',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'exrzqev0': {
-      'en': 'Friend Name',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'lvgw7mhb': {
-      'en': 'City, State',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'fxsyluou': {
-      'en': 'Send Invites',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'hrgpiucg': {
-      'en': 'Invite Friends',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'f6u0ysgu': {
-      'en': 'Invite your friends to join you!',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '9xfgm82v': {
       'en': 'Home',
       'ar': '',
       'de': '',
@@ -2065,7 +1878,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'ehuytjgb': {
-      'en': 'Previous',
+      'en': 'Later',
       'ar': '',
       'de': '',
       'es': '',
@@ -2083,7 +1896,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // QRDevice
+  // S4QR
   {
     'xd1oek3n': {
       'en': 'Scan a New ',
@@ -2134,7 +1947,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Dirección de correo electrónico',
     },
     'fgurz041': {
-      'en': 'Save Device',
+      'en': 'Next ',
       'ar': '',
       'de': '',
       'es': '',
@@ -2159,6 +1972,149 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'g5lxnu8r': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // S5Network
+  {
+    'hkkp1gf0': {
+      'en': 'Connect Your ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'bc1rn13x': {
+      'en': 'Device',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zm0jev5s': {
+      'en': 'Use your camera to scan the QR code found on the device label',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'g7b9ehhc': {
+      'en': 'Confirm Connection',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'po8tyyof': {
+      'en':
+          'If you encounter any issues, please check that your Wi-Fi is enabled and you\'re within range of your network.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'crnpck07': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // GradiantContanerCopy
+  {
+    'xfcx9xyo': {
+      'en': 'Welcome back',
+      'ar': 'البدء',
+      'de': 'Loslegen',
+      'es': 'Empezar',
+    },
+    '3vrtal4f': {
+      'en': 'Login to access your account below.',
+      'ar': 'قم بإنشاء حسابك أدناه.',
+      'de': 'Erstellen Sie unten Ihr Konto.',
+      'es': 'Crea tu cuenta a continuación.',
+    },
+    'juwr76r2': {
+      'en': 'Email Address',
+      'ar': 'عنوان البريد الالكترونى',
+      'de': 'E-Mail-Addresse',
+      'es': 'Dirección de correo electrónico',
+    },
+    'x8go5gey': {
+      'en': 'Enter your email...',
+      'ar': 'أدخل بريدك الإلكتروني ...',
+      'de': 'Geben sie ihre E-Mail Adresse ein...',
+      'es': 'Introduce tu correo electrónico...',
+    },
+    'tludtf7g': {
+      'en': 'Password',
+      'ar': 'كلمة المرور',
+      'de': 'Passwort',
+      'es': 'Contraseña',
+    },
+    'z2ttfaps': {
+      'en': 'Enter your password...',
+      'ar': 'ادخل رقمك السري...',
+      'de': 'Geben Sie Ihr Passwort ein...',
+      'es': 'Ingresa tu contraseña...',
+    },
+    '1fja3682': {
+      'en': 'Forgot Password?',
+      'ar': 'هل نسيت كلمة السر؟',
+      'de': 'Passwort vergessen?',
+      'es': '¿Has olvidado tu contraseña?',
+    },
+    'd4yc6nb2': {
+      'en': 'Login',
+      'ar': 'تسجيل الدخول',
+      'de': 'Anmeldung',
+      'es': 'Acceso',
+    },
+    '41teeep7': {
+      'en': 'Don\'t have an account?',
+      'ar': 'ليس لديك حساب؟',
+      'de': 'Sie haben kein Konto?',
+      'es': '¿No tienes una cuenta?',
+    },
+    'aicd8iml': {
+      'en': 'Create',
+      'ar': 'ليس لديك حساب؟',
+      'de': 'Sie haben kein Konto?',
+      'es': '¿No tienes una cuenta?',
+    },
+    'yupbf7gl': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // FirstPage
+  {
+    'bi2nao8p': {
+      'en': 'Welcome!',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zbttwnxe': {
+      'en':
+          'Thanks for joining! Access or create your account below, and get started on your journey!',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'qrfz0bc7': {
+      'en': 'Get Started',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'bsw4qslx': {
+      'en': 'Sign in',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '11mbl6j5': {
       'en': 'Home',
       'ar': '',
       'de': '',
