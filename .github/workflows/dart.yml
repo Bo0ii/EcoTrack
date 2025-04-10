@@ -38,6 +38,21 @@ jobs:
 
       - name: Install Flutter dependencies
         run: flutter pub get
+            - name: Install xcodeproj gem
+        run: sudo gem install xcodeproj
+
+      - name: Enable Background Modes
+        run: |
+          ruby -e "
+          require 'xcodeproj';
+          project_path = 'ios/Runner.xcodeproj';
+          project = Xcodeproj::Project.open(project_path);
+          target = project.targets.find { |t| t.name == 'Runner' };
+          target.build_configurations.each do |config|
+            config.build_settings['ENTITLEMENTS_PLIST'] = 'Runner/Runner.entitlements';
+          end;
+          project.save;
+          "
 
       - name: Update Pod repo
         run: pod repo update
