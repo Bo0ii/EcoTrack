@@ -889,9 +889,6 @@ class _S6WidgetState extends State<S6Widget> {
                                                       title: _model
                                                           .yourTitleTextController
                                                           .text,
-                                                      nameOfHouse: _model
-                                                          .yourTitleTextController
-                                                          .text,
                                                     ));
                                                   }
 

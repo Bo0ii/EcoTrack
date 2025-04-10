@@ -796,8 +796,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 int.tryParse(_model.yourAgeTextController.text),
                             title: _model.yourTitleTextController1.text,
                             nameOfHouse: _model.yourTitleTextController2.text,
-                            email: '',
-                            password: '',
                           ));
                           FFAppState().displayName =
                               _model.yourNameTextController.text;
