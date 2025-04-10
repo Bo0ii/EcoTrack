@@ -1533,7 +1533,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'o0hhr745': {
-      'en': '189.12',
+      'en': '5',
       'ar': '',
       'de': '',
       'es': '',
@@ -1612,13 +1612,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'k2g7akbr': {
       'en': 'Eco Energy Tip',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'bd3llfzp': {
-      'en':
-          'Use natural light when possible and turn off lights in unoccupied rooms to reduce energy consumption.',
       'ar': '',
       'de': '',
       'es': '',

@@ -321,6 +321,12 @@ class FFAppState extends ChangeNotifier {
   set weatherState(String value) {
     _weatherState = value;
   }
+
+  String _tips = '';
+  String get tips => _tips;
+  set tips(String value) {
+    _tips = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

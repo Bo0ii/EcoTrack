@@ -91,6 +91,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().weatherState = GetSensorDataCall.state(
             (_model.sensordataAPIpageload?.jsonBody ?? ''),
           )!;
+          FFAppState().tips = GetSensorDataCall.tips(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
           safeSetState(() {});
           await Future.delayed(const Duration(milliseconds: 1000));
         }
@@ -142,6 +145,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
           FFAppState().weatherState = GetSensorDataCall.state(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().tips = GetSensorDataCall.tips(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
           safeSetState(() {});
@@ -811,7 +817,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                       FFAppState()
                                                           .sensorData
                                                           .toList(),
-                                                      FFAppState().deviceID,
+                                                      'ecot',
                                                       'current_cost'),
                                                   'cost',
                                                 )}',
@@ -941,7 +947,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                       FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        'o0hhr745' /* 189.12 */,
+                                                        'o0hhr745' /* 5 */,
                                                       ),
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -1786,9 +1792,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         ),
                                               ),
                                               Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'bd3llfzp' /* Use natural light when possibl... */,
+                                                valueOrDefault<String>(
+                                                  FFAppState().tips,
+                                                  'Unplug chargers when not in use.',
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1858,38 +1864,42 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                     ),
                   ),
                 ),
-                ClipRect(
-                  child: ImageFiltered(
-                    imageFilter: ImageFilter.blur(
-                      sigmaX: 5.0,
-                      sigmaY: 5.0,
-                    ),
-                    child: Opacity(
-                      opacity: 0.9,
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
-                        child: Container(
-                          width: 393.0,
-                          height: 96.88,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xFFD9FEFF),
-                                Color(0xFFD9FEFF),
-                                Color(0x50D9FEFF),
-                                Color(0x00EBFEFF)
-                              ],
-                              stops: [0.0, 0.5, 0.85, 1.0],
-                              begin: AlignmentDirectional(0.0, -1.0),
-                              end: AlignmentDirectional(0, 1.0),
+                if (responsiveVisibility(
+                  context: context,
+                  phone: false,
+                ))
+                  ClipRect(
+                    child: ImageFiltered(
+                      imageFilter: ImageFilter.blur(
+                        sigmaX: 5.0,
+                        sigmaY: 5.0,
+                      ),
+                      child: Opacity(
+                        opacity: 0.9,
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, -1.0),
+                          child: Container(
+                            width: 393.0,
+                            height: 96.88,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFD9FEFF),
+                                  Color(0xFFD9FEFF),
+                                  Color(0x50D9FEFF),
+                                  Color(0x00EBFEFF)
+                                ],
+                                stops: [0.0, 0.5, 0.85, 1.0],
+                                begin: AlignmentDirectional(0.0, -1.0),
+                                end: AlignmentDirectional(0, 1.0),
+                              ),
                             ),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                           ),
-                          alignment: AlignmentDirectional(0.0, 0.0),
                         ),
                       ),
                     ),
                   ),
-                ),
               ],
             ),
           ],

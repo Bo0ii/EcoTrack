@@ -250,6 +250,11 @@ class GetSensorDataCall {
         r'''$[?(@.entity_id=='weather.forecast_home')].state
 ''',
       ));
+  static String? tips(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='sensor.energy_saving_tip')].state
+''',
+      ));
 }
 
 class ToggleRelayOFFCall {
