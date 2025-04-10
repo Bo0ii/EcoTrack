@@ -475,12 +475,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': 'Geben Sie Ihr Passwort ein...',
       'es': 'Ingresa tu contraseña...',
     },
-    'cel6ravu': {
-      'en': 'Your password must contain:',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'edrm55vi': {
       'en': 'Create Account',
       'ar': 'إنشاء حساب',
@@ -1455,7 +1449,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'd5b7peo2': {
-      'en': 'Power Anomaly',
+      'en': 'Power Threshold',
       'ar': '',
       'de': '',
       'es': '',
@@ -1484,12 +1478,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '4ldtuqh1': {
-      'en': ' V',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'g7sqpkmq': {
       'en': 'Home',
       'ar': '',
@@ -1514,32 +1502,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'wou3jv4i': {
-      'en': '35%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    's5m5q71g': {
-      'en': '45',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     '11wkwzlr': {
       'en': 'C',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'd56rhxwq': {
-      'en': 'Feels like 35',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'ilzvi4m8': {
-      'en': '6%',
       'ar': '',
       'de': '',
       'es': '',
@@ -1552,12 +1516,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'de46b1lb': {
       'en': '+12.4%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'hlqby4lp': {
-      'en': '\$418.75',
       'ar': '',
       'de': '',
       'es': '',
@@ -1648,18 +1606,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '3rfnacnq': {
       'en': 'Status       ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '17sfxzw9': {
-      'en': 'Safe',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'jyqqfwl1': {
-      'en': 'View Detailes ',
       'ar': '',
       'de': '',
       'es': '',
@@ -2020,66 +1966,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // GradiantContanerCopy
   {
-    'xfcx9xyo': {
-      'en': 'Welcome back',
-      'ar': 'البدء',
-      'de': 'Loslegen',
-      'es': 'Empezar',
-    },
-    '3vrtal4f': {
-      'en': 'Login to access your account below.',
-      'ar': 'قم بإنشاء حسابك أدناه.',
-      'de': 'Erstellen Sie unten Ihr Konto.',
-      'es': 'Crea tu cuenta a continuación.',
-    },
-    'juwr76r2': {
-      'en': 'Email Address',
-      'ar': 'عنوان البريد الالكترونى',
-      'de': 'E-Mail-Addresse',
-      'es': 'Dirección de correo electrónico',
-    },
-    'x8go5gey': {
-      'en': 'Enter your email...',
-      'ar': 'أدخل بريدك الإلكتروني ...',
-      'de': 'Geben sie ihre E-Mail Adresse ein...',
-      'es': 'Introduce tu correo electrónico...',
-    },
-    'tludtf7g': {
-      'en': 'Password',
-      'ar': 'كلمة المرور',
-      'de': 'Passwort',
-      'es': 'Contraseña',
-    },
-    'z2ttfaps': {
-      'en': 'Enter your password...',
-      'ar': 'ادخل رقمك السري...',
-      'de': 'Geben Sie Ihr Passwort ein...',
-      'es': 'Ingresa tu contraseña...',
-    },
-    '1fja3682': {
-      'en': 'Forgot Password?',
-      'ar': 'هل نسيت كلمة السر؟',
-      'de': 'Passwort vergessen?',
-      'es': '¿Has olvidado tu contraseña?',
-    },
-    'd4yc6nb2': {
-      'en': 'Login',
-      'ar': 'تسجيل الدخول',
-      'de': 'Anmeldung',
-      'es': 'Acceso',
-    },
-    '41teeep7': {
-      'en': 'Don\'t have an account?',
-      'ar': 'ليس لديك حساب؟',
-      'de': 'Sie haben kein Konto?',
-      'es': '¿No tienes una cuenta?',
-    },
-    'aicd8iml': {
-      'en': 'Create',
-      'ar': 'ليس لديك حساب؟',
-      'de': 'Sie haben kein Konto?',
-      'es': '¿No tienes una cuenta?',
-    },
     'yupbf7gl': {
       'en': 'Home',
       'ar': '',
@@ -2119,6 +2005,93 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
       'de': '',
       'es': '',
+    },
+  },
+  // SignUpCopy
+  {
+    'qr56j8je': {
+      'en': 'Get Started',
+      'ar': 'البدء',
+      'de': 'Loslegen',
+      'es': 'Empezar',
+    },
+    'w3rnhg5o': {
+      'en': 'Create your admin account below.',
+      'ar': 'قم بإنشاء حسابك أدناه.',
+      'de': 'Erstellen Sie unten Ihr Konto.',
+      'es': 'Crea tu cuenta a continuación.',
+    },
+    'ov29mlvp': {
+      'en': 'Email Address',
+      'ar': 'عنوان البريد الالكترونى',
+      'de': 'E-Mail-Addresse',
+      'es': 'Dirección de correo electrónico',
+    },
+    'hq74wn7q': {
+      'en': 'Enter your email...',
+      'ar': 'أدخل بريدك الإلكتروني ...',
+      'de': 'Geben sie ihre E-Mail Adresse ein...',
+      'es': 'Introduce tu correo electrónico...',
+    },
+    'nxs5hrsp': {
+      'en': 'Household ID',
+      'ar': 'عنوان البريد الالكترونى',
+      'de': 'E-Mail-Addresse',
+      'es': 'Dirección de correo electrónico',
+    },
+    '2itec3dp': {
+      'en': 'Create your Household ID',
+      'ar': 'أدخل بريدك الإلكتروني ...',
+      'de': 'Geben sie ihre E-Mail Adresse ein...',
+      'es': 'Introduce tu correo electrónico...',
+    },
+    '88466tws': {
+      'en': 'Password',
+      'ar': 'كلمة المرور',
+      'de': 'Passwort',
+      'es': 'Contraseña',
+    },
+    's8bb87j6': {
+      'en': 'Enter your password...',
+      'ar': 'ادخل رقمك السري...',
+      'de': 'Geben Sie Ihr Passwort ein...',
+      'es': 'Ingresa tu contraseña...',
+    },
+    '4e5qfqn9': {
+      'en': 'Confirm Password',
+      'ar': 'تأكيد كلمة المرور',
+      'de': 'Kennwort bestätigen',
+      'es': 'Confirmar contraseña',
+    },
+    'ukh8nrrk': {
+      'en': 'Enter your password...',
+      'ar': 'ادخل رقمك السري...',
+      'de': 'Geben Sie Ihr Passwort ein...',
+      'es': 'Ingresa tu contraseña...',
+    },
+    '7zeg218z': {
+      'en': 'Create Account',
+      'ar': 'إنشاء حساب',
+      'de': 'Benutzerkonto erstellen',
+      'es': 'Crear una cuenta',
+    },
+    'j69p7k5s': {
+      'en': 'Already have an account?',
+      'ar': 'هل لديك حساب؟',
+      'de': 'Sie haben bereits ein Konto?',
+      'es': '¿Ya tienes una cuenta?',
+    },
+    'fk6c96g6': {
+      'en': 'Login',
+      'ar': 'هل لديك حساب؟',
+      'de': 'Sie haben bereits ein Konto?',
+      'es': '¿Ya tienes una cuenta?',
+    },
+    'o7w91gm2': {
+      'en': 'Home',
+      'ar': 'مسكن',
+      'de': 'Heim',
+      'es': 'Casa',
     },
   },
   // Dashboard01RecentActivity

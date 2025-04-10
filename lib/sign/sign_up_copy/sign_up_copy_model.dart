@@ -1,12 +1,11 @@
-import '/backend/backend.dart';
 import '/components/dark_light/dark_light_widget.dart';
 import '/components/pssword_vald/pssword_vald_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'sign_up_widget.dart' show SignUpWidget;
+import 'sign_up_copy_widget.dart' show SignUpCopyWidget;
 import 'package:flutter/material.dart';
 
-class SignUpModel extends FlutterFlowModel<SignUpWidget> {
+class SignUpCopyModel extends FlutterFlowModel<SignUpCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for darkLight component.
@@ -38,8 +37,6 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   late PsswordValdModel psswordValdModel3;
   // Model for PsswordVald component.
   late PsswordValdModel psswordValdModel4;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  UsersRecord? adminRef;
 
   @override
   void initState(BuildContext context) {

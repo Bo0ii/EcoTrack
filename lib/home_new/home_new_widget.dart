@@ -6,6 +6,7 @@ import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:collection/collection.dart';
@@ -57,11 +58,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
       ).then((s) => s.firstOrNull);
       if (_model.adminUser != null) {
         FFAppState().isAdmin = true;
+        FFAppState().displayName = _model.adminUser!.displayName;
+        FFAppState().houseName = _model.adminUser!.nameOfHouse;
+        safeSetState(() {});
+        FFAppState().deviceID = FFAppState().deviceID;
         _model.deviceRef = await queryDevicesRecordOnce(
           parent: _model.adminUser?.reference,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        FFAppState().deviceID = FFAppState().deviceID;
         while (FFAppState().isLooping == true) {
           _model.sensordataAPIpageload = await GetSensorDataCall.call(
             deviceId: _model.deviceRef?.deviceId,
@@ -74,6 +78,19 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           )!
               .toList()
               .cast<dynamic>();
+          safeSetState(() {});
+          FFAppState().weatherTemp = GetSensorDataCall.temperature(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().cloudCoverage = GetSensorDataCall.cloudCoverage(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().humidity = GetSensorDataCall.humidity(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().weatherState = GetSensorDataCall.state(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
           safeSetState(() {});
           await Future.delayed(const Duration(milliseconds: 1000));
         }
@@ -95,6 +112,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           ),
           singleRecord: true,
         ).then((s) => s.firstOrNull);
+        FFAppState().displayName = _model.userinhouseholdREF!.displayName;
+        FFAppState().houseName = _model.adminUser!.nameOfHouse;
+        safeSetState(() {});
         _model.deviceRef2 = await queryDevicesRecordOnce(
           parent: _model.userDirectoryEntry?.parentAdminRef,
           singleRecord: true,
@@ -111,6 +131,19 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           )!
               .toList()
               .cast<dynamic>();
+          safeSetState(() {});
+          FFAppState().weatherTemp = GetSensorDataCall.temperature(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().cloudCoverage = GetSensorDataCall.cloudCoverage(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().humidity = GetSensorDataCall.humidity(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().weatherState = GetSensorDataCall.state(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
           safeSetState(() {});
           await Future.delayed(const Duration(milliseconds: 1000));
         }
@@ -331,7 +364,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                             'Plus Jakarta Sans',
                                                         color:
                                                             Color(0xFF384E58),
-                                                        fontSize: 14.0,
+                                                        fontSize: 13.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -342,15 +375,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                       ),
                                                 ),
                                                 Text(
-                                                  valueOrDefault<String>(
-                                                    FFAppState().isAdmin == true
-                                                        ? _model.adminUser
-                                                            ?.displayName
-                                                        : _model
-                                                            .userinhouseholdREF
-                                                            ?.displayName,
-                                                    'name',
-                                                  ),
+                                                  FFAppState().displayName,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
@@ -358,7 +383,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         fontFamily: 'Lexend',
                                                         color:
                                                             Color(0xFF0B191E),
-                                                        fontSize: 24.0,
+                                                        fontSize: 23.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -381,18 +406,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                FFAppState().isAdmin
-                                                                    ? _model
-                                                                        .adminUser
-                                                                        ?.nameOfHouse
-                                                                    : _model
-                                                                        .userinhouseholdREF
-                                                                        ?.parentReference
-                                                                        .id,
-                                                                'My home',
-                                                              ),
+                                                              FFAppState()
+                                                                  .houseName,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .headlineSmall
@@ -400,6 +415,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                     fontFamily:
                                                                         FlutterFlowTheme.of(context)
                                                                             .headlineSmallFamily,
+                                                                    fontSize:
+                                                                        19.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -496,9 +513,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                                color: Color(0x113E3E3E),
                                                 width: 2.0,
                                               ),
                                             ),
@@ -512,9 +527,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                 'iconOnPageLoadAnimation1']!),
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'wou3jv4i' /* 35% */,
-                                            ),
+                                            '${valueOrDefault<String>(
+                                              FFAppState().humidity.toString(),
+                                              '30',
+                                            )}%',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
@@ -544,29 +560,35 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  's5m5q71g' /* 45 */,
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 1.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    FFAppState()
+                                                        .weatherTemp
+                                                        .toString(),
+                                                    '30',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .displayLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        fontSize: 60.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Poppins'),
+                                                      ),
                                                 ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .displayLarge
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      fontSize: 60.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      useGoogleFonts:
-                                                          GoogleFonts.asMap()
-                                                              .containsKey(
-                                                                  'Poppins'),
-                                                    ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -605,10 +627,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'd56rhxwq' /* Feels like 35 */,
-                                              ),
+                                              FFAppState().weatherState,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -632,7 +651,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                   ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(height: 4.0)),
+                                        ].divide(SizedBox(height: 0.0)),
                                       ),
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -643,9 +662,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                                color: Color(0x113E3E3E),
                                                 width: 2.0,
                                               ),
                                             ),
@@ -659,9 +676,12 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                 'iconOnPageLoadAnimation2']!),
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'ilzvi4m8' /* 6% */,
-                                            ),
+                                            '${valueOrDefault<String>(
+                                              FFAppState()
+                                                  .cloudCoverage
+                                                  .toString(),
+                                              '10',
+                                            )}%',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
@@ -786,10 +806,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                 ],
                                               ),
                                               Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'hlqby4lp' /* $418.75 */,
-                                                ),
+                                                '${valueOrDefault<String>(
+                                                  functions.getSensorState(
+                                                      FFAppState()
+                                                          .sensorData
+                                                          .toList(),
+                                                      FFAppState().deviceID,
+                                                      'current_cost'),
+                                                  'cost',
+                                                )}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
@@ -1024,7 +1049,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             return Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 0.0, 16.0, 19.0),
+                                                      18.0, 0.0, 18.0, 19.0),
                                               child: Material(
                                                 color: Colors.transparent,
                                                 elevation: 2.0,
@@ -1034,8 +1059,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           8.0),
                                                 ),
                                                 child: Container(
-                                                  width: 184.9,
-                                                  height: 273.1,
+                                                  width: 189.83,
+                                                  height: 249.6,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -1597,7 +1622,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   child: Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                                                                                     child: Container(
-                                                                                      width: 90.07,
+                                                                                      width: 94.19,
                                                                                       height: 25.8,
                                                                                       decoration: BoxDecoration(
                                                                                         color: FlutterFlowTheme.of(context).tertiary,
@@ -1609,8 +1634,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                         child: Padding(
                                                                                           padding: EdgeInsets.all(6.0),
                                                                                           child: Text(
-                                                                                            FFLocalizations.of(context).getText(
-                                                                                              '17sfxzw9' /* Safe */,
+                                                                                            valueOrDefault<String>(
+                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'power_error'),
+                                                                                              'power error',
                                                                                             ),
                                                                                             textAlign: TextAlign.center,
                                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
@@ -1688,114 +1714,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               ),
                                                             ),
                                                           ],
-                                                        ),
-                                                      ),
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      0.0,
-                                                                      16.0,
-                                                                      7.0),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              context.pushNamed(
-                                                                DetailedDeviceInfoWidget
-                                                                    .routeName,
-                                                                queryParameters:
-                                                                    {
-                                                                  'deviceId':
-                                                                      serializeParam(
-                                                                    listViewDevicesRecord
-                                                                        .deviceId,
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'deviceName':
-                                                                      serializeParam(
-                                                                    listViewDevicesRecord
-                                                                        .friendlyName,
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                                extra: <String,
-                                                                    dynamic>{
-                                                                  kTransitionInfoKey:
-                                                                      TransitionInfo(
-                                                                    hasTransition:
-                                                                        true,
-                                                                    transitionType:
-                                                                        PageTransitionType
-                                                                            .bottomToTop,
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            320),
-                                                                  ),
-                                                                },
-                                                              );
-                                                            },
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Opacity(
-                                                                          opacity:
-                                                                              0.4,
-                                                                          child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                'jyqqfwl1' /* View Detailes  */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                    fontSize: 13.0,
-                                                                                    letterSpacing: 1.0,
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
                                                         ),
                                                       ),
                                                     ],
@@ -1926,27 +1844,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                   ],
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, -1.0),
-                  child: Container(
-                    width: 393.0,
-                    height: 77.43,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xFFD9FEFF),
-                          Color(0xFFD9FEFF),
-                          Color(0x50D9FEFF),
-                          Color(0x00EBFEFF)
-                        ],
-                        stops: [0.0, 0.5, 0.85, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
-                    ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                  ),
-                ),
-                Align(
                   alignment: AlignmentDirectional(0.0, 1.0),
                   child: Container(
                     width: double.infinity,
@@ -1957,6 +1854,38 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                       updateCallback: () => safeSetState(() {}),
                       child: NavBarWidget(
                         currentpage: '0',
+                      ),
+                    ),
+                  ),
+                ),
+                ClipRect(
+                  child: ImageFiltered(
+                    imageFilter: ImageFilter.blur(
+                      sigmaX: 5.0,
+                      sigmaY: 5.0,
+                    ),
+                    child: Opacity(
+                      opacity: 0.9,
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Container(
+                          width: 393.0,
+                          height: 96.88,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFD9FEFF),
+                                Color(0xFFD9FEFF),
+                                Color(0x50D9FEFF),
+                                Color(0x00EBFEFF)
+                              ],
+                              stops: [0.0, 0.5, 0.85, 1.0],
+                              begin: AlignmentDirectional(0.0, -1.0),
+                              end: AlignmentDirectional(0, 1.0),
+                            ),
+                          ),
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                        ),
                       ),
                     ),
                   ),

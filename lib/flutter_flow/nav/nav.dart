@@ -173,11 +173,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: S6Widget.routeName,
           path: S6Widget.routePath,
           builder: (context, params) => S6Widget(
-            userProfile: params.getParam(
-              'userProfile',
+            adminRef: params.getParam(
+              'adminRef',
               ParamType.DocumentReference,
               isList: false,
               collectionNamePath: ['users'],
+            ),
+            userRef: params.getParam(
+              'userRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users', 'usersInHousehold'],
             ),
           ),
         ),
@@ -185,11 +191,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: EditProfileWidget.routeName,
           path: EditProfileWidget.routePath,
           builder: (context, params) => EditProfileWidget(
-            userProfile: params.getParam(
-              'userProfile',
+            adminRef: params.getParam(
+              'adminRef',
               ParamType.DocumentReference,
               isList: false,
               collectionNamePath: ['users'],
+            ),
+            userRef: params.getParam(
+              'userRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users', 'usersInHousehold'],
             ),
           ),
         ),
@@ -270,6 +282,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: FirstPageWidget.routeName,
           path: FirstPageWidget.routePath,
           builder: (context, params) => FirstPageWidget(),
+        ),
+        FFRoute(
+          name: SignUpCopyWidget.routeName,
+          path: SignUpCopyWidget.routePath,
+          builder: (context, params) => SignUpCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

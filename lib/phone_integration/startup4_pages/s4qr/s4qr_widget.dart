@@ -48,8 +48,8 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 1200.0.ms,
-            begin: Offset(-29.0, 0.0),
+            duration: 1300.0.ms,
+            begin: Offset(-40.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -60,7 +60,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 110.0.ms,
-            duration: 1720.0.ms,
+            duration: 2000.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -72,8 +72,8 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 1290.0.ms,
-            begin: Offset(-33.0, 0.0),
+            duration: 1320.0.ms,
+            begin: Offset(-40.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -84,8 +84,8 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 1200.0.ms,
-            begin: Offset(-29.0, 0.0),
+            duration: 1330.0.ms,
+            begin: Offset(-33.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -96,8 +96,8 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 1200.0.ms,
-            begin: Offset(-29.0, 0.0),
+            duration: 1400.0.ms,
+            begin: Offset(-30.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -108,8 +108,8 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           MoveEffect(
             curve: Curves.elasticOut,
             delay: 0.0.ms,
-            duration: 1200.0.ms,
-            begin: Offset(-29.0, 0.0),
+            duration: 1310.0.ms,
+            begin: Offset(-40.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -121,7 +121,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
             curve: Curves.elasticOut,
             delay: 0.0.ms,
             duration: 1290.0.ms,
-            begin: Offset(-39.0, 0.0),
+            begin: Offset(-43.00000000000001, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -514,6 +514,10 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                   0.0, 55.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  FFAppState().friendlyName =
+                                      _model.plugnameTextController.text;
+                                  safeSetState(() {});
+
                                   context.pushNamed(
                                     S5NetworkWidget.routeName,
                                     extra: <String, dynamic>{

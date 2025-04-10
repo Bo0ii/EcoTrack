@@ -35,6 +35,26 @@ class UsersInHouseholdRecord extends FirestoreRecord {
   String get displayName => _displayName ?? '';
   bool hasDisplayName() => _displayName != null;
 
+  // "Age" field.
+  int? _age;
+  int get age => _age ?? 0;
+  bool hasAge() => _age != null;
+
+  // "Title" field.
+  String? _title;
+  String get title => _title ?? '';
+  bool hasTitle() => _title != null;
+
+  // "NameOfHouse" field.
+  String? _nameOfHouse;
+  String get nameOfHouse => _nameOfHouse ?? '';
+  bool hasNameOfHouse() => _nameOfHouse != null;
+
+  // "photo_url" field.
+  String? _photoUrl;
+  String get photoUrl => _photoUrl ?? '';
+  bool hasPhotoUrl() => _photoUrl != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -42,6 +62,10 @@ class UsersInHouseholdRecord extends FirestoreRecord {
     _password = snapshotData['password'] as String?;
     _householdId = snapshotData['householdId'] as String?;
     _displayName = snapshotData['display_name'] as String?;
+    _age = castToType<int>(snapshotData['Age']);
+    _title = snapshotData['Title'] as String?;
+    _nameOfHouse = snapshotData['NameOfHouse'] as String?;
+    _photoUrl = snapshotData['photo_url'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -89,6 +113,10 @@ Map<String, dynamic> createUsersInHouseholdRecordData({
   String? password,
   String? householdId,
   String? displayName,
+  int? age,
+  String? title,
+  String? nameOfHouse,
+  String? photoUrl,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -96,6 +124,10 @@ Map<String, dynamic> createUsersInHouseholdRecordData({
       'password': password,
       'householdId': householdId,
       'display_name': displayName,
+      'Age': age,
+      'Title': title,
+      'NameOfHouse': nameOfHouse,
+      'photo_url': photoUrl,
     }.withoutNulls,
   );
 
@@ -111,12 +143,24 @@ class UsersInHouseholdRecordDocumentEquality
     return e1?.email == e2?.email &&
         e1?.password == e2?.password &&
         e1?.householdId == e2?.householdId &&
-        e1?.displayName == e2?.displayName;
+        e1?.displayName == e2?.displayName &&
+        e1?.age == e2?.age &&
+        e1?.title == e2?.title &&
+        e1?.nameOfHouse == e2?.nameOfHouse &&
+        e1?.photoUrl == e2?.photoUrl;
   }
 
   @override
-  int hash(UsersInHouseholdRecord? e) => const ListEquality()
-      .hash([e?.email, e?.password, e?.householdId, e?.displayName]);
+  int hash(UsersInHouseholdRecord? e) => const ListEquality().hash([
+        e?.email,
+        e?.password,
+        e?.householdId,
+        e?.displayName,
+        e?.age,
+        e?.title,
+        e?.nameOfHouse,
+        e?.photoUrl
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UsersInHouseholdRecord;

@@ -267,6 +267,60 @@ class FFAppState extends ChangeNotifier {
   set selectedDeviceImagePath(String value) {
     _selectedDeviceImagePath = value;
   }
+
+  String _displayName = '';
+  String get displayName => _displayName;
+  set displayName(String value) {
+    _displayName = value;
+  }
+
+  int _Age = 0;
+  int get Age => _Age;
+  set Age(int value) {
+    _Age = value;
+  }
+
+  String _Title = '';
+  String get Title => _Title;
+  set Title(String value) {
+    _Title = value;
+  }
+
+  String _houseName = '';
+  String get houseName => _houseName;
+  set houseName(String value) {
+    _houseName = value;
+  }
+
+  String _profileImage = '';
+  String get profileImage => _profileImage;
+  set profileImage(String value) {
+    _profileImage = value;
+  }
+
+  double _weatherTemp = 0.0;
+  double get weatherTemp => _weatherTemp;
+  set weatherTemp(double value) {
+    _weatherTemp = value;
+  }
+
+  int _humidity = 0;
+  int get humidity => _humidity;
+  set humidity(int value) {
+    _humidity = value;
+  }
+
+  double _cloudCoverage = 0.0;
+  double get cloudCoverage => _cloudCoverage;
+  set cloudCoverage(double value) {
+    _cloudCoverage = value;
+  }
+
+  String _weatherState = '';
+  String get weatherState => _weatherState;
+  set weatherState(String value) {
+    _weatherState = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

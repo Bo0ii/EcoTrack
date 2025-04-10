@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 's1_widget.dart' show S1Widget;
@@ -10,6 +11,10 @@ class S1Model extends FlutterFlowModel<S1Widget> {
   FocusNode? myHomeFocusNode;
   TextEditingController? myHomeTextController;
   String? Function(BuildContext, String?)? myHomeTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UsersRecord? adminREF;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UsersInHouseholdRecord? userREF;
 
   @override
   void initState(BuildContext context) {}

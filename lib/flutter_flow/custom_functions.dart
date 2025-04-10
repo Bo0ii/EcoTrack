@@ -24,18 +24,16 @@ String getSensorState(
   String deviceId,
   String sensorType,
 ) {
-  // The entity_id format is: sensor.{deviceId}_pzem_{sensorType}
-  String targetId = "sensor." + deviceId + "_" + sensorType;
+  // Construct the prefix for the entity_id (e.g., "sensor.ecot2_pzem_voltage")
+  String prefix = "sensor." + deviceId + "_" + sensorType;
 
-  // Loop through each sensor object in the list
+  // Find the first sensor whose entity_id starts with the prefix
   for (var sensor in sensorList) {
-    // If entity_id matches targetId, return its state
-    if (sensor["entity_id"] == targetId) {
+    if (sensor["entity_id"].startsWith(prefix)) {
       return sensor["state"].toString();
     }
   }
-
-  // If not found, return "0" or some fallback
+  // Return "0" if no match is found
   return "0";
 }
 

@@ -60,6 +60,21 @@ class _AutomationWidgetState extends State<AutomationWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+        floatingActionButton: Align(
+          alignment: AlignmentDirectional(1.0, 0.75),
+          child: FloatingActionButton(
+            onPressed: () {
+              print('FloatingActionButton pressed ...');
+            },
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            elevation: 8.0,
+            child: Icon(
+              Icons.add_rounded,
+              color: Colors.black,
+              size: 24.0,
+            ),
+          ),
+        ),
         body: Stack(
           children: [
             Stack(
@@ -793,32 +808,6 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                 ),
                                               ),
                                             ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(1.0, -1.0),
-                                        child: Container(
-                                          width: 68.3,
-                                          height: 68.3,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Icon(
-                                              Icons.add,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              size: 32.0,
-                                            ),
                                           ),
                                         ),
                                       ),

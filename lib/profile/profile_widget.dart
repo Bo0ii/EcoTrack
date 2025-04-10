@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -39,8 +40,35 @@ class _ProfileWidgetState extends State<ProfileWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().currentPage = 'Profile';
-      safeSetState(() {});
+      _model.adminREF = await queryUsersRecordOnce(
+        queryBuilder: (usersRecord) => usersRecord.where(
+          'email',
+          isEqualTo: currentUserEmail,
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+      if (FFAppState().isAdmin == true) {
+        FFAppState().displayName = _model.adminREF!.displayName;
+        FFAppState().Age = _model.adminREF!.age;
+        FFAppState().Title = _model.adminREF!.title;
+        FFAppState().houseName = _model.adminREF!.nameOfHouse;
+        safeSetState(() {});
+      } else {
+        _model.userinhouseholdREF = await queryUsersInHouseholdRecordOnce(
+          parent: _model.adminREF?.reference,
+          queryBuilder: (usersInHouseholdRecord) =>
+              usersInHouseholdRecord.where(
+            'email',
+            isEqualTo: currentUserEmail,
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        FFAppState().displayName = _model.userinhouseholdREF!.displayName;
+        FFAppState().Age = _model.userinhouseholdREF!.age;
+        FFAppState().Title = _model.userinhouseholdREF!.title;
+        FFAppState().houseName = _model.userinhouseholdREF!.nameOfHouse;
+        safeSetState(() {});
+      }
     });
 
     animationsMap.addAll({
@@ -252,10 +280,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: Text(
-                            valueOrDefault<String>(
-                              profileUsersRecord?.displayName,
-                              'Name',
-                            ),
+                            FFAppState().displayName,
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
@@ -757,6 +782,20 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                               onTap: () async {
                                                 context.pushNamed(
                                                   EditProfileWidget.routeName,
+                                                  queryParameters: {
+                                                    'adminRef': serializeParam(
+                                                      _model
+                                                          .adminREF?.reference,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                    'userRef': serializeParam(
+                                                      _model.userinhouseholdREF
+                                                          ?.reference,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                  }.withoutNulls,
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
                                                         TransitionInfo(

@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/proccessing_q_r/proccessing_q_r_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -5,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -232,8 +235,32 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                     safeSetState(() {});
                                   }),
                                 ]);
-                                FFAppState().isDeviceSaved =
-                                    !(FFAppState().isDeviceSaved ?? true);
+                                _model.adminREF = await queryUsersRecordOnce(
+                                  queryBuilder: (usersRecord) =>
+                                      usersRecord.where(
+                                    'email',
+                                    isEqualTo: currentUserEmail,
+                                  ),
+                                  singleRecord: true,
+                                ).then((s) => s.firstOrNull);
+
+                                await DevicesRecord.createDoc(
+                                        _model.adminREF!.reference)
+                                    .set({
+                                  ...createDevicesRecordData(
+                                    deviceId: FFAppState().savedDeviceID,
+                                    friendlyName:
+                                        FFAppState().savedFriendlyName,
+                                    householdId: _model.adminREF?.householdId,
+                                  ),
+                                  ...mapToFirestore(
+                                    {
+                                      'userView': [currentUserEmail],
+                                      'userControl': [currentUserEmail],
+                                    },
+                                  ),
+                                });
+                                FFAppState().isDeviceSaved = true;
                                 safeSetState(() {});
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
@@ -261,6 +288,8 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                     );
                                   },
                                 ).then((value) => safeSetState(() {}));
+
+                                safeSetState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
                                 'g7b9ehhc' /* Confirm Connection */,

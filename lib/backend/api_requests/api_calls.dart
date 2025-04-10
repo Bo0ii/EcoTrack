@@ -228,6 +228,28 @@ class GetSensorDataCall {
         r'''$''',
         true,
       ) as List?;
+  static double? temperature(dynamic response) =>
+      castToType<double>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='weather.forecast_home')].attributes.temperature
+''',
+      ));
+  static int? humidity(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='weather.forecast_home')].attributes.humidity
+''',
+      ));
+  static double? cloudCoverage(dynamic response) =>
+      castToType<double>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='weather.forecast_home')].attributes.cloud_coverage
+''',
+      ));
+  static String? state(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='weather.forecast_home')].state
+''',
+      ));
 }
 
 class ToggleRelayOFFCall {

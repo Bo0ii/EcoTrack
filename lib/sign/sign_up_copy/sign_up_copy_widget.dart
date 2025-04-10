@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/components/dark_light/dark_light_widget.dart';
 import '/components/pssword_vald/pssword_vald_widget.dart';
 import '/components/succsess/succsess_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -12,29 +13,33 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'sign_up_model.dart';
-export 'sign_up_model.dart';
+import 'sign_up_copy_model.dart';
+export 'sign_up_copy_model.dart';
 
-class SignUpWidget extends StatefulWidget {
-  const SignUpWidget({super.key});
+class SignUpCopyWidget extends StatefulWidget {
+  const SignUpCopyWidget({super.key});
 
-  static String routeName = 'SignUp';
-  static String routePath = '/signUp';
+  static String routeName = 'SignUpCopy';
+  static String routePath = '/signUpCopy';
 
   @override
-  State<SignUpWidget> createState() => _SignUpWidgetState();
+  State<SignUpCopyWidget> createState() => _SignUpCopyWidgetState();
 }
 
-class _SignUpWidgetState extends State<SignUpWidget> {
-  late SignUpModel _model;
+class _SignUpCopyWidgetState extends State<SignUpCopyWidget>
+    with TickerProviderStateMixin {
+  late SignUpCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SignUpModel());
+    _model = createModel(context, () => SignUpCopyModel());
 
     _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
@@ -47,6 +52,29 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
     _model.passwordConfirmTextController ??= TextEditingController();
     _model.passwordConfirmFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(3.0, 3.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -67,25 +95,42 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color(0xFFC5E9FC), Color(0xFFFBFBFB)],
-                        stops: [0.0, 0.3],
-                        begin: AlignmentDirectional(-1.0, -1.0),
-                        end: AlignmentDirectional(1.0, 1.0),
-                      ),
+        backgroundColor: Colors.white,
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                height: 500.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Stack(
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Opacity(
+                          opacity: 0.5,
+                          child: Lottie.asset(
+                            'assets/jsons/Animation_-_1744078081068.json',
+                            width: 392.8,
+                            height: 870.0,
+                            fit: BoxFit.fill,
+                            frameRate: FrameRate(120.0),
+                            reverse: true,
+                            animate: true,
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [],
+                        ),
+                      ],
                     ),
-                    child: Column(
+                    Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
@@ -104,7 +149,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   buttonSize: 50.0,
                                   icon: Icon(
                                     Icons.arrow_back_ios_rounded,
-                                    color: Color(0xFF373737),
+                                    color: Color(0x94373737),
                                     size: 30.0,
                                   ),
                                   onPressed: () async {
@@ -117,7 +162,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 0.0, 5.0),
+                              24.0, 0.0, 24.0, 5.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -156,7 +201,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  30.0, 30.0, 0.0, 0.0),
+                                                  15.0, 30.0, 0.0, 0.0),
                                           child: wrapWithModel(
                                             model: _model.darkLightModel,
                                             updateCallback: () =>
@@ -188,7 +233,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           0.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'gpokmd81' /* Get Started */,
+                                          'qr56j8je' /* Get Started */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
@@ -215,7 +260,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'oitrrwgg' /* Create your admin account belo... */,
+                                        'w3rnhg5o' /* Create your admin account belo... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
@@ -246,7 +291,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                       isDense: false,
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'gcwdqm4g' /* Email Address */,
+                                        'ov29mlvp' /* Email Address */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -263,7 +308,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'iam0xgwx' /* Enter your email... */,
+                                        'hq74wn7q' /* Enter your email... */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -311,8 +356,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             BorderRadius.circular(12.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor: Color(0x7EFFFFFF),
                                       contentPadding: EdgeInsets.all(22.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -345,7 +389,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'l16nk7lc' /* Household ID */,
+                                        'nxs5hrsp' /* Household ID */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -362,7 +406,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'k5vo9myg' /* Create your Household ID */,
+                                        '2itec3dp' /* Create your Household ID */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -410,8 +454,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor: Color(0x7EFFFFFF),
                                       contentPadding: EdgeInsets.all(22.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -446,7 +489,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'bqv15dcf' /* Password */,
+                                        '88466tws' /* Password */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -463,7 +506,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'joih97mn' /* Enter your password... */,
+                                        's8bb87j6' /* Enter your password... */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -511,8 +554,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor: Color(0x7EFFFFFF),
                                       contentPadding: EdgeInsets.all(22.0),
                                       suffixIcon: InkWell(
                                         onTap: () => safeSetState(
@@ -525,8 +567,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           _model.passwordVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                          color: Color(0xB78B97A2),
                                           size: 20.0,
                                         ),
                                       ),
@@ -560,7 +601,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'rzpiwq9p' /* Confirm Password */,
+                                        '4e5qfqn9' /* Confirm Password */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -577,7 +618,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        'eyfkffka' /* Enter your password... */,
+                                        'ukh8nrrk' /* Enter your password... */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -625,8 +666,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor: Color(0x7EFFFFFF),
                                       contentPadding: EdgeInsets.all(22.0),
                                       suffixIcon: InkWell(
                                         onTap: () => safeSetState(
@@ -640,8 +680,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                           _model.passwordConfirmVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                          color: Color(0xB78B97A2),
                                           size: 20.0,
                                         ),
                                       ),
@@ -674,7 +713,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 22.0, 10.0, 0.0),
+                                          10.0, 15.0, 10.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -775,38 +814,16 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   return;
                                 }
 
-                                var usersRecordReference =
-                                    UsersRecord.collection.doc();
-                                await usersRecordReference
+                                await UsersRecord.collection
+                                    .doc()
                                     .set(createUsersRecordData(
-                                  email: _model.emailTextController.text,
-                                  password: _model.passwordTextController.text,
-                                  accountType: 'admin',
-                                  householdId:
-                                      _model.householdIdTextController.text,
-                                  displayName: '',
-                                  title: '',
-                                  nameOfHouse: '',
-                                  age: 0,
-                                ));
-                                _model.adminRef =
-                                    UsersRecord.getDocumentFromData(
-                                        createUsersRecordData(
-                                          email:
-                                              _model.emailTextController.text,
-                                          password: _model
-                                              .passwordTextController.text,
-                                          accountType: 'admin',
-                                          householdId: _model
-                                              .householdIdTextController.text,
-                                          displayName: '',
-                                          title: '',
-                                          nameOfHouse: '',
-                                          age: 0,
-                                        ),
-                                        usersRecordReference);
-                                FFAppState().isAdmin = true;
-                                safeSetState(() {});
+                                      email: _model.emailTextController.text,
+                                      password:
+                                          _model.passwordTextController.text,
+                                      accountType: 'admin',
+                                      householdId:
+                                          _model.householdIdTextController.text,
+                                    ));
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
@@ -832,11 +849,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     );
                                   },
                                 ).then((value) => safeSetState(() {}));
-
-                                safeSetState(() {});
                               },
                               text: FFLocalizations.of(context).getText(
-                                '5kmjfwsk' /* Create Account */,
+                                '7zeg218z' /* Create Account */,
                               ),
                               options: FFButtonOptions(
                                 width: 211.5,
@@ -845,7 +860,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: Color(0xFF7CABAB),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -895,7 +910,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '9ssznj0g' /* Already have an account? */,
+                                    'j69p7k5s' /* Already have an account? */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -915,7 +930,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                       18.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '3twynvfz' /* Login */,
+                                      'fk6c96g6' /* Login */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -945,11 +960,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                  ],
+                ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation']!),
+            ),
+          ],
         ),
       ),
     );

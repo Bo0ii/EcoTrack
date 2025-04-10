@@ -48,7 +48,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
       _model.userRef = await queryUsersRecordOnce(
         queryBuilder: (usersRecord) => usersRecord.where(
           'email',
-          isEqualTo: widget.email,
+          isEqualTo: currentUserEmail,
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);

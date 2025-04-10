@@ -7,10 +7,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/index.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 's6_model.dart';
 export 's6_model.dart';
 
@@ -46,10 +48,12 @@ export 's6_model.dart';
 class S6Widget extends StatefulWidget {
   const S6Widget({
     super.key,
-    this.userProfile,
+    this.adminRef,
+    this.userRef,
   });
 
-  final DocumentReference? userProfile;
+  final DocumentReference? adminRef;
+  final DocumentReference? userRef;
 
   static String routeName = 's6';
   static String routePath = '/s6';
@@ -89,6 +93,8 @@ class _S6WidgetState extends State<S6Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<UsersRecord>>(
       stream: queryUsersRecord(
         singleRecord: true,
@@ -828,44 +834,83 @@ class _S6WidgetState extends State<S6Widget> {
                                                       0.0, 60.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  await s6UsersRecord!.reference
-                                                      .update(
-                                                          createUsersRecordData(
-                                                    displayName: _model
-                                                        .yourNameTextController
-                                                        .text,
-                                                    photoUrl:
-                                                        _model.uploadedFileUrl,
-                                                    age: int.tryParse(_model
-                                                        .yourAgeTextController
-                                                        .text),
-                                                    title: _model
-                                                        .yourTitleTextController
-                                                        .text,
-                                                  ));
-
-                                                  context.pushNamed(
-                                                    HomeNewWidget.routeName,
-                                                    queryParameters: {
-                                                      'email': serializeParam(
-                                                        '',
-                                                        ParamType.String,
+                                                  _model.adminREF =
+                                                      await queryUsersRecordOnce(
+                                                    queryBuilder:
+                                                        (usersRecord) =>
+                                                            usersRecord.where(
+                                                      'email',
+                                                      isEqualTo:
+                                                          currentUserEmail,
+                                                    ),
+                                                    singleRecord: true,
+                                                  ).then((s) => s.firstOrNull);
+                                                  if (FFAppState().isAdmin ==
+                                                      true) {
+                                                    await _model
+                                                        .adminREF!.reference
+                                                        .update(
+                                                            createUsersRecordData(
+                                                      age: int.tryParse(_model
+                                                          .yourAgeTextController
+                                                          .text),
+                                                      displayName: _model
+                                                          .yourNameTextController
+                                                          .text,
+                                                      title: _model
+                                                          .yourTitleTextController
+                                                          .text,
+                                                    ));
+                                                  } else {
+                                                    _model.userREF =
+                                                        await queryUsersInHouseholdRecordOnce(
+                                                      queryBuilder:
+                                                          (usersInHouseholdRecord) =>
+                                                              usersInHouseholdRecord
+                                                                  .where(
+                                                        'email',
+                                                        isEqualTo:
+                                                            currentUserEmail,
                                                       ),
-                                                    }.withoutNulls,
+                                                      singleRecord: true,
+                                                    ).then((s) =>
+                                                            s.firstOrNull);
+
+                                                    await _model
+                                                        .userREF!.reference
+                                                        .update(
+                                                            createUsersInHouseholdRecordData(
+                                                      age: int.tryParse(_model
+                                                          .yourAgeTextController
+                                                          .text),
+                                                      displayName: _model
+                                                          .yourNameTextController
+                                                          .text,
+                                                      title: _model
+                                                          .yourTitleTextController
+                                                          .text,
+                                                      nameOfHouse: _model
+                                                          .yourTitleTextController
+                                                          .text,
+                                                    ));
+                                                  }
+
+                                                  context.goNamed(
+                                                    HomeNewWidget.routeName,
                                                     extra: <String, dynamic>{
                                                       kTransitionInfoKey:
                                                           TransitionInfo(
                                                         hasTransition: true,
                                                         transitionType:
                                                             PageTransitionType
-                                                                .scale,
-                                                        alignment: Alignment
-                                                            .bottomCenter,
+                                                                .rightToLeft,
                                                         duration: Duration(
                                                             milliseconds: 200),
                                                       ),
                                                     },
                                                   );
+
+                                                  safeSetState(() {});
                                                 },
                                                 text:
                                                     FFLocalizations.of(context)

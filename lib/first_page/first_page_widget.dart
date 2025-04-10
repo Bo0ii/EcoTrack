@@ -203,7 +203,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                 child: Stack(
                                   children: [
                                     Opacity(
-                                      opacity: 0.3,
+                                      opacity: 0.5,
                                       child: Align(
                                         alignment:
                                             AlignmentDirectional(7.2, 0.0),

@@ -456,7 +456,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.passwordTextController',
-                                            Duration(milliseconds: 2000),
+                                            Duration(milliseconds: 1000),
                                             () async {
                                               _model.isPasswordValid = ((String
                                                           input) {
@@ -772,43 +772,6 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 3.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'cel6ravu' /* Your password must contain: */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: Color(
-                                                                    0xFF454B4F),
-                                                                fontSize: 13.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
                                                 wrapWithModel(
                                                   model:
                                                       _model.psswordValdModel1,
@@ -886,7 +849,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 50.0, 0.0, 15.0),
+                                          0.0, 30.0, 0.0, 15.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           _model.adminRecord =
@@ -946,7 +909,12 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                     createUsersInHouseholdRecordData(
                                               email: _model
                                                   .emailTextController.text,
-                                              password: '',
+                                              password: _model
+                                                  .passwordTextController.text,
+                                              displayName: '',
+                                              age: 0,
+                                              nameOfHouse: '',
+                                              title: '',
                                             ));
 
                                             await UserDirectoryRecord.collection
@@ -960,6 +928,8 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                       ?.elementAtOrNull(0)
                                                       ?.reference,
                                                 ));
+                                            FFAppState().isAdmin = false;
+                                            safeSetState(() {});
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
@@ -1000,7 +970,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                           'edrm55vi' /* Create Account */,
                                         ),
                                         options: FFButtonOptions(
-                                          width: 226.3,
+                                          width: 216.38,
                                           height: 47.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
