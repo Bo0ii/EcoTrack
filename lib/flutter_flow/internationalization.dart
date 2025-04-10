@@ -1532,12 +1532,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'o0hhr745': {
-      'en': '5',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     '4slxa9jb': {
       'en': 'kWh',
       'ar': '',

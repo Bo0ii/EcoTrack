@@ -747,7 +747,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Container(
-                                          width: 170.1,
+                                          width: 158.1,
                                           height: 80.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
@@ -875,7 +875,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
                                           child: Container(
-                                            width: 170.1,
+                                            width: 158.1,
                                             height: 80.0,
                                             decoration: BoxDecoration(
                                               color:
@@ -974,10 +974,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'o0hhr745' /* 5 */,
+                                                        valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .deviceID,
+                                                              'pzem_energy_kwh'),
+                                                          'Energy',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1094,8 +1099,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                             8.0),
                                                   ),
                                                   child: Container(
-                                                    width: 189.83,
-                                                    height: 249.6,
+                                                    width: 189.8,
+                                                    height: 253.44,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1897,42 +1902,38 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                     ),
                   ),
                 ),
-                if (responsiveVisibility(
-                  context: context,
-                  phone: false,
-                ))
-                  ClipRect(
-                    child: ImageFiltered(
-                      imageFilter: ImageFilter.blur(
-                        sigmaX: 5.0,
-                        sigmaY: 5.0,
-                      ),
-                      child: Opacity(
-                        opacity: 0.9,
-                        child: Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Container(
-                            width: 393.0,
-                            height: 96.88,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFFD9FEFF),
-                                  Color(0xFFD9FEFF),
-                                  Color(0x50D9FEFF),
-                                  Color(0x00EBFEFF)
-                                ],
-                                stops: [0.0, 0.5, 0.85, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
-                              ),
+                ClipRect(
+                  child: ImageFiltered(
+                    imageFilter: ImageFilter.blur(
+                      sigmaX: 5.0,
+                      sigmaY: 5.0,
+                    ),
+                    child: Opacity(
+                      opacity: 0.95,
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Container(
+                          width: 393.0,
+                          height: 96.04,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFD9FEFF),
+                                Color(0xFFD9FEFF),
+                                Color(0x50D9FEFF),
+                                Color(0x00EBFEFF)
+                              ],
+                              stops: [0.0, 0.5, 0.85, 1.0],
+                              begin: AlignmentDirectional(0.0, -1.0),
+                              end: AlignmentDirectional(0, 1.0),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
                           ),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                         ),
                       ),
                     ),
                   ),
+                ),
               ],
             ),
           ],
