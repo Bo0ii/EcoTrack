@@ -327,6 +327,12 @@ class FFAppState extends ChangeNotifier {
   set tips(String value) {
     _tips = value;
   }
+
+  bool _sui = false;
+  bool get sui => _sui;
+  set sui(bool value) {
+    _sui = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
