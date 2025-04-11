@@ -211,7 +211,7 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FlutterFlowWebView(
-                                      content: 'http://192.168.4.1',
+                                      content: '192.168.4.1',
                                       height: 430.9,
                                       verticalScroll: true,
                                       horizontalScroll: false,

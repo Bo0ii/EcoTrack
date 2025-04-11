@@ -272,11 +272,6 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget>
                                                                           context)
                                                                       .bodySmallFamily),
                                                         ),
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  '57h6d48j' /* Enter your existing email */,
-                                                ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall

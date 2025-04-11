@@ -341,7 +341,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  't1i1qr8i' /* connect your device */,
+                                                  't1i1qr8i' /* Connect your device */,
                                                 ),
                                                 textAlign: TextAlign.center,
                                                 style:
@@ -754,7 +754,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                         );
                                       },
                                       child: Image.asset(
-                                        'assets/images/14.png',
+                                        'assets/images/11.png',
                                         width: 83.3,
                                         height: 88.58,
                                         fit: BoxFit.cover,
@@ -793,7 +793,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                         child: SelectionArea(
                                             child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'jh0fjujg' /* eco */,
+                                            'jh0fjujg' /* ecot3 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -816,7 +816,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation6']!),
                                     Image.asset(
-                                      'assets/images/19.png',
+                                      'assets/images/11.png',
                                       width: 120.11,
                                       height: 112.4,
                                       fit: BoxFit.cover,

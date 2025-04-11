@@ -480,7 +480,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                                         checkColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
+                                                                .info,
                                                       ),
                                                     ),
                                                   ],
@@ -634,7 +634,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                       TextSpan(
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          '5f4q23tv' /* Permissons of  */,
+                                          '5f4q23tv' /* Manage Device  */,
                                         ),
                                         style: TextStyle(
                                           color: Colors.black,
@@ -643,7 +643,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                       TextSpan(
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'jevywbkc' /* Users  */,
+                                          'jevywbkc' /* Permissions  */,
                                         ),
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
@@ -657,6 +657,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .headlineMediumFamily,
+                                          fontSize: 24.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                           useGoogleFonts: GoogleFonts.asMap()
@@ -671,7 +672,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                       0.0, 0.0, 0.0, 15.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'kdz55hqr' /* Control the users in your hous... */,
+                                      'kdz55hqr' /* Manage which users can view or... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -689,7 +690,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                         ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 8.0)),
+                              ].divide(SizedBox(height: 1.0)),
                             ),
                           ),
                         ],

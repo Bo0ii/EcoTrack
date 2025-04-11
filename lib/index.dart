@@ -1,5 +1,4 @@
 // Export pages
-export '/sign/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/sign/sign_up/sign_up_widget.dart' show SignUpWidget;
 export '/junk/dashboarv11/dashboarv11_widget.dart' show Dashboarv11Widget;
 export '/sign/sign_up_user/sign_up_user_widget.dart' show SignUpUserWidget;
@@ -31,7 +30,6 @@ export '/phone_integration/startup4_pages/s4qr/s4qr_widget.dart'
     show S4qrWidget;
 export '/phone_integration/startup4_pages/s5_network/s5_network_widget.dart'
     show S5NetworkWidget;
-export '/pages/gradiant_contaner_copy/gradiant_contaner_copy_widget.dart'
-    show GradiantContanerCopyWidget;
 export '/first_page/first_page_widget.dart' show FirstPageWidget;
-export '/sign/sign_up_copy/sign_up_copy_widget.dart' show SignUpCopyWidget;
+export '/sign/login_page/login_page_widget.dart' show LoginPageWidget;
+export '/pages/new_gradiant/new_gradiant_widget.dart' show NewGradiantWidget;

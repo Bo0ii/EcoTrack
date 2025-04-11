@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -277,6 +278,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 FFButtonWidget(
                                   onPressed: () async {
                                     final selectedMedia = await selectMedia(
+                                      imageQuality: 70,
                                       mediaSource: MediaSource.photoGallery,
                                       multiImage: false,
                                     );
@@ -778,6 +780,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 int.tryParse(_model.yourAgeTextController.text),
                             title: _model.yourTitleTextController1.text,
                             nameOfHouse: _model.yourTitleTextController2.text,
+                            photoUrl: currentUserPhoto,
                           ));
                           FFAppState().displayName =
                               _model.yourNameTextController.text;
@@ -796,6 +799,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 int.tryParse(_model.yourAgeTextController.text),
                             title: _model.yourTitleTextController1.text,
                             nameOfHouse: _model.yourTitleTextController2.text,
+                            photoUrl: currentUserPhoto,
                           ));
                           FFAppState().displayName =
                               _model.yourNameTextController.text;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -16,6 +18,17 @@ class FFAppState extends ChangeNotifier {
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _historyData = prefs.getStringList('ff_historyData')?.map((x) {
+            try {
+              return jsonDecode(x);
+            } catch (e) {
+              print("Can't decode persisted json. Error: $e.");
+              return {};
+            }
+          }).toList() ??
+          _historyData;
+    });
     _safeInit(() {
       _isDeviceSaved = prefs.getBool('ff_isDeviceSaved') ?? _isDeviceSaved;
     });
@@ -174,18 +187,26 @@ class FFAppState extends ChangeNotifier {
   List<dynamic> get historyData => _historyData;
   set historyData(List<dynamic> value) {
     _historyData = value;
+    prefs.setStringList(
+        'ff_historyData', value.map((x) => jsonEncode(x)).toList());
   }
 
   void addToHistoryData(dynamic value) {
     historyData.add(value);
+    prefs.setStringList(
+        'ff_historyData', _historyData.map((x) => jsonEncode(x)).toList());
   }
 
   void removeFromHistoryData(dynamic value) {
     historyData.remove(value);
+    prefs.setStringList(
+        'ff_historyData', _historyData.map((x) => jsonEncode(x)).toList());
   }
 
   void removeAtIndexFromHistoryData(int index) {
     historyData.removeAt(index);
+    prefs.setStringList(
+        'ff_historyData', _historyData.map((x) => jsonEncode(x)).toList());
   }
 
   void updateHistoryDataAtIndex(
@@ -193,10 +214,14 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     historyData[index] = updateFn(_historyData[index]);
+    prefs.setStringList(
+        'ff_historyData', _historyData.map((x) => jsonEncode(x)).toList());
   }
 
   void insertAtIndexInHistoryData(int index, dynamic value) {
     historyData.insert(index, value);
+    prefs.setStringList(
+        'ff_historyData', _historyData.map((x) => jsonEncode(x)).toList());
   }
 
   String _deviceOnTime = '00:00';
@@ -332,6 +357,12 @@ class FFAppState extends ChangeNotifier {
   bool get sui => _sui;
   set sui(bool value) {
     _sui = value;
+  }
+
+  int _weatherTempINT = 0;
+  int get weatherTempINT => _weatherTempINT;
+  set weatherTempINT(int value) {
+    _weatherTempINT = value;
   }
 }
 

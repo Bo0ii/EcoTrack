@@ -160,7 +160,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFF83BABA),
+            backgroundColor: Color(0xFFC1E0E0),
             body: Center(
               child: SizedBox(
                 width: 40.0,
@@ -185,7 +185,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
           },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFF83BABA),
+            backgroundColor: Color(0xFFC1E0E0),
             body: Stack(
               children: [
                 Align(
@@ -696,7 +696,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'c59fkx1h' /* US Dollar ($) */,
+                                                'c59fkx1h' /* AED */,
                                               ),
                                               textAlign: TextAlign.center,
                                               style:

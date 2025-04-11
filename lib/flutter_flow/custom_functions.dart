@@ -55,3 +55,26 @@ String getRelayState(
 
   return "unknown";
 }
+
+String getFormattedSensorId(
+  String deviceId,
+  String sensorType,
+) {
+// This regular expression separates the alphabetic part from the trailing digits.
+  // For example, if deviceId is "ecot2", then:
+  //    match.group(1) will be "ecot"
+  //    match.group(2) will be "2"
+  final regex = RegExp(r'^(.*?)(\d+)$');
+  final match = regex.firstMatch(deviceId);
+
+  if (match != null) {
+    // The full sensor ID will be built using the complete deviceId,
+    // then the sensorType, and then appending an underscore plus the trailing digits.
+    // For example, for deviceId "ecot2" and sensorType "pzem_power", it produces:
+    //   "sensor.ecot2_pzem_power_2"
+    return 'sensor.' + deviceId + '_' + sensorType + '_' + match.group(2)!;
+  } else {
+    // If no trailing digits exist, simply return the combination.
+    return 'sensor.' + deviceId + '_' + sensorType;
+  }
+}

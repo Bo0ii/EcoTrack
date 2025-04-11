@@ -84,11 +84,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? HomeNewWidget() : FirstPageWidget(),
         ),
         FFRoute(
-          name: LoginPageWidget.routeName,
-          path: LoginPageWidget.routePath,
-          builder: (context, params) => LoginPageWidget(),
-        ),
-        FFRoute(
           name: SignUpWidget.routeName,
           path: SignUpWidget.routePath,
           builder: (context, params) => SignUpWidget(),
@@ -274,19 +269,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => S5NetworkWidget(),
         ),
         FFRoute(
-          name: GradiantContanerCopyWidget.routeName,
-          path: GradiantContanerCopyWidget.routePath,
-          builder: (context, params) => GradiantContanerCopyWidget(),
-        ),
-        FFRoute(
           name: FirstPageWidget.routeName,
           path: FirstPageWidget.routePath,
           builder: (context, params) => FirstPageWidget(),
         ),
         FFRoute(
-          name: SignUpCopyWidget.routeName,
-          path: SignUpCopyWidget.routePath,
-          builder: (context, params) => SignUpCopyWidget(),
+          name: LoginPageWidget.routeName,
+          path: LoginPageWidget.routePath,
+          builder: (context, params) => LoginPageWidget(),
+        ),
+        FFRoute(
+          name: NewGradiantWidget.routeName,
+          path: NewGradiantWidget.routePath,
+          builder: (context, params) => NewGradiantWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

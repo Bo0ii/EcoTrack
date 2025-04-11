@@ -214,7 +214,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                           child: Lottie.asset(
                                             'assets/jsons/Animation_-_1743979661781.json',
                                             width: 404.3,
-                                            height: 256.0,
+                                            height: 294.62,
                                             fit: BoxFit.contain,
                                             frameRate: FrameRate(120.0),
                                             reverse: true,
@@ -232,7 +232,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                               alignment: AlignmentDirectional(-0.01, -1.07),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 125.0, 8.0, 8.0),
+                                    8.0, 135.0, 8.0, 8.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(6.0),
                                   child: Image.asset(
@@ -251,7 +251,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 280.0, 0.0, 0.0),
+                              20.0, 270.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'bi2nao8p' /* Welcome! */,
