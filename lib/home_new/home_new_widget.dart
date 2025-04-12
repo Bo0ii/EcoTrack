@@ -1210,7 +1210,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                     ),
                                                     child: Container(
                                                       width: 189.8,
-                                                      height: 248.17,
+                                                      height: 250.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -1786,22 +1786,16 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               1.0,
                                                                               0.0),
                                                                           child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                4.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
+                                                                              ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(0.0),
                                                                             child:
-                                                                                ClipRRect(
-                                                                              borderRadius: BorderRadius.circular(0.0),
-                                                                              child: Image.asset(
-                                                                                'assets/images/11.png',
-                                                                                width: 156.1,
-                                                                                height: 164.6,
-                                                                                fit: BoxFit.cover,
-                                                                                alignment: Alignment(-1.0, 0.0),
-                                                                              ),
+                                                                                Image.asset(
+                                                                              'assets/images/11.png',
+                                                                              width: 156.1,
+                                                                              height: 164.6,
+                                                                              fit: BoxFit.cover,
+                                                                              alignment: Alignment(-1.0, 0.0),
                                                                             ),
                                                                           ),
                                                                         ),

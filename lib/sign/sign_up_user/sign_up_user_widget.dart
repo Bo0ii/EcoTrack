@@ -15,7 +15,6 @@ import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sign_up_user_model.dart';
 export 'sign_up_user_model.dart';
@@ -71,6 +70,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Column(
           mainAxisSize: MainAxisSize.max,
@@ -99,18 +99,6 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                             imageFilter: ImageFilter.blur(
                               sigmaX: 19.0,
                               sigmaY: 19.0,
-                            ),
-                            child: Opacity(
-                              opacity: 0.8,
-                              child: Lottie.asset(
-                                'assets/jsons/Animation_-_1744398367492-rhD68.json',
-                                width: 787.9,
-                                height: 394.7,
-                                fit: BoxFit.cover,
-                                frameRate: FrameRate(60.0),
-                                reverse: true,
-                                animate: true,
-                              ),
                             ),
                           ),
                         ),

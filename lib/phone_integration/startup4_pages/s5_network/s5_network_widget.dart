@@ -186,7 +186,7 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        11.0, 0.0, 11.0, 24.0),
+                                        11.0, 0.0, 11.0, 16.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'zm0jev5s' /* Use your camera to scan the QR... */,
@@ -211,9 +211,10 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FlutterFlowWebView(
-                                      content: '192.168.4.1',
-                                      height: 430.9,
-                                      verticalScroll: true,
+                                      content: 'http://192.168.4.1',
+                                      bypass: true,
+                                      height: 432.77,
+                                      verticalScroll: false,
                                       horizontalScroll: false,
                                     ),
                                   ),

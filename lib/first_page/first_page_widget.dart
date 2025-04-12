@@ -7,7 +7,6 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'first_page_model.dart';
 export 'first_page_model.dart';
 
@@ -108,18 +107,6 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                   imageFilter: ImageFilter.blur(
                                     sigmaX: 19.0,
                                     sigmaY: 19.0,
-                                  ),
-                                  child: Opacity(
-                                    opacity: 0.7,
-                                    child: Lottie.asset(
-                                      'assets/jsons/Animation_-_1744398241424-tn3hV.json',
-                                      width: 787.9,
-                                      height: 281.8,
-                                      fit: BoxFit.cover,
-                                      frameRate: FrameRate(60.0),
-                                      reverse: true,
-                                      animate: true,
-                                    ),
                                   ),
                                 ),
                               ),
