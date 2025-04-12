@@ -84,41 +84,37 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     ),
                     child: Stack(
                       children: [
-                        Stack(
-                          children: [
-                            Container(
-                              width: 593.4,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Transform.scale(
-                                scaleX: 1.6,
-                                scaleY: 1.0,
-                                origin: Offset(38.0, 99.0),
-                                child: ClipRect(
-                                  child: ImageFiltered(
-                                    imageFilter: ImageFilter.blur(
-                                      sigmaX: 19.0,
-                                      sigmaY: 19.0,
-                                    ),
-                                    child: Opacity(
-                                      opacity: 0.8,
-                                      child: Lottie.asset(
-                                        'assets/jsons/Animation_-_1744398367492-rhD68.json',
-                                        width: 787.9,
-                                        height: 394.7,
-                                        fit: BoxFit.cover,
-                                        frameRate: FrameRate(60.0),
-                                        reverse: true,
-                                        animate: true,
-                                      ),
-                                    ),
+                        Container(
+                          width: 593.4,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          child: Transform.scale(
+                            scaleX: 1.6,
+                            scaleY: 1.0,
+                            origin: Offset(38.0, 99.0),
+                            child: ClipRect(
+                              child: ImageFiltered(
+                                imageFilter: ImageFilter.blur(
+                                  sigmaX: 19.0,
+                                  sigmaY: 19.0,
+                                ),
+                                child: Opacity(
+                                  opacity: 0.8,
+                                  child: Lottie.asset(
+                                    'assets/jsons/Animation_-_1744398367492-rhD68.json',
+                                    width: 787.9,
+                                    height: 394.7,
+                                    fit: BoxFit.cover,
+                                    frameRate: FrameRate(60.0),
+                                    reverse: true,
+                                    animate: true,
                                   ),
                                 ),
                               ),
                             ),
-                          ],
+                          ),
                         ),
                         Align(
                           alignment: AlignmentDirectional(0.0, 1.0),

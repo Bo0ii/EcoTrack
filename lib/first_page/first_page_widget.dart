@@ -154,7 +154,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                 alignment: AlignmentDirectional(-0.01, -1.07),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 145.0, 8.0, 8.0),
+                                      8.0, 125.0, 8.0, 8.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(6.0),
                                     child: Image.asset(
@@ -174,7 +174,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 310.0, 0.0, 0.0),
+                              20.0, 320.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '8uxb8w7l' /* Welcome! */,

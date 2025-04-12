@@ -260,41 +260,37 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                 ),
                 child: Stack(
                   children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: 593.4,
-                          decoration: BoxDecoration(),
-                          child: Opacity(
-                            opacity: 0.8,
-                            child: Transform.scale(
-                              scaleX: 5.0,
-                              scaleY: 1.7,
-                              origin: Offset(100.0, -53.0),
-                              child: ClipRect(
-                                child: ImageFiltered(
-                                  imageFilter: ImageFilter.blur(
-                                    sigmaX: 16.0,
-                                    sigmaY: 16.0,
-                                  ),
-                                  child: Opacity(
-                                    opacity: 0.8,
-                                    child: Lottie.asset(
-                                      'assets/jsons/Animation_-_1744398367492.json',
-                                      width: 787.9,
-                                      height: 394.7,
-                                      fit: BoxFit.cover,
-                                      frameRate: FrameRate(120.0),
-                                      reverse: true,
-                                      animate: true,
-                                    ),
-                                  ),
+                    Container(
+                      width: 593.4,
+                      decoration: BoxDecoration(),
+                      child: Opacity(
+                        opacity: 0.8,
+                        child: Transform.scale(
+                          scaleX: 5.0,
+                          scaleY: 1.7,
+                          origin: Offset(100.0, -53.0),
+                          child: ClipRect(
+                            child: ImageFiltered(
+                              imageFilter: ImageFilter.blur(
+                                sigmaX: 16.0,
+                                sigmaY: 16.0,
+                              ),
+                              child: Opacity(
+                                opacity: 0.8,
+                                child: Lottie.asset(
+                                  'assets/jsons/Animation_-_1744398367492.json',
+                                  width: 787.9,
+                                  height: 394.7,
+                                  fit: BoxFit.cover,
+                                  frameRate: FrameRate(120.0),
+                                  reverse: true,
+                                  animate: true,
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ],
+                      ),
                     ),
                     Stack(
                       children: [
