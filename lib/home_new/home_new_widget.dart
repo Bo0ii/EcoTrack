@@ -1161,11 +1161,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         StreamBuilder<List<DevicesRecord>>(
-                                          stream: queryDevicesRecord(
-                                            queryBuilder: (devicesRecord) =>
-                                                devicesRecord.where(
-                                              'userView',
-                                              arrayContains: currentUserEmail,
+                                          stream:
+                                              FFAppState().devicesValuesCache(
+                                            requestFn: () => queryDevicesRecord(
+                                              queryBuilder: (devicesRecord) =>
+                                                  devicesRecord.where(
+                                                'userView',
+                                                arrayContains: currentUserEmail,
+                                              ),
                                             ),
                                           ),
                                           builder: (context, snapshot) {

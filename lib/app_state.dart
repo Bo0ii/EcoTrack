@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
+import '/backend/backend.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'dart:convert';
@@ -376,6 +378,22 @@ class FFAppState extends ChangeNotifier {
   set totalEnergy(double value) {
     _totalEnergy = value;
   }
+
+  final _devicesValuesCacheManager =
+      StreamRequestManager<List<DevicesRecord>>();
+  Stream<List<DevicesRecord>> devicesValuesCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Stream<List<DevicesRecord>> Function() requestFn,
+  }) =>
+      _devicesValuesCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearDevicesValuesCacheCache() => _devicesValuesCacheManager.clear();
+  void clearDevicesValuesCacheCacheKey(String? uniqueKey) =>
+      _devicesValuesCacheManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {
