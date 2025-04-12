@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/components/dark_light/dark_light_widget.dart';
 import '/components/pssword_vald/pssword_vald_widget.dart';
 import '/components/succsess/succsess_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -30,10 +31,13 @@ class SignUpUserWidget extends StatefulWidget {
   State<SignUpUserWidget> createState() => _SignUpUserWidgetState();
 }
 
-class _SignUpUserWidgetState extends State<SignUpUserWidget> {
+class _SignUpUserWidgetState extends State<SignUpUserWidget>
+    with TickerProviderStateMixin {
   late SignUpUserModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -51,6 +55,29 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
 
     _model.passwordConfirmTextController ??= TextEditingController();
     _model.passwordConfirmFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(3.0, 3.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -106,11 +133,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                 child: Opacity(
                                   opacity: 0.8,
                                   child: Lottie.asset(
-                                    'assets/jsons/Animation_-_1744398367492.json',
+                                    'assets/jsons/Animation_-_1744398367492-rhD68.json',
                                     width: 787.9,
                                     height: 394.7,
                                     fit: BoxFit.cover,
-                                    frameRate: FrameRate(120.0),
+                                    frameRate: FrameRate(60.0),
                                     reverse: true,
                                     animate: true,
                                   ),
@@ -1274,7 +1301,8 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                     ),
                   ],
                 ),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation']!),
             ),
           ],
         ),

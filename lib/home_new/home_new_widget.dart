@@ -282,14 +282,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                           child: Opacity(
                             opacity: 0.8,
                             child: Transform.scale(
-                              scaleX: 3.4,
-                              scaleY: 1.0,
-                              origin: Offset(86.0, -55.0),
+                              scaleX: 5.0,
+                              scaleY: 1.7,
+                              origin: Offset(100.0, -53.0),
                               child: ClipRect(
                                 child: ImageFiltered(
                                   imageFilter: ImageFilter.blur(
-                                    sigmaX: 19.0,
-                                    sigmaY: 19.0,
+                                    sigmaX: 16.0,
+                                    sigmaY: 16.0,
                                   ),
                                   child: Opacity(
                                     opacity: 0.8,
@@ -298,7 +298,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                       width: 787.9,
                                       height: 394.7,
                                       fit: BoxFit.cover,
-                                      frameRate: FrameRate(60.0),
+                                      frameRate: FrameRate(120.0),
                                       reverse: true,
                                       animate: true,
                                     ),
@@ -1519,7 +1519,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                     child: Stack(
                                                                                       children: [
                                                                                         Opacity(
-                                                                                          opacity: 0.4,
+                                                                                          opacity: 0.5,
                                                                                           child: Stack(
                                                                                             children: [
                                                                                               ClipRect(
@@ -1527,6 +1527,17 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                   imageFilter: ImageFilter.blur(
                                                                                                     sigmaX: 16.0,
                                                                                                     sigmaY: 16.0,
+                                                                                                  ),
+                                                                                                  child: Align(
+                                                                                                    alignment: AlignmentDirectional(1.0, -1.0),
+                                                                                                    child: Lottie.asset(
+                                                                                                      'assets/jsons/Animation_-_1744398241424-tn3hV.json',
+                                                                                                      width: 66.4,
+                                                                                                      height: 70.4,
+                                                                                                      fit: BoxFit.contain,
+                                                                                                      reverse: true,
+                                                                                                      animate: true,
+                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ),

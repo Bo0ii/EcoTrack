@@ -35,83 +35,15 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
     _model = createModel(context, () => FirstPageModel());
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
+      'stackOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 400.0.ms,
+            duration: 560.0.ms,
             begin: 0.0,
             end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(3.0, 3.0),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 350.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 350.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 350.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 400.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 400.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 400.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'rowOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 300.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 300.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.bounceOut,
-            delay: 300.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -161,16 +93,16 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                           alignment: AlignmentDirectional(0.0, 1.0),
                           child: Container(
                             width: 593.4,
-                            height: 360.17,
+                            height: 546.5,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
                             alignment: AlignmentDirectional(0.0, 1.0),
                             child: Transform.scale(
-                              scaleX: -3.3,
-                              scaleY: -1.6,
-                              origin: Offset(100.0, -3.0),
+                              scaleX: 2.8,
+                              scaleY: -1.3,
+                              origin: Offset(59.0, -12.0),
                               child: ClipRect(
                                 child: ImageFiltered(
                                   imageFilter: ImageFilter.blur(
@@ -180,11 +112,11 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                   child: Opacity(
                                     opacity: 0.7,
                                     child: Lottie.asset(
-                                      'assets/jsons/Animation_-_1744398367492.json',
+                                      'assets/jsons/Animation_-_1744398367492-rhD68.json',
                                       width: 787.9,
-                                      height: 372.13,
+                                      height: 281.8,
                                       fit: BoxFit.cover,
-                                      frameRate: FrameRate(70.0),
+                                      frameRate: FrameRate(120.0),
                                       reverse: true,
                                       animate: true,
                                     ),
@@ -196,8 +128,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         ),
                       ],
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation']!),
+                  ),
                 ),
               ],
             ),
@@ -228,7 +159,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                     borderRadius: BorderRadius.circular(6.0),
                                     child: Image.asset(
                                       'assets/images/BN_(16).png',
-                                      width: 115.31,
+                                      width: 115.3,
                                       height: 92.3,
                                       fit: BoxFit.cover,
                                     ),
@@ -243,7 +174,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 320.0, 24.0, 0.0),
+                              20.0, 310.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '8uxb8w7l' /* Welcome! */,
@@ -254,20 +185,18 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .displaySmallFamily,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .displaySmallFamily),
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation1']!),
+                          ),
                         ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 16.0),
+                              20.0, 0.0, 20.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'fdfullqu' /* Thanks for joining! Access or ... */,
@@ -283,15 +212,14 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .labelMediumFamily),
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation2']!),
+                          ),
                         ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
+                              20.0, 0.0, 20.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -306,17 +234,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed(
-                                          SecondpageWidget.routeName,
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType: PageTransitionType
-                                                  .rightToLeft,
-                                              duration:
-                                                  Duration(milliseconds: 200),
-                                            ),
-                                          },
-                                        );
+                                            SecondpageWidget.routeName);
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'fltlc9lt' /* Get Started */,
@@ -414,8 +332,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation']!),
+                          ),
                         ),
                       ),
                     ],
@@ -424,7 +341,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
               ],
             ),
           ],
-        ),
+        ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
       ),
     );
   }

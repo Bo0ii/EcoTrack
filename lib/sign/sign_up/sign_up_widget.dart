@@ -105,11 +105,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     child: Opacity(
                                       opacity: 0.8,
                                       child: Lottie.asset(
-                                        'assets/jsons/Animation_-_1744398367492.json',
+                                        'assets/jsons/Animation_-_1744398367492-rhD68.json',
                                         width: 787.9,
                                         height: 394.7,
                                         fit: BoxFit.cover,
-                                        frameRate: FrameRate(120.0),
+                                        frameRate: FrameRate(60.0),
                                         reverse: true,
                                         animate: true,
                                       ),
