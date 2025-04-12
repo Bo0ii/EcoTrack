@@ -528,11 +528,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             ),
                                                           ],
                                                         ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [],
-                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -554,7 +549,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                 .pageViewController ??=
                                                             PageController(
                                                                 initialPage: 0),
-                                                        count: 3,
+                                                        count: 2,
                                                         axisDirection:
                                                             Axis.horizontal,
                                                         onDotClicked:

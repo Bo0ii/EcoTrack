@@ -50,13 +50,11 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
 
   /// Processes the raw API data:
   /// 1. Flattens the API response.
-  /// 2. For each record, extracts the timestamp and sensor reading.
-  /// 3. Converts the timestamp to local time using toLocal().
-  /// 4. Groups records by day (using a padded key "YYYY-MM-DD") and keeps the record with the latest timestamp.
-  /// 5. Generates a full timeline for the last [widget.days] days, assigning 0 if no data exists.
+  /// 2. Converts timestamps to local time and groups by day,
+  ///    using the latest reading for each day.
+  /// 3. Builds a timeline of [widget.days] days, filling 0 if a day is missing data.
   void _processHistoryData() {
     final List<dynamic> flattened = [];
-    // Flatten in case the API returns a nested list
     if (widget.historyData is List) {
       for (var item in widget.historyData) {
         if (item is List) {
@@ -67,12 +65,11 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       }
     }
 
-    // Map to store each day’s latest record.
-    // Key: padded date string ("YYYY-MM-DD"), Value: map with keys 'timestamp' and 'value'
     final Map<String, Map<String, dynamic>> dailyRecord = {};
 
     for (var record in flattened) {
       if (record is! Map<String, dynamic>) continue;
+
       final timeStr = record['last_changed'] ?? record['last_updated'];
       final valueStr = record['state'];
       if (timeStr == null || valueStr == null) continue;
@@ -81,30 +78,24 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       final val = double.tryParse(valueStr.toString());
       if (ts == null || val == null) continue;
 
-      // Convert to local time to ensure correct day mapping
       final localTs = ts.toLocal();
-
-      // Create a padded day key "YYYY-MM-DD"
       final dayKey = "${localTs.year.toString().padLeft(4, '0')}-"
           "${localTs.month.toString().padLeft(2, '0')}-"
           "${localTs.day.toString().padLeft(2, '0')}";
 
-      // Keep the record with the latest timestamp for that day.
+      // Keep the latest reading for each day
       if (!dailyRecord.containsKey(dayKey) ||
           localTs.isAfter(dailyRecord[dayKey]!['timestamp'])) {
         dailyRecord[dayKey] = {'timestamp': localTs, 'value': val};
       }
     }
 
-    // Build a simple map: dayKey -> reading value.
     final Map<String, double> dailyLastReading = {};
     dailyRecord.forEach((key, record) {
       dailyLastReading[key] = record['value'] as double;
     });
 
-    // Generate a timeline covering the last [widget.days] days.
     final DateTime localNow = DateTime.now().toLocal();
-    // Get today's date (at midnight)
     final DateTime lastDay =
         DateTime(localNow.year, localNow.month, localNow.day);
     final DateTime startDay = lastDay.subtract(Duration(days: widget.days - 1));
@@ -137,7 +128,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         child: const Center(child: CircularProgressIndicator()),
       );
     }
-
     if (bars.isEmpty) {
       return SizedBox(
         width: widget.width,
@@ -146,6 +136,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       );
     }
 
+    // Compute the maximum value among bars for color interpolation
     final double maxVal =
         bars.map((e) => e.value).reduce((a, b) => a > b ? a : b);
 
@@ -189,31 +180,20 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
               } else {
                 setState(() => selectedIndex = details.pointIndex!);
                 _tooltipBehavior.showByIndex(
-                    details.seriesIndex!, details.pointIndex!);
+                  details.seriesIndex!,
+                  details.pointIndex!,
+                );
               }
             },
-            // Dynamic gradient: the higher the energy value,
-            // the more "orangey" the gradient becomes.
-            onCreateShader: (ShaderDetails details) {
-              final Rect rect =
-                  Rect.fromLTWH(0, 0, widget.width, widget.height);
-              final int? pointIndex = details.pointIndex;
-              if (pointIndex == null || maxVal == 0) {
-                return const LinearGradient(
-                  colors: [Colors.lightBlue, Colors.blue],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                ).createShader(rect);
+
+            // Single color per bar, interpolated from lightBlue -> orange
+            // as value goes from 0 -> maxVal
+            pointColorMapper: (bar, index) {
+              if (maxVal <= 0) {
+                return Colors.lightBlue;
               }
-              double barValue = bars[pointIndex].value;
-              double fraction = barValue / maxVal;
-              Color gradientColor =
-                  Color.lerp(Colors.lightBlue, Colors.orange, fraction)!;
-              return LinearGradient(
-                colors: [gradientColor.withOpacity(0.4), gradientColor],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-              ).createShader(rect);
+              final double fraction = bar.value / maxVal;
+              return Color.lerp(Colors.lightBlue, Colors.orange, fraction)!;
             },
           ),
         ],
