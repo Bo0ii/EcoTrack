@@ -43,26 +43,20 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       enable: true,
       activationMode: ActivationMode.singleTap,
     );
-
-    // Process the history data after the first frame.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _processHistoryData();
     });
   }
 
   /// Processes the raw API data:
-  /// 1. Flattens the API response (in case it's a nested list).
-  /// 2. For each record, it uses the timestamp from either
-  ///    "last_changed" or "last_updated" and parses the sensor reading.
-  /// 3. It uses the UTC timestamp directly (no toLocal conversion)
-  ///    so that the date matches what Home Assistant shows.
-  /// 4. It groups records by day (using a padded key "YYYY-MM-DD")
-  ///    and keeps the record with the latest timestamp of that day.
-  /// 5. It then generates a full timeline of the last [widget.days] days,
-  ///    assigning a value of 0 if no reading exists for a day.
+  /// 1. Flattens the API response.
+  /// 2. For each record, extracts the timestamp and sensor reading.
+  /// 3. Converts the timestamp to local time using toLocal().
+  /// 4. Groups records by day (using a padded key "YYYY-MM-DD") and keeps the record with the latest timestamp.
+  /// 5. Generates a full timeline for the last [widget.days] days, assigning 0 if no data exists.
   void _processHistoryData() {
     final List<dynamic> flattened = [];
-    // Flatten the API response (to handle nested lists)
+    // Flatten in case the API returns a nested list
     if (widget.historyData is List) {
       for (var item in widget.historyData) {
         if (item is List) {
@@ -73,8 +67,8 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       }
     }
 
-    // Map to store the latest record for each day.
-    // Key: padded date string ("YYYY-MM-DD"), Value: a map with keys 'timestamp' and 'value'
+    // Map to store each day’s latest record.
+    // Key: padded date string ("YYYY-MM-DD"), Value: map with keys 'timestamp' and 'value'
     final Map<String, Map<String, dynamic>> dailyRecord = {};
 
     for (var record in flattened) {
@@ -87,38 +81,33 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       final val = double.tryParse(valueStr.toString());
       if (ts == null || val == null) continue;
 
-      // Here we DO NOT convert to local time; we keep UTC.
-      final utcTs = ts;
-      // Debug: print the raw UTC timestamp.
-      // print("UTC timestamp: $utcTs");
+      // Convert to local time to ensure correct day mapping
+      final localTs = ts.toLocal();
 
-      // Create a padded day key "YYYY-MM-DD" based on UTC date.
-      final dayKey = "${utcTs.year.toString().padLeft(4, '0')}-"
-          "${utcTs.month.toString().padLeft(2, '0')}-"
-          "${utcTs.day.toString().padLeft(2, '0')}";
+      // Create a padded day key "YYYY-MM-DD"
+      final dayKey = "${localTs.year.toString().padLeft(4, '0')}-"
+          "${localTs.month.toString().padLeft(2, '0')}-"
+          "${localTs.day.toString().padLeft(2, '0')}";
 
-      // Keep the record with the latest UTC timestamp for that day.
+      // Keep the record with the latest timestamp for that day.
       if (!dailyRecord.containsKey(dayKey) ||
-          utcTs.isAfter(dailyRecord[dayKey]!['timestamp'])) {
-        dailyRecord[dayKey] = {'timestamp': utcTs, 'value': val};
+          localTs.isAfter(dailyRecord[dayKey]!['timestamp'])) {
+        dailyRecord[dayKey] = {'timestamp': localTs, 'value': val};
       }
     }
 
-    // For debugging, output the processed day keys.
-    print("Days with data (UTC): ${dailyRecord.keys.toList()}");
-
-    // Build a simple map: dayKey -> sensor reading value.
+    // Build a simple map: dayKey -> reading value.
     final Map<String, double> dailyLastReading = {};
     dailyRecord.forEach((key, record) {
       dailyLastReading[key] = record['value'] as double;
     });
 
-    // Generate a timeline for the last [widget.days] days using UTC.
-    final DateTime utcNow = DateTime.now().toUtc();
-    // Get today's UTC date (at midnight).
-    final DateTime lastDay = DateTime(utcNow.year, utcNow.month, utcNow.day);
+    // Generate a timeline covering the last [widget.days] days.
+    final DateTime localNow = DateTime.now().toLocal();
+    // Get today's date (at midnight)
+    final DateTime lastDay =
+        DateTime(localNow.year, localNow.month, localNow.day);
     final DateTime startDay = lastDay.subtract(Duration(days: widget.days - 1));
-    print("Timeline from $startDay to $lastDay (UTC)");
 
     final List<_ChartBar> timelineBars = [];
     for (int i = 0; i < widget.days; i++) {
@@ -129,10 +118,8 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       final double value = dailyLastReading.containsKey(dayKey)
           ? dailyLastReading[dayKey]!
           : 0.0;
-      // Format the label using UTC date.
       final String label = DateFormat.MMMd().format(day);
       timelineBars.add(_ChartBar(label: label, value: value));
-      print("Day: $dayKey, Label: $label, Value: $value");
     }
 
     setState(() {
@@ -150,6 +137,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         child: const Center(child: CircularProgressIndicator()),
       );
     }
+
     if (bars.isEmpty) {
       return SizedBox(
         width: widget.width,
@@ -158,7 +146,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       );
     }
 
-    // Determine the maximum value from bars for the Y-axis.
     final double maxVal =
         bars.map((e) => e.value).reduce((a, b) => a > b ? a : b);
 
@@ -173,7 +160,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         ),
         primaryYAxis: NumericAxis(
           minimum: 0,
-          maximum: maxVal * 1.2, // Add headroom
+          maximum: maxVal * 1.2,
           axisLine: const AxisLine(width: 0),
           majorTickLines: const MajorTickLines(size: 0),
           labelFormat: '{value}',
@@ -205,11 +192,25 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
                     details.seriesIndex!, details.pointIndex!);
               }
             },
+            // Dynamic gradient: the higher the energy value,
+            // the more "orangey" the gradient becomes.
             onCreateShader: (ShaderDetails details) {
               final Rect rect =
                   Rect.fromLTWH(0, 0, widget.width, widget.height);
-              return const LinearGradient(
-                colors: [Colors.lightBlue, Colors.blue],
+              final int? pointIndex = details.pointIndex;
+              if (pointIndex == null || maxVal == 0) {
+                return const LinearGradient(
+                  colors: [Colors.lightBlue, Colors.blue],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ).createShader(rect);
+              }
+              double barValue = bars[pointIndex].value;
+              double fraction = barValue / maxVal;
+              Color gradientColor =
+                  Color.lerp(Colors.lightBlue, Colors.orange, fraction)!;
+              return LinearGradient(
+                colors: [gradientColor.withOpacity(0.4), gradientColor],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
               ).createShader(rect);

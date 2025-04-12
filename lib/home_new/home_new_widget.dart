@@ -298,7 +298,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                       width: 787.9,
                                       height: 394.7,
                                       fit: BoxFit.cover,
-                                      frameRate: FrameRate(120.0),
+                                      frameRate: FrameRate(60.0),
                                       reverse: true,
                                       animate: true,
                                     ),
@@ -591,9 +591,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               String>(
                                                             '${valueOrDefault<String>(
                                                               FFAppState()
-                                                                  .humidity
+                                                                  .cloudCoverage
                                                                   .toString(),
-                                                              '30',
+                                                              '5',
                                                             )}',
                                                             'Wind',
                                                           ),
@@ -818,32 +818,38 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        Text(
-                                                          '${valueOrDefault<String>(
-                                                            FFAppState()
-                                                                .cloudCoverage
-                                                                .toString(),
-                                                            '10',
-                                                          )}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 20.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineMediumFamily),
-                                                              ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, 0.0),
+                                                          child: Text(
+                                                            '${valueOrDefault<String>(
+                                                              FFAppState()
+                                                                  .humidity
+                                                                  .toString(),
+                                                              '10',
+                                                            )}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineMediumFamily),
+                                                                ),
+                                                          ),
                                                         ),
                                                         Text(
                                                           FFLocalizations.of(

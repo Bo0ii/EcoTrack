@@ -55,18 +55,6 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
           ),
         ],
       ),
-      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 110.0.ms,
-            duration: 1720.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -173,16 +161,16 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                           alignment: AlignmentDirectional(0.0, 1.0),
                           child: Container(
                             width: 593.4,
-                            height: 546.45,
+                            height: 360.17,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
                             alignment: AlignmentDirectional(0.0, 1.0),
                             child: Transform.scale(
-                              scaleX: -2.4,
-                              scaleY: -1.3,
-                              origin: Offset(59.0, -17.0),
+                              scaleX: -3.3,
+                              scaleY: -1.6,
+                              origin: Offset(100.0, -3.0),
                               child: ClipRect(
                                 child: ImageFiltered(
                                   imageFilter: ImageFilter.blur(
@@ -194,9 +182,9 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                     child: Lottie.asset(
                                       'assets/jsons/Animation_-_1744398367492.json',
                                       width: 787.9,
-                                      height: 281.8,
+                                      height: 372.13,
                                       fit: BoxFit.cover,
-                                      frameRate: FrameRate(120.0),
+                                      frameRate: FrameRate(70.0),
                                       reverse: true,
                                       animate: true,
                                     ),
@@ -231,40 +219,6 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                           child: Stack(
                             alignment: AlignmentDirectional(0.0, -1.0),
                             children: [
-                              ClipRect(
-                                child: ImageFiltered(
-                                  imageFilter: ImageFilter.blur(
-                                    sigmaX: 12.0,
-                                    sigmaY: 12.0,
-                                  ),
-                                  child: Stack(
-                                    children: [
-                                      Opacity(
-                                        opacity: 0.3,
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 85.0, 0.0, 0.0),
-                                            child: Lottie.asset(
-                                              'assets/jsons/Animation_-_1743979661781.json',
-                                              width: 239.4,
-                                              height: 199.13,
-                                              fit: BoxFit.contain,
-                                              frameRate: FrameRate(120.0),
-                                              reverse: true,
-                                              animate: true,
-                                            ).animateOnPageLoad(animationsMap[
-                                                'lottieAnimationOnPageLoadAnimation']!),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                               Align(
                                 alignment: AlignmentDirectional(-0.01, -1.07),
                                 child: Padding(
@@ -289,7 +243,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 270.0, 0.0, 0.0),
+                              24.0, 320.0, 24.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '8uxb8w7l' /* Welcome! */,
@@ -300,6 +254,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .displaySmallFamily,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .displaySmallFamily),
@@ -312,7 +267,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 16.0),
+                              24.0, 0.0, 24.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'fdfullqu' /* Thanks for joining! Access or ... */,
@@ -336,7 +291,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
+                              24.0, 0.0, 24.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -351,7 +306,17 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed(
-                                            SecondpageWidget.routeName);
+                                          SecondpageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 200),
+                                            ),
+                                          },
+                                        );
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'fltlc9lt' /* Get Started */,

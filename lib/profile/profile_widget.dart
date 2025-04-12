@@ -228,7 +228,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                           width: 787.9,
                                           height: 281.8,
                                           fit: BoxFit.cover,
-                                          frameRate: FrameRate(120.0),
+                                          frameRate: FrameRate(60.0),
                                           reverse: true,
                                           animate: true,
                                         ),
