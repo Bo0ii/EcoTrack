@@ -34,7 +34,7 @@ dependencies:
   cloud_firestore: 5.5.0
   cloud_firestore_platform_interface: 6.5.0
   cloud_firestore_web: 4.3.4
-  collection: 1.19.1
+  collection: 1.19.0
   csslib: 0.17.3
   device_info_plus: 10.1.2
   device_info_plus_platform_interface: 7.0.1
@@ -158,6 +158,7 @@ dependency_overrides:
   pointer_interceptor_web: 0.10.2+1
   uuid: ^4.0.0
   win32: 5.5.1
+  collection: ^1.19.1
 
 dev_dependencies:
   flutter_launcher_icons: 0.13.1
