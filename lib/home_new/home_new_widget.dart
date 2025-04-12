@@ -1528,17 +1528,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                     sigmaX: 16.0,
                                                                                                     sigmaY: 16.0,
                                                                                                   ),
-                                                                                                  child: Align(
-                                                                                                    alignment: AlignmentDirectional(1.0, -1.0),
-                                                                                                    child: Lottie.asset(
-                                                                                                      'assets/jsons/Animation_-_1744398241424.json',
-                                                                                                      width: 66.43,
-                                                                                                      height: 70.4,
-                                                                                                      fit: BoxFit.contain,
-                                                                                                      reverse: true,
-                                                                                                      animate: true,
-                                                                                                    ),
-                                                                                                  ),
                                                                                                 ),
                                                                                               ),
                                                                                             ],
