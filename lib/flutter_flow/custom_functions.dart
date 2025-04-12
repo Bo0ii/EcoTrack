@@ -78,3 +78,46 @@ String getFormattedSensorId(
     return 'sensor.' + deviceId + '_' + sensorType;
   }
 }
+
+String? totalCost(
+  List<dynamic> sensorList,
+  String sensorType,
+) {
+  String totalCost(
+    List<dynamic> sensorList,
+    String sensorType,
+  ) {
+    double sum = 0.0;
+    bool foundAny = false;
+
+    // The suffix we’ll look for in the entity_id
+    String targetSuffix = "_" + sensorType;
+
+    // Loop over all sensors and check if their entity_id ends with our target suffix
+    for (var sensor in sensorList) {
+      final entityId = sensor["entity_id"];
+
+      if (entityId is String && entityId.endsWith(targetSuffix)) {
+        // Try to parse the sensor state as a number
+        double? currentValue = double.tryParse(sensor["state"].toString());
+        if (currentValue != null) {
+          sum += currentValue;
+          foundAny = true;
+        }
+      }
+    }
+
+    // If no matching sensors were found, return "0"
+    if (!foundAny) {
+      return "0";
+    }
+
+    // Return the final sum as a string
+    // If sum is an integer (e.g., 12.0), convert to 12
+    if (sum == sum.toInt()) {
+      return sum.toInt().toString();
+    } else {
+      return sum.toString();
+    }
+  }
+}

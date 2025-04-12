@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -83,7 +84,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().weatherTemp = GetSensorDataCall.temperature(
             (_model.sensordataAPIpageload?.jsonBody ?? ''),
           )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.cloudCoverage(
+          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
             (_model.sensordataAPIpageload?.jsonBody ?? ''),
           )!;
           FFAppState().humidity = GetSensorDataCall.humidity(
@@ -137,7 +138,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().weatherTemp = GetSensorDataCall.temperature(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.cloudCoverage(
+          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
           FFAppState().humidity = GetSensorDataCall.humidity(
@@ -571,6 +572,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                     ),
                                                                   }.withoutNulls,
                                                                 );
+
+                                                                HapticFeedback
+                                                                    .lightImpact();
                                                               },
                                                               child: Icon(
                                                                 Icons
@@ -606,38 +610,58 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Container(
-                                                      width: 56.0,
-                                                      height: 56.0,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        border: Border.all(
-                                                          color:
-                                                              Color(0x113E3E3E),
-                                                          width: 2.0,
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Container(
+                                                        width: 56.0,
+                                                        height: 56.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0x113E3E3E),
+                                                            width: 2.0,
+                                                          ),
                                                         ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons
+                                                              .water_drop_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          size: 20.0,
+                                                        ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'iconOnPageLoadAnimation1']!),
                                                       ),
-                                                      child: Icon(
-                                                        Icons.water_sharp,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        size: 20.0,
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'iconOnPageLoadAnimation1']!),
                                                     ),
-                                                    Text(
-                                                      '${valueOrDefault<String>(
-                                                        FFAppState()
-                                                            .humidity
-                                                            .toString(),
-                                                        '30',
-                                                      )}%',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      children: [
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            '${valueOrDefault<String>(
+                                                              FFAppState()
+                                                                  .humidity
+                                                                  .toString(),
+                                                              '30',
+                                                            )}',
+                                                            'Wind',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .headlineMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
@@ -655,6 +679,35 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         FlutterFlowTheme.of(context)
                                                                             .headlineMediumFamily),
                                                               ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, 1.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'igtnh7h6' /* km/h */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),
@@ -807,28 +860,37 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           width: 2.0,
                                                         ),
                                                       ),
-                                                      child: Icon(
-                                                        Icons
-                                                            .wb_cloudy_outlined,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        size: 20.0,
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'iconOnPageLoadAnimation2']!),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: FaIcon(
+                                                          FontAwesomeIcons.wind,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          size: 18.0,
+                                                        ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'iconOnPageLoadAnimation2']!),
+                                                      ),
                                                     ),
-                                                    Text(
-                                                      '${valueOrDefault<String>(
-                                                        FFAppState()
-                                                            .cloudCoverage
-                                                            .toString(),
-                                                        '10',
-                                                      )}%',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
+                                                      children: [
+                                                        Text(
+                                                          '${valueOrDefault<String>(
+                                                            FFAppState()
+                                                                .cloudCoverage
+                                                                .toString(),
+                                                            '10',
+                                                          )}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .headlineMedium
                                                               .override(
                                                                 fontFamily: FlutterFlowTheme.of(
@@ -846,6 +908,30 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         FlutterFlowTheme.of(context)
                                                                             .headlineMediumFamily),
                                                               ),
+                                                        ),
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'qgtxswdg' /* % */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ].divide(
                                                       SizedBox(height: 8.0)),

@@ -617,73 +617,73 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Profile
   {
-    'ej2omlgm': {
+    'zs80efpx': {
       'en': 'Family',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'j6yxfgc9': {
+    '1a3ym4zm': {
       'en': 'Help Center',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'nwdwuw26': {
+    'vdi1d9pt': {
       'en': 'Settings',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '1hzza2kf': {
+    'bohl61wf': {
       'en': 'Notification Settings',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'pqq2ay92': {
+    'iv28e0rj': {
       'en': 'Language',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'std2essd': {
+    '4m4s8u8w': {
       'en': 'English (eng)',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '3dhhypzd': {
+    '8az2ewtm': {
       'en': 'Currency',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'c59fkx1h': {
+    '2ps6j9io': {
       'en': 'AED',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'q35d8d4j': {
+    '5uw1dl76': {
       'en': 'Profile Settings',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'pwqa78ki': {
+    'fysiy3go': {
       'en': 'Edit Profile',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'zhkqlqxd': {
+    'myonm7ju': {
       'en': 'Log out of account',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'mowy985d': {
+    'oqxzcghm': {
       'en': 'Log Out?',
       'ar': '',
       'de': '',
@@ -1427,8 +1427,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    'igtnh7h6': {
+      'en': 'km/h',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'y7aoqb3h': {
       'en': '°C',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'qgtxswdg': {
+      'en': '%',
       'ar': '',
       'de': '',
       'es': '',
@@ -1895,26 +1907,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // FirstPage
   {
-    'bi2nao8p': {
+    '8uxb8w7l': {
       'en': 'Welcome!',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'zbttwnxe': {
+    'fdfullqu': {
       'en':
           'Thanks for joining! Access or create your account below, and get started on your journey!',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'qrfz0bc7': {
+    'fltlc9lt': {
       'en': 'Get Started',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'bsw4qslx': {
+    'rpeyjiya': {
       'en': 'Sign in',
       'ar': '',
       'de': '',

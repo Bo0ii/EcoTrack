@@ -16,7 +16,7 @@ class EnergyHistoryCall {
     return ApiManager.instance.makeApiCall(
       callName: 'EnergyHistory',
       apiUrl:
-          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computeEnergySensorId}&start=${startDate}',
+          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computeEnergySensorId}&start=2024-03-23T00:00:00Z',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ class PowerXthreshholdCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
-      cache: false,
+      cache: true,
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
@@ -109,7 +109,7 @@ class GetSensorDataCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
-      cache: false,
+      cache: true,
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
@@ -131,11 +131,9 @@ class GetSensorDataCall {
         r'''$[?(@.entity_id=='weather.forecast_home')].attributes.humidity
 ''',
       ));
-  static double? cloudCoverage(dynamic response) =>
-      castToType<double>(getJsonField(
+  static double? windspeed(dynamic response) => castToType<double>(getJsonField(
         response,
-        r'''$[?(@.entity_id=='weather.forecast_home')].attributes.cloud_coverage
-''',
+        r'''$[?(@.entity_id=='weather.forecast_home')].attributes.wind_speed''',
       ));
   static String? state(dynamic response) => castToType<String>(getJsonField(
         response,

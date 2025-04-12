@@ -18,6 +18,10 @@ class DetailedDeviceInfoModel
   InstantTimer? instantTimer2;
   // Stores action output result for [Backend Call - API (GetSensorData)] action in DetailedDeviceInfo widget.
   ApiCallResponse? sensordataAPIpageload;
+  // Stores action output result for [Custom Action - computeEnergySensorId] action in DetailedDeviceInfo widget.
+  String? energySensorId;
+  // Stores action output result for [Backend Call - API (EnergyHistory)] action in DetailedDeviceInfo widget.
+  ApiCallResponse? energyHistoryAPI;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 

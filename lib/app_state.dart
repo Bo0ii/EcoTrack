@@ -364,6 +364,18 @@ class FFAppState extends ChangeNotifier {
   set weatherTempINT(int value) {
     _weatherTempINT = value;
   }
+
+  double _totalCost = 0.0;
+  double get totalCost => _totalCost;
+  set totalCost(double value) {
+    _totalCost = value;
+  }
+
+  double _totalEnergy = 0.0;
+  double get totalEnergy => _totalEnergy;
+  set totalEnergy(double value) {
+    _totalEnergy = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'notifactionpage_model.dart';
@@ -148,6 +149,7 @@ class _NotifactionpageWidgetState extends State<NotifactionpageWidget>
                                 if (newValue) {
                                   await requestPermission(
                                       notificationsPermission);
+                                  HapticFeedback.lightImpact();
                                 }
                               },
                               title: Text(

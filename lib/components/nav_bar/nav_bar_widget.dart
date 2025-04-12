@@ -65,8 +65,8 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
-            topLeft: Radius.circular(16.0),
-            topRight: Radius.circular(16.0),
+            topLeft: Radius.circular(19.0),
+            topRight: Radius.circular(19.0),
           ),
         ),
         child: Padding(
@@ -212,7 +212,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.web_asset,
+                        Icons.auto_awesome,
                         color: widget.currentpage == '2'
                             ? Color(0xFF41BDBD)
                             : FlutterFlowTheme.of(context).secondaryText,

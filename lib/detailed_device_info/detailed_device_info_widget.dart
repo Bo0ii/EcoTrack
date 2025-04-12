@@ -73,7 +73,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
         }),
         Future(() async {
           _model.instantTimer2 = InstantTimer.periodic(
-            duration: Duration(milliseconds: 1300),
+            duration: Duration(milliseconds: 2000),
             callback: (timer) async {
               _model.sensordataAPIpageload = await GetSensorDataCall.call(
                 deviceId: widget.deviceId,
@@ -89,6 +89,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
               safeSetState(() {});
             },
             startImmediately: true,
+          );
+        }),
+        Future(() async {
+          _model.energySensorId = await actions.computeEnergySensorId(
+            widget.deviceId!,
+          );
+          _model.energyHistoryAPI = await EnergyHistoryCall.call(
+            computeEnergySensorId: _model.energySensorId,
           );
         }),
       ]);
@@ -119,20 +127,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation1': AnimationInfo(
-        loop: true,
-        reverse: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ShimmerEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1060.0.ms,
-            color: Color(0x4F959595),
-            angle: 0.419,
-          ),
-        ],
-      ),
       'columnOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -145,7 +139,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
+      'containerOnPageLoadAnimation': AnimationInfo(
         loop: true,
         reverse: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -512,6 +506,23 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                       309.36,
                                                                   decoration:
                                                                       BoxDecoration(),
+                                                                  child: custom_widgets
+                                                                      .DailyEnergyBarChart(
+                                                                    width: MediaQuery.sizeOf(context)
+                                                                            .width *
+                                                                        1.0,
+                                                                    height:
+                                                                        400.0,
+                                                                    days: 15,
+                                                                    historyData:
+                                                                        getJsonField(
+                                                                      (_model.energyHistoryAPI
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                      r'''$''',
+                                                                      true,
+                                                                    )!,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
@@ -757,11 +768,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     child: Container(
                                                       width: 50.3,
                                                       height: 43.3,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
+                                                      decoration:
+                                                          BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
                                                               0.0, 0.6),
@@ -788,7 +796,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation2']!),
+                                                      'containerOnPageLoadAnimation']!),
                                                 ),
                                               ].divide(SizedBox(width: 8.0)),
                                             ),
@@ -1870,8 +1878,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                             'columnOnPageLoadAnimation']!),
                                       ),
                                     ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation1']!),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(

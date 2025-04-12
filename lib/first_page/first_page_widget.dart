@@ -149,102 +149,171 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: Stack(
           children: [
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                height: 500.0,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xFFC6FEFF),
-                      Colors.white,
-                      Colors.white,
-                      Colors.white,
-                      Color(0xFF00E4FF)
-                    ],
-                    stops: [0.0, 0.4, 0.6, 0.7, 0.95],
-                    begin: AlignmentDirectional(-1.0, -1.0),
-                    end: AlignmentDirectional(1.0, 1.0),
-                  ),
-                ),
-                child: Container(
-                  width: 100.0,
-                  height: 183.5,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0x00FFFFFF),
-                        FlutterFlowTheme.of(context).secondaryBackground
-                      ],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    height: 500.0,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
                     ),
-                  ),
+                    child: Stack(
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              width: 593.4,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Transform.scale(
+                                scaleX: 2.5,
+                                scaleY: 1.6,
+                                origin: Offset(59.0, -13.0),
+                                child: ClipRect(
+                                  child: ImageFiltered(
+                                    imageFilter: ImageFilter.blur(
+                                      sigmaX: 19.0,
+                                      sigmaY: 19.0,
+                                    ),
+                                    child: Opacity(
+                                      opacity: 0.8,
+                                      child: Lottie.asset(
+                                        'assets/jsons/Animation_-_1744398367492.json',
+                                        width: 787.9,
+                                        height: 394.7,
+                                        fit: BoxFit.cover,
+                                        frameRate: FrameRate(120.0),
+                                        reverse: true,
+                                        animate: true,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 1.0),
+                          child: Container(
+                            width: 593.4,
+                            height: 300.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            alignment: AlignmentDirectional(0.0, 1.0),
+                            child: Transform.scale(
+                              scaleX: -2.4,
+                              scaleY: -1.3,
+                              origin: Offset(59.0, -13.0),
+                              child: ClipRect(
+                                child: ImageFiltered(
+                                  imageFilter: ImageFilter.blur(
+                                    sigmaX: 19.0,
+                                    sigmaY: 19.0,
+                                  ),
+                                  child: Opacity(
+                                    opacity: 0.7,
+                                    child: Lottie.asset(
+                                      'assets/jsons/Animation_-_1744398367492.json',
+                                      width: 787.9,
+                                      height: 281.8,
+                                      fit: BoxFit.cover,
+                                      frameRate: FrameRate(120.0),
+                                      reverse: true,
+                                      animate: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ).animateOnPageLoad(
+                      animationsMap['containerOnPageLoadAnimation']!),
+                ),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Stack(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          children: [
-                            ClipRect(
-                              child: ImageFiltered(
-                                imageFilter: ImageFilter.blur(
-                                  sigmaX: 12.0,
-                                  sigmaY: 12.0,
-                                ),
-                                child: Stack(
-                                  children: [
-                                    Opacity(
-                                      opacity: 0.5,
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(7.2, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 50.0, 0.0, 0.0),
-                                          child: Lottie.asset(
-                                            'assets/jsons/Animation_-_1743979661781.json',
-                                            width: 404.3,
-                                            height: 294.62,
-                                            fit: BoxFit.contain,
-                                            frameRate: FrameRate(120.0),
-                                            reverse: true,
-                                            animate: true,
-                                          ).animateOnPageLoad(animationsMap[
-                                              'lottieAnimationOnPageLoadAnimation']!),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 55.0, 0.0, 0.0),
+                          child: Stack(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            children: [
+                              ClipRect(
+                                child: ImageFiltered(
+                                  imageFilter: ImageFilter.blur(
+                                    sigmaX: 12.0,
+                                    sigmaY: 12.0,
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Opacity(
+                                        opacity: 0.3,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 85.0, 0.0, 0.0),
+                                            child: Lottie.asset(
+                                              'assets/jsons/Animation_-_1743979661781.json',
+                                              width: 239.4,
+                                              height: 199.13,
+                                              fit: BoxFit.contain,
+                                              frameRate: FrameRate(120.0),
+                                              reverse: true,
+                                              animate: true,
+                                            ).animateOnPageLoad(animationsMap[
+                                                'lottieAnimationOnPageLoadAnimation']!),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-0.01, -1.07),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 135.0, 8.0, 8.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(6.0),
-                                  child: Image.asset(
-                                    'assets/images/BN_(2).png',
-                                    width: 126.2,
-                                    height: 92.3,
-                                    fit: BoxFit.cover,
+                                    ],
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Align(
+                                alignment: AlignmentDirectional(-0.01, -1.07),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 145.0, 8.0, 8.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(6.0),
+                                    child: Image.asset(
+                                      'assets/images/BN_(16).png',
+                                      width: 115.31,
+                                      height: 92.3,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Align(
@@ -254,7 +323,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                               20.0, 270.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'bi2nao8p' /* Welcome! */,
+                              '8uxb8w7l' /* Welcome! */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
@@ -277,7 +346,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                               20.0, 0.0, 20.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'zbttwnxe' /* Thanks for joining! Access or ... */,
+                              'fdfullqu' /* Thanks for joining! Access or ... */,
                             ),
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
@@ -316,7 +385,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                             SecondpageWidget.routeName);
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'qrfz0bc7' /* Get Started */,
+                                        'fltlc9lt' /* Get Started */,
                                       ),
                                       options: FFButtonOptions(
                                         width: 230.0,
@@ -326,8 +395,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: Color(0xC4FFFFFF),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
@@ -343,11 +411,6 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                                               .bodyLargeFamily),
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          width: 2.0,
-                                        ),
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
@@ -377,7 +440,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'bsw4qslx' /* Sign in */,
+                                        'rpeyjiya' /* Sign in */,
                                       ),
                                       options: FFButtonOptions(
                                         width: 230.0,
@@ -424,8 +487,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                     ],
                   ),
                 ),
-              ).animateOnPageLoad(
-                  animationsMap['containerOnPageLoadAnimation']!),
+              ],
             ),
           ],
         ),

@@ -395,7 +395,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget>
                               alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 15.0),
+                                    0.0, 0.0, 0.0, 39.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (_model.householdIdTextController.text
@@ -456,7 +456,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget>
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(30.0),
+                                    borderRadius: BorderRadius.circular(14.0),
                                   ),
                                 ),
                               ),

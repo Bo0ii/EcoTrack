@@ -7,6 +7,10 @@ import 'home_new_widget.dart' show HomeNewWidget;
 import 'package:flutter/material.dart';
 
 class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
+  ///  Local state fields for this page.
+
+  double? totalCost = 0.0;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in HomeNew widget.

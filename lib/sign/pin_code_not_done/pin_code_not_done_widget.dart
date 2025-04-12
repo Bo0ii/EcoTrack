@@ -419,7 +419,7 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        8.0, 0.0, 0.0, 16.0),
+                                                        8.0, 0.0, 0.0, 39.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     context.pushNamed(
