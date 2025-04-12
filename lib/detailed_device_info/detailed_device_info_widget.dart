@@ -2060,7 +2060,17 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                               size: 30.0,
                             ),
                             onPressed: () async {
-                              context.pop();
+                              context.pushNamed(
+                                HomeNewWidget.routeName,
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.leftToRight,
+                                    duration: Duration(milliseconds: 230),
+                                  ),
+                                },
+                              );
                             },
                           ),
                         ),

@@ -233,117 +233,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Casa',
     },
   },
-  // dashboarv11
-  {
-    'd97epumj': {
-      'en': 'Energy Price Overview',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'hf5fzwau': {
-      'en': 'High',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    's0qckn56': {
-      'en': 'Current Price',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'z0n5a4hn': {
-      'en': '0.38 AED/kWh',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'b4zlgoks': {
-      'en': 'Connected Appliances',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '0wz5jpjh': {
-      'en': 'Living Room AC',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'nxjq3vxz': {
-      'en': 'Current Usage: 1.2 kWh',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '7sxhuqk2': {
-      'en': 'Show More',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'zefb8v5h': {
-      'en': 'Kitchen Refrigerator',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'brtit68o': {
-      'en': 'Current Usage: 0.8 kWh',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '0llj0gye': {
-      'en': 'Show More',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'y5g916po': {
-      'en': 'Bedroom TV',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'jvwwtg8t': {
-      'en': 'Current Usage: 0.1 kWh',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '8jiupqoy': {
-      'en': 'Show More',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '8vio7zha': {
-      'en': 'View Historical Data',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'sqxjupc3': {
-      'en': 'Electric Water Heater',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'h2xgfxnd': {
-      'en': 'Bathroom | Online',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'auicrzms': {
-      'en': 'Page Title',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
   // SignUpUser
   {
     'ty9bx73l': {
@@ -429,190 +318,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'مسكن',
       'de': 'Heim',
       'es': 'Casa',
-    },
-  },
-  // OLDMAINPAGE
-  {
-    'n52gbdwl': {
-      'en': 'Welcome',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '01f6l04r': {
-      'en': '35%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '5kmgo5uj': {
-      'en': '45',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'cp3e6q8n': {
-      'en': 'C',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'hntzu2r3': {
-      'en': 'Feels like 35',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'jjscr9ak': {
-      'en': '6%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '3qgp327i': {
-      'en': 'Total Cost    ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'n30vxmgv': {
-      'en': '+12.4%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    't1mb35j0': {
-      'en': '\$418.75',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    's1sah9vj': {
-      'en': 'Energy Usage ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'mzfl2no6': {
-      'en': '+8.2%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'nbcwjj66': {
-      'en': '189.12',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'evfp4yiq': {
-      'en': 'kWh',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '2caar63u': {
-      'en': 'View Historical Data',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'rlr1oyqm': {
-      'en': 'Reset Power Readings',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'lpsfngtk': {
-      'en': 'Living room | ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '4lgk5ghn': {
-      'en': 'Power : ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'gh1ljzwe': {
-      'en': ' W',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '715mx34s': {
-      'en': ' | ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'ghampuld': {
-      'en': 'Voltage                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'p3nic564': {
-      'en': '  V',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'cgz0zve9': {
-      'en': 'Current                  ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '2z32nuje': {
-      'en': '  A',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'obgjlswk': {
-      'en': 'Cost                          ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'r7k3a2i7': {
-      'en': '69.65 AED',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'inpkn9yz': {
-      'en': 'Status                 ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '578y4igu': {
-      'en': 'Safe',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'r9i9h8o2': {
-      'en': 'Energy-Saving Tip',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '5oodtx7e': {
-      'en':
-          'Use natural light when possible and turn off lights in unoccupied rooms to reduce energy consumption.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '0ajfnfhk': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
     },
   },
   // Profile
@@ -1941,61 +1646,61 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // LoginPage
   {
-    'i6v6me1p': {
+    '9ohe5dgl': {
       'en': 'Welcome back',
       'ar': 'البدء',
       'de': 'Loslegen',
       'es': 'Empezar',
     },
-    'jw9yi5x7': {
+    'v9n5z6y0': {
       'en': 'Login to access your account below.',
       'ar': 'قم بإنشاء حسابك أدناه.',
       'de': 'Erstellen Sie unten Ihr Konto.',
       'es': 'Crea tu cuenta a continuación.',
     },
-    'e3be9qgc': {
+    'itjxolop': {
       'en': 'Email Address',
       'ar': 'عنوان البريد الالكترونى',
       'de': 'E-Mail-Addresse',
       'es': 'Dirección de correo electrónico',
     },
-    'kcjpm467': {
+    'tmhf4zhj': {
       'en': 'Enter your email...',
       'ar': 'أدخل بريدك الإلكتروني ...',
       'de': 'Geben sie ihre E-Mail Adresse ein...',
       'es': 'Introduce tu correo electrónico...',
     },
-    '1sp467nc': {
+    'yaw27xlt': {
       'en': 'Password',
       'ar': 'كلمة المرور',
       'de': 'Passwort',
       'es': 'Contraseña',
     },
-    '1l6wm77i': {
+    'h5in6nzn': {
       'en': 'Enter your password...',
       'ar': 'ادخل رقمك السري...',
       'de': 'Geben Sie Ihr Passwort ein...',
       'es': 'Ingresa tu contraseña...',
     },
-    't0ed0p7a': {
+    '121g354w': {
       'en': 'Forgot Password?',
       'ar': 'هل نسيت كلمة السر؟',
       'de': 'Passwort vergessen?',
       'es': '¿Has olvidado tu contraseña?',
     },
-    '9we5b7iv': {
+    'm1r2tpx6': {
       'en': 'Login',
       'ar': 'تسجيل الدخول',
       'de': 'Anmeldung',
       'es': 'Acceso',
     },
-    '9eujq5j1': {
+    'ua4niyl4': {
       'en': 'Don\'t have an account?',
       'ar': 'ليس لديك حساب؟',
       'de': 'Sie haben kein Konto?',
       'es': '¿No tienes una cuenta?',
     },
-    'd2gbgc3z': {
+    'asve1mzt': {
       'en': 'Create',
       'ar': 'ليس لديك حساب؟',
       'de': 'Sie haben kein Konto?',

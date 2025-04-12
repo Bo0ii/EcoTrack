@@ -1,8 +1,6 @@
 // Export pages
 export '/sign/sign_up/sign_up_widget.dart' show SignUpWidget;
-export '/junk/dashboarv11/dashboarv11_widget.dart' show Dashboarv11Widget;
 export '/sign/sign_up_user/sign_up_user_widget.dart' show SignUpUserWidget;
-export '/junk/oldmainpage/oldmainpage_widget.dart' show OldmainpageWidget;
 export '/profile/profile_widget.dart' show ProfileWidget;
 export '/secondpage/secondpage_widget.dart' show SecondpageWidget;
 export '/connect/connect_widget.dart' show ConnectWidget;

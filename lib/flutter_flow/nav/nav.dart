@@ -89,33 +89,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
-          name: Dashboarv11Widget.routeName,
-          path: Dashboarv11Widget.routePath,
-          builder: (context, params) => Dashboarv11Widget(
-            email: params.getParam(
-              'email',
-              ParamType.String,
-            ),
-            deviceId: params.getParam(
-              'deviceId',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: SignUpUserWidget.routeName,
           path: SignUpUserWidget.routePath,
           builder: (context, params) => SignUpUserWidget(),
-        ),
-        FFRoute(
-          name: OldmainpageWidget.routeName,
-          path: OldmainpageWidget.routePath,
-          builder: (context, params) => OldmainpageWidget(
-            email: params.getParam(
-              'email',
-              ParamType.String,
-            ),
-          ),
         ),
         FFRoute(
           name: ProfileWidget.routeName,

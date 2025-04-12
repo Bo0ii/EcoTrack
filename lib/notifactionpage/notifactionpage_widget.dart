@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -128,7 +129,18 @@ class _NotifactionpageWidgetState extends State<NotifactionpageWidget>
                                       size: 30.0,
                                     ),
                                     onPressed: () async {
-                                      context.pop();
+                                      context.pushNamed(
+                                        ProfileWidget.routeName,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.leftToRight,
+                                            duration:
+                                                Duration(milliseconds: 220),
+                                          ),
+                                        },
+                                      );
                                     },
                                   ),
                                 ),

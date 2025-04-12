@@ -48,7 +48,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
     });
   }
 
-  /// Processes the raw API data, using the same steps you had before:
+  /// Processes the raw API data, using the same steps as before:
   /// 1. Flattens the list (if nested).
   /// 2. Converts timestamps to local time, groups by day using the latest reading.
   /// 3. Generates a [bars] list covering the last [widget.days] days (0 if missing).
@@ -141,16 +141,23 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       width: widget.width,
       height: widget.height,
       child: SfCartesianChart(
+        backgroundColor: Colors.transparent,
+        plotAreaBackgroundColor: Colors.transparent,
+        plotAreaBorderWidth: 0,
+        // Margin to avoid cropping edges
+        margin: const EdgeInsets.only(left: 10, right: 20, top: 10, bottom: 10),
         tooltipBehavior: _tooltipBehavior,
         primaryXAxis: CategoryAxis(
           labelStyle: const TextStyle(fontSize: 12),
           majorGridLines: const MajorGridLines(width: 0),
         ),
         primaryYAxis: NumericAxis(
+          isVisible: false, // Hide left numbers
           minimum: 0,
           maximum: maxVal * 1.2,
           axisLine: const AxisLine(width: 0),
           majorTickLines: const MajorTickLines(size: 0),
+          majorGridLines: const MajorGridLines(width: 0), // Remove back grid
           labelFormat: '{value}',
         ),
         series: <CartesianSeries<_ChartBar, String>>[
@@ -162,9 +169,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
             animationDuration: 1500,
             borderRadius: const BorderRadius.all(Radius.circular(8)),
             dataLabelSettings: const DataLabelSettings(
-              isVisible: true,
-              labelAlignment: ChartDataLabelAlignment.top,
-            ),
+                isVisible: false), // Energy value not visible on chart
             selectionBehavior: SelectionBehavior(
               enable: true,
               toggleSelection: false,
@@ -180,8 +185,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
                     details.seriesIndex!, details.pointIndex!);
               }
             },
-            // EXACT copy from your PowerThreshold's approach:
-            // A single gradient from transparent -> blue for all bars.
+            // Use the same gradient logic as before (transparent→blue)
             onCreateShader: (ShaderDetails details) {
               final Rect rect =
                   Rect.fromLTWH(0, 0, widget.width, widget.height);

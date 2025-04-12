@@ -185,6 +185,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .displaySmallFamily,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .displaySmallFamily),
