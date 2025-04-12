@@ -59,8 +59,8 @@ jobs:
         run: pod repo update
         working-directory: ios
 
-      - name: Build iOS release (no codesign)
-        run: flutter build ios --release --no-codesign
+      - name: Build iOS release (no codesign) with tree shaking
+        run: flutter build ios --release --no-codesign --tree-shake-icons
 
       - name: Create Payload folder
         run: mkdir Payload
