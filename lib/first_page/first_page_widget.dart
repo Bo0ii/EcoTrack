@@ -100,9 +100,9 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                             ),
                             alignment: AlignmentDirectional(0.0, 1.0),
                             child: Transform.scale(
-                              scaleX: 2.8,
-                              scaleY: -1.3,
-                              origin: Offset(59.0, -12.0),
+                              scaleX: 2.3,
+                              scaleY: 1.9,
+                              origin: Offset(-52.0, -1.0),
                               child: ClipRect(
                                 child: ImageFiltered(
                                   imageFilter: ImageFilter.blur(
@@ -112,11 +112,11 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                   child: Opacity(
                                     opacity: 0.7,
                                     child: Lottie.asset(
-                                      'assets/jsons/Animation_-_1744398367492-rhD68.json',
+                                      'assets/jsons/Animation_-_1744398241424-tn3hV.json',
                                       width: 787.9,
                                       height: 281.8,
                                       fit: BoxFit.cover,
-                                      frameRate: FrameRate(120.0),
+                                      frameRate: FrameRate(60.0),
                                       reverse: true,
                                       animate: true,
                                     ),
@@ -151,7 +151,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                             alignment: AlignmentDirectional(0.0, -1.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(-0.01, -1.07),
+                                alignment: AlignmentDirectional(-0.1, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 125.0, 8.0, 8.0),

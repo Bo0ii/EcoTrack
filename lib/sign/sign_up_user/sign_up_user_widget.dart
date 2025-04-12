@@ -992,7 +992,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 30.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 _model.adminRecord =

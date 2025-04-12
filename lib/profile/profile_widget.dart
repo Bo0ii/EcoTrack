@@ -4,7 +4,6 @@ import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
@@ -200,40 +198,19 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     child: Stack(
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, -0.2),
                           child: Container(
                             width: 593.4,
-                            height: 300.0,
+                            height: 270.52,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Transform.scale(
-                              scaleX: -5.0,
-                              scaleY: -2.0,
-                              origin: Offset(100.0, -100.0),
-                              child: ClipRect(
-                                child: ImageFiltered(
-                                  imageFilter: ImageFilter.blur(
-                                    sigmaX: 19.0,
-                                    sigmaY: 19.0,
-                                  ),
-                                  child: Opacity(
-                                    opacity: 0.8,
-                                    child: Lottie.asset(
-                                      'assets/jsons/Animation_-_1744398367492-rhD68.json',
-                                      width: 787.9,
-                                      height: 281.8,
-                                      fit: BoxFit.cover,
-                                      frameRate: FrameRate(60.0),
-                                      reverse: true,
-                                      animate: true,
-                                    ),
-                                  ),
-                                ),
+                              gradient: LinearGradient(
+                                colors: [Color(0x00FFFFFF), Color(0xFF2FA7A7)],
+                                stops: [0.0, 1.0],
+                                begin: AlignmentDirectional(0.0, -1.0),
+                                end: AlignmentDirectional(0, 1.0),
                               ),
                             ),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                           ),
                         ),
                         Container(
