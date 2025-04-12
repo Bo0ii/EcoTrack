@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/components/dark_light/dark_light_widget.dart';
 import '/components/pssword_vald/pssword_vald_widget.dart';
 import '/components/succsess/succsess_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -29,13 +28,10 @@ class SignUpWidget extends StatefulWidget {
   State<SignUpWidget> createState() => _SignUpWidgetState();
 }
 
-class _SignUpWidgetState extends State<SignUpWidget>
-    with TickerProviderStateMixin {
+class _SignUpWidgetState extends State<SignUpWidget> {
   late SignUpModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -53,29 +49,6 @@ class _SignUpWidgetState extends State<SignUpWidget>
 
     _model.passwordConfirmTextController ??= TextEditingController();
     _model.passwordConfirmFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(3.0, 3.0),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -120,9 +93,9 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                     .secondaryBackground,
                               ),
                               child: Transform.scale(
-                                scaleX: 2.5,
-                                scaleY: 1.6,
-                                origin: Offset(59.0, -19.0),
+                                scaleX: 1.6,
+                                scaleY: 1.0,
+                                origin: Offset(38.0, 99.0),
                                 child: ClipRect(
                                   child: ImageFiltered(
                                     imageFilter: ImageFilter.blur(
@@ -153,41 +126,19 @@ class _SignUpWidgetState extends State<SignUpWidget>
                             width: 593.4,
                             height: 300.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Transform.scale(
-                              scaleX: -2.4,
-                              scaleY: -1.3,
-                              origin: Offset(59.0, 11.0),
-                              child: ClipRect(
-                                child: ImageFiltered(
-                                  imageFilter: ImageFilter.blur(
-                                    sigmaX: 19.0,
-                                    sigmaY: 19.0,
-                                  ),
-                                  child: Opacity(
-                                    opacity: 0.8,
-                                    child: Lottie.asset(
-                                      'assets/jsons/Animation_-_1744398367492.json',
-                                      width: 787.9,
-                                      height: 281.8,
-                                      fit: BoxFit.cover,
-                                      frameRate: FrameRate(120.0),
-                                      reverse: true,
-                                      animate: true,
-                                    ),
-                                  ),
-                                ),
+                              gradient: LinearGradient(
+                                colors: [Color(0x00FFFFFF), Color(0x4B9DEDEF)],
+                                stops: [0.3, 1.0],
+                                begin: AlignmentDirectional(0.34, -1.0),
+                                end: AlignmentDirectional(-0.34, 1.0),
                               ),
                             ),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                           ),
                         ),
                       ],
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation']!),
+                  ),
                 ),
               ],
             ),
@@ -238,8 +189,8 @@ class _SignUpWidgetState extends State<SignUpWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 5.0, 0.0, 0.0),
                           child: Image.asset(
-                            'assets/images/BN_(17).png',
-                            width: 92.57,
+                            'assets/images/BN_(16).png',
+                            width: 87.13,
                             height: 85.3,
                             fit: BoxFit.fitWidth,
                           ),

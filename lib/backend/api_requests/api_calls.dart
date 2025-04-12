@@ -11,12 +11,11 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class EnergyHistoryCall {
   static Future<ApiCallResponse> call({
     String? computeEnergySensorId = '',
-    String? startDate = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'EnergyHistory',
       apiUrl:
-          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computeEnergySensorId}&start=2024-03-23T00:00:00Z',
+          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computeEnergySensorId}&start=2025-03-23T00:00:00',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',

@@ -613,7 +613,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                     ),
                                     child: Container(
                                       width: 372.2,
-                                      height: 764.6,
+                                      height: 779.07,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:

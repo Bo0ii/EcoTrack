@@ -154,35 +154,14 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget>
                         width: 593.4,
                         height: 300.0,
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        alignment: AlignmentDirectional(0.0, 1.0),
-                        child: Transform.scale(
-                          scaleX: -3.4,
-                          scaleY: -1.5,
-                          origin: Offset(37.0, -13.0),
-                          child: ClipRect(
-                            child: ImageFiltered(
-                              imageFilter: ImageFilter.blur(
-                                sigmaX: 19.0,
-                                sigmaY: 19.0,
-                              ),
-                              child: Opacity(
-                                opacity: 0.8,
-                                child: Lottie.asset(
-                                  'assets/jsons/Animation_-_1744398367492.json',
-                                  width: 787.9,
-                                  height: 281.8,
-                                  fit: BoxFit.cover,
-                                  frameRate: FrameRate(120.0),
-                                  reverse: true,
-                                  animate: true,
-                                ),
-                              ),
-                            ),
+                          gradient: LinearGradient(
+                            colors: [Color(0x00FFFFFF), Color(0x4B9DEDEF)],
+                            stops: [0.3, 1.0],
+                            begin: AlignmentDirectional(0.34, -1.0),
+                            end: AlignmentDirectional(-0.34, 1.0),
                           ),
                         ),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                       ),
                     ),
                     Row(

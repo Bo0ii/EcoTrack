@@ -180,34 +180,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           ),
         ],
       ),
-      'iconOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ShakeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1000.0.ms,
-            hz: 6,
-            offset: Offset(0.0, 0.0),
-            rotation: 0.052,
-          ),
-        ],
-      ),
-      'iconOnPageLoadAnimation2': AnimationInfo(
-        loop: true,
-        reverse: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ShakeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1000.0.ms,
-            hz: 6,
-            offset: Offset(0.0, 0.0),
-            rotation: 0.052,
-          ),
-        ],
-      ),
       'rowOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -306,45 +278,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                       children: [
                         Container(
                           width: 593.4,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Transform.scale(
-                            scaleX: 5.0,
-                            scaleY: -2.2,
-                            origin: Offset(-18.0, 100.0),
-                            child: ClipRect(
-                              child: ImageFiltered(
-                                imageFilter: ImageFilter.blur(
-                                  sigmaX: 19.0,
-                                  sigmaY: 19.0,
-                                ),
-                                child: Opacity(
-                                  opacity: 0.3,
-                                  child: Lottie.asset(
-                                    'assets/jsons/Animation_-_1744398367492.json',
-                                    width: 787.9,
-                                    height: 394.7,
-                                    fit: BoxFit.cover,
-                                    frameRate: FrameRate(120.0),
-                                    reverse: true,
-                                    animate: true,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 593.4,
                           decoration: BoxDecoration(),
                           child: Opacity(
                             opacity: 0.8,
                             child: Transform.scale(
-                              scaleX: -1.9,
-                              scaleY: 1.1,
-                              origin: Offset(12.0, -100.0),
+                              scaleX: 3.4,
+                              scaleY: 1.0,
+                              origin: Offset(86.0, -55.0),
                               child: ClipRect(
                                 child: ImageFiltered(
                                   imageFilter: ImageFilter.blur(
@@ -630,16 +570,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 0.0, 0.0),
-                                                        child: Icon(
-                                                          Icons
-                                                              .water_drop_rounded,
+                                                        child: FaIcon(
+                                                          FontAwesomeIcons.wind,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          size: 20.0,
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'iconOnPageLoadAnimation1']!),
+                                                          size: 18.0,
+                                                        ),
                                                       ),
                                                     ),
                                                     Row(
@@ -647,7 +584,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           MainAxisSize.max,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
-                                                              .end,
+                                                              .center,
                                                       children: [
                                                         Text(
                                                           valueOrDefault<
@@ -688,7 +625,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'igtnh7h6' /* km/h */,
+                                                              'igtnh7h6' /*  km/h */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -864,15 +801,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 0.0, 0.0),
-                                                        child: FaIcon(
-                                                          FontAwesomeIcons.wind,
+                                                        child: Icon(
+                                                          Icons
+                                                              .water_drop_rounded,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          size: 18.0,
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'iconOnPageLoadAnimation2']!),
+                                                          size: 20.0,
+                                                        ),
                                                       ),
                                                     ),
                                                     Row(
@@ -880,7 +816,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           MainAxisSize.max,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
-                                                              .end,
+                                                              .center,
                                                       children: [
                                                         Text(
                                                           '${valueOrDefault<String>(
@@ -913,7 +849,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'qgtxswdg' /* % */,
+                                                            'qgtxswdg' /*  % */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1050,10 +986,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'eo80nm1f' /*  */,
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.totalCost(
+                                                                    FFAppState()
+                                                                        .sensorData
+                                                                        .toList(),
+                                                                    'current_cost'),
+                                                                'cost',
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)

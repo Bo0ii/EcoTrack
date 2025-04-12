@@ -1428,7 +1428,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'igtnh7h6': {
-      'en': 'km/h',
+      'en': ' km/h',
       'ar': '',
       'de': '',
       'es': '',
@@ -1440,7 +1440,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'qgtxswdg': {
-      'en': '%',
+      'en': ' %',
       'ar': '',
       'de': '',
       'es': '',
@@ -1453,12 +1453,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vrtv8d2c': {
       'en': '+12.4%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'eo80nm1f': {
-      'en': '',
       'ar': '',
       'de': '',
       'es': '',

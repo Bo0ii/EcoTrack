@@ -74,26 +74,6 @@ class _ProfileWidgetState extends State<ProfileWidget>
     });
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(3.0, 3.0),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
       'stackOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -142,7 +122,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
+      'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -221,42 +201,6 @@ class _ProfileWidgetState extends State<ProfileWidget>
                       children: [
                         Stack(
                           children: [
-                            Stack(
-                              children: [
-                                Container(
-                                  width: 593.4,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Transform.scale(
-                                    scaleX: 4.8,
-                                    scaleY: 1.0,
-                                    origin: Offset(50.0, -13.0),
-                                    child: ClipRect(
-                                      child: ImageFiltered(
-                                        imageFilter: ImageFilter.blur(
-                                          sigmaX: 19.0,
-                                          sigmaY: 19.0,
-                                        ),
-                                        child: Opacity(
-                                          opacity: 0.8,
-                                          child: Lottie.asset(
-                                            'assets/jsons/Animation_-_1744398367492.json',
-                                            width: 787.9,
-                                            height: 394.7,
-                                            fit: BoxFit.cover,
-                                            frameRate: FrameRate(120.0),
-                                            reverse: true,
-                                            animate: true,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                             Align(
                               alignment: AlignmentDirectional(0.0, 1.0),
                               child: Container(
@@ -269,8 +213,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                 alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Transform.scale(
                                   scaleX: -5.0,
-                                  scaleY: -2.1,
-                                  origin: Offset(62.0, -100.0),
+                                  scaleY: -2.0,
+                                  origin: Offset(100.0, -100.0),
                                   child: ClipRect(
                                     child: ImageFiltered(
                                       imageFilter: ImageFilter.blur(
@@ -297,7 +241,14 @@ class _ProfileWidgetState extends State<ProfileWidget>
                           ],
                         ),
                         Container(
-                          decoration: BoxDecoration(),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Color(0xA3C6FEFF), Color(0x00FFFFFF)],
+                              stops: [0.0, 0.2],
+                              begin: AlignmentDirectional(0.0, -1.0),
+                              end: AlignmentDirectional(0, 1.0),
+                            ),
+                          ),
                           child: Stack(
                             children: [
                               Align(
@@ -638,7 +589,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                           context)
                                                                       .headlineSmallFamily,
                                                                   fontSize:
-                                                                      21.0,
+                                                                      22.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts: GoogleFonts
@@ -1224,7 +1175,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                             ],
                                           ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation2']!),
+                                            'containerOnPageLoadAnimation']!),
                                       ),
                                     ],
                                   ),
@@ -1250,8 +1201,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                         ),
                       ],
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
+                  ),
                 ),
               ],
             ),
