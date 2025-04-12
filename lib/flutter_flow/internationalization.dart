@@ -1457,6 +1457,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    'eo80nm1f': {
+      'en': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'r045jsbi': {
       'en': 'AED',
       'ar': '',

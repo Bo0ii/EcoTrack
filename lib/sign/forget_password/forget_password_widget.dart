@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,7 +6,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'forget_password_model.dart';
 export 'forget_password_model.dart';
@@ -22,13 +20,10 @@ class ForgetPasswordWidget extends StatefulWidget {
   State<ForgetPasswordWidget> createState() => _ForgetPasswordWidgetState();
 }
 
-class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget>
-    with TickerProviderStateMixin {
+class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
   late ForgetPasswordModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -37,29 +32,6 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget>
 
     _model.householdIdTextController ??= TextEditingController();
     _model.householdIdFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(3.0, 3.0),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -467,8 +439,7 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget>
                     ),
                   ),
                 ),
-              ).animateOnPageLoad(
-                  animationsMap['containerOnPageLoadAnimation']!),
+              ),
             ),
           ],
         ),

@@ -32,18 +32,13 @@ class DailyEnergyBarChart extends StatefulWidget {
 
 class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
   late TooltipBehavior _tooltipBehavior;
+  List<_ChartBar> bars = [];
   bool isLoading = true;
   int selectedIndex = -1;
-
-  // We'll store the overall timeline plus two separate lists for normal vs peak bars.
-  List<_ChartBar> allBars = [];
-  List<_ChartBar> normalBars = [];
-  List<_ChartBar> peakBars = [];
 
   @override
   void initState() {
     super.initState();
-    // Tooltip only shows on hover/tap; no persistent data labels
     _tooltipBehavior = TooltipBehavior(
       enable: true,
       activationMode: ActivationMode.singleTap,
@@ -53,12 +48,10 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
     });
   }
 
-  /// 1) Flatten if nested
-  /// 2) Convert timestamps to local time and group by YYYY-MM-DD (latest reading)
-  /// 3) Build a timeline for last [widget.days] days => [allBars]
-  /// 4) Identify the max bar.
-  /// 5) Fill normalBars with real val except highest bar => 0
-  ///    fill peakBars with 0 except highest bar => real val
+  /// Processes the raw API data, using the same steps you had before:
+  /// 1. Flattens the list (if nested).
+  /// 2. Converts timestamps to local time, groups by day using the latest reading.
+  /// 3. Generates a [bars] list covering the last [widget.days] days (0 if missing).
   void _processHistoryData() {
     final List<dynamic> flattened = [];
     if (widget.historyData is List) {
@@ -72,6 +65,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
     }
 
     final Map<String, Map<String, dynamic>> dailyRecord = {};
+
     for (var record in flattened) {
       if (record is! Map<String, dynamic>) continue;
       final timeStr = record['last_changed'] ?? record['last_updated'];
@@ -93,53 +87,31 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       }
     }
 
-    // Build a map: dayKey -> reading
     final Map<String, double> dailyLastReading = {};
     dailyRecord.forEach((key, record) {
       dailyLastReading[key] = record['value'] as double;
     });
 
-    final nowLocal = DateTime.now().toLocal();
-    final lastDay = DateTime(nowLocal.year, nowLocal.month, nowLocal.day);
-    final startDay = lastDay.subtract(Duration(days: widget.days - 1));
+    final DateTime localNow = DateTime.now().toLocal();
+    final DateTime lastDay =
+        DateTime(localNow.year, localNow.month, localNow.day);
+    final DateTime startDay = lastDay.subtract(Duration(days: widget.days - 1));
 
-    // Build the timeline
     final List<_ChartBar> timelineBars = [];
     for (int i = 0; i < widget.days; i++) {
       final DateTime day = startDay.add(Duration(days: i));
       final String dayKey = "${day.year.toString().padLeft(4, '0')}-"
           "${day.month.toString().padLeft(2, '0')}-"
           "${day.day.toString().padLeft(2, '0')}";
-      final double value = dailyLastReading[dayKey] ?? 0.0;
+      final double value = dailyLastReading.containsKey(dayKey)
+          ? dailyLastReading[dayKey]!
+          : 0.0;
       final String label = DateFormat.MMMd().format(day);
       timelineBars.add(_ChartBar(label: label, value: value));
     }
 
-    // Identify maximum
-    double maxVal = 0;
-    if (timelineBars.isNotEmpty) {
-      maxVal = timelineBars.map((b) => b.value).reduce((a, b) => a > b ? a : b);
-    }
-
-    // Separate normal vs. peak
-    final List<_ChartBar> tmpNormal = [];
-    final List<_ChartBar> tmpPeak = [];
-    for (final bar in timelineBars) {
-      if ((bar.value - maxVal).abs() < 1e-9 && maxVal > 0) {
-        // This bar is the highest
-        tmpNormal.add(_ChartBar(label: bar.label, value: 0));
-        tmpPeak.add(_ChartBar(label: bar.label, value: bar.value));
-      } else {
-        // Normal
-        tmpNormal.add(bar);
-        tmpPeak.add(_ChartBar(label: bar.label, value: 0));
-      }
-    }
-
     setState(() {
-      allBars = timelineBars;
-      normalBars = tmpNormal;
-      peakBars = tmpPeak;
+      bars = timelineBars;
       isLoading = false;
     });
   }
@@ -153,7 +125,8 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         child: const Center(child: CircularProgressIndicator()),
       );
     }
-    if (allBars.isEmpty) {
+
+    if (bars.isEmpty) {
       return SizedBox(
         width: widget.width,
         height: widget.height,
@@ -161,44 +134,42 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       );
     }
 
+    final double maxVal =
+        bars.map((e) => e.value).reduce((a, b) => a > b ? a : b);
+
     return SizedBox(
       width: widget.width,
       height: widget.height,
       child: SfCartesianChart(
-        // Minimal style like your PowerXThreshold
-        backgroundColor: Colors.transparent,
-        plotAreaBackgroundColor: Colors.transparent,
-        plotAreaBorderWidth: 0,
-        // Add some margin so the bars aren't cropped at the edges
-        margin: const EdgeInsets.all(10),
-
-        // Hide the legend, so we see only "Energy (kWh)" in tooltips
-        legend: Legend(isVisible: false),
-
         tooltipBehavior: _tooltipBehavior,
-
-        // Hide the numeric axis and horizontal lines
-        primaryYAxis: NumericAxis(
-          isVisible: false,
-          majorGridLines: const MajorGridLines(width: 0),
-        ),
-
-        // Show X-axis labels but remove vertical grid lines
         primaryXAxis: CategoryAxis(
-          labelRotation: 0,
+          labelStyle: const TextStyle(fontSize: 12),
           majorGridLines: const MajorGridLines(width: 0),
         ),
-
+        primaryYAxis: NumericAxis(
+          minimum: 0,
+          maximum: maxVal * 1.2,
+          axisLine: const AxisLine(width: 0),
+          majorTickLines: const MajorTickLines(size: 0),
+          labelFormat: '{value}',
+        ),
         series: <CartesianSeries<_ChartBar, String>>[
-          // Normal (blue) bars
           ColumnSeries<_ChartBar, String>(
+            dataSource: bars,
+            xValueMapper: (data, _) => data.label,
+            yValueMapper: (data, _) => data.value,
             name: 'Energy (kWh)',
-            dataSource: normalBars,
-            xValueMapper: (bar, _) => bar.label,
-            yValueMapper: (bar, _) => bar.value,
-            borderRadius: const BorderRadius.all(Radius.circular(8)),
             animationDuration: 1500,
-            dataLabelSettings: const DataLabelSettings(isVisible: false),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            dataLabelSettings: const DataLabelSettings(
+              isVisible: true,
+              labelAlignment: ChartDataLabelAlignment.top,
+            ),
+            selectionBehavior: SelectionBehavior(
+              enable: true,
+              toggleSelection: false,
+              unselectedOpacity: 0.3,
+            ),
             onPointTap: (ChartPointDetails details) {
               if (selectedIndex == details.pointIndex) {
                 setState(() => selectedIndex = -1);
@@ -209,42 +180,17 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
                     details.seriesIndex!, details.pointIndex!);
               }
             },
-            // Single gradient for the entire series => transparent->blue
-            onCreateShader: (ShaderDetails shader) {
+            // EXACT copy from your PowerThreshold's approach:
+            // A single gradient from transparent -> blue for all bars.
+            onCreateShader: (ShaderDetails details) {
+              final Rect rect =
+                  Rect.fromLTWH(0, 0, widget.width, widget.height);
               return const LinearGradient(
                 colors: [Colors.transparent, Colors.blue],
+                stops: [0.0, 1.0],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-              ).createShader(shader.rect);
-            },
-          ),
-
-          // Peak (orange) bars
-          ColumnSeries<_ChartBar, String>(
-            name: 'Energy (kWh)',
-            dataSource: peakBars,
-            xValueMapper: (bar, _) => bar.label,
-            yValueMapper: (bar, _) => bar.value,
-            borderRadius: const BorderRadius.all(Radius.circular(8)),
-            animationDuration: 1500,
-            dataLabelSettings: const DataLabelSettings(isVisible: false),
-            onPointTap: (ChartPointDetails details) {
-              if (selectedIndex == details.pointIndex) {
-                setState(() => selectedIndex = -1);
-                _tooltipBehavior.hide();
-              } else {
-                setState(() => selectedIndex = details.pointIndex!);
-                _tooltipBehavior.showByIndex(
-                    details.seriesIndex!, details.pointIndex!);
-              }
-            },
-            // Single gradient => transparent->orange
-            onCreateShader: (ShaderDetails shader) {
-              return const LinearGradient(
-                colors: [Colors.transparent, Colors.orange],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-              ).createShader(shader.rect);
+              ).createShader(rect);
             },
           ),
         ],

@@ -234,7 +234,15 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed(
-                                            SecondpageWidget.routeName);
+                                          SecondpageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                            ),
+                                          },
+                                        );
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'fltlc9lt' /* Get Started */,

@@ -192,20 +192,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation': AnimationInfo(
-        loop: true,
-        reverse: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          SaturateEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 630.0.ms,
-            begin: 1.15,
-            end: 0.82,
-          ),
-        ],
-      ),
       'listViewOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -992,14 +978,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                functions.totalCost(
-                                                                    FFAppState()
-                                                                        .sensorData
-                                                                        .toList(),
-                                                                    'current_cost'),
-                                                                'cost',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'eo80nm1f' /*  */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1155,9 +1137,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           useGoogleFonts:
                                                                               GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                         ),
-                                                                  ).animateOnPageLoad(
-                                                                      animationsMap[
-                                                                          'textOnPageLoadAnimation']!),
+                                                                  ),
                                                                 ].divide(SizedBox(
                                                                     width:
                                                                         4.0)),
@@ -1527,17 +1507,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                   imageFilter: ImageFilter.blur(
                                                                                                     sigmaX: 16.0,
                                                                                                     sigmaY: 16.0,
-                                                                                                  ),
-                                                                                                  child: Align(
-                                                                                                    alignment: AlignmentDirectional(1.0, -1.0),
-                                                                                                    child: Lottie.asset(
-                                                                                                      'assets/jsons/Animation_-_1744398241424-tn3hV.json',
-                                                                                                      width: 66.4,
-                                                                                                      height: 70.4,
-                                                                                                      fit: BoxFit.contain,
-                                                                                                      reverse: true,
-                                                                                                      animate: true,
-                                                                                                    ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
