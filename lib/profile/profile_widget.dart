@@ -4,6 +4,7 @@ import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
@@ -197,20 +199,40 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     decoration: BoxDecoration(),
                     child: Stack(
                       children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, -0.2),
-                          child: Container(
-                            width: 593.4,
-                            height: 270.52,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Color(0x00FFFFFF), Color(0xFF2FA7A7)],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                        Opacity(
+                          opacity: 0.6,
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, -0.2),
+                            child: Container(
+                              width: 593.4,
+                              height: 466.1,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Transform.scale(
+                                scaleX: -5.0,
+                                scaleY: -1.1,
+                                origin: Offset(100.0, -2.0),
+                                child: ClipRect(
+                                  child: ImageFiltered(
+                                    imageFilter: ImageFilter.blur(
+                                      sigmaX: 19.0,
+                                      sigmaY: 19.0,
+                                    ),
+                                    child: Lottie.asset(
+                                      'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                                      width: 787.9,
+                                      height: 381.7,
+                                      fit: BoxFit.cover,
+                                      reverse: true,
+                                      animate: true,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                            alignment: AlignmentDirectional(0.0, -1.0),
                           ),
                         ),
                         Container(

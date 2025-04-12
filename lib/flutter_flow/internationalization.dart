@@ -1126,145 +1126,145 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomeNew
   {
-    '3tjt1mrb': {
+    '9au8deaz': {
       'en': 'Welcome',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'igtnh7h6': {
+    'ksjukim8': {
       'en': ' km/h',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'y7aoqb3h': {
+    'igqb1lr7': {
       'en': '°C',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'qgtxswdg': {
+    'fruq26hn': {
       'en': ' %',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '5rd21wc3': {
+    'qpjmrwry': {
       'en': 'Total Cost    ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'vrtv8d2c': {
+    'tjkkxbef': {
       'en': '+12.4%',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'eo80nm1f': {
+    '18uhddzo': {
       'en': '',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'r045jsbi': {
+    '74rfgz26': {
       'en': 'AED',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'coewt43k': {
+    'i31t5q9c': {
       'en': 'Energy Usage ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'c2j99n8z': {
+    'vlilb47i': {
       'en': '+8.2%',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '6nzn41sm': {
+    'wtwy6bva': {
       'en': '',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'rym102xe': {
+    'p66nlew2': {
       'en': 'kWh',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'mfdp3yta': {
+    'dfit5xqi': {
       'en': 'Living room | ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'b4icl5sv': {
+    'se6ti893': {
       'en': 'Power : ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'i40muna2': {
+    'v5q6tb8d': {
       'en': ' W',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'fl6pgp6g': {
+    'xgpwvs20': {
       'en': ' | ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'lwa1sv7m': {
+    'l8einlq7': {
       'en': 'Voltage            ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'vogcci57': {
+    'ynv8e713': {
       'en': ' V',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'kpcllarr': {
+    'pba69bju': {
       'en': 'Current             ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'w9ktp70u': {
+    'fj08ebdc': {
       'en': ' A ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'y8efirzk': {
+    'd0ssd8fl': {
       'en': 'Cost                    ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'w2716v8c': {
+    'b497fyjw': {
       'en': ' AED',
       'ar': '',
       'de': '',
       'es': '',
     },
-    'x926sngi': {
+    'xmyybe6m': {
       'en': 'Status       ',
       'ar': '',
       'de': '',
       'es': '',
     },
-    '6edaahez': {
+    'v7weflxu': {
       'en': 'Eco Energy Tip',
       'ar': '',
       'de': '',
@@ -1713,9 +1713,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // NewGradiant
+  // GradiantContanerCopy
   {
-    '1gmg7mhf': {
+    'nu43sigl': {
       'en': 'Home',
       'ar': '',
       'de': '',

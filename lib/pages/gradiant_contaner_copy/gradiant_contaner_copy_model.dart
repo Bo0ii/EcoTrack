@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'new_gradiant_widget.dart' show NewGradiantWidget;
+import 'gradiant_contaner_copy_widget.dart' show GradiantContanerCopyWidget;
 import 'package:flutter/material.dart';
 
-class NewGradiantModel extends FlutterFlowModel<NewGradiantWidget> {
+class GradiantContanerCopyModel
+    extends FlutterFlowModel<GradiantContanerCopyWidget> {
   ///  Local state fields for this page.
 
   bool isEmailValid = true;

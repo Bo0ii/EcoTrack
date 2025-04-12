@@ -255,9 +255,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
-          name: NewGradiantWidget.routeName,
-          path: NewGradiantWidget.routePath,
-          builder: (context, params) => NewGradiantWidget(),
+          name: GradiantContanerCopyWidget.routeName,
+          path: GradiantContanerCopyWidget.routePath,
+          builder: (context, params) => GradiantContanerCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

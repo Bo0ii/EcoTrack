@@ -30,4 +30,5 @@ export '/phone_integration/startup4_pages/s5_network/s5_network_widget.dart'
     show S5NetworkWidget;
 export '/first_page/first_page_widget.dart' show FirstPageWidget;
 export '/sign/login_page/login_page_widget.dart' show LoginPageWidget;
-export '/pages/new_gradiant/new_gradiant_widget.dart' show NewGradiantWidget;
+export '/pages/gradiant_contaner_copy/gradiant_contaner_copy_widget.dart'
+    show GradiantContanerCopyWidget;

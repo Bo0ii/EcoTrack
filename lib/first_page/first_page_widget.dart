@@ -7,6 +7,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'first_page_model.dart';
 export 'first_page_model.dart';
 
@@ -99,14 +100,26 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                             ),
                             alignment: AlignmentDirectional(0.0, 1.0),
                             child: Transform.scale(
-                              scaleX: 2.3,
-                              scaleY: 1.9,
-                              origin: Offset(-52.0, -1.0),
+                              scaleX: 5.0,
+                              scaleY: -1.2,
+                              origin: Offset(47.0, -10.0),
                               child: ClipRect(
                                 child: ImageFiltered(
                                   imageFilter: ImageFilter.blur(
                                     sigmaX: 19.0,
                                     sigmaY: 19.0,
+                                  ),
+                                  child: Opacity(
+                                    opacity: 0.7,
+                                    child: Lottie.asset(
+                                      'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                                      width: 787.9,
+                                      height: 281.8,
+                                      fit: BoxFit.cover,
+                                      frameRate: FrameRate(60.0),
+                                      reverse: true,
+                                      animate: true,
+                                    ),
                                   ),
                                 ),
                               ),

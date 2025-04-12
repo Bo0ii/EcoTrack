@@ -85,26 +85,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 alignment: AlignmentDirectional(0.0, 1.0),
                                 children: [
                                   Transform.scale(
-                                    scaleX: 1.0,
-                                    scaleY: 1.0,
-                                    origin: Offset(63.0, 99.0),
+                                    scaleX: -3.3,
+                                    scaleY: -1.4,
+                                    origin: Offset(86.0, -2.0),
                                     child: ClipRect(
                                       child: ImageFiltered(
                                         imageFilter: ImageFilter.blur(
-                                          sigmaX: 12.0,
-                                          sigmaY: 12.0,
+                                          sigmaX: 19.0,
+                                          sigmaY: 19.0,
                                         ),
-                                        child: Opacity(
-                                          opacity: 0.8,
-                                          child: Lottie.asset(
-                                            'assets/jsons/RfXWp9WA9b-9Z7zR.json',
-                                            width: 787.9,
-                                            height: 495.74,
-                                            fit: BoxFit.cover,
-                                            frameRate: FrameRate(120.0),
-                                            reverse: true,
-                                            animate: true,
-                                          ),
+                                        child: Lottie.asset(
+                                          'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                                          width: 787.9,
+                                          height: 381.7,
+                                          fit: BoxFit.cover,
+                                          reverse: true,
+                                          animate: true,
                                         ),
                                       ),
                                     ),
@@ -151,7 +147,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 24.0, 24.0, 20.0),
+                                            24.0, 24.0, 24.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -402,6 +398,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         context)
                                                                     .bodyMediumFamily),
                                                       ),
+                                                  cursorColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .tertiary,
                                                   validator: _model
                                                       .emailAddressLoginTextControllerValidator
                                                       .asValidator(context),
@@ -559,6 +559,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         context)
                                                                     .bodyMediumFamily),
                                                       ),
+                                                  cursorColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .tertiary,
                                                   validator: _model
                                                       .passwordLoginTextControllerValidator
                                                       .asValidator(context),
@@ -604,7 +608,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         color:
-                                                            Color(0x001A1F24),
+                                                            Colors.transparent,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)

@@ -199,8 +199,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                               Colors.white
                             ],
                             stops: [0.0, 0.4, 0.6, 0.7, 0.95],
-                            begin: AlignmentDirectional(-1.0, -0.64),
-                            end: AlignmentDirectional(1.0, 0.64),
+                            begin: AlignmentDirectional(-1.0, -0.98),
+                            end: AlignmentDirectional(1.0, 0.98),
                           ),
                         ),
                         child: InkWell(
@@ -1885,7 +1885,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              Color(0xFFD5FEFF),
+                              Color(0xFFEBFEFF),
                               Color(0xF8EBFEFF),
                               Color(0x5EFFFFFF),
                               Color(0x00EBFEFF)
