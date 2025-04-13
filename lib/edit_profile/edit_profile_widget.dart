@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -67,9 +68,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 0.0.ms,
-            duration: 1070.0.ms,
-            begin: Offset(0.0, 23.0),
+            delay: 50.0.ms,
+            duration: 1530.0.ms,
+            begin: Offset(0.0, 30.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -79,9 +80,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 0.0.ms,
-            duration: 1070.0.ms,
-            begin: Offset(0.0, 23.0),
+            delay: 50.0.ms,
+            duration: 1470.0.ms,
+            begin: Offset(0.0, 26.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -91,8 +92,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 0.0.ms,
-            duration: 1030.0.ms,
+            delay: 50.0.ms,
+            duration: 1510.0.ms,
             begin: Offset(0.0, 23.0),
             end: Offset(0.0, 0.0),
           ),
@@ -103,8 +104,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 0.0.ms,
-            duration: 1100.0.ms,
+            delay: 50.0.ms,
+            duration: 1420.0.ms,
             begin: Offset(0.0, 21.0),
             end: Offset(0.0, 0.0),
           ),
@@ -812,6 +813,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                           safeSetState(() {});
                         }
 
+                        HapticFeedback.mediumImpact();
                         context.safePop();
                       },
                       text: FFLocalizations.of(context).getText(

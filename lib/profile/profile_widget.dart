@@ -1004,7 +1004,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                             .bottomToTop,
                                                                     duration: Duration(
                                                                         milliseconds:
-                                                                            350),
+                                                                            300),
                                                                   ),
                                                                 },
                                                               );
