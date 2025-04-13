@@ -121,3 +121,63 @@ String? totalCost(
     }
   }
 }
+
+String? getUserTotalSensorValue(
+  List<dynamic> sensorList,
+  List<String> userDeviceIds,
+  String sensorType,
+) {
+  String getUserTotalSensorValue(
+    List<dynamic> sensorList,
+    List<String> userDeviceIds,
+    String sensorType,
+  ) {
+    double total = 0.0;
+
+    // DEBUG: Print inputs
+    print('✅ sensorList length: ${sensorList.length}');
+    print('✅ userDeviceIds: $userDeviceIds');
+    print('✅ sensorType: $sensorType');
+
+    final normalizedDevices =
+        userDeviceIds.map((d) => d.toLowerCase()).toList();
+
+    for (final sensor in sensorList) {
+      final entityId = sensor['entity_id']?.toString();
+      final stateRaw = sensor['state']?.toString();
+
+      if (entityId == null || !entityId.contains(sensorType)) continue;
+
+      print('➡️ Matching sensor found: $entityId');
+
+      // Get deviceId from entity_id (e.g., sensor.ecot2_current_cost_2)
+      final cleanedId = entityId.replaceFirst('sensor.', '');
+      final parts = cleanedId.split('_');
+      if (parts.isEmpty) {
+        print('⚠️ Could not parse deviceId from: $entityId');
+        continue;
+      }
+
+      final deviceId = parts[0].toLowerCase();
+      print('🔍 Extracted deviceId: $deviceId');
+
+      if (!normalizedDevices.contains(deviceId)) {
+        print('❌ Skipped: $deviceId not in userDeviceIds');
+        continue;
+      }
+
+      final value = double.tryParse(stateRaw ?? '') ?? 0.0;
+      print('✅ Adding $value to total');
+      total += value;
+    }
+
+    print('🧮 Final Total: $total');
+    return total.toStringAsFixed(3);
+  }
+}
+
+List<String>? cleanDeviceList(List<String> inputList) {
+  List<String> cleanDeviceList(List<String> inputList) {
+    return inputList.where((item) => item.trim().isNotEmpty).toSet().toList();
+  }
+}

@@ -1,7 +1,9 @@
+import '/backend/backend.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,6 +34,13 @@ class _AutomationWidgetState extends State<AutomationWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().currentPage = 'Automations';
+      safeSetState(() {});
+      _model.deviceList = await queryDevicesRecordOnce();
+      _model.userDeviceIds = functions
+          .cleanDeviceList(
+              _model.deviceList!.map((e) => e.deviceId).toList().toList())!
+          .toList()
+          .cast<String>();
       safeSetState(() {});
     });
 
@@ -274,6 +283,21 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                           ),
                                         ),
                                       ),
+                                    ),
+                                    Text(
+                                      _model.userDeviceIds.toList().toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
                                     ),
                                     Material(
                                       color: Colors.transparent,

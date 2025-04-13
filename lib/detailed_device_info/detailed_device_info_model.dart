@@ -12,6 +12,8 @@ class DetailedDeviceInfoModel
 
   // Stores action output result for [Custom Action - computeApiFilter] action in DetailedDeviceInfo widget.
   String? computeApiFilter;
+  // Stores action output result for [Custom Action - getPowerThresholdStartTime] action in DetailedDeviceInfo widget.
+  String? getPowerThresholdStartTime;
   InstantTimer? instantTimer;
   // Stores action output result for [Backend Call - API (powerXthreshhold)] action in DetailedDeviceInfo widget.
   ApiCallResponse? powerxthreshold;

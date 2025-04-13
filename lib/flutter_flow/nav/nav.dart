@@ -193,6 +193,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'deviceName',
               ParamType.String,
             ),
+            deviceReference: params.getParam(
+              'deviceReference',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users', 'devices'],
+            ),
           ),
         ),
         FFRoute(

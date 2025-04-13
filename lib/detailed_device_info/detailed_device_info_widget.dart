@@ -29,10 +29,12 @@ class DetailedDeviceInfoWidget extends StatefulWidget {
     super.key,
     required this.deviceId,
     this.deviceName,
+    required this.deviceReference,
   });
 
   final String? deviceId;
   final String? deviceName;
+  final DocumentReference? deviceReference;
 
   static String routeName = 'DetailedDeviceInfo';
   static String routePath = '/detailedDeviceInfo';
@@ -62,11 +64,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           _model.computeApiFilter = await actions.computeApiFilter(
             widget.deviceId!,
           );
+          _model.getPowerThresholdStartTime =
+              await actions.getPowerThresholdStartTime();
           _model.instantTimer = InstantTimer.periodic(
             duration: Duration(milliseconds: 30000),
             callback: (timer) async {
               _model.powerxthreshold = await PowerXthreshholdCall.call(
                 computedApiFilter: _model.computeApiFilter,
+                startTime: _model.getPowerThresholdStartTime,
               );
             },
             startImmediately: true,
@@ -283,7 +288,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 20.0, 11.0),
+                                                    16.0, 0.0, 20.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -411,28 +416,58 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 18.0, 0.0),
-                                            child: Container(
-                                              width: 62.2,
-                                              height: 49.8,
-                                              decoration: BoxDecoration(),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(10.0),
-                                                  child: Icon(
-                                                    Icons.link_off,
-                                                    color: Color(0xFFD00425),
-                                                    size: 35.0,
+                                          if (FFAppState().isAdmin == true)
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 18.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  await widget.deviceReference!
+                                                      .delete();
+
+                                                  context.goNamed(
+                                                    HomeNewWidget.routeName,
+                                                    extra: <String, dynamic>{
+                                                      kTransitionInfoKey:
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .topToBottom,
+                                                        duration: Duration(
+                                                            milliseconds: 200),
+                                                      ),
+                                                    },
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width: 62.2,
+                                                  height: 49.8,
+                                                  decoration: BoxDecoration(),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(10.0),
+                                                      child: Icon(
+                                                        Icons.link_off,
+                                                        color:
+                                                            Color(0xFFD00425),
+                                                        size: 35.0,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
                                         ],
                                       ),
                                     ),
@@ -658,7 +693,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFFF3B89F),
+                                            color: Color(0xFFF49870),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -712,7 +747,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF93C2C2),
+                                              color: Color(0xFF73C4C4),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1508,7 +1543,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'ju8vatuf' /* Current Cost (0.2% error) */,
+                                                  'ju8vatuf' /* Monthly Cost (0.2% error) */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

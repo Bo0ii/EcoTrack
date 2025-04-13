@@ -1067,7 +1067,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'ju8vatuf': {
-      'en': 'Current Cost (0.2% error)',
+      'en': 'Monthly Cost (0.2% error)',
       'ar': '',
       'de': '',
       'es': '',

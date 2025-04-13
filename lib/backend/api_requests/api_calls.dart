@@ -8,59 +8,15 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class EnergyHistoryCall {
-  static Future<ApiCallResponse> call({
-    String? computeEnergySensorId = '',
-  }) async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'EnergyHistory',
-      apiUrl:
-          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computeEnergySensorId}&start=2025-03-23T00:00:00',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2NGM4ZTIyZjc4YjM0M2IzYmYzOTcwYmYwNmI3OTFjMiIsImlhdCI6MTc0MjE1Mjg1NiwiZXhwIjoyMDU3NTEyODU2fQ.i25jvKgFyVWiW4Pens4YTgxC7YhV6jlSY3n6nREqmAE',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List<String>? time(dynamic response) => (getJsonField(
-        response,
-        r'''$[0][*].last_updated
-''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? energyConsumption(dynamic response) => (getJsonField(
-        response,
-        r'''$[0][*].state''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
 class PowerXthreshholdCall {
   static Future<ApiCallResponse> call({
     String? computedApiFilter = '',
+    String? startTime = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'powerXthreshhold',
       apiUrl:
-          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computedApiFilter}&start=2023-04-10T00:00:00',
+          'https://eco-track.duckdns.org/api/history/period?filter_entity_id=${computedApiFilter}&start=${startTime}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -134,7 +90,8 @@ class GetSensorDataCall {
         response,
         r'''$[?(@.entity_id=='weather.forecast_home')].attributes.wind_speed''',
       ));
-  static String? state(dynamic response) => castToType<String>(getJsonField(
+  static String? weatherstate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$[?(@.entity_id=='weather.forecast_home')].state
 ''',
@@ -142,6 +99,12 @@ class GetSensorDataCall {
   static String? tips(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$[?(@.entity_id=='sensor.energy_saving_tip')].state
+''',
+      ));
+  static String? relayState(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='sensor.relay_state_numeric')].state
 ''',
       ));
 }

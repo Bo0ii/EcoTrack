@@ -68,7 +68,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 50.0.ms,
+            delay: 150.0.ms,
             duration: 1530.0.ms,
             begin: Offset(0.0, 30.0),
             end: Offset(0.0, 0.0),
@@ -92,7 +92,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 50.0.ms,
+            delay: 150.0.ms,
             duration: 1510.0.ms,
             begin: Offset(0.0, 23.0),
             end: Offset(0.0, 0.0),
@@ -104,7 +104,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         effectsBuilder: () => [
           MoveEffect(
             curve: Curves.elasticOut,
-            delay: 50.0.ms,
+            delay: 150.0.ms,
             duration: 1420.0.ms,
             begin: Offset(0.0, 21.0),
             end: Offset(0.0, 0.0),

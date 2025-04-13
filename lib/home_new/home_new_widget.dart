@@ -60,6 +60,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
       ).then((s) => s.firstOrNull);
       if (_model.adminUser != null) {
         FFAppState().isAdmin = true;
+        FFAppState().adminREFappState = _model.adminUser?.reference;
         FFAppState().displayName = _model.adminUser!.displayName;
         FFAppState().houseName = _model.adminUser!.nameOfHouse;
         FFAppState().deviceID = FFAppState().deviceID;
@@ -90,7 +91,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().humidity = GetSensorDataCall.humidity(
             (_model.sensordataAPIpageload?.jsonBody ?? ''),
           )!;
-          FFAppState().weatherState = GetSensorDataCall.state(
+          FFAppState().weatherState = GetSensorDataCall.weatherstate(
             (_model.sensordataAPIpageload?.jsonBody ?? ''),
           )!;
           FFAppState().tips = GetSensorDataCall.tips(
@@ -118,6 +119,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
         ).then((s) => s.firstOrNull);
         FFAppState().displayName = _model.userinhouseholdREF!.displayName;
         FFAppState().houseName = _model.adminUser!.nameOfHouse;
+        FFAppState().adminREFappState =
+            _model.userDirectoryEntry?.parentAdminRef;
         safeSetState(() {});
         _model.deviceRef2 = await queryDevicesRecordOnce(
           parent: _model.userDirectoryEntry?.parentAdminRef,
@@ -145,7 +148,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().humidity = GetSensorDataCall.humidity(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
-          FFAppState().weatherState = GetSensorDataCall.state(
+          FFAppState().weatherState = GetSensorDataCall.weatherstate(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
           FFAppState().tips = GetSensorDataCall.tips(
@@ -505,7 +508,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   .add_link_sharp,
                                                               color:
                                                                   Colors.black,
-                                                              size: 30.0,
+                                                              size: 32.0,
                                                             ),
                                                           ),
                                                       ].divide(SizedBox(
@@ -589,7 +592,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           context)
                                                                       .primaryText,
                                                                   fontSize:
-                                                                      20.0,
+                                                                      17.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts: GoogleFonts
@@ -616,6 +619,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 useGoogleFonts: GoogleFonts
@@ -632,6 +636,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                               ),
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   Align(
                                                     alignment:
@@ -816,7 +822,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 20.0,
+                                                                fontSize: 17.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 useGoogleFonts: GoogleFonts
@@ -841,6 +847,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      12.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts: GoogleFonts
@@ -1215,17 +1223,12 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             StreamBuilder<List<DevicesRecord>>(
-                                              stream: FFAppState()
-                                                  .devicesValuesCache(
-                                                requestFn: () =>
-                                                    queryDevicesRecord(
-                                                  queryBuilder:
-                                                      (devicesRecord) =>
-                                                          devicesRecord.where(
-                                                    'userView',
-                                                    arrayContains:
-                                                        currentUserEmail,
-                                                  ),
+                                              stream: queryDevicesRecord(
+                                                queryBuilder: (devicesRecord) =>
+                                                    devicesRecord.where(
+                                                  'userView',
+                                                  arrayContains:
+                                                      currentUserEmail,
                                                 ),
                                               ),
                                               builder: (context, snapshot) {
@@ -1408,7 +1411,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                       ),
                                                                                       Text(
                                                                                         valueOrDefault<String>(
-                                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current') == '0.000' ? 'OFF' : 'ON',
+                                                                                          valueOrDefault<String>(
+                                                                                                    functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'relay_state_numeric'),
+                                                                                                    'voltage',
+                                                                                                  ) ==
+                                                                                                  '0'
+                                                                                              ? 'OFF'
+                                                                                              : 'ON',
                                                                                           'Status',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1501,7 +1510,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   child: Icon(
                                                                                     Icons.power_settings_new,
                                                                                     color: valueOrDefault<Color>(
-                                                                                      functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current') == '0.000' ? Color(0xFF979797) : Color(0xFF00BEC8),
+                                                                                      valueOrDefault<String>(
+                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'relay_state_numeric'),
+                                                                                                'voltage',
+                                                                                              ) ==
+                                                                                              '0'
+                                                                                          ? Color(0xFF979797)
+                                                                                          : Color(0xFF00BEC8),
                                                                                       Color(0xFF737373),
                                                                                     ),
                                                                                     size: 27.0,
@@ -1544,6 +1559,11 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               serializeParam(
                                                                             listViewDevicesRecord.friendlyName,
                                                                             ParamType.String,
+                                                                          ),
+                                                                          'deviceReference':
+                                                                              serializeParam(
+                                                                            listViewDevicesRecord.reference,
+                                                                            ParamType.DocumentReference,
                                                                           ),
                                                                         }.withoutNulls,
                                                                         extra: <String,
