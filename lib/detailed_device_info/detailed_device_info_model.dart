@@ -18,10 +18,9 @@ class DetailedDeviceInfoModel
   InstantTimer? instantTimer2;
   // Stores action output result for [Backend Call - API (GetSensorData)] action in DetailedDeviceInfo widget.
   ApiCallResponse? sensordataAPIpageload;
-  // Stores action output result for [Custom Action - computeEnergySensorId] action in DetailedDeviceInfo widget.
-  String? energySensorId;
-  // Stores action output result for [Backend Call - API (EnergyHistory)] action in DetailedDeviceInfo widget.
-  ApiCallResponse? energyHistoryAPI;
+  InstantTimer? instantTimer3;
+  // Stores action output result for [Backend Call - API (dailyEnergyList)] action in DetailedDeviceInfo widget.
+  ApiCallResponse? dailyEnergyListAPI;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -45,5 +44,6 @@ class DetailedDeviceInfoModel
   void dispose() {
     instantTimer?.cancel();
     instantTimer2?.cancel();
+    instantTimer3?.cancel();
   }
 }

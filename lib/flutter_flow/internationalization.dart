@@ -941,7 +941,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'f2rpbdb5': {
-      'en': 'Reset Power Readings',
+      'en': 'Reset Readings',
       'ar': '',
       'de': '',
       'es': '',

@@ -222,7 +222,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                       sigmaY: 19.0,
                                     ),
                                     child: Lottie.asset(
-                                      'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                                      'assets/jsons/Main_Scene_(3).json',
                                       width: 787.9,
                                       height: 381.7,
                                       fit: BoxFit.cover,
@@ -554,7 +554,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        24.0, 16.0, 24.0, 0.0),
+                                                        24.0, 24.0, 24.0, 0.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -568,7 +568,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
-                                                                  12.0),
+                                                                  14.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)

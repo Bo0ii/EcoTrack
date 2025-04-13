@@ -256,30 +256,34 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
               children: [
                 Container(
                   width: 593.4,
-                  height: 452.05,
+                  height: 269.68,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: Transform.scale(
-                    scaleX: -5.0,
-                    scaleY: 0.9,
-                    origin: Offset(100.0, -100.0),
-                    child: ClipRect(
-                      child: ImageFiltered(
-                        imageFilter: ImageFilter.blur(
-                          sigmaX: 19.0,
-                          sigmaY: 19.0,
-                        ),
-                        child: Opacity(
-                          opacity: 0.8,
-                          child: Lottie.asset(
-                            'assets/jsons/Main_Scene_(2)-T62Fr.json',
-                            width: 787.9,
-                            height: 394.7,
-                            fit: BoxFit.cover,
-                            frameRate: FrameRate(60.0),
-                            reverse: true,
-                            animate: true,
+                  child: Align(
+                    alignment: AlignmentDirectional(0.0, 1.0),
+                    child: Transform.scale(
+                      scaleX: 2.1,
+                      scaleY: 1.0,
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      origin: Offset(40.0, 100.0),
+                      child: ClipRect(
+                        child: ImageFiltered(
+                          imageFilter: ImageFilter.blur(
+                            sigmaX: 12.0,
+                            sigmaY: 12.0,
+                          ),
+                          child: Opacity(
+                            opacity: 0.8,
+                            child: Lottie.asset(
+                              'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                              width: 787.9,
+                              height: 658.3,
+                              fit: BoxFit.cover,
+                              frameRate: FrameRate(60.0),
+                              reverse: true,
+                              animate: true,
+                            ),
                           ),
                         ),
                       ),
@@ -497,11 +501,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                             },
                                                             child: Icon(
                                                               Icons
-                                                                  .add_circle_outline_sharp,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              size: 29.0,
+                                                                  .add_link_sharp,
+                                                              color:
+                                                                  Colors.black,
+                                                              size: 30.0,
                                                             ),
                                                           ),
                                                       ].divide(SizedBox(
@@ -2007,16 +2010,17 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                   alignment: AlignmentDirectional(0.0, -1.0),
                                   child: Container(
                                     width: 393.0,
-                                    height: 74.5,
+                                    height: 60.53,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
                                           Color(0xFFF0FEFF),
                                           Color(0xDFF0FEFF),
                                           Color(0x40F0FEFF),
+                                          Color(0x00FFFFFF),
                                           Color(0x00EBFEFF)
                                         ],
-                                        stops: [0.0, 0.5, 0.85, 1.0],
+                                        stops: [0.0, 0.5, 0.85, 0.9, 1.0],
                                         begin: AlignmentDirectional(0.0, -1.0),
                                         end: AlignmentDirectional(0, 1.0),
                                       ),

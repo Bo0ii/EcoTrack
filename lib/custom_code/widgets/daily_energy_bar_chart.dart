@@ -12,6 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:intl/intl.dart';
 
+/// Data class for each bar.
+class _ChartBar {
+  final String label;
+  final double value;
+  _ChartBar({required this.label, required this.value});
+}
+
 class DailyEnergyBarChart extends StatefulWidget {
   final double width;
   final double height;
@@ -39,79 +46,70 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
   @override
   void initState() {
     super.initState();
+    // Same tooltip configuration as in PowerThresholdChart.
     _tooltipBehavior = TooltipBehavior(
       enable: true,
       activationMode: ActivationMode.singleTap,
+      header: '', // No header text (match your power threshold chart)
+      canShowMarker: true,
+      duration: 999999, // Tooltip stays visible until manually hidden
     );
+    // Process the data after the first frame is drawn.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _processHistoryData();
     });
   }
 
-  /// Processes the raw API data, using the same steps as before:
-  /// 1. Flattens the list (if nested).
-  /// 2. Converts timestamps to local time, groups by day using the latest reading.
-  /// 3. Generates a [bars] list covering the last [widget.days] days (0 if missing).
+  @override
+  void didUpdateWidget(covariant DailyEnergyBarChart oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.historyData != oldWidget.historyData) {
+      _processHistoryData();
+    }
+  }
+
+  /// Processes the optimized API data (expected in attributes.data) into
+  /// a list of daily final energy values.
   void _processHistoryData() {
-    final List<dynamic> flattened = [];
-    if (widget.historyData is List) {
-      for (var item in widget.historyData) {
-        if (item is List) {
-          flattened.addAll(item);
-        } else {
-          flattened.add(item);
+    // Extract the list from the optimized API output.
+    final List<dynamic> rawList = widget.historyData.isNotEmpty &&
+            widget.historyData[0] is Map &&
+            widget.historyData[0]['attributes'] != null &&
+            widget.historyData[0]['attributes']['data'] != null
+        ? List.from(widget.historyData[0]['attributes']['data'])
+        : [];
+
+    // Determine the date range for the last [widget.days] days.
+    final DateTime now = DateTime.now().toLocal();
+    final DateTime lastDay = DateTime(now.year, now.month, now.day);
+    final DateTime startDay = lastDay.subtract(Duration(days: widget.days - 1));
+
+    // Build a map where key is a day (formatted as yyyy-MM-dd) and value is the energy.
+    final Map<String, double> mapped = {};
+    for (var item in rawList) {
+      if (item is Map<String, dynamic> &&
+          item.containsKey('date') &&
+          item.containsKey('value')) {
+        final String dateStr = item['date'];
+        final double? val = double.tryParse(item['value'].toString());
+        if (val != null) {
+          mapped[dateStr] = val;
         }
       }
     }
 
-    final Map<String, Map<String, dynamic>> dailyRecord = {};
-
-    for (var record in flattened) {
-      if (record is! Map<String, dynamic>) continue;
-      final timeStr = record['last_changed'] ?? record['last_updated'];
-      final valueStr = record['state'];
-      if (timeStr == null || valueStr == null) continue;
-
-      final ts = DateTime.tryParse(timeStr);
-      final val = double.tryParse(valueStr.toString());
-      if (ts == null || val == null) continue;
-
-      final localTs = ts.toLocal();
-      final dayKey = "${localTs.year.toString().padLeft(4, '0')}-"
-          "${localTs.month.toString().padLeft(2, '0')}-"
-          "${localTs.day.toString().padLeft(2, '0')}";
-
-      if (!dailyRecord.containsKey(dayKey) ||
-          localTs.isAfter(dailyRecord[dayKey]!['timestamp'])) {
-        dailyRecord[dayKey] = {'timestamp': localTs, 'value': val};
-      }
-    }
-
-    final Map<String, double> dailyLastReading = {};
-    dailyRecord.forEach((key, record) {
-      dailyLastReading[key] = record['value'] as double;
-    });
-
-    final DateTime localNow = DateTime.now().toLocal();
-    final DateTime lastDay =
-        DateTime(localNow.year, localNow.month, localNow.day);
-    final DateTime startDay = lastDay.subtract(Duration(days: widget.days - 1));
-
-    final List<_ChartBar> timelineBars = [];
+    // Build the list of chart bars.
+    final List<_ChartBar> chartBars = [];
     for (int i = 0; i < widget.days; i++) {
       final DateTime day = startDay.add(Duration(days: i));
-      final String dayKey = "${day.year.toString().padLeft(4, '0')}-"
-          "${day.month.toString().padLeft(2, '0')}-"
-          "${day.day.toString().padLeft(2, '0')}";
-      final double value = dailyLastReading.containsKey(dayKey)
-          ? dailyLastReading[dayKey]!
-          : 0.0;
+      final String key = DateFormat('yyyy-MM-dd').format(day);
       final String label = DateFormat.MMMd().format(day);
-      timelineBars.add(_ChartBar(label: label, value: value));
+      final double value = mapped.containsKey(key) ? mapped[key]! : 0.0;
+      chartBars.add(_ChartBar(label: label, value: value));
     }
 
     setState(() {
-      bars = timelineBars;
+      bars = chartBars;
       isLoading = false;
     });
   }
@@ -134,6 +132,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       );
     }
 
+    // Determine the maximum energy value for scaling the Y-axis.
     final double maxVal =
         bars.map((e) => e.value).reduce((a, b) => a > b ? a : b);
 
@@ -144,7 +143,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         backgroundColor: Colors.transparent,
         plotAreaBackgroundColor: Colors.transparent,
         plotAreaBorderWidth: 0,
-        // Margin to avoid cropping edges
         margin: const EdgeInsets.only(left: 10, right: 20, top: 10, bottom: 10),
         tooltipBehavior: _tooltipBehavior,
         primaryXAxis: CategoryAxis(
@@ -152,24 +150,24 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
           majorGridLines: const MajorGridLines(width: 0),
         ),
         primaryYAxis: NumericAxis(
-          isVisible: false, // Hide left numbers
+          isVisible: false, // Hide the left axis numbers.
           minimum: 0,
           maximum: maxVal * 1.2,
           axisLine: const AxisLine(width: 0),
           majorTickLines: const MajorTickLines(size: 0),
-          majorGridLines: const MajorGridLines(width: 0), // Remove back grid
+          majorGridLines: const MajorGridLines(width: 0),
           labelFormat: '{value}',
         ),
         series: <CartesianSeries<_ChartBar, String>>[
           ColumnSeries<_ChartBar, String>(
+            width: 1.0, // Full category width for improved hit area.
             dataSource: bars,
             xValueMapper: (data, _) => data.label,
             yValueMapper: (data, _) => data.value,
             name: 'Energy (kWh)',
             animationDuration: 1500,
             borderRadius: const BorderRadius.all(Radius.circular(8)),
-            dataLabelSettings: const DataLabelSettings(
-                isVisible: false), // Energy value not visible on chart
+            dataLabelSettings: const DataLabelSettings(isVisible: false),
             selectionBehavior: SelectionBehavior(
               enable: true,
               toggleSelection: false,
@@ -185,7 +183,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
                     details.seriesIndex!, details.pointIndex!);
               }
             },
-            // Use the same gradient logic as before (transparent→blue)
             onCreateShader: (ShaderDetails details) {
               final Rect rect =
                   Rect.fromLTWH(0, 0, widget.width, widget.height);
@@ -201,10 +198,4 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       ),
     );
   }
-}
-
-class _ChartBar {
-  final String label;
-  final double value;
-  _ChartBar({required this.label, required this.value});
 }

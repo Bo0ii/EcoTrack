@@ -68,7 +68,7 @@ class _PowerThresholdChartState extends State<PowerThresholdChart> {
       duration: 999999, // stays until we hide it manually
     );
 
-    // Use post-frame callback to start data processing.
+    // Process data after building.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _processData();
       // Auto-refresh every 10 minutes (reprocess data).
@@ -183,6 +183,7 @@ class _PowerThresholdChartState extends State<PowerThresholdChart> {
           labelRotation: 0,
           majorGridLines: const MajorGridLines(width: 0),
         ),
+        // Reverted to auto-scaling (no forced min or custom rangePadding).
         primaryYAxis: NumericAxis(
           isVisible: false,
           majorGridLines: const MajorGridLines(width: 0),
@@ -199,7 +200,7 @@ class _PowerThresholdChartState extends State<PowerThresholdChart> {
             dataLabelSettings: const DataLabelSettings(isVisible: false),
             selectionBehavior: SelectionBehavior(
               enable: true,
-              toggleSelection: false, // manual toggling
+              toggleSelection: false,
               unselectedOpacity: 0.3,
             ),
             onPointTap: (ChartPointDetails details) {
@@ -372,7 +373,7 @@ Future<List<ChartData>> processChartData(Map<String, dynamic> args) async {
     ));
   }
 
-  // Limit to the maximum of 9 bars (just like in your first code).
+  // Limit to the maximum of 9 bars.
   if (tempData.length > 9) {
     tempData = tempData.sublist(tempData.length - 9);
   }

@@ -19,6 +19,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'detailed_device_info_model.dart';
 export 'detailed_device_info_model.dart';
@@ -92,11 +93,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           );
         }),
         Future(() async {
-          _model.energySensorId = await actions.computeEnergySensorId(
-            widget.deviceId!,
-          );
-          _model.energyHistoryAPI = await EnergyHistoryCall.call(
-            computeEnergySensorId: _model.energySensorId,
+          _model.instantTimer3 = InstantTimer.periodic(
+            duration: Duration(milliseconds: 30000),
+            callback: (timer) async {
+              _model.dailyEnergyListAPI = await DailyEnergyListCall.call(
+                deviceId: widget.deviceId,
+              );
+            },
+            startImmediately: true,
           );
         }),
       ]);
@@ -176,11 +180,51 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFEBFEFF),
+        backgroundColor: Colors.white,
         body: Stack(
           children: [
             Stack(
               children: [
+                Align(
+                  alignment: AlignmentDirectional(1.0, -1.0),
+                  child: Container(
+                    width: 593.4,
+                    height: 378.5,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    alignment: AlignmentDirectional(1.0, 1.0),
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Transform.scale(
+                        scaleX: 1.1,
+                        scaleY: 0.9,
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        origin: Offset(32.0, -32.0),
+                        child: ClipRect(
+                          child: ImageFiltered(
+                            imageFilter: ImageFilter.blur(
+                              sigmaX: 12.0,
+                              sigmaY: 12.0,
+                            ),
+                            child: Opacity(
+                              opacity: 0.8,
+                              child: Lottie.asset(
+                                'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                                width: 787.9,
+                                height: 658.3,
+                                fit: BoxFit.cover,
+                                frameRate: FrameRate(60.0),
+                                reverse: true,
+                                animate: true,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -189,20 +233,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                       child: Container(
                         width: double.infinity,
                         height: 500.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xA3C6FEFF),
-                              Colors.white,
-                              Colors.white,
-                              Colors.white,
-                              Colors.white
-                            ],
-                            stops: [0.0, 0.4, 0.6, 0.7, 0.95],
-                            begin: AlignmentDirectional(-1.0, -0.98),
-                            end: AlignmentDirectional(1.0, 0.98),
-                          ),
-                        ),
+                        decoration: BoxDecoration(),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -229,7 +260,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                             AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width: 392.7,
-                                          height: 106.89,
+                                          height: 106.9,
                                           decoration: BoxDecoration(),
                                         ),
                                       ),
@@ -290,7 +321,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.start,
+                                                      MainAxisAlignment.center,
                                                   children: [
                                                     Text(
                                                       valueOrDefault<String>(
@@ -371,8 +402,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                             .bodyMediumFamily),
                                                               ),
                                                     ),
-                                                  ].divide(
-                                                      SizedBox(width: 15.0)),
+                                                  ]
+                                                      .divide(
+                                                          SizedBox(width: 15.0))
+                                                      .addToStart(
+                                                          SizedBox(width: 2.0)),
                                                 ),
                                               ],
                                             ),
@@ -382,7 +416,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 18.0, 0.0),
                                             child: Container(
-                                              width: 62.23,
+                                              width: 62.2,
                                               height: 49.8,
                                               decoration: BoxDecoration(),
                                               child: Align(
@@ -448,7 +482,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     Container(
                                                                   width: 404.7,
                                                                   height:
-                                                                      309.36,
+                                                                      312.59,
                                                                   decoration:
                                                                       BoxDecoration(),
                                                                   child:
@@ -516,7 +550,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     days: 15,
                                                                     historyData:
                                                                         getJsonField(
-                                                                      (_model.energyHistoryAPI
+                                                                      (_model.dailyEnergyListAPI
                                                                               ?.jsonBody ??
                                                                           ''),
                                                                       r'''$''',
@@ -613,18 +647,18 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'f2rpbdb5' /* Reset Power Readings */,
+                                            'f2rpbdb5' /* Reset Readings */,
                                           ),
                                           options: FFButtonOptions(
-                                            width: 159.25,
-                                            height: 50.0,
+                                            width: 159.3,
+                                            height: 46.9,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFF93C2C2),
+                                            color: Color(0xFFF3B89F),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
@@ -634,8 +668,10 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   context)
                                                               .bodyMediumFamily,
                                                       color: Colors.white,
-                                                      fontSize: 12.0,
+                                                      fontSize: 13.0,
                                                       letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                       useGoogleFonts: GoogleFonts
                                                               .asMap()
                                                           .containsKey(
@@ -671,7 +707,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                             ),
                                             options: FFButtonOptions(
                                               width: 159.3,
-                                              height: 50.0,
+                                              height: 46.9,
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               iconPadding: EdgeInsetsDirectional
@@ -686,8 +722,10 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     context)
                                                                 .bodyMediumFamily,
                                                         color: Colors.white,
-                                                        fontSize: 12.0,
+                                                        fontSize: 13.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1850,7 +1888,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                         children: [
                                           Container(
                                             width: 100.0,
-                                            height: 99.03,
+                                            height: 99.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1923,14 +1961,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                               size: 30.0,
                             ),
                             onPressed: () async {
-                              context.pushNamed(
+                              context.goNamed(
                                 HomeNewWidget.routeName,
                                 extra: <String, dynamic>{
                                   kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
-                                        PageTransitionType.leftToRight,
-                                    duration: Duration(milliseconds: 230),
+                                        PageTransitionType.bottomToTop,
+                                    duration: Duration(milliseconds: 300),
                                   ),
                                 },
                               );
@@ -1962,7 +2000,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                 alignment: AlignmentDirectional(0.0, 1.0),
                 child: Container(
                   width: 393.0,
-                  height: 72.82,
+                  height: 72.8,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0x11FFFFFF), Color(0xFFEBFEFF)],

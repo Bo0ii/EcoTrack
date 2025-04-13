@@ -85,17 +85,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 alignment: AlignmentDirectional(0.0, 1.0),
                                 children: [
                                   Transform.scale(
-                                    scaleX: -3.3,
-                                    scaleY: -1.4,
-                                    origin: Offset(86.0, -2.0),
+                                    scaleX: -2.0,
+                                    scaleY: -1.0,
+                                    origin: Offset(62.0, 0.0),
                                     child: ClipRect(
                                       child: ImageFiltered(
                                         imageFilter: ImageFilter.blur(
-                                          sigmaX: 19.0,
-                                          sigmaY: 19.0,
+                                          sigmaX: 9.0,
+                                          sigmaY: 9.0,
                                         ),
                                         child: Lottie.asset(
-                                          'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                                          'assets/jsons/Main_Scene_(3).json',
                                           width: 787.9,
                                           height: 381.7,
                                           fit: BoxFit.cover,
@@ -671,16 +671,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             ParamType.String,
                                                           ),
                                                         }.withoutNulls,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .rightToLeft,
-                                                          ),
-                                                        },
                                                       );
                                                     },
                                                     text: FFLocalizations.of(
