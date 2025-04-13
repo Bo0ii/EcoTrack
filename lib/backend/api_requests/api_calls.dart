@@ -108,7 +108,7 @@ class GetSensorDataCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
-      cache: true,
+      cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
     );

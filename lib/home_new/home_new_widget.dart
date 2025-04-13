@@ -135,6 +135,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           )!
               .toList()
               .cast<dynamic>();
+          safeSetState(() {});
           FFAppState().weatherTemp = GetSensorDataCall.temperature(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
@@ -1407,7 +1408,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                       ),
                                                                                       Text(
                                                                                         valueOrDefault<String>(
-                                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'current') == '0.000' ? 'OFF' : 'ON',
+                                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current') == '0.000' ? 'OFF' : 'ON',
                                                                                           'Status',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(

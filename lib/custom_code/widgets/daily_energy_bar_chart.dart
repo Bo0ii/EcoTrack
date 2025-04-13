@@ -46,15 +46,15 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
   @override
   void initState() {
     super.initState();
-    // Same tooltip configuration as in PowerThresholdChart.
+    // Single-tap to show tooltip. We'll override the text in onTooltipRender.
     _tooltipBehavior = TooltipBehavior(
       enable: true,
       activationMode: ActivationMode.singleTap,
-      header: '', // No header text (match your power threshold chart)
+      header: '',
       canShowMarker: true,
-      duration: 999999, // Tooltip stays visible until manually hidden
+      duration: 999999, // Stays visible until manually hidden
     );
-    // Process the data after the first frame is drawn.
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _processHistoryData();
     });
@@ -68,10 +68,8 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
     }
   }
 
-  /// Processes the optimized API data (expected in attributes.data) into
-  /// a list of daily final energy values.
+  /// Processes the optimized API data (in attributes.data) into daily bars.
   void _processHistoryData() {
-    // Extract the list from the optimized API output.
     final List<dynamic> rawList = widget.historyData.isNotEmpty &&
             widget.historyData[0] is Map &&
             widget.historyData[0]['attributes'] != null &&
@@ -79,12 +77,10 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         ? List.from(widget.historyData[0]['attributes']['data'])
         : [];
 
-    // Determine the date range for the last [widget.days] days.
     final DateTime now = DateTime.now().toLocal();
     final DateTime lastDay = DateTime(now.year, now.month, now.day);
     final DateTime startDay = lastDay.subtract(Duration(days: widget.days - 1));
 
-    // Build a map where key is a day (formatted as yyyy-MM-dd) and value is the energy.
     final Map<String, double> mapped = {};
     for (var item in rawList) {
       if (item is Map<String, dynamic> &&
@@ -98,13 +94,12 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       }
     }
 
-    // Build the list of chart bars.
     final List<_ChartBar> chartBars = [];
     for (int i = 0; i < widget.days; i++) {
       final DateTime day = startDay.add(Duration(days: i));
       final String key = DateFormat('yyyy-MM-dd').format(day);
       final String label = DateFormat.MMMd().format(day);
-      final double value = mapped.containsKey(key) ? mapped[key]! : 0.0;
+      final double value = mapped[key] ?? 0.0;
       chartBars.add(_ChartBar(label: label, value: value));
     }
 
@@ -123,7 +118,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         child: const Center(child: CircularProgressIndicator()),
       );
     }
-
     if (bars.isEmpty) {
       return SizedBox(
         width: widget.width,
@@ -132,7 +126,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
       );
     }
 
-    // Determine the maximum energy value for scaling the Y-axis.
     final double maxVal =
         bars.map((e) => e.value).reduce((a, b) => a > b ? a : b);
 
@@ -150,17 +143,16 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
           majorGridLines: const MajorGridLines(width: 0),
         ),
         primaryYAxis: NumericAxis(
-          isVisible: false, // Hide the left axis numbers.
+          isVisible: false,
           minimum: 0,
           maximum: maxVal * 1.2,
           axisLine: const AxisLine(width: 0),
           majorTickLines: const MajorTickLines(size: 0),
           majorGridLines: const MajorGridLines(width: 0),
-          labelFormat: '{value}',
         ),
         series: <CartesianSeries<_ChartBar, String>>[
           ColumnSeries<_ChartBar, String>(
-            width: 1.0, // Full category width for improved hit area.
+            width: 1.0,
             dataSource: bars,
             xValueMapper: (data, _) => data.label,
             yValueMapper: (data, _) => data.value,
@@ -195,6 +187,17 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
             },
           ),
         ],
+        // The custom tooltip text callback:
+        onTooltipRender: (TooltipArgs args) {
+          // Convert pointIndex to int so we avoid "num" errors:
+          final int barIndex = (args.pointIndex ?? -1).toInt();
+          if (barIndex >= 0 && barIndex < bars.length) {
+            final _ChartBar barData = bars[barIndex];
+            args.header = "Energy kWh";
+            args.text =
+                "${barData.label}: ${barData.value.toStringAsFixed(3)} kWh";
+          }
+        },
       ),
     );
   }
