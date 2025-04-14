@@ -63,27 +63,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
     });
 
     animationsMap.addAll({
-      'containerOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(3.0, 3.0),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
+      'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -284,7 +264,8 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                                       BorderRadius.circular(
                                                           26.0),
                                                   child: Image.network(
-                                                    currentUserPhoto,
+                                                    listViewUsersInHouseholdRecord
+                                                        .photoUrl,
                                                     width: 47.77,
                                                     height: 47.5,
                                                     fit: BoxFit.cover,
@@ -610,7 +591,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                             ),
                                           ),
                                         ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation2']!),
+                                            'containerOnPageLoadAnimation']!),
                                       );
                                     },
                                   );
@@ -693,8 +674,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                           ),
                         ],
                       ),
-                    ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation1']!),
+                    ),
                   ),
                 ],
               ),

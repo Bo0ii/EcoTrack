@@ -790,12 +790,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '5uju8qt8': {
-      'en': 'Change Photo',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'hjz0xunk': {
       'en': 'Your Name',
       'ar': '',
@@ -1716,6 +1710,57 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // GradiantContanerCopy
   {
     'nu43sigl': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // Family
+  {
+    'khx1jfms': {
+      'en': 'my fam',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'byetacbe': {
+      'en': '5',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'sufqb5ik': {
+      'en': 'Michael Smith',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'gqo8favk': {
+      'en': 'Child',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '8wkbqem3': {
+      'en': 'michael.smith@email.com',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'rsqnf5pb': {
+      'en': '12 years',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'mjok0qgh': {
+      'en': 'Middle School Student',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'r5vdput9': {
       'en': 'Home',
       'ar': '',
       'de': '',

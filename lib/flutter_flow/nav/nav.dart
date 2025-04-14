@@ -264,6 +264,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: GradiantContanerCopyWidget.routeName,
           path: GradiantContanerCopyWidget.routePath,
           builder: (context, params) => GradiantContanerCopyWidget(),
+        ),
+        FFRoute(
+          name: FamilyWidget.routeName,
+          path: FamilyWidget.routePath,
+          builder: (context, params) => FamilyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

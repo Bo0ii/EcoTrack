@@ -326,13 +326,9 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(50.0),
-                                                        child: Image.asset(
-                                                          Theme.of(context)
-                                                                      .brightness ==
-                                                                  Brightness
-                                                                      .dark
-                                                              ? 'assets/images/@4xff_badgeDesign_dark_small.png'
-                                                              : 'assets/images/github-mark.png',
+                                                        child: Image.network(
+                                                          profileUsersRecord!
+                                                              .photoUrl,
                                                           width: 100.0,
                                                           height: 100.0,
                                                           fit: BoxFit.cover,
@@ -372,7 +368,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          profileUsersRecord?.email,
+                                          profileUsersRecord.email,
                                           'email',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -410,22 +406,39 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                     width: 84.1,
                                                     height: 48.6,
                                                     decoration: BoxDecoration(),
-                                                    child: Container(
-                                                      width: 49.1,
-                                                      height: 49.1,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFF9F9F9),
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Icon(
-                                                        Icons
-                                                            .family_restroom_rounded,
-                                                        color: Colors.black,
-                                                        size: 24.0,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                            FamilyWidget
+                                                                .routeName);
+                                                      },
+                                                      child: Container(
+                                                        width: 49.1,
+                                                        height: 49.1,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFF9F9F9),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons
+                                                              .family_restroom_rounded,
+                                                          color: Colors.black,
+                                                          size: 24.0,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

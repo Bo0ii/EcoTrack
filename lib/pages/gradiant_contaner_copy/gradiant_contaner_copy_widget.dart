@@ -48,40 +48,49 @@ class _GradiantContanerCopyWidgetState
         backgroundColor: Colors.white,
         body: Stack(
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Stack(
               children: [
-                Container(
-                  width: 593.4,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                  child: Transform.scale(
-                    scaleX: 1.6,
-                    scaleY: 1.0,
-                    origin: Offset(38.0, 99.0),
-                    child: ClipRect(
-                      child: ImageFiltered(
-                        imageFilter: ImageFilter.blur(
-                          sigmaX: 19.0,
-                          sigmaY: 19.0,
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Container(
+                        width: 593.4,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: Opacity(
-                          opacity: 0.8,
-                          child: Lottie.asset(
-                            'assets/jsons/Main_Scene_(2)-T62Fr.json',
-                            width: 787.9,
-                            height: 394.7,
-                            fit: BoxFit.cover,
-                            frameRate: FrameRate(60.0),
-                            reverse: true,
-                            animate: true,
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Transform.scale(
+                          scaleX: 1.6,
+                          scaleY: 1.0,
+                          origin: Offset(38.0, 99.0),
+                          child: ClipRect(
+                            child: ImageFiltered(
+                              imageFilter: ImageFilter.blur(
+                                sigmaX: 14.0,
+                                sigmaY: 14.0,
+                              ),
+                              child: Opacity(
+                                opacity: 0.8,
+                                child: Lottie.asset(
+                                  'assets/jsons/Main_Scene_(3).json',
+                                  width: 787.9,
+                                  height: 394.7,
+                                  fit: BoxFit.cover,
+                                  frameRate: FrameRate(60.0),
+                                  reverse: true,
+                                  animate: true,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

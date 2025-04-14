@@ -434,7 +434,7 @@ class _S6WidgetState extends State<S6Widget> {
                                                           8.0),
                                                   child: Image.network(
                                                     valueOrDefault<String>(
-                                                      currentUserPhoto,
+                                                      s6UsersRecord?.photoUrl,
                                                       'https://cdn-icons-png.flaticon.com/256/9327/9327831.png',
                                                     ),
                                                     width: 44.0,
