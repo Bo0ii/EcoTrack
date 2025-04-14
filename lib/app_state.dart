@@ -381,6 +381,12 @@ class FFAppState extends ChangeNotifier {
   set adminREFappState(DocumentReference? value) {
     _adminREFappState = value;
   }
+
+  String _startTime = '';
+  String get startTime => _startTime;
+  set startTime(String value) {
+    _startTime = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

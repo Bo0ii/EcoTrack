@@ -101,11 +101,13 @@ class GetSensorDataCall {
         r'''$[?(@.entity_id=='sensor.energy_saving_tip')].state
 ''',
       ));
-  static String? relayState(dynamic response) =>
-      castToType<String>(getJsonField(
+  static String? tenergy(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$[?(@.entity_id=='sensor.relay_state_numeric')].state
-''',
+        r'''$[?(@.entity_id=='sensor.total_energy')].state''',
+      ));
+  static String? tcost(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=='sensor.total_cost')].state''',
       ));
 }
 

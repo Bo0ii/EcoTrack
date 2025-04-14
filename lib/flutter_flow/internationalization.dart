@@ -1830,6 +1830,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
+  // DeLink
+  {
+    'tvfx1jwz': {
+      'en': 'Are you sure you want to Delink your device ?',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'bcampsbo': {
+      'en': 'No',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'njkyhfuq': {
+      'en': 'Yes',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
   // Miscellaneous
   {
     'lzyb73wy': {

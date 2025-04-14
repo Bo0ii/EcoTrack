@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:collection/collection.dart';
@@ -58,105 +59,114 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      if (_model.adminUser != null) {
-        FFAppState().isAdmin = true;
-        FFAppState().adminREFappState = _model.adminUser?.reference;
-        FFAppState().displayName = _model.adminUser!.displayName;
-        FFAppState().houseName = _model.adminUser!.nameOfHouse;
-        FFAppState().deviceID = FFAppState().deviceID;
-        safeSetState(() {});
-        _model.deviceRef = await queryDevicesRecordOnce(
-          parent: _model.adminUser?.reference,
-          singleRecord: true,
-        ).then((s) => s.firstOrNull);
-        while (FFAppState().isLooping == true) {
-          _model.sensordataAPIpageload = await GetSensorDataCall.call(
-            deviceId: _model.deviceRef?.deviceId,
-          );
+      await Future.wait([
+        Future(() async {
+          if (_model.adminUser != null) {
+            FFAppState().isAdmin = true;
+            FFAppState().adminREFappState = _model.adminUser?.reference;
+            FFAppState().displayName = _model.adminUser!.displayName;
+            FFAppState().houseName = _model.adminUser!.nameOfHouse;
+            FFAppState().deviceID = FFAppState().deviceID;
+            safeSetState(() {});
+            _model.deviceRef = await queryDevicesRecordOnce(
+              parent: _model.adminUser?.reference,
+              singleRecord: true,
+            ).then((s) => s.firstOrNull);
+            while (FFAppState().isLooping == true) {
+              _model.sensordataAPIpageload = await GetSensorDataCall.call(
+                deviceId: _model.deviceRef?.deviceId,
+              );
 
-          FFAppState().sensorData = getJsonField(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-            r'''$''',
-            true,
-          )!
-              .toList()
-              .cast<dynamic>();
-          safeSetState(() {});
-          FFAppState().weatherTemp = GetSensorDataCall.temperature(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().humidity = GetSensorDataCall.humidity(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().weatherState = GetSensorDataCall.weatherstate(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().tips = GetSensorDataCall.tips(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          await Future.delayed(const Duration(milliseconds: 1300));
-        }
-      } else {
-        FFAppState().isAdmin = false;
-        _model.userDirectoryEntry = await queryUserDirectoryRecordOnce(
-          queryBuilder: (userDirectoryRecord) => userDirectoryRecord.where(
-            'emai',
-            isEqualTo: currentUserEmail,
-          ),
-          singleRecord: true,
-        ).then((s) => s.firstOrNull);
-        _model.userinhouseholdREF = await queryUsersInHouseholdRecordOnce(
-          parent: _model.adminUser?.reference,
-          queryBuilder: (usersInHouseholdRecord) =>
-              usersInHouseholdRecord.where(
-            'email',
-            isEqualTo: currentUserEmail,
-          ),
-          singleRecord: true,
-        ).then((s) => s.firstOrNull);
-        FFAppState().displayName = _model.userinhouseholdREF!.displayName;
-        FFAppState().houseName = _model.adminUser!.nameOfHouse;
-        FFAppState().adminREFappState =
-            _model.userDirectoryEntry?.parentAdminRef;
-        safeSetState(() {});
-        _model.deviceRef2 = await queryDevicesRecordOnce(
-          parent: _model.userDirectoryEntry?.parentAdminRef,
-          singleRecord: true,
-        ).then((s) => s.firstOrNull);
-        while (FFAppState().isLooping == true) {
-          _model.sensordataAPIpageload2 = await GetSensorDataCall.call(
-            deviceId: _model.deviceRef2?.deviceId,
-          );
+              FFAppState().sensorData = getJsonField(
+                (_model.sensordataAPIpageload?.jsonBody ?? ''),
+                r'''$''',
+                true,
+              )!
+                  .toList()
+                  .cast<dynamic>();
+              safeSetState(() {});
+              FFAppState().weatherTemp = GetSensorDataCall.temperature(
+                (_model.sensordataAPIpageload?.jsonBody ?? ''),
+              )!;
+              FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
+                (_model.sensordataAPIpageload?.jsonBody ?? ''),
+              )!;
+              FFAppState().humidity = GetSensorDataCall.humidity(
+                (_model.sensordataAPIpageload?.jsonBody ?? ''),
+              )!;
+              FFAppState().weatherState = GetSensorDataCall.weatherstate(
+                (_model.sensordataAPIpageload?.jsonBody ?? ''),
+              )!;
+              FFAppState().tips = GetSensorDataCall.tips(
+                (_model.sensordataAPIpageload?.jsonBody ?? ''),
+              )!;
+              await Future.delayed(const Duration(milliseconds: 1300));
+            }
+          } else {
+            FFAppState().isAdmin = false;
+            _model.userDirectoryEntry = await queryUserDirectoryRecordOnce(
+              queryBuilder: (userDirectoryRecord) => userDirectoryRecord.where(
+                'emai',
+                isEqualTo: currentUserEmail,
+              ),
+              singleRecord: true,
+            ).then((s) => s.firstOrNull);
+            _model.userinhouseholdREF = await queryUsersInHouseholdRecordOnce(
+              parent: _model.adminUser?.reference,
+              queryBuilder: (usersInHouseholdRecord) =>
+                  usersInHouseholdRecord.where(
+                'email',
+                isEqualTo: currentUserEmail,
+              ),
+              singleRecord: true,
+            ).then((s) => s.firstOrNull);
+            FFAppState().displayName = _model.userinhouseholdREF!.displayName;
+            FFAppState().houseName = _model.adminUser!.nameOfHouse;
+            FFAppState().adminREFappState =
+                _model.userDirectoryEntry?.parentAdminRef;
+            safeSetState(() {});
+            _model.deviceRef2 = await queryDevicesRecordOnce(
+              parent: _model.userDirectoryEntry?.parentAdminRef,
+              singleRecord: true,
+            ).then((s) => s.firstOrNull);
+            while (FFAppState().isLooping == true) {
+              _model.sensordataAPIpageload2 = await GetSensorDataCall.call(
+                deviceId: _model.deviceRef2?.deviceId,
+              );
 
-          FFAppState().sensorData = getJsonField(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            r'''$''',
-            true,
-          )!
-              .toList()
-              .cast<dynamic>();
-          safeSetState(() {});
-          FFAppState().weatherTemp = GetSensorDataCall.temperature(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().humidity = GetSensorDataCall.humidity(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().weatherState = GetSensorDataCall.weatherstate(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().tips = GetSensorDataCall.tips(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          await Future.delayed(const Duration(milliseconds: 1300));
-        }
-      }
+              FFAppState().sensorData = getJsonField(
+                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+                r'''$''',
+                true,
+              )!
+                  .toList()
+                  .cast<dynamic>();
+              safeSetState(() {});
+              FFAppState().weatherTemp = GetSensorDataCall.temperature(
+                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+              )!;
+              FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
+                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+              )!;
+              FFAppState().humidity = GetSensorDataCall.humidity(
+                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+              )!;
+              FFAppState().weatherState = GetSensorDataCall.weatherstate(
+                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+              )!;
+              FFAppState().tips = GetSensorDataCall.tips(
+                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+              )!;
+              await Future.delayed(const Duration(milliseconds: 1300));
+            }
+          }
+        }),
+        Future(() async {
+          _model.getPowerThresholdStartTime =
+              await actions.getPowerThresholdStartTime();
+          FFAppState().startTime = _model.getPowerThresholdStartTime!;
+        }),
+      ]);
     });
 
     animationsMap.addAll({
@@ -1418,7 +1428,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                   '0'
                                                                                               ? 'OFF'
                                                                                               : 'ON',
-                                                                                          'Status',
+                                                                                          'Off',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,

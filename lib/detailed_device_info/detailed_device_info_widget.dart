@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/de_link/de_link_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -21,6 +22,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'detailed_device_info_model.dart';
 export 'detailed_device_info_model.dart';
 
@@ -64,14 +66,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
           _model.computeApiFilter = await actions.computeApiFilter(
             widget.deviceId!,
           );
-          _model.getPowerThresholdStartTime =
-              await actions.getPowerThresholdStartTime();
           _model.instantTimer = InstantTimer.periodic(
             duration: Duration(milliseconds: 30000),
             callback: (timer) async {
               _model.powerxthreshold = await PowerXthreshholdCall.call(
                 computedApiFilter: _model.computeApiFilter,
-                startTime: _model.getPowerThresholdStartTime,
+                startTime: FFAppState().startTime,
               );
             },
             startImmediately: true,
@@ -428,23 +428,47 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await widget.deviceReference!
-                                                      .delete();
-
-                                                  context.goNamed(
-                                                    HomeNewWidget.routeName,
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .topToBottom,
-                                                        duration: Duration(
-                                                            milliseconds: 200),
-                                                      ),
+                                                  await showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    enableDrag: false,
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return WebViewAware(
+                                                        child: GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    context)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: 550.0,
+                                                              child:
+                                                                  DeLinkWidget(
+                                                                devicRef: widget
+                                                                    .deviceReference!,
+                                                                deviceId: widget
+                                                                    .deviceId!,
+                                                                friendlyName:
+                                                                    widget
+                                                                        .deviceName,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
                                                     },
-                                                  );
+                                                  ).then((value) =>
+                                                      safeSetState(() {}));
                                                 },
                                                 child: Container(
                                                   width: 62.2,

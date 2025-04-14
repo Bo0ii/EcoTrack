@@ -79,105 +79,37 @@ String getFormattedSensorId(
   }
 }
 
-String? totalCost(
-  List<dynamic> sensorList,
-  String sensorType,
+double? calculateTotalCost(
+  List<dynamic> firebaseDevices,
+  List<dynamic> haCostData,
 ) {
-  String totalCost(
-    List<dynamic> sensorList,
-    String sensorType,
-  ) {
-    double sum = 0.0;
-    bool foundAny = false;
+  double totalCost = 0.0;
 
-    // The suffix we’ll look for in the entity_id
-    String targetSuffix = "_" + sensorType;
+  final Set<String> validDevices =
+      firebaseDevices.map((e) => e.toString().toLowerCase()).toSet();
 
-    // Loop over all sensors and check if their entity_id ends with our target suffix
-    for (var sensor in sensorList) {
-      final entityId = sensor["entity_id"];
+  final RegExp costRegex = RegExp(r"^sensor\.(.*?)_current_cost(?:_\d+)?$");
 
-      if (entityId is String && entityId.endsWith(targetSuffix)) {
-        // Try to parse the sensor state as a number
-        double? currentValue = double.tryParse(sensor["state"].toString());
-        if (currentValue != null) {
-          sum += currentValue;
-          foundAny = true;
+  for (final item in haCostData) {
+    if (item is Map<String, dynamic> &&
+        item.containsKey("entity_id") &&
+        item.containsKey("cost")) {
+      final String entityId = item["entity_id"].toString().toLowerCase();
+      final match = costRegex.firstMatch(entityId);
+      if (match != null) {
+        final String deviceId = match.group(1)!;
+        if (validDevices.contains(deviceId)) {
+          double costValue = 0.0;
+          if (item["cost"] is num) {
+            costValue = (item["cost"] as num).toDouble();
+          } else {
+            costValue = double.tryParse(item["cost"].toString()) ?? 0.0;
+          }
+          totalCost += costValue;
         }
       }
     }
-
-    // If no matching sensors were found, return "0"
-    if (!foundAny) {
-      return "0";
-    }
-
-    // Return the final sum as a string
-    // If sum is an integer (e.g., 12.0), convert to 12
-    if (sum == sum.toInt()) {
-      return sum.toInt().toString();
-    } else {
-      return sum.toString();
-    }
   }
-}
 
-String? getUserTotalSensorValue(
-  List<dynamic> sensorList,
-  List<String> userDeviceIds,
-  String sensorType,
-) {
-  String getUserTotalSensorValue(
-    List<dynamic> sensorList,
-    List<String> userDeviceIds,
-    String sensorType,
-  ) {
-    double total = 0.0;
-
-    // DEBUG: Print inputs
-    print('✅ sensorList length: ${sensorList.length}');
-    print('✅ userDeviceIds: $userDeviceIds');
-    print('✅ sensorType: $sensorType');
-
-    final normalizedDevices =
-        userDeviceIds.map((d) => d.toLowerCase()).toList();
-
-    for (final sensor in sensorList) {
-      final entityId = sensor['entity_id']?.toString();
-      final stateRaw = sensor['state']?.toString();
-
-      if (entityId == null || !entityId.contains(sensorType)) continue;
-
-      print('➡️ Matching sensor found: $entityId');
-
-      // Get deviceId from entity_id (e.g., sensor.ecot2_current_cost_2)
-      final cleanedId = entityId.replaceFirst('sensor.', '');
-      final parts = cleanedId.split('_');
-      if (parts.isEmpty) {
-        print('⚠️ Could not parse deviceId from: $entityId');
-        continue;
-      }
-
-      final deviceId = parts[0].toLowerCase();
-      print('🔍 Extracted deviceId: $deviceId');
-
-      if (!normalizedDevices.contains(deviceId)) {
-        print('❌ Skipped: $deviceId not in userDeviceIds');
-        continue;
-      }
-
-      final value = double.tryParse(stateRaw ?? '') ?? 0.0;
-      print('✅ Adding $value to total');
-      total += value;
-    }
-
-    print('🧮 Final Total: $total');
-    return total.toStringAsFixed(3);
-  }
-}
-
-List<String>? cleanDeviceList(List<String> inputList) {
-  List<String> cleanDeviceList(List<String> inputList) {
-    return inputList.where((item) => item.trim().isNotEmpty).toSet().toList();
-  }
+  return totalCost;
 }
