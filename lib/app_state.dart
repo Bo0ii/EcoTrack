@@ -364,18 +364,6 @@ class FFAppState extends ChangeNotifier {
     _weatherTempINT = value;
   }
 
-  double _totalCost = 0.0;
-  double get totalCost => _totalCost;
-  set totalCost(double value) {
-    _totalCost = value;
-  }
-
-  double _totalEnergy = 0.0;
-  double get totalEnergy => _totalEnergy;
-  set totalEnergy(double value) {
-    _totalEnergy = value;
-  }
-
   DocumentReference? _adminREFappState;
   DocumentReference? get adminREFappState => _adminREFappState;
   set adminREFappState(DocumentReference? value) {
@@ -392,6 +380,18 @@ class FFAppState extends ChangeNotifier {
   String get computeAPIfilter => _computeAPIfilter;
   set computeAPIfilter(String value) {
     _computeAPIfilter = value;
+  }
+
+  String _Tcost = '';
+  String get Tcost => _Tcost;
+  set Tcost(String value) {
+    _Tcost = value;
+  }
+
+  String _Tenergy = '';
+  String get Tenergy => _Tenergy;
+  set Tenergy(String value) {
+    _Tenergy = value;
   }
 }
 

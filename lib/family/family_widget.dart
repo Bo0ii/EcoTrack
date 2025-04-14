@@ -78,15 +78,16 @@ class _FamilyWidgetState extends State<FamilyWidget>
                       alignment: AlignmentDirectional(0.0, 1.0),
                       child: Container(
                         width: 593.4,
+                        height: 851.54,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Transform.scale(
-                          scaleX: 1.6,
-                          scaleY: 1.0,
-                          origin: Offset(38.0, 99.0),
+                          scaleX: -1.6,
+                          scaleY: -1.2,
+                          origin: Offset(41.0, -19.0),
                           child: ClipRect(
                             child: ImageFiltered(
                               imageFilter: ImageFilter.blur(

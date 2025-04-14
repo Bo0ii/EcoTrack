@@ -555,8 +555,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                           widget
                                                                               .deviceId!,
                                                                       historyData:
-                                                                          (_model.powerxthreshold?.jsonBody ??
-                                                                              ''),
+                                                                          getJsonField(
+                                                                        (_model.powerxthreshold?.jsonBody ??
+                                                                            ''),
+                                                                        r'''$''',
+                                                                        true,
+                                                                      )!,
                                                                     ),
                                                                   ),
                                                                 ),

@@ -1156,12 +1156,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '18uhddzo': {
-      'en': '',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     '74rfgz26': {
       'en': 'AED',
       'ar': '',
@@ -1176,12 +1170,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'vlilb47i': {
       'en': '+8.2%',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'wtwy6bva': {
-      'en': '',
       'ar': '',
       'de': '',
       'es': '',
