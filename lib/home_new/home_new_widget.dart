@@ -224,8 +224,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

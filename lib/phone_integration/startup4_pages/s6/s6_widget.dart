@@ -80,8 +80,6 @@ class _S6WidgetState extends State<S6Widget> {
 
     _model.yourTitleTextController ??= TextEditingController();
     _model.yourTitleFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

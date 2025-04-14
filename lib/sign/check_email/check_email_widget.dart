@@ -27,8 +27,6 @@ class _CheckEmailWidgetState extends State<CheckEmailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CheckEmailModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

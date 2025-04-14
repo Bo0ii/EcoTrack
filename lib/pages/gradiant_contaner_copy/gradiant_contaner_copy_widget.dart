@@ -27,8 +27,6 @@ class _GradiantContanerCopyWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => GradiantContanerCopyModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

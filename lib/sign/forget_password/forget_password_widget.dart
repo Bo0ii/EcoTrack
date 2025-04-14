@@ -32,8 +32,6 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
 
     _model.householdIdTextController ??= TextEditingController();
     _model.householdIdFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -50,8 +50,6 @@ class _GradiantContanerWidgetState extends State<GradiantContanerWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

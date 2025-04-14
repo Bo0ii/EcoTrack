@@ -57,8 +57,6 @@ class _NotifactionpageWidgetState extends State<NotifactionpageWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

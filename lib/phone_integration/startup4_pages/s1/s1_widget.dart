@@ -102,8 +102,6 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -28,8 +28,6 @@ class _ProccessingQRWidgetState extends State<ProccessingQRWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProccessingQRModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

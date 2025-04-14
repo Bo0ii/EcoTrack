@@ -52,8 +52,6 @@ class _DarkLightSwitchSmallWidgetState extends State<DarkLightSwitchSmallWidget>
           !anim.applyInitialState),
       this,
     );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

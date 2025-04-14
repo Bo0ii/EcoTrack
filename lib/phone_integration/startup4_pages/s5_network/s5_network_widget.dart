@@ -77,8 +77,6 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

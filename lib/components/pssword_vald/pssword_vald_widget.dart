@@ -32,8 +32,6 @@ class _PsswordValdWidgetState extends State<PsswordValdWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PsswordValdModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -56,8 +56,6 @@ class _SecondpageWidgetState extends State<SecondpageWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

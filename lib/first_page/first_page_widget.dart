@@ -48,8 +48,6 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -96,8 +96,6 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

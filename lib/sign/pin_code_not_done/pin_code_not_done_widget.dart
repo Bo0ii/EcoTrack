@@ -56,8 +56,6 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

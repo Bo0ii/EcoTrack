@@ -46,11 +46,6 @@ class UsersRecord extends FirestoreRecord {
   String get photoUrl => _photoUrl ?? '';
   bool hasPhotoUrl() => _photoUrl != null;
 
-  // "uid" field.
-  String? _uid;
-  String get uid => _uid ?? '';
-  bool hasUid() => _uid != null;
-
   // "created_time" field.
   DateTime? _createdTime;
   DateTime? get createdTime => _createdTime;
@@ -88,7 +83,6 @@ class UsersRecord extends FirestoreRecord {
     _householdId = snapshotData['householdId'] as String?;
     _displayName = snapshotData['display_name'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
-    _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _usersInHousehold = getDataList(snapshotData['usersInHousehold']);
@@ -137,7 +131,6 @@ Map<String, dynamic> createUsersRecordData({
   String? householdId,
   String? displayName,
   String? photoUrl,
-  String? uid,
   DateTime? createdTime,
   String? phoneNumber,
   int? age,
@@ -152,7 +145,6 @@ Map<String, dynamic> createUsersRecordData({
       'householdId': householdId,
       'display_name': displayName,
       'photo_url': photoUrl,
-      'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'Age': age,
@@ -176,7 +168,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.householdId == e2?.householdId &&
         e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
-        e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         listEquality.equals(e1?.usersInHousehold, e2?.usersInHousehold) &&
@@ -193,7 +184,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.householdId,
         e?.displayName,
         e?.photoUrl,
-        e?.uid,
         e?.createdTime,
         e?.phoneNumber,
         e?.usersInHousehold,

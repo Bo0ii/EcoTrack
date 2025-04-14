@@ -69,8 +69,6 @@ class _Dashboard01RecentActivityWidgetState
           !anim.applyInitialState),
       this,
     );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

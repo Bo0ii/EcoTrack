@@ -37,8 +37,6 @@ class _DeLinkWidgetState extends State<DeLinkWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DeLinkModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

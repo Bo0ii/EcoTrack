@@ -24,8 +24,6 @@ class _NowifiWidgetState extends State<NowifiWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NowifiModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

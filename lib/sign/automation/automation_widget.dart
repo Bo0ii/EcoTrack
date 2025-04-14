@@ -39,7 +39,6 @@ class _AutomationWidgetState extends State<AutomationWidget> {
     _model.switchValue2 = true;
     _model.switchValue3 = true;
     _model.switchValue4 = true;
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

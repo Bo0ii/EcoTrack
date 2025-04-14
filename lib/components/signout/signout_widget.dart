@@ -28,8 +28,6 @@ class _SignoutWidgetState extends State<SignoutWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SignoutModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -51,8 +51,6 @@ class _GradiantContainerDarkWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

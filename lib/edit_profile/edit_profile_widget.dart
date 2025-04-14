@@ -112,8 +112,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

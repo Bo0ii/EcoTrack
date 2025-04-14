@@ -127,8 +127,6 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

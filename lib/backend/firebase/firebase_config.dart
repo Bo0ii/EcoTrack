@@ -5,12 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyB-tCULLOT7XDCCNRsI3kaV-qg_KZJYYuE",
-            authDomain: "ecotrack-4876b.firebaseapp.com",
-            projectId: "ecotrack-4876b",
-            storageBucket: "ecotrack-4876b.firebasestorage.app",
-            messagingSenderId: "551409659517",
-            appId: "1:551409659517:web:5a3b3728efef8940764b14"));
+            apiKey: "AIzaSyCZrAepHlXxvomxZWGgJo3U3QfhZqxQZko",
+            authDomain: "datasellingplatform.firebaseapp.com",
+            projectId: "datasellingplatform",
+            storageBucket: "datasellingplatform.appspot.com",
+            messagingSenderId: "670109569281",
+            appId: "1:670109569281:web:441eccc042e00be9724b00",
+            measurementId: "G-SFGSMK3BNL"));
   } else {
     await Firebase.initializeApp();
   }

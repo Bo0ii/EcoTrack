@@ -229,8 +229,6 @@ class _ConnectWidgetState extends State<ConnectWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

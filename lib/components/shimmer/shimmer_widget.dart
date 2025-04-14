@@ -50,8 +50,6 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

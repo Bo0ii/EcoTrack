@@ -157,8 +157,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

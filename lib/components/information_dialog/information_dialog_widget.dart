@@ -32,8 +32,6 @@ class _InformationDialogWidgetState extends State<InformationDialogWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InformationDialogModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

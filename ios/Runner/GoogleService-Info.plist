@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyB2GWMK98QmlPO9JHnx9zyRFS3u9eGSeVE</string>
+	<string>AIzaSyBs44ZmqGSe5CZa77JeWgs_xuhy6uAud48</string>
 	<key>GCM_SENDER_ID</key>
-	<string>551409659517</string>
+	<string>670109569281</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.flutterflow.DataSellingPlatform</string>
 	<key>PROJECT_ID</key>
-	<string>ecotrack-4876b</string>
+	<string>datasellingplatform</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ecotrack-4876b.firebasestorage.app</string>
+	<string>datasellingplatform.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,8 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:551409659517:ios:a45e32cf613e754a764b14</string>
-	<key>DATABASE_URL</key>
-	<string>https://ecotrack-4876b-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+	<string>1:670109569281:ios:aa29a2200b4b6085724b00</string>
 </dict>
 </plist>

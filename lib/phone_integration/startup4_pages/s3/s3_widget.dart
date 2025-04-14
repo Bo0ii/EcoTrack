@@ -119,8 +119,6 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
