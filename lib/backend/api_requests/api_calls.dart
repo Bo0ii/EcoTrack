@@ -32,19 +32,6 @@ class PowerXthreshholdCall {
       alwaysAllowBody: false,
     );
   }
-
-  static List? thresholdHistory(dynamic response) => getJsonField(
-        response,
-        r'''$..[?(@.entity_id=='sensor.ecot_threshold')]
-''',
-        true,
-      ) as List?;
-  static List? powerHistory(dynamic response) => getJsonField(
-        response,
-        r'''$..[?(@.entity_id=='sensor.ecot_pzem_power')]
-''',
-        true,
-      ) as List?;
 }
 
 class GetSensorDataCall {

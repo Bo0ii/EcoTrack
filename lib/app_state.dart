@@ -387,6 +387,12 @@ class FFAppState extends ChangeNotifier {
   set startTime(String value) {
     _startTime = value;
   }
+
+  String _computeAPIfilter = '';
+  String get computeAPIfilter => _computeAPIfilter;
+  set computeAPIfilter(String value) {
+    _computeAPIfilter = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

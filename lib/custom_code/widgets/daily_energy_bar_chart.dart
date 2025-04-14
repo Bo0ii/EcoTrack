@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '/custom_code/actions/index.dart'; // Imports other custom actions
+
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:intl/intl.dart';
 
@@ -46,13 +48,13 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
   @override
   void initState() {
     super.initState();
-    // Single-tap to show tooltip. We'll override the text in onTooltipRender.
+    // Single-tap to show tooltip; onTooltipRender sets the text.
     _tooltipBehavior = TooltipBehavior(
       enable: true,
       activationMode: ActivationMode.singleTap,
       header: '',
       canShowMarker: true,
-      duration: 999999, // Stays visible until manually hidden
+      duration: 999999, // Stays visible until hidden
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -68,7 +70,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
     }
   }
 
-  /// Processes the optimized API data (in attributes.data) into daily bars.
+  /// Processes the API data into daily bars.
   void _processHistoryData() {
     final List<dynamic> rawList = widget.historyData.isNotEmpty &&
             widget.historyData[0] is Map &&
@@ -152,7 +154,10 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         ),
         series: <CartesianSeries<_ChartBar, String>>[
           ColumnSeries<_ChartBar, String>(
+            // Keep width at 1.0 for full category width,
+            // but add spacing for small gaps between columns.
             width: 1.0,
+            spacing: 0.1, // <--- ADD THIS: spacing for small gaps
             dataSource: bars,
             xValueMapper: (data, _) => data.label,
             yValueMapper: (data, _) => data.value,
@@ -189,7 +194,6 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
         ],
         // The custom tooltip text callback:
         onTooltipRender: (TooltipArgs args) {
-          // Convert pointIndex to int so we avoid "num" errors:
           final int barIndex = (args.pointIndex ?? -1).toInt();
           if (barIndex >= 0 && barIndex < bars.length) {
             final _ChartBar barData = bars[barIndex];

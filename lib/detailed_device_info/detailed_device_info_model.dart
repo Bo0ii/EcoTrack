@@ -10,9 +10,6 @@ class DetailedDeviceInfoModel
     extends FlutterFlowModel<DetailedDeviceInfoWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - computeApiFilter] action in DetailedDeviceInfo widget.
-  String? computeApiFilter;
-  InstantTimer? instantTimer;
   // Stores action output result for [Backend Call - API (powerXthreshhold)] action in DetailedDeviceInfo widget.
   ApiCallResponse? powerxthreshold;
   InstantTimer? instantTimer2;
@@ -42,7 +39,6 @@ class DetailedDeviceInfoModel
 
   @override
   void dispose() {
-    instantTimer?.cancel();
     instantTimer2?.cancel();
     instantTimer3?.cancel();
   }

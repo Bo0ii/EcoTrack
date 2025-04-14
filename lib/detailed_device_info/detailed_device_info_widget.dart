@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -63,19 +62,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await Future.wait([
         Future(() async {
-          _model.computeApiFilter = await actions.computeApiFilter(
-            widget.deviceId!,
+          _model.powerxthreshold = await PowerXthreshholdCall.call(
+            computedApiFilter: FFAppState().computeAPIfilter,
+            startTime: FFAppState().startTime,
           );
-          _model.instantTimer = InstantTimer.periodic(
-            duration: Duration(milliseconds: 30000),
-            callback: (timer) async {
-              _model.powerxthreshold = await PowerXthreshholdCall.call(
-                computedApiFilter: _model.computeApiFilter,
-                startTime: FFAppState().startTime,
-              );
-            },
-            startImmediately: true,
-          );
+
+          safeSetState(() {});
         }),
         Future(() async {
           _model.instantTimer2 = InstantTimer.periodic(
@@ -104,6 +96,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
               _model.dailyEnergyListAPI = await DailyEnergyListCall.call(
                 deviceId: widget.deviceId,
               );
+
+              safeSetState(() {});
             },
             startImmediately: true,
           );
@@ -563,12 +557,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                           widget
                                                                               .deviceId!,
                                                                       historyData:
-                                                                          getJsonField(
-                                                                        (_model.powerxthreshold?.jsonBody ??
-                                                                            ''),
-                                                                        r'''$''',
-                                                                        true,
-                                                                      )!,
+                                                                          (_model.powerxthreshold?.jsonBody ??
+                                                                              ''),
                                                                     ),
                                                                   ),
                                                                 ),

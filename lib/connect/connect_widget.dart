@@ -8,6 +8,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'connect_model.dart';
 export 'connect_model.dart';
@@ -624,208 +625,107 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: AlignmentDirectional(-0.8, 0.25),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  HapticFeedback.selectionClick();
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Container(
-                                      width: 100.0,
-                                      height: 25.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF505365),
-                                        borderRadius:
-                                            BorderRadius.circular(200.0),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: SelectionArea(
-                                            child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'o0tevk9p' /* ecot2 */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color: Colors.white,
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
-                                              ),
-                                        )),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation4']!),
-                                    Image.asset(
-                                      'assets/images/11.png',
-                                      width: 112.4,
-                                      height: 107.6,
-                                      fit: BoxFit.cover,
-                                    ).animateOnPageLoad(animationsMap[
-                                        'imageOnPageLoadAnimation1']!),
-                                  ],
+                            StreamBuilder<List<DevicesRecord>>(
+                              stream: queryDevicesRecord(
+                                queryBuilder: (devicesRecord) =>
+                                    devicesRecord.where(
+                                  'userView',
+                                  arrayContains: currentUserEmail,
                                 ),
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation1']!),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.75, -0.2),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  HapticFeedback.selectionClick();
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Container(
-                                      width: 100.0,
-                                      height: 25.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF505365),
-                                        borderRadius:
-                                            BorderRadius.circular(200.0),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      child: SpinKitFadingFour(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 40.0,
                                       ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: SelectionArea(
-                                            child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'wfha0poz' /* ecot */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color: Colors.white,
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
+                                    ),
+                                  );
+                                }
+                                List<DevicesRecord> stackDevicesRecordList =
+                                    snapshot.data!;
+
+                                return Stack(
+                                  children: List.generate(
+                                      stackDevicesRecordList.length,
+                                      (stackIndex) {
+                                    final stackDevicesRecord =
+                                        stackDevicesRecordList[stackIndex];
+                                    return Align(
+                                      alignment:
+                                          AlignmentDirectional(-0.8, 0.25),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          HapticFeedback.selectionClick();
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Container(
+                                              width: 100.0,
+                                              height: 25.0,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFF505365),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        200.0),
                                               ),
-                                        )),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation5']!),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          S4qrWidget.routeName,
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 350),
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: Image.asset(
-                                        'assets/images/11.png',
-                                        width: 83.3,
-                                        height: 88.58,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'imageOnPageLoadAnimation2']!),
-                                  ],
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation2']!),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-0.65, -0.35),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  HapticFeedback.selectionClick();
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Container(
-                                      width: 100.0,
-                                      height: 25.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF505365),
-                                        borderRadius:
-                                            BorderRadius.circular(200.0),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: SelectionArea(
-                                            child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'jh0fjujg' /* ecot3 */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                color: Colors.white,
-                                                fontSize: 10.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: SelectionArea(
+                                                    child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'o0tevk9p' /* ecot2 */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color: Colors.white,
+                                                        fontSize: 10.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                                )),
                                               ),
-                                        )),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation6']!),
-                                    Image.asset(
-                                      'assets/images/11.png',
-                                      width: 120.11,
-                                      height: 112.4,
-                                      fit: BoxFit.cover,
-                                    ).animateOnPageLoad(animationsMap[
-                                        'imageOnPageLoadAnimation3']!),
-                                  ],
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation3']!),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'containerOnPageLoadAnimation4']!),
+                                            Image.asset(
+                                              'assets/images/11.png',
+                                              width: 112.4,
+                                              height: 107.6,
+                                              fit: BoxFit.cover,
+                                            ).animateOnPageLoad(animationsMap[
+                                                'imageOnPageLoadAnimation1']!),
+                                          ],
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation1']!),
+                                    );
+                                  }),
+                                );
+                              },
                             ),
                           ],
                         ),

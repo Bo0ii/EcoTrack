@@ -29,12 +29,14 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   DevicesRecord? deviceRef2;
   // Stores action output result for [Backend Call - API (GetSensorData)] action in HomeNew widget.
   ApiCallResponse? sensordataAPIpageload2;
-  // Stores action output result for [Custom Action - getPowerThresholdStartTime] action in HomeNew widget.
-  String? getPowerThresholdStartTime;
   // Stores action output result for [Backend Call - API (ToggleRelayOn)] action in Container widget.
   ApiCallResponse? apiResultxizCopy;
   // Stores action output result for [Backend Call - API (ToggleRelayOFF)] action in Container widget.
   ApiCallResponse? apiResultghqCopy;
+  // Stores action output result for [Custom Action - computeApiFilter] action in Row widget.
+  String? computeApiFilter;
+  // Stores action output result for [Custom Action - getPowerThresholdStartTime] action in Row widget.
+  String? getPowerThresholdStartTime;
   // Model for NavBar component.
   late NavBarModel navBarModel;
 

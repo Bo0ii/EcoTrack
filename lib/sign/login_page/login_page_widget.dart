@@ -119,7 +119,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 55.0, 0.0, 0.0),
+                                            0.0, 52.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -147,7 +147,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 24.0, 24.0, 10.0),
+                                            24.0, 16.0, 24.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:

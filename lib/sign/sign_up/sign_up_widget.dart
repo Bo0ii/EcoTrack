@@ -682,7 +682,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 22.0, 10.0, 0.0),
+                                    10.0, 14.0, 10.0, 14.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [

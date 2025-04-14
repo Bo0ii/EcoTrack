@@ -59,114 +59,105 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      await Future.wait([
-        Future(() async {
-          if (_model.adminUser != null) {
-            FFAppState().isAdmin = true;
-            FFAppState().adminREFappState = _model.adminUser?.reference;
-            FFAppState().displayName = _model.adminUser!.displayName;
-            FFAppState().houseName = _model.adminUser!.nameOfHouse;
-            FFAppState().deviceID = FFAppState().deviceID;
-            safeSetState(() {});
-            _model.deviceRef = await queryDevicesRecordOnce(
-              parent: _model.adminUser?.reference,
-              singleRecord: true,
-            ).then((s) => s.firstOrNull);
-            while (FFAppState().isLooping == true) {
-              _model.sensordataAPIpageload = await GetSensorDataCall.call(
-                deviceId: _model.deviceRef?.deviceId,
-              );
+      if (_model.adminUser != null) {
+        FFAppState().isAdmin = true;
+        FFAppState().adminREFappState = _model.adminUser?.reference;
+        FFAppState().displayName = _model.adminUser!.displayName;
+        FFAppState().houseName = _model.adminUser!.nameOfHouse;
+        FFAppState().deviceID = FFAppState().deviceID;
+        safeSetState(() {});
+        _model.deviceRef = await queryDevicesRecordOnce(
+          parent: _model.adminUser?.reference,
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        while (FFAppState().isLooping == true) {
+          _model.sensordataAPIpageload = await GetSensorDataCall.call(
+            deviceId: _model.deviceRef?.deviceId,
+          );
 
-              FFAppState().sensorData = getJsonField(
-                (_model.sensordataAPIpageload?.jsonBody ?? ''),
-                r'''$''',
-                true,
-              )!
-                  .toList()
-                  .cast<dynamic>();
-              safeSetState(() {});
-              FFAppState().weatherTemp = GetSensorDataCall.temperature(
-                (_model.sensordataAPIpageload?.jsonBody ?? ''),
-              )!;
-              FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-                (_model.sensordataAPIpageload?.jsonBody ?? ''),
-              )!;
-              FFAppState().humidity = GetSensorDataCall.humidity(
-                (_model.sensordataAPIpageload?.jsonBody ?? ''),
-              )!;
-              FFAppState().weatherState = GetSensorDataCall.weatherstate(
-                (_model.sensordataAPIpageload?.jsonBody ?? ''),
-              )!;
-              FFAppState().tips = GetSensorDataCall.tips(
-                (_model.sensordataAPIpageload?.jsonBody ?? ''),
-              )!;
-              await Future.delayed(const Duration(milliseconds: 1300));
-            }
-          } else {
-            FFAppState().isAdmin = false;
-            _model.userDirectoryEntry = await queryUserDirectoryRecordOnce(
-              queryBuilder: (userDirectoryRecord) => userDirectoryRecord.where(
-                'emai',
-                isEqualTo: currentUserEmail,
-              ),
-              singleRecord: true,
-            ).then((s) => s.firstOrNull);
-            _model.userinhouseholdREF = await queryUsersInHouseholdRecordOnce(
-              parent: _model.adminUser?.reference,
-              queryBuilder: (usersInHouseholdRecord) =>
-                  usersInHouseholdRecord.where(
-                'email',
-                isEqualTo: currentUserEmail,
-              ),
-              singleRecord: true,
-            ).then((s) => s.firstOrNull);
-            FFAppState().displayName = _model.userinhouseholdREF!.displayName;
-            FFAppState().houseName = _model.adminUser!.nameOfHouse;
-            FFAppState().adminREFappState =
-                _model.userDirectoryEntry?.parentAdminRef;
-            safeSetState(() {});
-            _model.deviceRef2 = await queryDevicesRecordOnce(
-              parent: _model.userDirectoryEntry?.parentAdminRef,
-              singleRecord: true,
-            ).then((s) => s.firstOrNull);
-            while (FFAppState().isLooping == true) {
-              _model.sensordataAPIpageload2 = await GetSensorDataCall.call(
-                deviceId: _model.deviceRef2?.deviceId,
-              );
+          FFAppState().sensorData = getJsonField(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+            r'''$''',
+            true,
+          )!
+              .toList()
+              .cast<dynamic>();
+          safeSetState(() {});
+          FFAppState().weatherTemp = GetSensorDataCall.temperature(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().humidity = GetSensorDataCall.humidity(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().weatherState = GetSensorDataCall.weatherstate(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          FFAppState().tips = GetSensorDataCall.tips(
+            (_model.sensordataAPIpageload?.jsonBody ?? ''),
+          )!;
+          await Future.delayed(const Duration(milliseconds: 1300));
+        }
+      } else {
+        FFAppState().isAdmin = false;
+        _model.userDirectoryEntry = await queryUserDirectoryRecordOnce(
+          queryBuilder: (userDirectoryRecord) => userDirectoryRecord.where(
+            'emai',
+            isEqualTo: currentUserEmail,
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        _model.userinhouseholdREF = await queryUsersInHouseholdRecordOnce(
+          parent: _model.adminUser?.reference,
+          queryBuilder: (usersInHouseholdRecord) =>
+              usersInHouseholdRecord.where(
+            'email',
+            isEqualTo: currentUserEmail,
+          ),
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        FFAppState().displayName = _model.userinhouseholdREF!.displayName;
+        FFAppState().houseName = _model.adminUser!.nameOfHouse;
+        FFAppState().adminREFappState =
+            _model.userDirectoryEntry?.parentAdminRef;
+        safeSetState(() {});
+        _model.deviceRef2 = await queryDevicesRecordOnce(
+          parent: _model.userDirectoryEntry?.parentAdminRef,
+          singleRecord: true,
+        ).then((s) => s.firstOrNull);
+        while (FFAppState().isLooping == true) {
+          _model.sensordataAPIpageload2 = await GetSensorDataCall.call(
+            deviceId: _model.deviceRef2?.deviceId,
+          );
 
-              FFAppState().sensorData = getJsonField(
-                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-                r'''$''',
-                true,
-              )!
-                  .toList()
-                  .cast<dynamic>();
-              safeSetState(() {});
-              FFAppState().weatherTemp = GetSensorDataCall.temperature(
-                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-              )!;
-              FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-              )!;
-              FFAppState().humidity = GetSensorDataCall.humidity(
-                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-              )!;
-              FFAppState().weatherState = GetSensorDataCall.weatherstate(
-                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-              )!;
-              FFAppState().tips = GetSensorDataCall.tips(
-                (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-              )!;
-              await Future.delayed(const Duration(milliseconds: 1300));
-            }
-          }
-        }),
-        Future(() async {
-          _model.getPowerThresholdStartTime =
-              await actions.getPowerThresholdStartTime();
-          FFAppState().startTime = _model.getPowerThresholdStartTime!;
-        }),
-      ]);
+          FFAppState().sensorData = getJsonField(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+            r'''$''',
+            true,
+          )!
+              .toList()
+              .cast<dynamic>();
+          safeSetState(() {});
+          FFAppState().weatherTemp = GetSensorDataCall.temperature(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().humidity = GetSensorDataCall.humidity(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().weatherState = GetSensorDataCall.weatherstate(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          FFAppState().tips = GetSensorDataCall.tips(
+            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
+          )!;
+          await Future.delayed(const Duration(milliseconds: 1300));
+        }
+      }
     });
 
     animationsMap.addAll({
@@ -534,7 +525,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
+                                                  16.0, 16.0, 16.0, 24.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -576,6 +567,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .center,
@@ -725,7 +719,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   color: Colors
                                                                       .black,
                                                                   fontSize:
-                                                                      24.0,
+                                                                      18.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -807,6 +801,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .center,
@@ -1554,6 +1551,24 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      _model.computeApiFilter =
+                                                                          await actions
+                                                                              .computeApiFilter(
+                                                                        listViewDevicesRecord
+                                                                            .deviceId,
+                                                                      );
+                                                                      _model.getPowerThresholdStartTime =
+                                                                          await actions
+                                                                              .getPowerThresholdStartTime();
+                                                                      FFAppState()
+                                                                              .computeAPIfilter =
+                                                                          _model
+                                                                              .computeApiFilter!;
+                                                                      FFAppState()
+                                                                              .startTime =
+                                                                          _model
+                                                                              .getPowerThresholdStartTime!;
+
                                                                       context
                                                                           .pushNamed(
                                                                         DetailedDeviceInfoWidget
@@ -1589,6 +1604,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           ),
                                                                         },
                                                                       );
+
+                                                                      safeSetState(
+                                                                          () {});
                                                                     },
                                                                     child: Row(
                                                                       mainAxisSize:
