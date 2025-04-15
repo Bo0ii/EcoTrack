@@ -330,7 +330,7 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                     child: TextFormField(
                                       controller: _model.myHomeTextController,
                                       focusNode: _model.myHomeFocusNode,
-                                      autofocus: true,
+                                      autofocus: false,
                                       textCapitalization:
                                           TextCapitalization.words,
                                       textInputAction: TextInputAction.next,

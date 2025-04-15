@@ -8,19 +8,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
-import 'dart:math';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -1116,17 +1113,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               ].divide(SizedBox(width: 16.0)),
                                             ),
                                           ].divide(SizedBox(height: 12.0)),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: double.infinity,
-                                        height: 100.0,
-                                        child: custom_widgets
-                                            .TimeDropdownSelectorState(
-                                          width: double.infinity,
-                                          height: 100.0,
-                                          initialTime: '0',
-                                          onTimeSelected: (time) async {},
                                         ),
                                       ),
                                       Divider(
