@@ -52,7 +52,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           boxShadow: [
             BoxShadow(
               blurRadius: 15.0,
-              color: Color(0x15000000),
+              color: Color(0x1F000000),
               offset: Offset(
                 0.0,
                 6.0,

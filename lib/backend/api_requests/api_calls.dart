@@ -183,6 +183,30 @@ class DailyEnergyListCall {
   }
 }
 
+class WorkingScheduleCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'workingSchedule',
+      apiUrl:
+          'https://eco-track.duckdns.org/api/states/input_datetime.ecot_start_time',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2NGM4ZTIyZjc4YjM0M2IzYmYzOTcwYmYwNmI3OTFjMiIsImlhdCI6MTc0MjE1Mjg1NiwiZXhwIjoyMDU3NTEyODU2fQ.i25jvKgFyVWiW4Pens4YTgxC7YhV6jlSY3n6nREqmAE',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

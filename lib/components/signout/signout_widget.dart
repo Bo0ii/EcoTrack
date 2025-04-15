@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -47,7 +48,7 @@ class _SignoutWidgetState extends State<SignoutWidget> {
           height: 220.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.white, Color(0xFFD1E7E9)],
+              colors: [Colors.white, Color(0xFFF0C6B3)],
               stops: [0.0, 1.0],
               begin: AlignmentDirectional(0.0, -1.0),
               end: AlignmentDirectional(0, 1.0),
@@ -60,13 +61,13 @@ class _SignoutWidgetState extends State<SignoutWidget> {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, -0.55),
+                alignment: AlignmentDirectional(0.01, -0.7),
                 child: Lottie.asset(
-                  'assets/jsons/Animation_-_1742663589083.json',
-                  width: 76.54,
+                  'assets/jsons/wcVKx3pxvj-6raaT.json',
+                  width: 95.44,
                   height: 71.9,
                   fit: BoxFit.cover,
-                  frameRate: FrameRate(120.0),
+                  frameRate: FrameRate(60.0),
                   repeat: false,
                   animate: true,
                 ),
@@ -77,7 +78,7 @@ class _SignoutWidgetState extends State<SignoutWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(19.0, 0.0, 19.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'g8k6isnh' /* You have successfully register... */,
+                      'g8k6isnh' /* Are you sure you want to sign ... */,
                     ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -96,18 +97,15 @@ class _SignoutWidgetState extends State<SignoutWidget> {
                 alignment: AlignmentDirectional(0.06, 0.83),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.goNamed(
-                      S1Widget.routeName,
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.leftToRight,
-                        ),
-                      },
-                    );
+                    GoRouter.of(context).prepareAuthEvent();
+                    await authManager.signOut();
+                    GoRouter.of(context).clearRedirectLocation();
+
+                    context.goNamedAuth(
+                        FirstPageWidget.routeName, context.mounted);
                   },
                   text: FFLocalizations.of(context).getText(
-                    'nlyc059p' /* Continue to setup */,
+                    'nlyc059p' /* Signout */,
                   ),
                   options: FFButtonOptions(
                     width: 146.1,
@@ -115,7 +113,7 @@ class _SignoutWidgetState extends State<SignoutWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFF63B1BF),
+                    color: Color(0xFFF59477),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleSmallFamily,

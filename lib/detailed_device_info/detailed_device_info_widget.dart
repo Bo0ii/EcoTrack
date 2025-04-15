@@ -8,16 +8,19 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -230,7 +233,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                       child: Container(
                         width: double.infinity,
                         height: 500.0,
-                        decoration: BoxDecoration(),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0x00FFFFFF), Color(0x08FFFFFF)],
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(0.0, -1.0),
+                            end: AlignmentDirectional(0, 1.0),
+                          ),
+                        ),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -300,8 +310,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .headlineMediumFamily,
-                                                        color:
-                                                            Color(0xFF4B9FB5),
+                                                        color: Colors.black,
                                                         fontSize: 29.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -531,9 +540,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                             10.0),
                                                                 child:
                                                                     Container(
-                                                                  width: 404.7,
-                                                                  height:
-                                                                      312.59,
+                                                                  width: 416.63,
+                                                                  height: 312.6,
                                                                   decoration:
                                                                       BoxDecoration(),
                                                                   child:
@@ -1110,6 +1118,17 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                           ].divide(SizedBox(height: 12.0)),
                                         ),
                                       ),
+                                      Container(
+                                        width: double.infinity,
+                                        height: 100.0,
+                                        child: custom_widgets
+                                            .TimeDropdownSelectorState(
+                                          width: double.infinity,
+                                          height: 100.0,
+                                          initialTime: '0',
+                                          onTimeSelected: (time) async {},
+                                        ),
+                                      ),
                                       Divider(
                                         thickness: 1.0,
                                         color: FlutterFlowTheme.of(context)
@@ -1432,7 +1451,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               ),
                                             ],
                                           ),
-                                        ].divide(SizedBox(height: 12.0)),
+                                        ].divide(SizedBox(height: 11.0)),
                                       ),
                                       Divider(
                                         thickness: 1.0,
@@ -1720,7 +1739,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               ),
                                             ],
                                           ),
-                                        ].divide(SizedBox(height: 12.0)),
+                                        ].divide(SizedBox(height: 11.0)),
                                       ),
                                       Divider(
                                         thickness: 1.0,
@@ -1932,7 +1951,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               ),
                                             ],
                                           ),
-                                        ].divide(SizedBox(height: 12.0)),
+                                        ].divide(SizedBox(height: 11.0)),
                                       ),
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -1974,8 +1993,8 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              Color(0xFFEBFEFF),
-                              Color(0xF8EBFEFF),
+                              Color(0xFFF0FEFF),
+                              Color(0xF3EBFEFF),
                               Color(0x5EFFFFFF),
                               Color(0x00EBFEFF)
                             ],

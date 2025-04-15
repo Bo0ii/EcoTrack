@@ -1133,7 +1133,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'igqb1lr7': {
-      'en': '°C',
+      'en': '°',
       'ar': '',
       'de': '',
       'es': '',
@@ -1181,7 +1181,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'dfit5xqi': {
-      'en': 'Living room | ',
+      'en': 'Living room',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'yoov8sfe': {
+      'en': ' | ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1247,7 +1253,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'v7weflxu': {
-      'en': 'Eco Energy Tip',
+      'en': 'Eco-Energy Tip ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1261,12 +1267,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // permissionList
   {
-    'l2w3hl7x': {
-      'en': 'User',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     '5f4q23tv': {
       'en': 'Manage Device ',
       'ar': '',
@@ -1281,6 +1281,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kdz55hqr': {
       'en': 'Manage which users can view or control the device.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'l2w3hl7x': {
+      'en': 'User',
       'ar': '',
       'de': '',
       'es': '',
@@ -1836,13 +1842,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Signout
   {
     'g8k6isnh': {
-      'en': 'You have successfully registered and logged in.',
+      'en': 'Are you sure you want to sign out ?',
       'ar': '',
       'de': '',
       'es': '',
     },
     'nlyc059p': {
-      'en': 'Continue to setup',
+      'en': 'Signout',
       'ar': '',
       'de': '',
       'es': '',

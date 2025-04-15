@@ -77,7 +77,7 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
             ),
             child: Container(
               width: 226.9,
-              height: 257.8,
+              height: 245.47,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8.0),
