@@ -2,12 +2,12 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/index.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -106,7 +106,7 @@ class _S6WidgetState extends State<S6Widget> {
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
-                child: SpinKitFadingFour(
+                child: SpinKitCubeGrid(
                   color: FlutterFlowTheme.of(context).primary,
                   size: 40.0,
                 ),
@@ -427,6 +427,13 @@ class _S6WidgetState extends State<S6Widget> {
                                                       return;
                                                     }
                                                   }
+
+                                                  await s6UsersRecord!.reference
+                                                      .update(
+                                                          createUsersRecordData(
+                                                    photoUrl:
+                                                        _model.uploadedFileUrl,
+                                                  ));
                                                 },
                                                 child: ClipRRect(
                                                   borderRadius:

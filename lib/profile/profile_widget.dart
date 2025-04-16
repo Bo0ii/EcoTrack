@@ -3,11 +3,11 @@ import '/backend/backend.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/components/signout/signout_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/index.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -167,7 +167,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
-                child: SpinKitFadingFour(
+                child: SpinKitCubeGrid(
                   color: FlutterFlowTheme.of(context).primary,
                   size: 40.0,
                 ),
@@ -200,7 +200,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     child: Stack(
                       children: [
                         Opacity(
-                          opacity: 0.6,
+                          opacity: 0.7,
                           child: Align(
                             alignment: AlignmentDirectional(0.0, -0.2),
                             child: Container(
@@ -212,14 +212,14 @@ class _ProfileWidgetState extends State<ProfileWidget>
                               ),
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Transform.scale(
-                                scaleX: -5.0,
-                                scaleY: -1.1,
-                                origin: Offset(100.0, -2.0),
+                                scaleX: -3.2,
+                                scaleY: -0.5,
+                                origin: Offset(100.0, 6.0),
                                 child: ClipRect(
                                   child: ImageFiltered(
                                     imageFilter: ImageFilter.blur(
-                                      sigmaX: 19.0,
-                                      sigmaY: 19.0,
+                                      sigmaX: 11.0,
+                                      sigmaY: 11.0,
                                     ),
                                     child: Lottie.asset(
                                       'assets/jsons/Main_Scene_(3).json',
@@ -329,8 +329,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                             BorderRadius
                                                                 .circular(50.0),
                                                         child: Image.network(
-                                                          profileUsersRecord!
-                                                              .photoUrl,
+                                                          '',
                                                           width: 100.0,
                                                           height: 100.0,
                                                           fit: BoxFit.cover,
@@ -370,7 +369,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          profileUsersRecord.email,
+                                          profileUsersRecord?.email,
                                           'email',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -910,6 +909,14 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                         .containsKey(
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
+                                                            ),
+                                                            Icon(
+                                                              Icons
+                                                                  .chevron_right_rounded,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                              size: 24.0,
                                                             ),
                                                           ],
                                                         ),

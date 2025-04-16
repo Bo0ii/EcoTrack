@@ -30,6 +30,14 @@ class DetailedDeviceInfoModel
   ApiCallResponse? apiResultxizCopy;
   // Stores action output result for [Backend Call - API (ToggleRelayOFF)] action in Container widget.
   ApiCallResponse? apiResultghqCopy;
+  DateTime? datePicked1;
+  // Stores action output result for [Backend Call - API (workingSchedule)] action in Text widget.
+  ApiCallResponse? selectedStartTimeAPI;
+  DateTime? datePicked2;
+  // Stores action output result for [Backend Call - API (workingSchedule)] action in Text widget.
+  ApiCallResponse? selectedStopTimeAPI;
+  // Stores action output result for [Backend Call - API (workingSchedule)] action in Icon widget.
+  ApiCallResponse? resetStartTimeAPI;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

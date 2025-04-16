@@ -393,6 +393,24 @@ class FFAppState extends ChangeNotifier {
   set Tenergy(String value) {
     _Tenergy = value;
   }
+
+  String _selectedStartTime = '';
+  String get selectedStartTime => _selectedStartTime;
+  set selectedStartTime(String value) {
+    _selectedStartTime = value;
+  }
+
+  String _selectedStopTime = '';
+  String get selectedStopTime => _selectedStopTime;
+  set selectedStopTime(String value) {
+    _selectedStopTime = value;
+  }
+
+  DateTime? _test;
+  DateTime? get test => _test;
+  set test(DateTime? value) {
+    _test = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

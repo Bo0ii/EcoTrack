@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names, depend_on_referenced_packages, prefer_final_fields
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
@@ -11,10 +12,10 @@ import 'package:equatable/equatable.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime_type/mime_type.dart';
 
-import '/flutter_flow/uploaded_file.dart';
+import 'package:ff_commons/flutter_flow/uploaded_file.dart';
+
 
 import 'get_streamed_response.dart';
-
 enum ApiCallType {
   GET,
   POST,
@@ -46,6 +47,7 @@ class ApiCallOptions extends Equatable {
     this.alwaysAllowBody = false,
     this.cache = false,
     this.isStreamingApi = false,
+
   });
 
   final String callName;
@@ -169,7 +171,7 @@ class ApiManager {
   // If your API calls need authentication, populate this field once
   // the user has authenticated. Alter this as needed.
   static String? _accessToken;
-  // You may want to call this if, for example, you make a change to the
+    // You may want to call this if, for example, you make a change to the
   // database and no longer want the cached result of a call that may
   // have changed.
   static void clearCache(String callName) => _apiCache.keys
@@ -378,8 +380,7 @@ class ApiManager {
   Future<ApiCallResponse> call(
     ApiCallOptions options, {
     http.Client? client,
-  }) =>
-      makeApiCall(
+  }) => makeApiCall(
         callName: options.callName,
         apiUrl: options.apiUrl,
         callType: options.callType,

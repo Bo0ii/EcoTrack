@@ -2,9 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -115,7 +115,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
-                child: SpinKitFadingFour(
+                child: SpinKitCubeGrid(
                   color: FlutterFlowTheme.of(context).primary,
                   size: 40.0,
                 ),
@@ -274,135 +274,184 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                           ),
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 44.0),
-                              child:
-                                  StreamBuilder<List<UsersInHouseholdRecord>>(
-                                stream: queryUsersInHouseholdRecord(
-                                  parent: permissionListUsersRecord?.reference,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        child: SpinKitFadingFour(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 40.0,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<UsersInHouseholdRecord>
-                                      listViewUsersInHouseholdRecordList =
-                                      snapshot.data!;
-
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount:
-                                        listViewUsersInHouseholdRecordList
-                                            .length,
-                                    itemBuilder: (context, listViewIndex) {
-                                      final listViewUsersInHouseholdRecord =
-                                          listViewUsersInHouseholdRecordList[
-                                              listViewIndex];
-                                      return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 16.0, 8.0),
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 1.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 68.9,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 4.0,
-                                                  color: Color(0x32000000),
-                                                  offset: Offset(
-                                                    0.0,
-                                                    2.0,
-                                                  ),
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                            child: Container(
+                              height: 379.99,
+                              decoration: BoxDecoration(),
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 44.0),
+                                  child: StreamBuilder<
+                                      List<UsersInHouseholdRecord>>(
+                                    stream: queryUsersInHouseholdRecord(
+                                      parent:
+                                          permissionListUsersRecord?.reference,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            child: SpinKitCubeGrid(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 40.0,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8.0, 0.0, 8.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            26.0),
-                                                    child: Image.network(
-                                                      listViewUsersInHouseholdRecord
-                                                          .photoUrl,
-                                                      width: 47.77,
-                                                      height: 47.5,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Column(
+                                          ),
+                                        );
+                                      }
+                                      List<UsersInHouseholdRecord>
+                                          listViewUsersInHouseholdRecordList =
+                                          snapshot.data!;
+
+                                      return ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        primary: false,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount:
+                                            listViewUsersInHouseholdRecordList
+                                                .length,
+                                        itemBuilder: (context, listViewIndex) {
+                                          final listViewUsersInHouseholdRecord =
+                                              listViewUsersInHouseholdRecordList[
+                                                  listViewIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 4.0, 16.0, 8.0),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 1.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 68.9,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 4.0,
+                                                      color: Color(0x32000000),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
+                                                      ),
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(26.0),
+                                                        child: Image.network(
+                                                          listViewUsersInHouseholdRecord
+                                                              .photoUrl,
+                                                          width: 47.8,
+                                                          height: 47.5,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'l2w3hl7x' /* User */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      listViewUsersInHouseholdRecord
+                                                                          .email,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
                                                         children: [
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'l2w3hl7x' /* User */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                          ),
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -413,280 +462,241 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
-                                                                            4.0,
+                                                                            5.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: Text(
-                                                                  listViewUsersInHouseholdRecord
-                                                                      .email,
-                                                                  style: FlutterFlowTheme.of(
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .remove_red_eye_sharp,
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
-                                                                      ),
+                                                                      .primaryText,
+                                                                  size: 24.0,
                                                                 ),
                                                               ),
                                                             ],
                                                           ),
+                                                          Theme(
+                                                            data: ThemeData(
+                                                              checkboxTheme:
+                                                                  CheckboxThemeData(
+                                                                visualDensity:
+                                                                    VisualDensity
+                                                                        .compact,
+                                                                materialTapTargetSize:
+                                                                    MaterialTapTargetSize
+                                                                        .shrinkWrap,
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              6.0),
+                                                                ),
+                                                              ),
+                                                              unselectedWidgetColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                            ),
+                                                            child: Checkbox(
+                                                              value: _model
+                                                                      .checkboxValueMap1[
+                                                                  listViewUsersInHouseholdRecord] ??= _model
+                                                                      .selectedDeviceId
+                                                                      ?.userView
+                                                                      .contains(
+                                                                          listViewUsersInHouseholdRecord
+                                                                              .email) ==
+                                                                  true,
+                                                              onChanged:
+                                                                  (newValue) async {
+                                                                safeSetState(() =>
+                                                                    _model.checkboxValueMap1[
+                                                                            listViewUsersInHouseholdRecord] =
+                                                                        newValue!);
+                                                                if (newValue!) {
+                                                                  await _model
+                                                                      .selectedDeviceId!
+                                                                      .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'userView':
+                                                                            FieldValue.arrayUnion([
+                                                                          listViewUsersInHouseholdRecord
+                                                                              .email
+                                                                        ]),
+                                                                      },
+                                                                    ),
+                                                                  });
+                                                                } else {
+                                                                  await _model
+                                                                      .selectedDeviceId!
+                                                                      .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'userView':
+                                                                            FieldValue.arrayRemove([
+                                                                          listViewUsersInHouseholdRecord
+                                                                              .email
+                                                                        ]),
+                                                                      },
+                                                                    ),
+                                                                  });
+                                                                }
+                                                              },
+                                                              side: BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                              ),
+                                                              activeColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              checkColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                            ),
+                                                          ),
                                                         ],
                                                       ),
-                                                    ),
-                                                  ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Row(
+                                                      Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
                                                         children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .remove_red_eye_sharp,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              size: 24.0,
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .toggle_on,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Theme(
+                                                            data: ThemeData(
+                                                              checkboxTheme:
+                                                                  CheckboxThemeData(
+                                                                visualDensity:
+                                                                    VisualDensity
+                                                                        .compact,
+                                                                materialTapTargetSize:
+                                                                    MaterialTapTargetSize
+                                                                        .shrinkWrap,
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              6.0),
+                                                                ),
+                                                              ),
+                                                              unselectedWidgetColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                            ),
+                                                            child: Checkbox(
+                                                              value: _model
+                                                                      .checkboxValueMap2[
+                                                                  listViewUsersInHouseholdRecord] ??= _model
+                                                                      .selectedDeviceId
+                                                                      ?.userControl
+                                                                      .contains(
+                                                                          listViewUsersInHouseholdRecord
+                                                                              .email) ==
+                                                                  true,
+                                                              onChanged: (_model
+                                                                              .checkboxValueMap1[
+                                                                          listViewUsersInHouseholdRecord] ==
+                                                                      false)
+                                                                  ? null
+                                                                  : (newValue) async {
+                                                                      safeSetState(() =>
+                                                                          _model.checkboxValueMap2[listViewUsersInHouseholdRecord] =
+                                                                              newValue!);
+                                                                      if (newValue!) {
+                                                                        await _model
+                                                                            .selectedDeviceId!
+                                                                            .reference
+                                                                            .update({
+                                                                          ...mapToFirestore(
+                                                                            {
+                                                                              'userControl': FieldValue.arrayUnion([
+                                                                                listViewUsersInHouseholdRecord.email
+                                                                              ]),
+                                                                            },
+                                                                          ),
+                                                                        });
+                                                                      } else {
+                                                                        await _model
+                                                                            .selectedDeviceId!
+                                                                            .reference
+                                                                            .update({
+                                                                          ...mapToFirestore(
+                                                                            {
+                                                                              'userControl': FieldValue.arrayRemove([
+                                                                                listViewUsersInHouseholdRecord.email
+                                                                              ]),
+                                                                            },
+                                                                          ),
+                                                                        });
+                                                                      }
+                                                                    },
+                                                              side: BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                              ),
+                                                              activeColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              checkColor: (_model
+                                                                              .checkboxValueMap1[
+                                                                          listViewUsersInHouseholdRecord] ==
+                                                                      false)
+                                                                  ? null
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
                                                             ),
                                                           ),
                                                         ],
                                                       ),
-                                                      Theme(
-                                                        data: ThemeData(
-                                                          checkboxTheme:
-                                                              CheckboxThemeData(
-                                                            visualDensity:
-                                                                VisualDensity
-                                                                    .compact,
-                                                            materialTapTargetSize:
-                                                                MaterialTapTargetSize
-                                                                    .shrinkWrap,
-                                                            shape:
-                                                                RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          6.0),
-                                                            ),
-                                                          ),
-                                                          unselectedWidgetColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .alternate,
-                                                        ),
-                                                        child: Checkbox(
-                                                          value: _model
-                                                                  .checkboxValueMap1[
-                                                              listViewUsersInHouseholdRecord] ??= _model
-                                                                  .selectedDeviceId
-                                                                  ?.userView
-                                                                  .contains(
-                                                                      listViewUsersInHouseholdRecord
-                                                                          .email) ==
-                                                              true,
-                                                          onChanged:
-                                                              (newValue) async {
-                                                            safeSetState(() =>
-                                                                _model.checkboxValueMap1[
-                                                                        listViewUsersInHouseholdRecord] =
-                                                                    newValue!);
-                                                            if (newValue!) {
-                                                              await _model
-                                                                  .selectedDeviceId!
-                                                                  .reference
-                                                                  .update({
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'userView':
-                                                                        FieldValue
-                                                                            .arrayUnion([
-                                                                      listViewUsersInHouseholdRecord
-                                                                          .email
-                                                                    ]),
-                                                                  },
-                                                                ),
-                                                              });
-                                                            } else {
-                                                              await _model
-                                                                  .selectedDeviceId!
-                                                                  .reference
-                                                                  .update({
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'userView':
-                                                                        FieldValue
-                                                                            .arrayRemove([
-                                                                      listViewUsersInHouseholdRecord
-                                                                          .email
-                                                                    ]),
-                                                                  },
-                                                                ),
-                                                              });
-                                                            }
-                                                          },
-                                                          side: BorderSide(
-                                                            width: 2,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                          ),
-                                                          activeColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                          checkColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .info,
-                                                        ),
-                                                      ),
                                                     ],
                                                   ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Icon(
-                                                              Icons.toggle_on,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
-                                                              size: 24.0,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Theme(
-                                                        data: ThemeData(
-                                                          checkboxTheme:
-                                                              CheckboxThemeData(
-                                                            visualDensity:
-                                                                VisualDensity
-                                                                    .compact,
-                                                            materialTapTargetSize:
-                                                                MaterialTapTargetSize
-                                                                    .shrinkWrap,
-                                                            shape:
-                                                                RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          6.0),
-                                                            ),
-                                                          ),
-                                                          unselectedWidgetColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .alternate,
-                                                        ),
-                                                        child: Checkbox(
-                                                          value: _model
-                                                                  .checkboxValueMap2[
-                                                              listViewUsersInHouseholdRecord] ??= _model
-                                                                  .selectedDeviceId
-                                                                  ?.userControl
-                                                                  .contains(
-                                                                      listViewUsersInHouseholdRecord
-                                                                          .email) ==
-                                                              true,
-                                                          onChanged: (_model
-                                                                          .checkboxValueMap1[
-                                                                      listViewUsersInHouseholdRecord] ==
-                                                                  false)
-                                                              ? null
-                                                              : (newValue) async {
-                                                                  safeSetState(() =>
-                                                                      _model.checkboxValueMap2[
-                                                                              listViewUsersInHouseholdRecord] =
-                                                                          newValue!);
-                                                                  if (newValue!) {
-                                                                    await _model
-                                                                        .selectedDeviceId!
-                                                                        .reference
-                                                                        .update({
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'userControl':
-                                                                              FieldValue.arrayUnion([
-                                                                            listViewUsersInHouseholdRecord.email
-                                                                          ]),
-                                                                        },
-                                                                      ),
-                                                                    });
-                                                                  } else {
-                                                                    await _model
-                                                                        .selectedDeviceId!
-                                                                        .reference
-                                                                        .update({
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'userControl':
-                                                                              FieldValue.arrayRemove([
-                                                                            listViewUsersInHouseholdRecord.email
-                                                                          ]),
-                                                                        },
-                                                                      ),
-                                                                    });
-                                                                  }
-                                                                },
-                                                          side: BorderSide(
-                                                            width: 2,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                          ),
-                                                          activeColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                          checkColor: (_model
-                                                                          .checkboxValueMap1[
-                                                                      listViewUsersInHouseholdRecord] ==
-                                                                  false)
-                                                              ? null
-                                                              : FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .info,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation']!),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'containerOnPageLoadAnimation']!),
+                                          );
+                                        },
                                       );
                                     },
-                                  );
-                                },
+                                  ),
+                                ),
                               ),
                             ),
                           ),

@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'nav_bar_model.dart';
@@ -149,7 +149,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.textsms,
+                        Icons.eco_rounded,
                         color: widget.currentpage == '1'
                             ? Color(0xFF41BDBD)
                             : FlutterFlowTheme.of(context).secondaryText,
@@ -160,7 +160,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'degm4x7v' /* Ai */,
+                            'degm4x7v' /* Eco */,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .bodyLarge

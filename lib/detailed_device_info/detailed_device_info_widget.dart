@@ -3,7 +3,6 @@ import '/components/de_link/de_link_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -14,6 +13,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -71,7 +71,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
         }),
         Future(() async {
           _model.instantTimer2 = InstantTimer.periodic(
-            duration: Duration(milliseconds: 2000),
+            duration: Duration(milliseconds: 1500),
             callback: (timer) async {
               _model.sensordataAPIpageload = await GetSensorDataCall.call(
                 deviceId: widget.deviceId,
@@ -194,10 +194,10 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                     child: Align(
                       alignment: AlignmentDirectional(0.0, 1.0),
                       child: Transform.scale(
-                        scaleX: 1.1,
-                        scaleY: 0.9,
+                        scaleX: 1.3,
+                        scaleY: 1.0,
                         alignment: AlignmentDirectional(0.0, 1.0),
-                        origin: Offset(32.0, -32.0),
+                        origin: Offset(32.0, -100.0),
                         child: ClipRect(
                           child: ImageFiltered(
                             imageFilter: ImageFilter.blur(
@@ -988,18 +988,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     .bodyMediumFamily),
                                                       ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 11.5, 0.0),
-                                                  child: Icon(
-                                                    Icons.add_circle_outline,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    size: 27.0,
-                                                  ),
-                                                ),
                                               ],
                                             ),
                                             Row(
@@ -1033,27 +1021,164 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     .bodySmallFamily),
                                                       ),
                                                 ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '293lrbwb' /* 00:00 */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    final _datePicked1Time =
+                                                        await showTimePicker(
+                                                      context: context,
+                                                      initialTime: TimeOfDay
+                                                          .fromDateTime((_model
+                                                                  .datePicked1 ??
+                                                              DateTime.now())),
+                                                      builder:
+                                                          (context, child) {
+                                                        return wrapInMaterialTimePickerTheme(
+                                                          context,
+                                                          child!,
+                                                          headerBackgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          headerForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .info,
+                                                          headerTextStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineLargeFamily,
+                                                                    fontSize:
+                                                                        32.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                  ),
+                                                          pickerBackgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryBackground,
+                                                          pickerForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                          selectedDateTimeBackgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          selectedDateTimeForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .info,
+                                                          actionButtonForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                          iconSize: 24.0,
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_datePicked1Time !=
+                                                        null) {
+                                                      safeSetState(() {
+                                                        _model.datePicked1 =
+                                                            DateTime(
+                                                          (_model.datePicked1 ??
+                                                                  DateTime
+                                                                      .now())
+                                                              .year,
+                                                          (_model.datePicked1 ??
+                                                                  DateTime
+                                                                      .now())
+                                                              .month,
+                                                          (_model.datePicked1 ??
+                                                                  DateTime
+                                                                      .now())
+                                                              .day,
+                                                          _datePicked1Time.hour,
+                                                          _datePicked1Time
+                                                              .minute,
+                                                        );
+                                                      });
+                                                    } else if (_model
+                                                            .datePicked1 !=
+                                                        null) {
+                                                      safeSetState(() {
+                                                        _model.datePicked1 =
+                                                            _model.datePicked1;
+                                                      });
+                                                    }
+                                                    _model.selectedStartTimeAPI =
+                                                        await WorkingScheduleCall
+                                                            .call(
+                                                      selectedStartTime:
+                                                          dateTimeFormat(
+                                                        "Hm",
+                                                        _model.datePicked1,
+                                                        locale:
+                                                            FFLocalizations.of(
                                                                     context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                                .languageCode,
                                                       ),
+                                                      selectedStopTime: functions
+                                                          .getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'formatted_stop_time'),
+                                                      deviceId:
+                                                          widget.deviceId,
+                                                    );
+
+                                                    safeSetState(() {});
+
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      functions.getSensorState(
+                                                          FFAppState()
+                                                              .sensorData
+                                                              .toList(),
+                                                          widget.deviceId!,
+                                                          'formatted_start_time'),
+                                                      '00:00',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
+                                                  ),
                                                 ),
                                                 Text(
                                                   FFLocalizations.of(context)
@@ -1081,34 +1206,196 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     .bodySmallFamily),
                                                       ),
                                                 ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'btmmf5ej' /* 22:30 */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    final _datePicked2Time =
+                                                        await showTimePicker(
+                                                      context: context,
+                                                      initialTime: TimeOfDay
+                                                          .fromDateTime((_model
+                                                                  .datePicked1 ??
+                                                              DateTime.now())),
+                                                      builder:
+                                                          (context, child) {
+                                                        return wrapInMaterialTimePickerTheme(
+                                                          context,
+                                                          child!,
+                                                          headerBackgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          headerForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .info,
+                                                          headerTextStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .headlineLargeFamily,
+                                                                    fontSize:
+                                                                        32.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                  ),
+                                                          pickerBackgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryBackground,
+                                                          pickerForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                          selectedDateTimeBackgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          selectedDateTimeForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .info,
+                                                          actionButtonForegroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                          iconSize: 24.0,
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_datePicked2Time !=
+                                                        null) {
+                                                      safeSetState(() {
+                                                        _model.datePicked2 =
+                                                            DateTime(
+                                                          (_model.datePicked1 ??
+                                                                  DateTime
+                                                                      .now())
+                                                              .year,
+                                                          (_model.datePicked1 ??
+                                                                  DateTime
+                                                                      .now())
+                                                              .month,
+                                                          (_model.datePicked1 ??
+                                                                  DateTime
+                                                                      .now())
+                                                              .day,
+                                                          _datePicked2Time.hour,
+                                                          _datePicked2Time
+                                                              .minute,
+                                                        );
+                                                      });
+                                                    } else if (_model
+                                                            .datePicked2 !=
+                                                        null) {
+                                                      safeSetState(() {
+                                                        _model.datePicked2 =
+                                                            _model.datePicked1;
+                                                      });
+                                                    }
+                                                    _model.selectedStopTimeAPI =
+                                                        await WorkingScheduleCall
+                                                            .call(
+                                                      selectedStartTime: functions
+                                                          .getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'formatted_start_time'),
+                                                      selectedStopTime:
+                                                          dateTimeFormat(
+                                                        "Hm",
+                                                        _model.datePicked2,
+                                                        locale:
+                                                            FFLocalizations.of(
                                                                     context)
-                                                                .bodyMediumFamily,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                                .languageCode,
                                                       ),
+                                                      deviceId:
+                                                          widget.deviceId,
+                                                    );
+
+                                                    safeSetState(() {});
+
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      functions.getSensorState(
+                                                          FFAppState()
+                                                              .sensorData
+                                                              .toList(),
+                                                          widget.deviceId!,
+                                                          'formatted_stop_time'),
+                                                      '00:00',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
+                                                  ),
                                                 ),
-                                                Icon(
-                                                  Icons.edit,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 20.0,
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    _model.resetStartTimeAPI =
+                                                        await WorkingScheduleCall
+                                                            .call(
+                                                      selectedStartTime:
+                                                          '00:00',
+                                                      selectedStopTime: '00:00',
+                                                      deviceId:
+                                                          widget.deviceId,
+                                                    );
+
+                                                    safeSetState(() {});
+
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Icon(
+                                                    Icons.restore_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    size: 24.0,
+                                                  ),
                                                 ),
                                               ].divide(SizedBox(width: 16.0)),
                                             ),
@@ -1498,17 +1785,21 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                   ),
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '85dk5ymh' /* Option 2 */,
+                                                    '85dk5ymh' /* Sharjah */,
                                                   ),
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'vaq39f3w' /* Option 3 */,
+                                                    'vaq39f3w' /* Abudahbi */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'mjea3s19' /* Other */,
                                                   )
                                                 ],
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
                                                         .dropDownValue = val),
-                                                width: 133.2,
+                                                width: 128.27,
                                                 height: 34.3,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -1539,11 +1830,9 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       .secondaryText,
                                                   size: 24.0,
                                                 ),
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                                                fillColor: Colors.white,
                                                 elevation: 2.0,
-                                                borderColor: Color(0x00DC4A4A),
+                                                borderColor: Color(0x00C9C9C9),
                                                 borderWidth: 0.0,
                                                 borderRadius: 8.0,
                                                 margin: EdgeInsetsDirectional
@@ -1975,13 +2264,13 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                       ),
                       child: Container(
                         width: 393.0,
-                        height: 180.0,
+                        height: 179.27,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
                               Color(0xFFF0FEFF),
-                              Color(0xF3EBFEFF),
-                              Color(0x5EFFFFFF),
+                              Color(0xF1F3FEFF),
+                              Color(0x7FFFFFFF),
                               Color(0x00EBFEFF)
                             ],
                             stops: [0.0, 0.5, 0.85, 1.0],

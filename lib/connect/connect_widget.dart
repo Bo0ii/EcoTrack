@@ -2,9 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -90,7 +90,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
           ),
         ],
       ),
-      'columnOnPageLoadAnimation1': AnimationInfo(
+      'columnOnPageLoadAnimation': AnimationInfo(
         loop: true,
         reverse: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -124,99 +124,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
           ),
         ],
       ),
-      'imageOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'columnOnPageLoadAnimation2': AnimationInfo(
-        loop: true,
-        reverse: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 100.0.ms,
-            duration: 1000.0.ms,
-            begin: Offset(0.0, -15.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation5': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 22.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'imageOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'columnOnPageLoadAnimation3': AnimationInfo(
-        loop: true,
-        reverse: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 200.0.ms,
-            duration: 1000.0.ms,
-            begin: Offset(0.0, -15.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 22.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'imageOnPageLoadAnimation3': AnimationInfo(
+      'imageOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -623,8 +531,8 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                 ),
                               ),
                             ),
-                            StreamBuilder<List<DevicesRecord>>(
-                              stream: queryDevicesRecord(
+                            FutureBuilder<List<DevicesRecord>>(
+                              future: queryDevicesRecordOnce(
                                 queryBuilder: (devicesRecord) =>
                                     devicesRecord.where(
                                   'userView',
@@ -638,7 +546,7 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                     child: SizedBox(
                                       width: 40.0,
                                       height: 40.0,
-                                      child: SpinKitFadingFour(
+                                      child: SpinKitCubeGrid(
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         size: 40.0,
@@ -715,11 +623,11 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                               height: 107.6,
                                               fit: BoxFit.cover,
                                             ).animateOnPageLoad(animationsMap[
-                                                'imageOnPageLoadAnimation1']!),
+                                                'imageOnPageLoadAnimation']!),
                                           ],
                                         ),
                                       ).animateOnPageLoad(animationsMap[
-                                          'columnOnPageLoadAnimation1']!),
+                                          'columnOnPageLoadAnimation']!),
                                     );
                                   }),
                                 );

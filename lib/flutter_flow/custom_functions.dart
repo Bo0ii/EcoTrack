@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'lat_lng.dart';
-import 'place.dart';
-import 'uploaded_file.dart';
+import 'package:ff_commons/flutter_flow/lat_lng.dart';
+import 'package:ff_commons/flutter_flow/place.dart';
+import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/auth/firebase_auth/auth_util.dart';
@@ -38,6 +38,17 @@ String getSensorState(
 }
 
 String buildToggleBody(String deviceId) {
+  // Check if deviceId ends with one or more digits.
+  RegExp regex = RegExp(r'(\d+)$');
+  Match? match = regex.firstMatch(deviceId);
+
+  if (match != null) {
+    // If there is a numeric part, extract it.
+    String numericPart = match.group(0)!;
+    return "switch." + deviceId + "_relay_control_" + numericPart;
+  }
+
+  // If deviceId has no trailing number, return the default toggle control.
   return "switch." + deviceId + "_relay_control";
 }
 
@@ -45,14 +56,22 @@ String getRelayState(
   List<dynamic> stateList,
   String deviceId,
 ) {
-  String targetId = "switch." + deviceId + "_relay_control";
+  // We build a prefix like "switch.ecot2_relay_control"
+  final String prefix = "switch.$deviceId" + "_relay_control";
 
+  // Loop through the list to find the first matching entity_id
   for (var item in stateList) {
-    if (item is Map<String, dynamic> && item["entity_id"] == targetId) {
-      return item["state"].toString();
+    if (item is Map<String, dynamic>) {
+      final entityId = item["entity_id"] ?? "";
+      // If the entity_id starts with "switch.ecot2_relay_control",
+      // we have found "switch.ecot2_relay_control_2" or similar.
+      if (entityId.startsWith(prefix)) {
+        return item["state"].toString();
+      }
     }
   }
 
+  // If none is found, we return "unknown"
   return "unknown";
 }
 

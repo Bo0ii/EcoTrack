@@ -2,9 +2,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
-import 'api_manager.dart';
+import 'package:ff_commons/api_requests/api_manager.dart';
 
-export 'api_manager.dart' show ApiCallResponse;
+
+export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
@@ -96,6 +97,18 @@ class GetSensorDataCall {
         response,
         r'''$[?(@.entity_id=='sensor.total_cost')].state''',
       ));
+  static String? ecotStartTimeTest(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=="sensor.ecot_formatted_start_time")].state
+''',
+      ));
+  static String? ecotStopTimeTest(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=="sensor.ecot_formatted_stop_time")].state
+''',
+      ));
 }
 
 class ToggleRelayOFFCall {
@@ -184,11 +197,19 @@ class DailyEnergyListCall {
 }
 
 class WorkingScheduleCall {
-  static Future<ApiCallResponse> call() async {
+  static Future<ApiCallResponse> call({
+    String? selectedStartTime = '',
+    String? selectedStopTime = '',
+    String? deviceId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "topic": "${escapeStringForJson(deviceId)}/schedule/set",
+  "payload": "${escapeStringForJson(selectedStartTime)}-${escapeStringForJson(selectedStopTime)}"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'workingSchedule',
-      apiUrl:
-          'https://eco-track.duckdns.org/api/states/input_datetime.ecot_start_time',
+      apiUrl: 'https://eco-track.duckdns.org/api/services/mqtt/publish',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -196,6 +217,7 @@ class WorkingScheduleCall {
         'Content-Type': 'application/json',
       },
       params: {},
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
@@ -205,22 +227,6 @@ class WorkingScheduleCall {
       alwaysAllowBody: false,
     );
   }
-}
-
-class ApiPagingParams {
-  int nextPageNumber = 0;
-  int numItems = 0;
-  dynamic lastResponse;
-
-  ApiPagingParams({
-    required this.nextPageNumber,
-    required this.numItems,
-    required this.lastResponse,
-  });
-
-  @override
-  String toString() =>
-      'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
 String _toEncodable(dynamic item) {

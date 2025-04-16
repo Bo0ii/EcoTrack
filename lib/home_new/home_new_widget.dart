@@ -4,13 +4,13 @@ import '/backend/backend.dart';
 import '/components/loading/loading_widget.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -104,7 +104,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().Tenergy = GetSensorDataCall.tenergy(
             (_model.sensordataAPIpageload?.jsonBody ?? ''),
           )!;
-          await Future.delayed(const Duration(milliseconds: 1300));
+          await Future.delayed(const Duration(milliseconds: 800));
         }
       } else {
         FFAppState().isAdmin = false;
@@ -167,7 +167,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           FFAppState().Tenergy = GetSensorDataCall.tenergy(
             (_model.sensordataAPIpageload2?.jsonBody ?? ''),
           )!;
-          await Future.delayed(const Duration(milliseconds: 1300));
+          await Future.delayed(const Duration(milliseconds: 800));
         }
       }
     });
@@ -754,7 +754,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 60.0,
+                                                                                fontSize: 63.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey('Poppins'),
@@ -987,7 +987,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                       BoxShadow(
                                                         blurRadius: 3.0,
                                                         color:
-                                                            Color(0x11000000),
+                                                            Color(0x13000000),
                                                         offset: Offset(
                                                           0.0,
                                                           2.0,
@@ -1179,7 +1179,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         BoxShadow(
                                                           blurRadius: 3.0,
                                                           color:
-                                                              Color(0x11000000),
+                                                              Color(0x13000000),
                                                           offset: Offset(
                                                             0.0,
                                                             2.0,
@@ -1398,7 +1398,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                       child: Material(
                                                         color:
                                                             Colors.transparent,
-                                                        elevation: 1.0,
+                                                        elevation: 0.0,
                                                         shape:
                                                             RoundedRectangleBorder(
                                                           borderRadius:
@@ -1418,7 +1418,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               BoxShadow(
                                                                 blurRadius: 3.0,
                                                                 color: Color(
-                                                                    0x11000000),
+                                                                    0x13000000),
                                                                 offset: Offset(
                                                                   0.0,
                                                                   2.0,
@@ -1608,13 +1608,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
-                                                                                FFAppState().relayStatus = functions.getRelayState(
-                                                                                    getJsonField(
-                                                                                      (_model.sensordataAPIpageload?.jsonBody ?? ''),
-                                                                                      r'''$''',
-                                                                                      true,
-                                                                                    )!,
-                                                                                    listViewDevicesRecord.deviceId);
+                                                                                FFAppState().relayStatus = functions.getRelayState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId);
                                                                                 safeSetState(() {});
                                                                                 HapticFeedback.mediumImpact();
                                                                                 if (listViewDevicesRecord.userControl.contains(currentUserEmail) == true) {

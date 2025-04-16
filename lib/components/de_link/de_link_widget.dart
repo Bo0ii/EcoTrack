@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -56,10 +56,10 @@ class _DeLinkWidgetState extends State<DeLinkWidget> {
           height: 230.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.white, Color(0xFFECC3B6)],
+              colors: [Colors.white, Color(0xFFF4A2A2)],
               stops: [0.0, 1.0],
-              begin: AlignmentDirectional(0.0, -1.0),
-              end: AlignmentDirectional(0, 1.0),
+              begin: AlignmentDirectional(-0.34, -1.0),
+              end: AlignmentDirectional(0.34, 1.0),
             ),
             borderRadius: BorderRadius.circular(26.0),
             border: Border.all(
@@ -177,7 +177,7 @@ class _DeLinkWidgetState extends State<DeLinkWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFFED9570),
+                    color: Color(0xFFDE5656),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
                               FlutterFlowTheme.of(context).titleSmallFamily,

@@ -479,18 +479,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'wfha0poz': {
-      'en': 'ecot',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'jh0fjujg': {
-      'en': 'ecot3',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'l33uw80m': {
       'en': 'Home',
       'ar': '',
@@ -964,20 +952,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '293lrbwb': {
-      'en': '00:00',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'f7d90p1a': {
       'en': 'To',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'btmmf5ej': {
-      'en': '22:30',
       'ar': '',
       'de': '',
       'es': '',
@@ -1049,13 +1025,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '85dk5ymh': {
-      'en': 'Option 2',
+      'en': 'Sharjah',
       'ar': '',
       'de': '',
       'es': '',
     },
     'vaq39f3w': {
-      'en': 'Option 3',
+      'en': 'Abudahbi',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'mjea3s19': {
+      'en': 'Other',
       'ar': '',
       'de': '',
       'es': '',
@@ -1327,7 +1309,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'm4o3rzgz': {
-      'en': 'Location Services',
+      'en': 'Camera Control',
       'ar': '',
       'de': '',
       'es': '',
@@ -1821,7 +1803,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'degm4x7v': {
-      'en': 'Ai',
+      'en': 'Eco',
       'ar': '',
       'de': '',
       'es': '',

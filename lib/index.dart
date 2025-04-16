@@ -14,7 +14,7 @@ export '/sign/pin_code_not_done/pin_code_not_done_widget.dart'
 export '/phone_integration/startup4_pages/s1/s1_widget.dart' show S1Widget;
 export '/phone_integration/startup4_pages/s6/s6_widget.dart' show S6Widget;
 export '/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
-export '/sign/automation/automation_widget.dart' show AutomationWidget;
+export '/automation/automation_widget.dart' show AutomationWidget;
 export '/detailed_device_info/detailed_device_info_widget.dart'
     show DetailedDeviceInfoWidget;
 export '/pages/gradiant_container_dark/gradiant_container_dark_widget.dart'

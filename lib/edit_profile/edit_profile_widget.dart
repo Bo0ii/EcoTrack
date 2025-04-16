@@ -3,10 +3,10 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -142,7 +142,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
               child: SizedBox(
                 width: 40.0,
                 height: 40.0,
-                child: SpinKitFadingFour(
+                child: SpinKitCubeGrid(
                   color: FlutterFlowTheme.of(context).primary,
                   size: 40.0,
                 ),
@@ -399,7 +399,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                                     .reference
                                                     .update(
                                                         createUsersRecordData(
-                                                  photoUrl: '',
+                                                  photoUrl:
+                                                      _model.uploadedFileUrl,
                                                 ));
                                               },
                                               child: ClipRRect(
