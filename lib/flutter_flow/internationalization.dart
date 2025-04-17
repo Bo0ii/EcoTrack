@@ -2088,3 +2088,4 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
   },
 ].reduce((a, b) => a..addAll(b));
+}
