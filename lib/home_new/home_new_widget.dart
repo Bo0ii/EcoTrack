@@ -550,7 +550,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        16.0, 16.0, 16.0, 22.0),
+                                                        16.0, 13.0, 16.0, 16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1668,7 +1668,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           : Color(0xFF00BEC8),
                                                                                       Color(0xFF737373),
                                                                                     ),
-                                                                                    size: 27.0,
+                                                                                    size: 28.0,
                                                                                   ),
                                                                                 ),
                                                                               ),

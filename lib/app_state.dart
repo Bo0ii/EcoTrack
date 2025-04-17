@@ -411,6 +411,12 @@ class FFAppState extends ChangeNotifier {
   set test(DateTime? value) {
     _test = value;
   }
+
+  String _deviceSelected = '';
+  String get deviceSelected => _deviceSelected;
+  set deviceSelected(String value) {
+    _deviceSelected = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

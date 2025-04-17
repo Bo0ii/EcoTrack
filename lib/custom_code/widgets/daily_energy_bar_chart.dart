@@ -157,7 +157,7 @@ class _DailyEnergyBarChartState extends State<DailyEnergyBarChart> {
             // Keep width at 1.0 for full category width,
             // but add spacing for small gaps between columns.
             width: 1.0,
-            spacing: 0.1, // <--- ADD THIS: spacing for small gaps
+            spacing: 0.2, // <--- ADD THIS: spacing for small gaps
             dataSource: bars,
             xValueMapper: (data, _) => data.label,
             yValueMapper: (data, _) => data.value,

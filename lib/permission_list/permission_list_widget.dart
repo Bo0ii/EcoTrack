@@ -275,7 +275,7 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
-                              height: 379.99,
+                              height: 356.37,
                               decoration: BoxDecoration(),
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Align(

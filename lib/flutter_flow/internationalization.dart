@@ -358,6 +358,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    'e5fg9tjx': {
+      'en': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'jcfog6xl': {
+      'en': '',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '6doeb31k': {
+      'en': 'Search...',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'd1gb7mrh': {
+      'en': 'English',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'hlf0tlus': {
+      'en': 'Arabic',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     '8az2ewtm': {
       'en': 'Currency',
       'ar': '',
@@ -541,7 +571,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kk32ee64': {
       'en':
-          'We’ve sent a password reset link to your email. Follow the instructions to set a new password.',
+          'We've sent a password reset link to your email. Follow the instructions to set a new password.',
       'ar': '',
       'de': '',
       'es': '',
@@ -2049,6 +2079,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': '',
       'de': '',
       'es': '',
+    },
+    'wifi_provisioning': {
+      'en': 'WiFi Provisioning',
+      'ar': 'إعداد شبكة WiFi',
+      'de': 'WLAN-Bereitstellung',
+      'es': 'Aprovisionamiento WiFi',
     },
   },
 ].reduce((a, b) => a..addAll(b));
