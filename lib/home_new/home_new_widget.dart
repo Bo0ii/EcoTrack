@@ -544,47 +544,30 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               size: 32.0,
                                                             ),
                                                           ),
-                                                        if (FFAppState()
-                                                                .isAdmin ==
-                                                            true)
-                                                          InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              context.pushNamed(
-                                                                ConnectWidget
-                                                                    .routeName,
-                                                                queryParameters:
-                                                                    {
-                                                                  'adminREF':
-                                                                      serializeParam(
-                                                                    _model
-                                                                        .adminUser
-                                                                        ?.reference,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                              );
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                                NotificationsWidget
+                                                                    .routeName);
 
-                                                              HapticFeedback
-                                                                  .lightImpact();
-                                                            },
-                                                            child: Icon(
-                                                              Icons
-                                                                  .notifications_none_rounded,
-                                                              color:
-                                                                  Colors.black,
-                                                              size: 30.0,
-                                                            ),
+                                                            HapticFeedback
+                                                                .lightImpact();
+                                                          },
+                                                          child: Icon(
+                                                            Icons
+                                                                .notifications_none_rounded,
+                                                            color: Colors.black,
+                                                            size: 30.0,
                                                           ),
+                                                        ),
                                                       ].divide(SizedBox(
                                                           width: 18.0)),
                                                     ),
@@ -1470,9 +1453,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                           height: 274.82,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
                                                             boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 3.0,
@@ -1484,6 +1464,76 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                 ),
                                                               )
                                                             ],
+                                                            gradient:
+                                                                LinearGradient(
+                                                              colors: [
+                                                                valueOrDefault<
+                                                                    Color>(
+                                                                  () {
+                                                                    if (valueOrDefault<
+                                                                            String>(
+                                                                          functions.getSensorState(
+                                                                              FFAppState().sensorData.toList(),
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              'anomaly_status_numeric'),
+                                                                          'voltage',
+                                                                        ) ==
+                                                                        '0') {
+                                                                      return Color(
+                                                                          0xFFDBE4E4);
+                                                                    } else if (valueOrDefault<
+                                                                            String>(
+                                                                          functions.getSensorState(
+                                                                              FFAppState().sensorData.toList(),
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              'anomaly_status_numeric'),
+                                                                          'voltage',
+                                                                        ) ==
+                                                                        '1') {
+                                                                      return Color(
+                                                                          0xFFE4D2CB);
+                                                                    } else if (valueOrDefault<
+                                                                            String>(
+                                                                          functions.getSensorState(
+                                                                              FFAppState().sensorData.toList(),
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              'anomaly_status_numeric'),
+                                                                          'voltage',
+                                                                        ) ==
+                                                                        '2') {
+                                                                      return Color(
+                                                                          0xFFF6DDDD);
+                                                                    } else {
+                                                                      return Color(
+                                                                          0xFFA1A0A0);
+                                                                    }
+                                                                  }(),
+                                                                  Color(
+                                                                      0xFF737373),
+                                                                ),
+                                                                Colors.white,
+                                                                Colors.white,
+                                                                Colors.white,
+                                                                Colors.white,
+                                                                Colors.white
+                                                              ],
+                                                              stops: [
+                                                                0.0,
+                                                                0.2,
+                                                                0.3,
+                                                                0.4,
+                                                                0.5,
+                                                                1.0
+                                                              ],
+                                                              begin:
+                                                                  AlignmentDirectional(
+                                                                      0.87,
+                                                                      1.0),
+                                                              end:
+                                                                  AlignmentDirectional(
+                                                                      -0.87,
+                                                                      -1.0),
+                                                            ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -1551,8 +1601,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                     crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
                                                                                       Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'dfit5xqi' /* Living room */,
+                                                                                        valueOrDefault<String>(
+                                                                                          FFAppState().deviceLocation,
+                                                                                          'Room',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                               fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
@@ -2075,7 +2126,32 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                   width: 105.62,
                                                                                                   height: 25.8,
                                                                                                   decoration: BoxDecoration(
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
+                                                                                                    color: valueOrDefault<Color>(
+                                                                                                      () {
+                                                                                                        if (valueOrDefault<String>(
+                                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                                                              'voltage',
+                                                                                                            ) ==
+                                                                                                            '0') {
+                                                                                                          return FlutterFlowTheme.of(context).tertiary;
+                                                                                                        } else if (valueOrDefault<String>(
+                                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                                                              'voltage',
+                                                                                                            ) ==
+                                                                                                            '1') {
+                                                                                                          return Color(0xFFEF804F);
+                                                                                                        } else if (valueOrDefault<String>(
+                                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                                                              'voltage',
+                                                                                                            ) ==
+                                                                                                            '2') {
+                                                                                                          return Color(0xFFF44747);
+                                                                                                        } else {
+                                                                                                          return Color(0xFFA1A0A0);
+                                                                                                        }
+                                                                                                      }(),
+                                                                                                      Color(0xFF737373),
+                                                                                                    ),
                                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                                   ),
                                                                                                   alignment: AlignmentDirectional(0.0, 0.0),

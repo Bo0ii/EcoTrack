@@ -109,6 +109,12 @@ class GetSensorDataCall {
         r'''$[?(@.entity_id=="sensor.ecot_formatted_stop_time")].state
 ''',
       ));
+  static String? selectedEmirate(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=="select.ecot_selected_emirate")].state
+''',
+      ));
 }
 
 class ToggleRelayOFFCall {

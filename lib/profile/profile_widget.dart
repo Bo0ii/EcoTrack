@@ -726,7 +726,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                               onTap: () async {
                                                                 context
                                                                     .pushNamed(
-                                                                  NotifactionpageWidget
+                                                                  NotiSettingsWidget
                                                                       .routeName,
                                                                   extra: <String,
                                                                       dynamic>{

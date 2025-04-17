@@ -1198,12 +1198,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'dfit5xqi': {
-      'en': 'Living room',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'yoov8sfe': {
       'en': ' | ',
       'ar': '',
@@ -1334,7 +1328,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
   },
-  // Notifactionpage
+  // notiSettings
   {
     'e50x4ad4': {
       'en': 'Push Notifications',
@@ -1561,6 +1555,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ar': 'عنوان البريد الالكترونى',
       'de': 'E-Mail-Addresse',
       'es': 'Dirección de correo electrónico',
+    },
+    'pmt57xhu': {
+      'en': 'Room Location ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '02aqmf2t': {
+      'en': '( choose one option )',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'irmjmqry': {
+      'en': 'My Room',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'komytxs1': {
+      'en': 'Living Room',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '684x2hxe': {
+      'en': 'Kitchen',
+      'ar': '',
+      'de': '',
+      'es': '',
     },
     'fgurz041': {
       'en': 'Next ',

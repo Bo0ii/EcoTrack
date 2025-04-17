@@ -21,8 +21,7 @@ export '/pages/gradiant_container_dark/gradiant_container_dark_widget.dart'
     show GradiantContainerDarkWidget;
 export '/home_new/home_new_widget.dart' show HomeNewWidget;
 export '/permission_list/permission_list_widget.dart' show PermissionListWidget;
-export '/notifactionpage/notifactionpage_widget.dart'
-    show NotifactionpageWidget;
+export '/noti_settings/noti_settings_widget.dart' show NotiSettingsWidget;
 export '/phone_integration/startup4_pages/s3/s3_widget.dart' show S3Widget;
 export '/phone_integration/startup4_pages/s4qr/s4qr_widget.dart'
     show S4qrWidget;

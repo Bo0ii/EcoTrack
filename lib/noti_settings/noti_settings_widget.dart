@@ -7,28 +7,28 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'notifactionpage_model.dart';
-export 'notifactionpage_model.dart';
+import 'noti_settings_model.dart';
+export 'noti_settings_model.dart';
 
-class NotifactionpageWidget extends StatefulWidget {
-  const NotifactionpageWidget({super.key});
+class NotiSettingsWidget extends StatefulWidget {
+  const NotiSettingsWidget({super.key});
 
-  static String routeName = 'Notifactionpage';
-  static String routePath = '/notifactionpage';
+  static String routeName = 'notiSettings';
+  static String routePath = '/notiSettings';
 
   @override
-  State<NotifactionpageWidget> createState() => _NotifactionpageWidgetState();
+  State<NotiSettingsWidget> createState() => _NotiSettingsWidgetState();
 }
 
-class _NotifactionpageWidgetState extends State<NotifactionpageWidget> {
-  late NotifactionpageModel _model;
+class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
+  late NotiSettingsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NotifactionpageModel());
+    _model = createModel(context, () => NotiSettingsModel());
   }
 
   @override

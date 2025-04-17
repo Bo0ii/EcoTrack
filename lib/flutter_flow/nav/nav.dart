@@ -231,9 +231,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: NotifactionpageWidget.routeName,
-          path: NotifactionpageWidget.routePath,
-          builder: (context, params) => NotifactionpageWidget(),
+          name: NotiSettingsWidget.routeName,
+          path: NotiSettingsWidget.routePath,
+          builder: (context, params) => NotiSettingsWidget(),
         ),
         FFRoute(
           name: S3Widget.routeName,

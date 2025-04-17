@@ -38,6 +38,12 @@ class FFAppState extends ChangeNotifier {
       _savedFriendlyName =
           prefs.getString('ff_savedFriendlyName') ?? _savedFriendlyName;
     });
+    _safeInit(() {
+      _PlugLocation = prefs.getString('ff_PlugLocation') ?? _PlugLocation;
+    });
+    _safeInit(() {
+      _deviceLocation = prefs.getString('ff_deviceLocation') ?? _deviceLocation;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -416,6 +422,20 @@ class FFAppState extends ChangeNotifier {
   String get deviceSelected => _deviceSelected;
   set deviceSelected(String value) {
     _deviceSelected = value;
+  }
+
+  String _PlugLocation = '';
+  String get PlugLocation => _PlugLocation;
+  set PlugLocation(String value) {
+    _PlugLocation = value;
+    prefs.setString('ff_PlugLocation', value);
+  }
+
+  String _deviceLocation = '';
+  String get deviceLocation => _deviceLocation;
+  set deviceLocation(String value) {
+    _deviceLocation = value;
+    prefs.setString('ff_deviceLocation', value);
   }
 }
 

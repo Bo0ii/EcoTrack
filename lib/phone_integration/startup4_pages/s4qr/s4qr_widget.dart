@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -267,8 +269,8 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                 ),
                                 child: Lottie.asset(
                                   'assets/jsons/Animation_-_1743979661781.json',
-                                  width: 340.2,
-                                  height: 194.7,
+                                  width: 284.8,
+                                  height: 156.7,
                                   fit: BoxFit.contain,
                                   frameRate: FrameRate(120.0),
                                   reverse: true,
@@ -338,7 +340,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                   ),
                                   child: Container(
                                     width: 357.1,
-                                    height: 57.6,
+                                    height: 46.78,
                                     decoration: BoxDecoration(
                                       color: Color(0xFFF3F3F3),
                                       borderRadius: BorderRadius.circular(12.0),
@@ -389,7 +391,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 5.0, 0.0, 0.0),
+                                      5.0, 12.0, 0.0, 0.0),
                                   child: RichText(
                                     textScaler:
                                         MediaQuery.of(context).textScaler,
@@ -498,22 +500,163 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMediumFamily),
+                                        lineHeight: 1.0,
                                       ),
                                   cursorColor: Color(0x4C325B5E),
                                   validator: _model
                                       .plugnameTextControllerValidator
                                       .asValidator(context),
                                 ),
-                              ].divide(SizedBox(height: 11.0)),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 12.0, 0.0, 0.0),
+                                  child: RichText(
+                                    textScaler:
+                                        MediaQuery.of(context).textScaler,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'pmt57xhu' /* Room Location  */,
+                                          ),
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 14.0,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            '02aqmf2t' /* ( choose one option ) */,
+                                          ),
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontWeight: FontWeight.w200,
+                                            fontSize: 11.0,
+                                          ),
+                                        )
+                                      ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineMediumFamily,
+                                            fontSize: 17.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMediumFamily),
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: FlutterFlowChoiceChips(
+                                      options: [
+                                        ChipData(
+                                            FFLocalizations.of(context).getText(
+                                          'irmjmqry' /* My Room */,
+                                        )),
+                                        ChipData(
+                                            FFLocalizations.of(context).getText(
+                                          'komytxs1' /* Living Room */,
+                                        )),
+                                        ChipData(
+                                            FFLocalizations.of(context).getText(
+                                          '684x2hxe' /* Kitchen */,
+                                        ))
+                                      ],
+                                      onChanged: (val) => safeSetState(() =>
+                                          _model.pluglocationValue =
+                                              val?.firstOrNull),
+                                      selectedChipStyle: ChipStyle(
+                                        backgroundColor: Color(0xFF8DBCBC),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                        iconColor: Colors.black,
+                                        iconSize: 1.0,
+                                        elevation: 3.0,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      unselectedChipStyle: ChipStyle(
+                                        backgroundColor: Colors.white,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        iconSize: 16.0,
+                                        elevation: 0.0,
+                                        borderColor: Colors.transparent,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      chipSpacing: 2.0,
+                                      rowSpacing: 4.0,
+                                      multiselect: false,
+                                      alignment: WrapAlignment.start,
+                                      controller:
+                                          _model.pluglocationValueController ??=
+                                              FormFieldController<List<String>>(
+                                        [],
+                                      ),
+                                      wrapped: true,
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(height: 5.0)),
                             ).animateOnPageLoad(
                                 animationsMap['columnOnPageLoadAnimation2']!),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 55.0, 0.0, 0.0),
+                                  0.0, 35.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   FFAppState().friendlyName =
                                       _model.plugnameTextController.text;
+                                  FFAppState().deviceLocation =
+                                      _model.pluglocationValue!;
                                   safeSetState(() {});
 
                                   context.pushNamed(
@@ -626,7 +769,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.01, -0.22),
+                      alignment: AlignmentDirectional(0.0, -0.28),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 15.0, 0.0, 15.0),
