@@ -271,9 +271,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => FamilyWidget(),
         ),
         FFRoute(
-          name: WiFiProvisioningPage.routeName,
-          path: WiFiProvisioningPage.routePath,
-          builder: (context, params) => WiFiProvisioningPage(),
+          name: GradiantContanerCopyCopyWidget.routeName,
+          path: GradiantContanerCopyCopyWidget.routePath,
+          builder: (context, params) => GradiantContanerCopyCopyWidget(),
+        ),
+        FFRoute(
+          name: NotificationsWidget.routeName,
+          path: NotificationsWidget.routePath,
+          builder: (context, params) => NotificationsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

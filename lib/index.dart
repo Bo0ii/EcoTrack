@@ -33,4 +33,6 @@ export '/sign/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/pages/gradiant_contaner_copy/gradiant_contaner_copy_widget.dart'
     show GradiantContanerCopyWidget;
 export '/family/family_widget.dart' show FamilyWidget;
-export '/wifi_provisioning/wifi_provisioning_page.dart' show WiFiProvisioningPage;
+export '/pages/gradiant_contaner_copy_copy/gradiant_contaner_copy_copy_widget.dart'
+    show GradiantContanerCopyCopyWidget;
+export '/notifications/notifications_widget.dart' show NotificationsWidget;

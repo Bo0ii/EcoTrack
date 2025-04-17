@@ -37,6 +37,10 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   String? computeApiFilter;
   // Stores action output result for [Custom Action - getPowerThresholdStartTime] action in Row widget.
   String? getPowerThresholdStartTime;
+  // Stores action output result for [Custom Action - computeApiFilter] action in Row widget.
+  String? computeApiFilterCopy;
+  // Stores action output result for [Custom Action - getPowerThresholdStartTime] action in Row widget.
+  String? getPowerThresholdStartTimeCopy;
   // Model for NavBar component.
   late NavBarModel navBarModel;
 

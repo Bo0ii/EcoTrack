@@ -1107,7 +1107,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   .call(
                                                             selectedStartTime:
                                                                 dateTimeFormat(
-                                                              "Hm",
+                                                              "jm",
                                                               _model
                                                                   .datePicked1,
                                                               locale: FFLocalizations
@@ -1283,7 +1283,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     'formatted_start_time'),
                                                             selectedStopTime:
                                                                 dateTimeFormat(
-                                                              "Hm",
+                                                              "jm",
                                                               _model
                                                                   .datePicked2,
                                                               locale: FFLocalizations
@@ -1346,8 +1346,9 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         await WorkingScheduleCall
                                                             .call(
                                                       selectedStartTime:
-                                                          '00:00',
-                                                      selectedStopTime: '00:00',
+                                                          '12:00AM',
+                                                      selectedStopTime:
+                                                          '12:00AM',
                                                       deviceId:
                                                           widget.deviceId,
                                                     );

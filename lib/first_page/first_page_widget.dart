@@ -172,7 +172,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 320.0, 0.0, 0.0),
+                              23.0, 320.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '8uxb8w7l' /* Welcome! */,
@@ -195,7 +195,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 16.0),
+                              23.0, 0.0, 23.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'fdfullqu' /* Thanks for joining! Access or ... */,
@@ -218,7 +218,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
+                              23.0, 0.0, 23.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -258,16 +258,11 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLargeFamily,
+                                              fontFamily: 'Lexend',
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeFamily),
+                                                      .containsKey('Lexend'),
                                             ),
                                         elevation: 0.0,
                                         borderRadius:
@@ -326,9 +321,8 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                                               context)
                                                           .titleSmallFamily),
                                             ),
-                                        elevation: 3.0,
+                                        elevation: 1.0,
                                         borderSide: BorderSide(
-                                          color: Colors.transparent,
                                           width: 1.0,
                                         ),
                                         borderRadius:

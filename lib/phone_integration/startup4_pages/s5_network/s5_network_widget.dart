@@ -211,7 +211,7 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                     child: FlutterFlowWebView(
                                       content: 'http://192.168.4.1',
                                       bypass: true,
-                                      height: 432.77,
+                                      height: 432.8,
                                       verticalScroll: false,
                                       horizontalScroll: false,
                                     ),
