@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:espressif_provisioning/espressif_provisioning.dart';
+import 'package:flutter_esp_ble_prov/flutter_esp_ble_prov.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -29,14 +29,14 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
   // ESP32 device (when found)
   ScanResult? _selectedDevice;
   
-  // EspProv instance for WiFi provisioning
-  EspProv? _espProv;
+  // ESP provisioning instance
+  EspBleProvisioning? _espProvisioning;
   
   // WiFi networks found by ESP32
-  List<WiFiAccessPoint> _wifiNetworks = [];
+  List<WiFiNetwork> _wifiNetworks = [];
   
   // Selected WiFi network
-  WiFiAccessPoint? _selectedNetwork;
+  WiFiNetwork? _selectedNetwork;
   
   // WiFi password controller
   final TextEditingController _passwordController = TextEditingController();
@@ -106,7 +106,8 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
         setState(() {
           _scanResults.clear();
           for (ScanResult result in results) {
-            if (result.device.platformName.contains('ESP32')) {
+            if (result.device.platformName.contains('ESP32') || 
+                result.device.platformName.contains('PROV_')) {
               _scanResults.add(result);
             }
           }
@@ -146,44 +147,40 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
     });
     
     try {
-      await scanResult.device.connect(timeout: Duration(seconds: 15));
+      // Create ESP provisioning instance
+      _espProvisioning = EspBleProvisioning.getInstance();
       
-      List<BluetoothService> services = await scanResult.device.discoverServices();
+      // The proof of possession (pop) - typically a code like "abcd1234"
+      // This should match what's configured on your ESP32
+      final String pop = "abcd1234";
       
-      // Create ESP provisioning client
-      // Default proof of possession (pop) is often "abcd1234"
-      _espProv = EspProv(
-        transport: BleTransport(scanResult.device),
-        security: Security1(pop: 'abcd1234'),
+      // Connect to the device - the library handles the connection details
+      await _espProvisioning!.connect(
+        scanResult.device.remoteId.str,
+        pop, 
+        transport: TransportType.BLE
       );
       
-      // Establish session
-      bool established = await _espProv!.establishSession();
-      
-      if (established) {
-        setState(() {
-          _isConnecting = false;
-          _statusMessage = 'Connected to ESP32, ready to scan WiFi networks';
-        });
-      } else {
-        throw Exception('Failed to establish provisioning session');
-      }
+      setState(() {
+        _isConnecting = false;
+        _statusMessage = 'Connected to ESP32, ready to scan WiFi networks';
+      });
     } catch (e) {
-      _disconnectFromDevice();
+      await _disconnectFromDevice();
       setState(() {
         _isConnecting = false;
         _errorMessage = 'Connection error: $e';
         _statusMessage = 'Connection failed';
-        _espProv = null;
+        _espProvisioning = null;
       });
     }
   }
   
   // Disconnect from ESP32 device
   Future<void> _disconnectFromDevice() async {
-    if (_selectedDevice != null) {
+    if (_espProvisioning != null) {
       try {
-        await _selectedDevice!.device.disconnect();
+        await _espProvisioning!.disconnect();
       } catch (e) {
         print('Error disconnecting: $e');
       }
@@ -191,7 +188,7 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
     
     setState(() {
       _selectedDevice = null;
-      _espProv = null;
+      _espProvisioning = null;
       _wifiNetworks = [];
       _selectedNetwork = null;
       if (!_isProvisioningComplete) {
@@ -202,7 +199,7 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
   
   // Scan for WiFi networks using the ESP32 device
   Future<void> _scanWifiNetworks() async {
-    if (_espProv == null || _isWifiScanning) return;
+    if (_espProvisioning == null || _isWifiScanning) return;
     
     setState(() {
       _isWifiScanning = true;
@@ -213,7 +210,8 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
     });
     
     try {
-      final wifiList = await _espProv!.startScanWiFi();
+      // Scan for available WiFi networks
+      final wifiList = await _espProvisioning!.startWiFiScan();
       
       setState(() {
         _isWifiScanning = false;
@@ -235,7 +233,7 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
   
   // Provision WiFi credentials to the ESP32 device
   Future<void> _provisionWifi() async {
-    if (_espProv == null || _selectedNetwork == null || _isProvisioning) return;
+    if (_espProvisioning == null || _selectedNetwork == null || _isProvisioning) return;
     
     final String ssid = _selectedNetwork!.ssid;
     final String password = _passwordController.text;
@@ -247,47 +245,22 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
     });
     
     try {
-      // Send WiFi credentials to ESP32
-      await _espProv!.sendWifiConfig(ssid: ssid, password: password);
+      // Send WiFi credentials to ESP32 and apply
+      await _espProvisioning!.provisionWiFi(ssid, password);
       
-      // Apply the configuration
-      await _espProv!.applyWifiConfig();
+      // Get status and IP address
+      final ProvisioningResponse response = await _espProvisioning!.getStatus();
       
-      // Wait for connection and get status
-      bool connected = false;
-      int retries = 0;
-      
-      while (!connected && retries < 20) {
-        await Future.delayed(Duration(seconds: 1));
-        
-        try {
-          final status = await _espProv!.getStatus();
-          
-          if (status.state == WifiConnectionState.Connected) {
-            connected = true;
-            setState(() {
-              _deviceIp = status.ip;
-              _isProvisioning = false;
-              _isProvisioningComplete = true;
-              _statusMessage = 'WiFi provisioning complete!';
-            });
-          } else if (status.state == WifiConnectionState.ConnectionFailed) {
-            final reason = status.failedReason;
-            throw Exception('WiFi connection failed: ${reason == WifiConnectFailedReason.AuthError ? 'Invalid password' : 'Network not found'}');
-          }
-        } catch (e) {
-          if (retries >= 19) {
-            throw e;
-          }
-        }
-        
-        retries++;
+      if (response.state == ProvisioningState.Success) {
+        setState(() {
+          _deviceIp = response.ip;
+          _isProvisioning = false;
+          _isProvisioningComplete = true;
+          _statusMessage = 'WiFi provisioning complete!';
+        });
+      } else {
+        throw Exception('WiFi provisioning failed: ${response.failureReason}');
       }
-      
-      if (!connected) {
-        throw Exception('Timed out waiting for WiFi connection');
-      }
-      
     } catch (e) {
       setState(() {
         _isProvisioning = false;
@@ -502,7 +475,7 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
                       FlutterFlowTheme.of(context).primary : 
                       FlutterFlowTheme.of(context).secondaryText,
                   ),
-                  trailing: network.auth ? Icon(Icons.lock_outline) : null,
+                  trailing: network.auth != 0 ? Icon(Icons.lock_outline) : null,
                   selected: isSelected,
                   onTap: () {
                     setState(() {
@@ -513,7 +486,7 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
               },
             ),
           ),
-          if (_selectedNetwork != null && _selectedNetwork!.auth) ...[
+          if (_selectedNetwork != null && _selectedNetwork!.auth != 0) ...[
             SizedBox(height: 20),
             Text(
               'WiFi Password:',
@@ -684,7 +657,7 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
     }
     
     if (_selectedDevice != null && _selectedNetwork != null) {
-      if (_selectedNetwork!.auth && _passwordController.text.isEmpty) {
+      if (_selectedNetwork!.auth != 0 && _passwordController.text.isEmpty) {
         return FFButtonWidget(
           onPressed: null,
           text: 'Enter WiFi Password',
@@ -778,63 +751,5 @@ class _WiFiProvisioningPageState extends State<WiFiProvisioningPage> {
         borderRadius: BorderRadius.circular(8),
       ),
     );
-  }
-}
-
-// BLE Transport implementation for Espressif Provisioning
-class BleTransport implements ProvTransport {
-  final BluetoothDevice device;
-  BluetoothService? service;
-  
-  BleTransport(this.device);
-  
-  @override
-  Future<void> disconnect() async {
-    await device.disconnect();
-  }
-  
-  @override
-  Future<void> connect(Duration? timeout) async {
-    await device.connect(timeout: timeout);
-    List<BluetoothService> services = await device.discoverServices();
-    service = services.firstWhere(
-      (s) => s.serviceUuid.toString().toUpperCase().contains("FFFF"),
-      orElse: () => throw Exception("Provisioning service not found"),
-    );
-  }
-  
-  @override
-  Future<List<int>> sendReceive(String endpoint, List<int> data) async {
-    if (service == null) {
-      throw Exception("BLE Service not found. Please connect first.");
-    }
-    
-    // Find the characteristic for this endpoint
-    final endpointUuid = _getCharacteristicUuidForEndpoint(endpoint);
-    final char = service!.characteristics.firstWhere(
-      (c) => c.characteristicUuid.toString().toUpperCase() == endpointUuid,
-      orElse: () => throw Exception("Characteristic for endpoint $endpoint not found"),
-    );
-    
-    // Write data to the characteristic
-    await char.write(data, withoutResponse: false);
-    
-    // Read response
-    List<int> response = await char.read();
-    return response;
-  }
-  
-  String _getCharacteristicUuidForEndpoint(String endpoint) {
-    // Map endpoints to characteristic UUIDs
-    const Map<String, String> endpointToUuid = {
-      "prov-scan": "0000FF50-0000-1000-8000-00805F9B34FB",
-      "prov-session": "0000FF51-0000-1000-8000-00805F9B34FB",
-      "prov-config": "0000FF52-0000-1000-8000-00805F9B34FB",
-      "proto-ver": "0000FF53-0000-1000-8000-00805F9B34FB",
-      "custom-data": "0000FF54-0000-1000-8000-00805F9B34FB",
-    };
-    
-    return endpointToUuid[endpoint] ?? 
-      throw Exception("Unknown endpoint: $endpoint");
   }
 } 
