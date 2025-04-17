@@ -492,7 +492,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'sqodoskq': {
-      'en': 'Cant find your Device?',
+      'en': 'Can\'t find your Device?',
       'ar': 'ليس لديك حساب؟',
       'de': 'Sie haben kein Konto?',
       'es': '¿No tienes una cuenta?',
@@ -571,7 +571,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kk32ee64': {
       'en':
-          'We've sent a password reset link to your email. Follow the instructions to set a new password.',
+          'We\'ve sent a password reset link to your email. Follow the instructions to set a new password.',
       'ar': '',
       'de': '',
       'es': '',
@@ -1515,7 +1515,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'feez9fy4': {
-      'en': '( cant be changed )',
+      'en': '( can\'t be changed )',
       'ar': '',
       'de': '',
       'es': '',
@@ -1854,7 +1854,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Signout
   {
     'g8k6isnh': {
-      'en': 'Are you sure you want to sign out ?',
+      'en': 'Are you sure you want to sign out?',
       'ar': '',
       'de': '',
       'es': '',
@@ -1869,7 +1869,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // ProccessingQR
   {
     'kgjve6zb': {
-      'en': 'You have successfully registered your device !',
+      'en': 'You have successfully registered your device!',
       'ar': '',
       'de': '',
       'es': '',
@@ -1884,7 +1884,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // DeLink
   {
     'tvfx1jwz': {
-      'en': 'Are you sure you want to Delink your device ?',
+      'en': 'Are you sure you want to Delink your device?',
       'ar': '',
       'de': '',
       'es': '',
@@ -1918,14 +1918,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'gxxjrygc': {
       'en':
-          'in order to connect to new devices and plugs, this app requries permission to access the bluetooth',
+          'In order to connect to new devices and plugs, this app requires permission to access the bluetooth',
       'ar': '',
       'de': '',
       'es': '',
     },
     '1kpwgsy1': {
       'en':
-          'in order to send alerts and power anomolies, this app requries permission to access the Notfication',
+          'In order to send alerts and power anomalies, this app requires permission to access the Notification',
       'ar': '',
       'de': '',
       'es': '',
