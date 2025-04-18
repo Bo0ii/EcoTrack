@@ -7,6 +7,10 @@ class S3Model extends FlutterFlowModel<S3Widget> {
   ///  Local state fields for this page.
 
   bool isEmailValid = true;
+  
+  String? deviceId;
+  String? selectedName;
+  String? selectedImageIdentifier;
 
   @override
   void initState(BuildContext context) {}

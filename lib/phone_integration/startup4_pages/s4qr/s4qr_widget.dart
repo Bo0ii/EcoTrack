@@ -632,7 +632,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
-                                      chipSpacing: 2.0,
+                                      chipSpacing: 0.0,
                                       rowSpacing: 4.0,
                                       multiselect: false,
                                       alignment: WrapAlignment.start,

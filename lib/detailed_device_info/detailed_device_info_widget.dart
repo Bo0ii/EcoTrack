@@ -1050,7 +1050,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             0.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(8.0),
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  5.0,
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1191,7 +1196,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                 ),
                                                 Container(
-                                                  width: 79.27,
+                                                  width: 79.3,
                                                   height: 32.5,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -1218,7 +1223,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             0.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(2.0),
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  5.0,
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1332,37 +1342,54 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    _model.resetStartTimeAPI =
-                                                        await WorkingScheduleCall
-                                                            .call(
-                                                      selectedStartTime:
-                                                          '12:00AM',
-                                                      selectedStopTime:
-                                                          '12:00AM',
-                                                      deviceId:
-                                                          widget.deviceId,
-                                                    );
+                                                Expanded(
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  13.0,
+                                                                  0.0),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          _model.resetStartTimeAPI =
+                                                              await WorkingScheduleCall
+                                                                  .call(
+                                                            selectedStartTime:
+                                                                '12:00AM',
+                                                            selectedStopTime:
+                                                                '12:00AM',
+                                                            deviceId: widget
+                                                                .deviceId,
+                                                          );
 
-                                                    safeSetState(() {});
+                                                          safeSetState(() {});
 
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Icon(
-                                                    Icons.restore_outlined,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    size: 26.0,
+                                                          safeSetState(() {});
+                                                        },
+                                                        child: Icon(
+                                                          Icons
+                                                              .restore_outlined,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          size: 27.0,
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
                                               ].divide(SizedBox(width: 16.0)),
@@ -2281,7 +2308,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                     hasTransition: true,
                                     transitionType:
                                         PageTransitionType.bottomToTop,
-                                    duration: Duration(milliseconds: 300),
+                                    duration: Duration(milliseconds: 250),
                                   ),
                                 },
                               );

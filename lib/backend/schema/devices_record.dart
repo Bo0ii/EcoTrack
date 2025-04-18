@@ -26,6 +26,11 @@ class DevicesRecord extends FirestoreRecord {
   String get friendlyName => _friendlyName ?? '';
   bool hasFriendlyName() => _friendlyName != null;
 
+  // "imageIdentifier" field.
+  String? _imageIdentifier;
+  String get imageIdentifier => _imageIdentifier ?? '';
+  bool hasImageIdentifier() => _imageIdentifier != null;
+
   // "householdId" field.
   String? _householdId;
   String get householdId => _householdId ?? '';
@@ -51,6 +56,7 @@ class DevicesRecord extends FirestoreRecord {
   void _initializeFields() {
     _deviceId = snapshotData['deviceId'] as String?;
     _friendlyName = snapshotData['friendlyName'] as String?;
+    _imageIdentifier = snapshotData['imageIdentifier'] as String?;
     _householdId = snapshotData['householdId'] as String?;
     _userView = getDataList(snapshotData['userView']);
     _userControl = getDataList(snapshotData['userControl']);
@@ -99,6 +105,7 @@ class DevicesRecord extends FirestoreRecord {
 Map<String, dynamic> createDevicesRecordData({
   String? deviceId,
   String? friendlyName,
+  String? imageIdentifier,
   String? householdId,
   String? cost,
 }) {
@@ -106,6 +113,7 @@ Map<String, dynamic> createDevicesRecordData({
     <String, dynamic>{
       'deviceId': deviceId,
       'friendlyName': friendlyName,
+      'imageIdentifier': imageIdentifier,
       'householdId': householdId,
       'cost': cost,
     }.withoutNulls,
@@ -122,6 +130,7 @@ class DevicesRecordDocumentEquality implements Equality<DevicesRecord> {
     const listEquality = ListEquality();
     return e1?.deviceId == e2?.deviceId &&
         e1?.friendlyName == e2?.friendlyName &&
+        e1?.imageIdentifier == e2?.imageIdentifier &&
         e1?.householdId == e2?.householdId &&
         listEquality.equals(e1?.userView, e2?.userView) &&
         listEquality.equals(e1?.userControl, e2?.userControl) &&
@@ -132,6 +141,7 @@ class DevicesRecordDocumentEquality implements Equality<DevicesRecord> {
   int hash(DevicesRecord? e) => const ListEquality().hash([
         e?.deviceId,
         e?.friendlyName,
+        e?.imageIdentifier,
         e?.householdId,
         e?.userView,
         e?.userControl,

@@ -881,8 +881,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   Colors.white,
                                                               boxShadow: [
                                                                 BoxShadow(
-                                                                  blurRadius:
-                                                                      3.0,
+                                                                  blurRadius: 3.0,
                                                                   color: Color(
                                                                       0x11000000),
                                                                   offset:
@@ -1124,7 +1123,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               MainAxisSize.max,
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
-                                                                  .center,
+                                                                  .start,
                                                           children: [
                                                             Text(
                                                               valueOrDefault<
@@ -1319,7 +1318,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                     .max,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .center,
+                                                                    .start,
                                                             children: [
                                                               Text(
                                                                 valueOrDefault<
@@ -1450,7 +1449,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         ),
                                                         child: Container(
                                                           width: 189.8,
-                                                          height: 274.82,
+                                                          height: 275.23,
                                                           decoration:
                                                               BoxDecoration(
                                                             boxShadow: [
@@ -1570,7 +1569,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceEvenly,
+                                                                              MainAxisAlignment
+                                                                                  .spaceEvenly,
                                                                           children: [
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 5.0),
@@ -1592,7 +1592,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                             color: Colors.black,
                                                                                             fontSize: 21.0,
                                                                                             letterSpacing: 0.0,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
+                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -2045,62 +2045,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                         ),
                                                                                         Row(
                                                                                           mainAxisSize: MainAxisSize.max,
-                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              FFLocalizations.of(context).getText(
-                                                                                                '8ts2y206' /* Emissions      */,
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF384E58),
-                                                                                                    fontSize: 14.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            AnimatedDefaultTextStyle(
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF0B191E),
-                                                                                                    fontSize: 13.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                              duration: Duration(milliseconds: 600),
-                                                                                              curve: Curves.easeIn,
-                                                                                              child: Text(
-                                                                                                valueOrDefault<String>(
-                                                                                                  functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'carbon_footprint'),
-                                                                                                  'footprint',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                            Align(
-                                                                                              alignment: AlignmentDirectional(0.0, 1.0),
-                                                                                              child: Text(
-                                                                                                FFLocalizations.of(context).getText(
-                                                                                                  'mqqkn0ta' /*  kgCO₂ */,
-                                                                                                ),
-                                                                                                textAlign: TextAlign.center,
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                      fontSize: 13.0,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                                      lineHeight: 0.0,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
                                                                                           mainAxisAlignment: MainAxisAlignment.start,
                                                                                           crossAxisAlignment: CrossAxisAlignment.center,
                                                                                           children: [
@@ -2363,149 +2307,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             ),
                                           ],
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 16.0),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 119.5,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 3.0,
-                                                      color: Color(0x11000000),
-                                                      offset: Offset(
-                                                        0.0,
-                                                        2.0,
-                                                      ),
-                                                    )
-                                                  ],
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 16.0,
-                                                          16.0, 16.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'v7weflxu' /* Eco-Energy Tip  */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .headlineSmall
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineSmallFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      19.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .headlineSmallFamily),
-                                                                ),
-                                                          ),
-                                                          Icon(
-                                                            Icons.eco_rounded,
-                                                            color: Color(
-                                                                0xFF6DBA6D),
-                                                            size: 24.0,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          FFAppState().tips,
-                                                          'Unplug chargers when not in use.',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: Color(
-                                                                      0xFF76808A),
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 4.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 16.0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 68.5,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ].divide(SizedBox(height: 24.0)),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -2513,57 +2315,272 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                             ),
                           ],
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 93.67,
-                            decoration: BoxDecoration(),
-                            child: wrapWithModel(
-                              model: _model.navBarModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: NavBarWidget(
-                                currentpage: '0',
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 24.0, 16.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Your Devices',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .headlineMediumFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.w600,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMediumFamily),
+                                    ),
                               ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          height: 90.9,
-                          decoration: BoxDecoration(),
-                          child: ClipRect(
-                            child: ImageFiltered(
-                              imageFilter: ImageFilter.blur(
-                                sigmaX: 5.0,
-                                sigmaY: 5.0,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: StreamBuilder<List<DevicesRecord>>(
+                                  stream: queryDevicesRecord(
+                                    parent: currentUserReference,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<DevicesRecord> devicesRecordList =
+                                        snapshot.data!;
+                                    if (devicesRecordList.isEmpty) {
+                                      return Center(
+                                        child: Padding(
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Text(
+                                            'No devices found. Add a device to get started.',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      primary: false,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: devicesRecordList.length,
+                                      itemBuilder: (context, index) {
+                                        final device = devicesRecordList[index];
+                                        return Padding(
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 12.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x1F000000),
+                                                  offset: Offset(0.0, 2.0),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(12.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/${device.imageIdentifier}.png',
+                                                      width: 70.0,
+                                                      height: 70.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(12.0, 0.0,
+                                                                  0.0, 0.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            device.friendlyName,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMediumFamily,
+                                                                  color: Color(
+                                                                      0xFF14181B),
+                                                                  fontSize: 18.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleMediumFamily),
+                                                                ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        4.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Text(
+                                                                  'Power: 10W | ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context)
+                                                                                .bodyMediumFamily,
+                                                                        color: Color(
+                                                                            0xFF57636C),
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        useGoogleFonts: GoogleFonts
+                                                                                .asMap()
+                                                                            .containsKey(
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                          ),
+                                                                ),
+                                                                Text(
+                                                                  'ON',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context)
+                                                                                .bodyMediumFamily,
+                                                                        color: FlutterFlowTheme.of(
+                                                                                context)
+                                                                            .primary,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .w600,
+                                                                        useGoogleFonts: GoogleFonts
+                                                                                .asMap()
+                                                                            .containsKey(
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                          ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
-                              child: Opacity(
-                                opacity: 0.95,
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, -1.0),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 32.0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    // Generate a unique device ID for this device
+                                    final deviceId = DateTime.now().millisecondsSinceEpoch.toString();
+                                    
+                                    // Navigate to the device selection page with the new device ID
+                                    context.pushNamed(
+                                      'S3',
+                                      queryParameters: {
+                                        'deviceId': serializeParam(
+                                          deviceId,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
                                   child: Container(
-                                    width: 393.0,
-                                    height: 60.53,
+                                    width: double.infinity,
+                                    height: 60.0,
                                     decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0xFFF0FEFF),
-                                          Color(0xDFF0FEFF),
-                                          Color(0x40F0FEFF),
-                                          Color(0x00FFFFFF),
-                                          Color(0x00EBFEFF)
-                                        ],
-                                        stops: [0.0, 0.5, 0.85, 0.9, 1.0],
-                                        begin: AlignmentDirectional(0.0, -1.0),
-                                        end: AlignmentDirectional(0, 1.0),
+                                      color: FlutterFlowTheme.of(context).primary.withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context).primary,
+                                        width: 1.0,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.add_circle_outline,
+                                          color: FlutterFlowTheme.of(context).primary,
+                                          size: 20.0,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Add New Device',
+                                            style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                  fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                  color: FlutterFlowTheme.of(context).primary,
+                                                  fontWeight: FontWeight.w500,
+                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                                      FlutterFlowTheme.of(context).titleSmallFamily),
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
                         ),
                       ],
@@ -2571,6 +2588,59 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                   ),
                 ),
               ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(0.0, 1.0),
+              child: Container(
+                width: double.infinity,
+                height: 93.67,
+                decoration: BoxDecoration(),
+                child: wrapWithModel(
+                  model: _model.navBarModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: NavBarWidget(
+                    currentpage: '0',
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 90.9,
+              decoration: BoxDecoration(),
+              child: ClipRect(
+                child: ImageFiltered(
+                  imageFilter: ImageFilter.blur(
+                    sigmaX: 5.0,
+                    sigmaY: 5.0,
+                  ),
+                  child: Opacity(
+                    opacity: 0.95,
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, -1.0),
+                      child: Container(
+                        width: 393.0,
+                        height: 60.53,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFFF0FEFF),
+                              Color(0xDFF0FEFF),
+                              Color(0x40F0FEFF),
+                              Color(0x00FFFFFF),
+                              Color(0x00EBFEFF)
+                            ],
+                            stops: [0.0, 0.5, 0.85, 0.9, 1.0],
+                            begin: AlignmentDirectional(0.0, -1.0),
+                            end: AlignmentDirectional(0, 1.0),
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

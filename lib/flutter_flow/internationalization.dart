@@ -1258,18 +1258,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '8ts2y206': {
-      'en': 'Emissions     ',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'mqqkn0ta': {
-      'en': ' kgCO₂',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
     'xmyybe6m': {
       'en': 'Status      ',
       'ar': '',
@@ -1397,7 +1385,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'pitjxl1j': {
-      'en': 'Scan a New ',
+      'en': 'Add your first ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1409,8 +1397,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'q3xjroai': {
-      'en':
-          'Select the rooms in your house. Don\'t worry, you can add more later.',
+      'en': 'Select the Device that will be connected to the plug ',
       'ar': '',
       'de': '',
       'es': '',
