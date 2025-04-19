@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
@@ -6,7 +5,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'secondpage_model.dart';
 export 'secondpage_model.dart';
@@ -21,41 +19,15 @@ class SecondpageWidget extends StatefulWidget {
   State<SecondpageWidget> createState() => _SecondpageWidgetState();
 }
 
-class _SecondpageWidgetState extends State<SecondpageWidget>
-    with TickerProviderStateMixin {
+class _SecondpageWidgetState extends State<SecondpageWidget> {
   late SecondpageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SecondpageModel());
-
-    animationsMap.addAll({
-      'rowOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 300.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 300.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.bounceOut,
-            delay: 300.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-    });
   }
 
   @override
@@ -591,8 +563,7 @@ class _SecondpageWidgetState extends State<SecondpageWidget>
                                       ),
                                     ),
                                   ],
-                                ).animateOnPageLoad(
-                                    animationsMap['rowOnPageLoadAnimation']!),
+                                ),
                               ),
                             ),
                           ],

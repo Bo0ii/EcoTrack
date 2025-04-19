@@ -874,8 +874,8 @@ class _S6WidgetState extends State<S6Widget> {
                                                               usersInHouseholdRecord
                                                                   .where(
                                                         'email',
-                                                        isEqualTo: s6UsersRecord
-                                                            ?.email,
+                                                        isEqualTo:
+                                                            currentUserEmail,
                                                       ),
                                                       singleRecord: true,
                                                     ).then((s) =>
@@ -899,6 +899,12 @@ class _S6WidgetState extends State<S6Widget> {
 
                                                   context.goNamed(
                                                     HomeNewWidget.routeName,
+                                                    queryParameters: {
+                                                      'email': serializeParam(
+                                                        '',
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
                                                     extra: <String, dynamic>{
                                                       kTransitionInfoKey:
                                                           TransitionInfo(
