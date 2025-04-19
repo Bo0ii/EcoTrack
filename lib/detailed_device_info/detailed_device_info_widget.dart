@@ -1821,7 +1821,13 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                 controller: _model
                                                         .dropDownValueController ??=
                                                     FormFieldController<String>(
-                                                        null),
+                                                  _model.dropDownValue ??=
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                    'ti6rapig' /* Sharjah */,
+                                                  ),
+                                                ),
                                                 options: [
                                                   FFLocalizations.of(context)
                                                       .getText(

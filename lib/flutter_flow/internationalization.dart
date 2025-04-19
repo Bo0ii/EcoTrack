@@ -1037,7 +1037,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'ti6rapig': {
-      'en': '',
+      'en': 'Sharjah',
       'ar': '',
       'de': '',
       'es': '',
@@ -1849,7 +1849,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'lrq7otvb': {
-      'en': 'notifications',
+      'en': 'Notifications (fadi backend)',
       'ar': '',
       'de': '',
       'es': '',

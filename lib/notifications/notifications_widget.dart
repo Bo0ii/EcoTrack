@@ -623,7 +623,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 150.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'lrq7otvb' /* notifications */,
+                          'lrq7otvb' /* Notifications (fadi backend) */,
                         ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(

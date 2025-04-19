@@ -461,6 +461,12 @@ class FFAppState extends ChangeNotifier {
   set energyChange(String value) {
     _energyChange = value;
   }
+
+  String _householdID = '';
+  String get householdID => _householdID;
+  set householdID(String value) {
+    _householdID = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

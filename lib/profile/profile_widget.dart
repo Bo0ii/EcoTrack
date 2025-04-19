@@ -57,6 +57,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
         FFAppState().Age = _model.adminREF!.age;
         FFAppState().Title = _model.adminREF!.title;
         FFAppState().houseName = _model.adminREF!.nameOfHouse;
+        FFAppState().householdID = _model.adminREF!.householdId;
         safeSetState(() {});
       } else {
         _model.userinhouseholdREF = await queryUsersInHouseholdRecordOnce(
@@ -72,6 +73,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
         FFAppState().Age = _model.userinhouseholdREF!.age;
         FFAppState().Title = _model.userinhouseholdREF!.title;
         FFAppState().houseName = _model.userinhouseholdREF!.nameOfHouse;
+        FFAppState().householdID = _model.userinhouseholdREF!.householdId;
         safeSetState(() {});
       }
     });
