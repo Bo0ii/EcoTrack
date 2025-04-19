@@ -805,16 +805,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           ),
                                                                           textAlign:
                                                                               TextAlign.center,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .displayLarge
-                                                                              .override(
-                                                                                fontFamily: 'Poppins',
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 70.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey('Poppins'),
-                                                                              ),
+                                                                          style: FlutterFlowTheme.of(context).bodyMedium,
                                                                         ),
                                                                       ),
                                                                       Padding(
@@ -1329,7 +1320,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                     ),
                                                   ),
                                                 ),
-                                              ),
                                             ].divide(SizedBox(width: 14.0)),
                                           ).animateOnPageLoad(animationsMap[
                                               'rowOnPageLoadAnimation3']!),
@@ -1417,11 +1407,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       child: Text(
                                                                         'Please add your new household ID to continue',
                                                                         textAlign: TextAlign.center,
-                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                            ),
+                                                                        style: FlutterFlowTheme.of(context).bodyMedium,
                                                                       ),
                                                                     ),
                                                                     Padding(
