@@ -14,6 +14,7 @@ import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -1062,7 +1063,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                 ),
                                                 Container(
-                                                  width: 84.37,
+                                                  width: 86.9,
                                                   height: 32.5,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -1105,47 +1106,46 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          final _datePicked1Time =
-                                                              await showTimePicker(
-                                                            context: context,
-                                                            initialTime: TimeOfDay
-                                                                .fromDateTime((_model
-                                                                        .datePicked1 ??
-                                                                    DateTime
-                                                                        .now())),
-                                                          );
-                                                          if (_datePicked1Time !=
-                                                              null) {
-                                                            safeSetState(() {
-                                                              _model.datePicked1 =
-                                                                  DateTime(
-                                                                (_model.datePicked1 ??
+                                                          await showModalBottomSheet<
+                                                                  bool>(
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return Container(
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height /
+                                                                      3,
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  child:
+                                                                      CupertinoDatePicker(
+                                                                    mode: CupertinoDatePickerMode
+                                                                        .time,
+                                                                    minimumDate:
+                                                                        DateTime(
+                                                                            1900),
+                                                                    initialDateTime: (_model
+                                                                            .datePicked1 ??
                                                                         DateTime
-                                                                            .now())
-                                                                    .year,
-                                                                (_model.datePicked1 ??
-                                                                        DateTime
-                                                                            .now())
-                                                                    .month,
-                                                                (_model.datePicked1 ??
-                                                                        DateTime
-                                                                            .now())
-                                                                    .day,
-                                                                _datePicked1Time
-                                                                    .hour,
-                                                                _datePicked1Time
-                                                                    .minute,
-                                                              );
-                                                            });
-                                                          } else if (_model
-                                                                  .datePicked1 !=
-                                                              null) {
-                                                            safeSetState(() {
-                                                              _model.datePicked1 =
-                                                                  _model
-                                                                      .datePicked1;
-                                                            });
-                                                          }
+                                                                            .now()),
+                                                                    maximumDate:
+                                                                        DateTime(
+                                                                            2050),
+                                                                    use24hFormat:
+                                                                        false,
+                                                                    onDateTimeChanged:
+                                                                        (newDateTime) =>
+                                                                            safeSetState(() {
+                                                                      _model.datePicked1 =
+                                                                          newDateTime;
+                                                                    }),
+                                                                  ),
+                                                                );
+                                                              });
                                                           _model.selectedStartTimeAPI =
                                                               await WorkingScheduleCall
                                                                   .call(
@@ -1235,7 +1235,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                 ),
                                                 Container(
-                                                  width: 84.4,
+                                                  width: 86.9,
                                                   height: 32.5,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -1278,47 +1278,46 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          final _datePicked2Time =
-                                                              await showTimePicker(
-                                                            context: context,
-                                                            initialTime: TimeOfDay
-                                                                .fromDateTime((_model
-                                                                        .datePicked2 ??
-                                                                    DateTime
-                                                                        .now())),
-                                                          );
-                                                          if (_datePicked2Time !=
-                                                              null) {
-                                                            safeSetState(() {
-                                                              _model.datePicked2 =
-                                                                  DateTime(
-                                                                (_model.datePicked2 ??
+                                                          await showModalBottomSheet<
+                                                                  bool>(
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return Container(
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height /
+                                                                      3,
+                                                                  width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                                  child:
+                                                                      CupertinoDatePicker(
+                                                                    mode: CupertinoDatePickerMode
+                                                                        .time,
+                                                                    minimumDate:
+                                                                        DateTime(
+                                                                            1900),
+                                                                    initialDateTime: (_model
+                                                                            .datePicked2 ??
                                                                         DateTime
-                                                                            .now())
-                                                                    .year,
-                                                                (_model.datePicked2 ??
-                                                                        DateTime
-                                                                            .now())
-                                                                    .month,
-                                                                (_model.datePicked2 ??
-                                                                        DateTime
-                                                                            .now())
-                                                                    .day,
-                                                                _datePicked2Time
-                                                                    .hour,
-                                                                _datePicked2Time
-                                                                    .minute,
-                                                              );
-                                                            });
-                                                          } else if (_model
-                                                                  .datePicked2 !=
-                                                              null) {
-                                                            safeSetState(() {
-                                                              _model.datePicked2 =
-                                                                  _model
-                                                                      .datePicked2;
-                                                            });
-                                                          }
+                                                                            .now()),
+                                                                    maximumDate:
+                                                                        DateTime(
+                                                                            2050),
+                                                                    use24hFormat:
+                                                                        false,
+                                                                    onDateTimeChanged:
+                                                                        (newDateTime) =>
+                                                                            safeSetState(() {
+                                                                      _model.datePicked2 =
+                                                                          newDateTime;
+                                                                    }),
+                                                                  ),
+                                                                );
+                                                              });
                                                           _model.selectedStopTimeAPI =
                                                               await WorkingScheduleCall
                                                                   .call(

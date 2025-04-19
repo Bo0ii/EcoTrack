@@ -240,46 +240,34 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                 animationsMap['columnOnPageLoadAnimation']!),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, -1.0),
+                            alignment: AlignmentDirectional(-0.94, -0.8),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 80.0, 0.0, 5.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, -1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 50.0,
-                                        icon: Icon(
-                                          Icons.arrow_back_ios_rounded,
-                                          color: Color(0xFF373737),
-                                          size: 30.0,
-                                        ),
-                                        onPressed: () async {
-                                          context.pop();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  12.0, 0.0, 0.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 50.0,
+                                icon: Icon(
+                                  Icons.arrow_back_ios_rounded,
+                                  color: Color(0xFF373737),
+                                  size: 30.0,
+                                ),
+                                onPressed: () async {
+                                  context.pop();
+                                },
                               ),
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.2),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Container(
-                              height: 437.52,
+                              height: 605.27,
                               decoration: BoxDecoration(),
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child:
                                     StreamBuilder<List<UsersInHouseholdRecord>>(
                                   stream: queryUsersInHouseholdRecord(

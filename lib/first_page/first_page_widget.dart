@@ -172,7 +172,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              23.0, 320.0, 0.0, 0.0),
+                              26.0, 320.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '8uxb8w7l' /* Welcome! */,
@@ -195,7 +195,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              23.0, 0.0, 23.0, 16.0),
+                              26.0, 0.0, 23.0, 16.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'fdfullqu' /* Thanks for joining! Access or ... */,
@@ -265,6 +265,9 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                                       .containsKey('Lexend'),
                                             ),
                                         elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          width: 0.0,
+                                        ),
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
@@ -323,7 +326,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                             ),
                                         elevation: 1.0,
                                         borderSide: BorderSide(
-                                          width: 1.0,
+                                          width: 0.0,
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(12.0),

@@ -4,6 +4,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/index.dart';
 import 'detailed_device_info_widget.dart' show DetailedDeviceInfoWidget;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailedDeviceInfoModel

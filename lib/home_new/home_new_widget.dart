@@ -2331,7 +2331,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                     width: 32.0,
                                                                                     height: 32.5,
                                                                                     fit: BoxFit.contain,
-                                                                                    frameRate: FrameRate(60.0),
+                                                                                    frameRate: FrameRate(30.0),
                                                                                     animate: true,
                                                                                   ),
                                                                                 ),
