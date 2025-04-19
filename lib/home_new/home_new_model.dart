@@ -1,7 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/components/nav_bar/nav_bar_widget.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/components/nav_bar/nav_bar_widget.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'home_new_widget.dart' show HomeNewWidget;
 import 'package:flutter/material.dart';
@@ -44,6 +45,11 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   // Model for NavBar component.
   late NavBarModel navBarModel;
 
+  // State field(s) for HouseholdId widget.
+  FocusNode? householdIdFocusNode;
+  TextEditingController? householdIdController;
+  String? Function(BuildContext, String?)? householdIdControllerValidator;
+
   @override
   void initState(BuildContext context) {
     navBarModel = createModel(context, () => NavBarModel());
@@ -52,5 +58,7 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   @override
   void dispose() {
     navBarModel.dispose();
+    householdIdFocusNode?.dispose();
+    householdIdController?.dispose();
   }
 }
