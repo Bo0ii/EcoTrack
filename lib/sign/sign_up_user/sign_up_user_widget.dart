@@ -1087,12 +1087,14 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                       return;
                                                     }
 
-                                                    await UsersInHouseholdRecord
+                                                    var usersInHouseholdRecordReference =
+                                                        UsersInHouseholdRecord
                                                             .createDoc(_model
                                                                 .adminRecord!
                                                                 .elementAtOrNull(
                                                                     0)!
-                                                                .reference)
+                                                                .reference);
+                                                    await usersInHouseholdRecordReference
                                                         .set(
                                                             createUsersInHouseholdRecordData(
                                                       email: _model
@@ -1107,6 +1109,25 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                       title: '',
                                                       photoUrl: '',
                                                     ));
+                                                    _model.userRefFromSignup =
+                                                        UsersInHouseholdRecord
+                                                            .getDocumentFromData(
+                                                                createUsersInHouseholdRecordData(
+                                                                  email: _model
+                                                                      .emailTextController
+                                                                      .text,
+                                                                  password: _model
+                                                                      .passwordTextController
+                                                                      .text,
+                                                                  displayName:
+                                                                      '',
+                                                                  age: 0,
+                                                                  nameOfHouse:
+                                                                      '',
+                                                                  title: '',
+                                                                  photoUrl: '',
+                                                                ),
+                                                                usersInHouseholdRecordReference);
 
                                                     await UserDirectoryRecord
                                                         .collection
@@ -1150,7 +1171,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             child: Container(
                                                               height: 550.0,
                                                               child:
-                                                                  SuccsessUserWidget(),
+                                                                  SuccsessUserWidget(
+                                                                userRef: _model
+                                                                    .userRefFromSignup
+                                                                    ?.reference,
+                                                              ),
                                                             ),
                                                           ),
                                                         );

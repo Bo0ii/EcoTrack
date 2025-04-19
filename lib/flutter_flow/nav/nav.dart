@@ -156,6 +156,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               isList: false,
               collectionNamePath: ['users', 'usersInHousehold'],
             ),
+            userEmail: params.getParam(
+              'userEmail',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(

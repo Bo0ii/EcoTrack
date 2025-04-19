@@ -46,6 +46,8 @@ class SignUpUserModel extends FlutterFlowModel<SignUpUserWidget> {
   late PsswordValdModel psswordValdModel4;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   List<UsersRecord>? adminRecord;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  UsersInHouseholdRecord? userRefFromSignup;
 
   @override
   void initState(BuildContext context) {

@@ -9,7 +9,12 @@ import 'succsess_user_model.dart';
 export 'succsess_user_model.dart';
 
 class SuccsessUserWidget extends StatefulWidget {
-  const SuccsessUserWidget({super.key});
+  const SuccsessUserWidget({
+    super.key,
+    this.userRef,
+  });
+
+  final DocumentReference? userRef;
 
   @override
   State<SuccsessUserWidget> createState() => _SuccsessUserWidgetState();
@@ -98,6 +103,12 @@ class _SuccsessUserWidgetState extends State<SuccsessUserWidget> {
                   onPressed: () async {
                     context.goNamed(
                       S6Widget.routeName,
+                      queryParameters: {
+                        'userRef': serializeParam(
+                          widget.userRef,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,

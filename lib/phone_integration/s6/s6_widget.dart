@@ -50,10 +50,12 @@ class S6Widget extends StatefulWidget {
     super.key,
     this.adminRef,
     this.userRef,
+    this.userEmail,
   });
 
   final DocumentReference? adminRef;
   final DocumentReference? userRef;
+  final String? userEmail;
 
   static String routeName = 's6';
   static String routePath = '/s6';
@@ -867,56 +869,22 @@ class _S6WidgetState extends State<S6Widget> {
                                                           .text,
                                                     ));
                                                   } else {
-                                                    _model.userREF =
-                                                        await queryUsersInHouseholdRecordOnce(
-                                                      queryBuilder:
-                                                          (usersInHouseholdRecord) =>
-                                                              usersInHouseholdRecord
-                                                                  .where(
-                                                        'email',
-                                                        isEqualTo:
-                                                            currentUserEmail,
-                                                      ),
-                                                      singleRecord: true,
-                                                    ).then((s) =>
-                                                            s.firstOrNull);
-
-                                                    await _model
-                                                        .userREF!.reference
-                                                        .update(
-                                                            createUsersInHouseholdRecordData(
-                                                      age: int.tryParse(_model
-                                                          .yourAgeTextController
-                                                          .text),
+                                                    await widget.userRef!.update(
+                                                        createUsersInHouseholdRecordData(
                                                       displayName: _model
                                                           .yourNameTextController
                                                           .text,
                                                       title: _model
                                                           .yourTitleTextController
                                                           .text,
+                                                      age: int.tryParse(_model
+                                                          .yourAgeTextController
+                                                          .text),
                                                     ));
                                                   }
 
-                                                  context.goNamed(
-                                                    HomeNewWidget.routeName,
-                                                    queryParameters: {
-                                                      'email': serializeParam(
-                                                        '',
-                                                        ParamType.String,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .rightToLeft,
-                                                        duration: Duration(
-                                                            milliseconds: 200),
-                                                      ),
-                                                    },
-                                                  );
+                                                  context.pushNamed(
+                                                      HomeNewWidget.routeName);
 
                                                   safeSetState(() {});
                                                 },

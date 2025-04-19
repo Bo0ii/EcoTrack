@@ -27,8 +27,6 @@ class S6Model extends FlutterFlowModel<S6Widget> {
   String? Function(BuildContext, String?)? yourTitleTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in Button-Login widget.
   UsersRecord? adminREF;
-  // Stores action output result for [Firestore Query - Query a collection] action in Button-Login widget.
-  UsersInHouseholdRecord? userREF;
 
   @override
   void initState(BuildContext context) {}
