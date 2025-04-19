@@ -271,14 +271,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => FamilyWidget(),
         ),
         FFRoute(
-          name: GradiantContanerCopyCopyWidget.routeName,
-          path: GradiantContanerCopyCopyWidget.routePath,
-          builder: (context, params) => GradiantContanerCopyCopyWidget(),
-        ),
-        FFRoute(
           name: NotificationsWidget.routeName,
           path: NotificationsWidget.routePath,
           builder: (context, params) => NotificationsWidget(),
+        ),
+        FFRoute(
+          name: CarbonEmissionsWidget.routeName,
+          path: CarbonEmissionsWidget.routePath,
+          builder: (context, params) => CarbonEmissionsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

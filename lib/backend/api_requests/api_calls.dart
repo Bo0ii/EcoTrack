@@ -115,6 +115,18 @@ class GetSensorDataCall {
         r'''$[?(@.entity_id=="select.ecot_selected_emirate")].state
 ''',
       ));
+  static String? costChange24h(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=="sensor.total_cost_change_24h")].state
+''',
+      ));
+  static String? energyChnage24h(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$[?(@.entity_id=="sensor.total_energy_change_24h")].state
+''',
+      ));
 }
 
 class ToggleRelayOFFCall {

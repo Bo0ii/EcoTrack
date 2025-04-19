@@ -143,6 +143,17 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                   onTap: () async {
                     _model.number = 1;
                     safeSetState(() {});
+
+                    context.pushNamed(
+                      CarbonEmissionsWidget.routeName,
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 80),
+                        ),
+                      },
+                    );
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

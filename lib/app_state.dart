@@ -292,10 +292,10 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_savedFriendlyName', value);
   }
 
-  String _selectedDeviceImagePath = '';
-  String get selectedDeviceImagePath => _selectedDeviceImagePath;
-  set selectedDeviceImagePath(String value) {
-    _selectedDeviceImagePath = value;
+  String _selectedDevice = '';
+  String get selectedDevice => _selectedDevice;
+  set selectedDevice(String value) {
+    _selectedDevice = value;
   }
 
   String _displayName = '';
@@ -436,6 +436,30 @@ class FFAppState extends ChangeNotifier {
   set deviceLocation(String value) {
     _deviceLocation = value;
     prefs.setString('ff_deviceLocation', value);
+  }
+
+  dynamic _currentDevice;
+  dynamic get currentDevice => _currentDevice;
+  set currentDevice(dynamic value) {
+    _currentDevice = value;
+  }
+
+  bool _isAnimationComplete = false;
+  bool get isAnimationComplete => _isAnimationComplete;
+  set isAnimationComplete(bool value) {
+    _isAnimationComplete = value;
+  }
+
+  String _CostChange = '';
+  String get CostChange => _CostChange;
+  set CostChange(String value) {
+    _CostChange = value;
+  }
+
+  String _energyChange = '';
+  String get energyChange => _energyChange;
+  set energyChange(String value) {
+    _energyChange = value;
   }
 }
 

@@ -4,15 +4,15 @@ import '/components/proccessing_q_r/proccessing_q_r_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 's5_network_model.dart';
 export 's5_network_model.dart';
 
@@ -38,6 +38,13 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => S5NetworkModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(milliseconds: 6000));
+      FFAppState().isAnimationComplete = true;
+      safeSetState(() {});
+    });
 
     animationsMap.addAll({
       'columnOnPageLoadAnimation': AnimationInfo(
@@ -129,17 +136,16 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        11.0, 0.0, 0.0, 0.0),
-                                    child: RichText(
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    RichText(
                                       textScaler:
                                           MediaQuery.of(context).textScaler,
                                       text: TextSpan(
@@ -181,22 +187,124 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                             ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        11.0, 0.0, 11.0, 16.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'zm0jev5s' /* Use your camera to scan the QR... */,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          1.0, 0.0, 11.0, 16.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'zm0jev5s' /* EcoTrack is connecting automat... */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
+                                            ),
                                       ),
+                                    ),
+                                  ],
+                                ).animateOnPageLoad(animationsMap[
+                                    'columnOnPageLoadAnimation']!),
+                              ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 294.47,
+                              decoration: BoxDecoration(),
+                              child: Transform.scale(
+                                scaleX: 1.0,
+                                scaleY: 1.0,
+                                alignment: AlignmentDirectional(0.0, -1.0),
+                                origin: Offset(-14.0, 56.0),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  child: Lottie.asset(
+                                    'assets/jsons/KsqpuDRTal-VOM3w.json',
+                                    width: 246.3,
+                                    height: 303.8,
+                                    fit: BoxFit.contain,
+                                    repeat: false,
+                                    animate: true,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 130.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RichText(
+                                    textScaler:
+                                        MediaQuery.of(context).textScaler,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: FFAppState().isAnimationComplete
+                                              ? 'Connected to'
+                                              : 'Connecting to',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        ),
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'zdh9v0k2' /*  Wifi */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                fontSize: 19.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
+                                        )
+                                      ],
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
+                                            fontSize: 18.0,
                                             letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
@@ -205,91 +313,81 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                           ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
-                                    child: FlutterFlowWebView(
-                                      content: 'http://192.168.4.1',
-                                      bypass: true,
-                                      height: 432.8,
-                                      verticalScroll: false,
-                                      horizontalScroll: false,
-                                    ),
-                                  ),
                                 ],
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation']!),
+                              ),
                             ),
                             FFButtonWidget(
-                              onPressed: () async {
-                                await Future.wait([
-                                  Future(() async {
-                                    FFAppState().savedDeviceID =
-                                        FFAppState().deviceID;
-                                    safeSetState(() {});
-                                  }),
-                                  Future(() async {
-                                    FFAppState().savedFriendlyName =
-                                        FFAppState().friendlyName;
-                                    safeSetState(() {});
-                                  }),
-                                ]);
-                                _model.adminREF = await queryUsersRecordOnce(
-                                  queryBuilder: (usersRecord) =>
-                                      usersRecord.where(
-                                    'email',
-                                    isEqualTo: currentUserEmail,
-                                  ),
-                                  singleRecord: true,
-                                ).then((s) => s.firstOrNull);
-
-                                await DevicesRecord.createDoc(
-                                        _model.adminREF!.reference)
-                                    .set({
-                                  ...createDevicesRecordData(
-                                    deviceId: FFAppState().savedDeviceID,
-                                    friendlyName:
-                                        FFAppState().savedFriendlyName,
-                                    householdId: _model.adminREF?.householdId,
-                                  ),
-                                  ...mapToFirestore(
-                                    {
-                                      'userView': [currentUserEmail],
-                                      'userControl': [currentUserEmail],
-                                    },
-                                  ),
-                                });
-                                FFAppState().isDeviceSaved = true;
-                                safeSetState(() {});
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  isDismissible: false,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return WebViewAware(
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: 550.0,
-                                            child: ProccessingQRWidget(),
-                                          ),
+                              onPressed: !FFAppState().isAnimationComplete
+                                  ? null
+                                  : () async {
+                                      await Future.wait([
+                                        Future(() async {
+                                          FFAppState().savedDeviceID =
+                                              FFAppState().deviceID;
+                                          safeSetState(() {});
+                                        }),
+                                        Future(() async {
+                                          FFAppState().savedFriendlyName =
+                                              FFAppState().friendlyName;
+                                          safeSetState(() {});
+                                        }),
+                                      ]);
+                                      _model.adminREF =
+                                          await queryUsersRecordOnce(
+                                        queryBuilder: (usersRecord) =>
+                                            usersRecord.where(
+                                          'email',
+                                          isEqualTo: currentUserEmail,
                                         ),
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
+                                        singleRecord: true,
+                                      ).then((s) => s.firstOrNull);
 
-                                safeSetState(() {});
-                              },
+                                      await DevicesRecord.createDoc(
+                                              _model.adminREF!.reference)
+                                          .set({
+                                        ...createDevicesRecordData(
+                                          deviceId: FFAppState().savedDeviceID,
+                                          friendlyName:
+                                              FFAppState().savedFriendlyName,
+                                          householdId:
+                                              _model.adminREF?.householdId,
+                                        ),
+                                        ...mapToFirestore(
+                                          {
+                                            'userView': [currentUserEmail],
+                                            'userControl': [currentUserEmail],
+                                          },
+                                        ),
+                                      });
+                                      FFAppState().isDeviceSaved = true;
+                                      safeSetState(() {});
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        isDismissible: false,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height: 550.0,
+                                                child: ProccessingQRWidget(),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+
+                                      safeSetState(() {});
+                                    },
                               text: FFLocalizations.of(context).getText(
                                 'g7b9ehhc' /* Confirm Connection */,
                               ),
@@ -320,6 +418,8 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(12.0),
+                                disabledColor: Color(0xFFCCCCCC),
+                                disabledTextColor: Color(0x713D3D3D),
                               ),
                             ).animateOnPageLoad(
                                 animationsMap['buttonOnPageLoadAnimation']!),
@@ -327,11 +427,12 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                               alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 16.0, 10.0, 15.0),
+                                    7.0, 16.0, 7.0, 15.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'po8tyyof' /* If you encounter any issues, p... */,
                                   ),
+                                  textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

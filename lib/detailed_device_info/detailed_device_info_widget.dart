@@ -21,7 +21,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'detailed_device_info_model.dart';
 export 'detailed_device_info_model.dart';
 
@@ -230,14 +229,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                       child: Container(
                         width: double.infinity,
                         height: 500.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Color(0x00FFFFFF), Color(0x08FFFFFF)],
-                            stops: [0.0, 1.0],
-                            begin: AlignmentDirectional(0.0, -1.0),
-                            end: AlignmentDirectional(0, 1.0),
-                          ),
-                        ),
+                        decoration: BoxDecoration(),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -307,7 +299,59 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .headlineMediumFamily,
-                                                        color: Colors.black,
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          () {
+                                                            if (valueOrDefault<
+                                                                    String>(
+                                                                  functions.getSensorState(
+                                                                      FFAppState()
+                                                                          .sensorData
+                                                                          .toList(),
+                                                                      widget
+                                                                          .deviceId!,
+                                                                      'anomaly_status_numeric'),
+                                                                  'voltage',
+                                                                ) ==
+                                                                '0') {
+                                                              return FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary;
+                                                            } else if (valueOrDefault<
+                                                                    String>(
+                                                                  functions.getSensorState(
+                                                                      FFAppState()
+                                                                          .sensorData
+                                                                          .toList(),
+                                                                      widget
+                                                                          .deviceId!,
+                                                                      'anomaly_status_numeric'),
+                                                                  'voltage',
+                                                                ) ==
+                                                                '1') {
+                                                              return Color(
+                                                                  0xFFEF804F);
+                                                            } else if (valueOrDefault<
+                                                                    String>(
+                                                                  functions.getSensorState(
+                                                                      FFAppState()
+                                                                          .sensorData
+                                                                          .toList(),
+                                                                      widget
+                                                                          .deviceId!,
+                                                                      'anomaly_status_numeric'),
+                                                                  'voltage',
+                                                                ) ==
+                                                                '2') {
+                                                              return Color(
+                                                                  0xFFF44747);
+                                                            } else {
+                                                              return Color(
+                                                                  0xFFA1A0A0);
+                                                            }
+                                                          }(),
+                                                          Color(0xFF737373),
+                                                        ),
                                                         fontSize: 29.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -434,33 +478,28 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     enableDrag: false,
                                                     context: context,
                                                     builder: (context) {
-                                                      return WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: 550.0,
-                                                              child:
-                                                                  DeLinkWidget(
-                                                                devicRef: widget
-                                                                    .deviceReference!,
-                                                                deviceId: widget
-                                                                    .deviceId!,
-                                                                friendlyName:
-                                                                    widget
-                                                                        .deviceName,
-                                                              ),
+                                                      return GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child: Container(
+                                                            height: 550.0,
+                                                            child: DeLinkWidget(
+                                                              devicRef: widget
+                                                                  .deviceReference!,
+                                                              deviceId: widget
+                                                                  .deviceId!,
+                                                              friendlyName:
+                                                                  widget
+                                                                      .deviceName,
                                                             ),
                                                           ),
                                                         ),
@@ -1023,7 +1062,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                 ),
                                                 Container(
-                                                  width: 79.3,
+                                                  width: 84.37,
                                                   height: 32.5,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -1196,7 +1235,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                       ),
                                                 ),
                                                 Container(
-                                                  width: 79.3,
+                                                  width: 84.4,
                                                   height: 32.5,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
@@ -1425,7 +1464,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          fontSize: 20.0,
+                                                          fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1457,6 +1496,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1484,6 +1524,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1513,6 +1554,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1540,6 +1582,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1569,6 +1612,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1596,6 +1640,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1625,6 +1670,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1652,6 +1698,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1681,6 +1728,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1708,6 +1756,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1754,7 +1803,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          fontSize: 20.0,
+                                                          fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -1794,7 +1843,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
                                                         .dropDownValue = val),
-                                                width: 128.27,
+                                                width: 121.4,
                                                 height: 34.3,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -1804,6 +1853,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1858,6 +1908,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1886,6 +1937,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1915,6 +1967,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1942,6 +1995,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1971,6 +2025,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1998,6 +2053,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -2019,27 +2075,32 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 10.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'toyq71wa' /* Anomoly Protection */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 10.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'toyq71wa' /* Anomoly Protection */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          fontSize: 20.0,
+                                                          fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -2050,8 +2111,59 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                           context)
                                                                       .bodyMediumFamily),
                                                         ),
+                                                  ),
+                                                ),
                                               ),
-                                            ),
+                                              Icon(
+                                                Icons.error_rounded,
+                                                color: valueOrDefault<Color>(
+                                                  () {
+                                                    if (valueOrDefault<String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'anomaly_status_numeric'),
+                                                          'voltage',
+                                                        ) ==
+                                                        '0') {
+                                                      return FlutterFlowTheme
+                                                              .of(context)
+                                                          .tertiary;
+                                                    } else if (valueOrDefault<
+                                                            String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'anomaly_status_numeric'),
+                                                          'voltage',
+                                                        ) ==
+                                                        '1') {
+                                                      return Color(0xFFEF804F);
+                                                    } else if (valueOrDefault<
+                                                            String>(
+                                                          functions.getSensorState(
+                                                              FFAppState()
+                                                                  .sensorData
+                                                                  .toList(),
+                                                              widget.deviceId!,
+                                                              'anomaly_status_numeric'),
+                                                          'voltage',
+                                                        ) ==
+                                                        '2') {
+                                                      return Color(0xFFF44747);
+                                                    } else {
+                                                      return Color(0xFFA1A0A0);
+                                                    }
+                                                  }(),
+                                                  Color(0xFF737373),
+                                                ),
+                                                size: 28.0,
+                                              ),
+                                            ],
                                           ),
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -2061,7 +2173,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '7neu28pk' /* Power Threshold */,
+                                                  'wfusp8x7' /* Power Threshold */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -2071,6 +2183,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -2098,6 +2211,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -2127,6 +2241,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -2154,6 +2269,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -2183,6 +2299,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -2210,6 +2327,7 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()

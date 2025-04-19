@@ -346,9 +346,7 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLargeFamily,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              color: Color(0xFF878787),
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -435,6 +433,7 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLargeFamily),
                                           ),
+                                      maxLines: null,
                                       cursorColor:
                                           FlutterFlowTheme.of(context).primary,
                                       validator: _model

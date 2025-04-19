@@ -6,11 +6,9 @@ import 'package:flutter/material.dart';
 class S3Model extends FlutterFlowModel<S3Widget> {
   ///  Local state fields for this page.
 
-  bool isEmailValid = true;
-  
-  String? deviceId;
-  String? selectedName;
   String? selectedImageIdentifier;
+
+  String? selectedName;
 
   @override
   void initState(BuildContext context) {}

@@ -132,3 +132,17 @@ double? calculateTotalCost(
 
   return totalCost;
 }
+
+List<dynamic> getDeviceTypes() {
+  return [
+    {"name": "Light bulbs", "imageIdentifier": "10"},
+    {"name": "Home lighting", "imageIdentifier": "11"},
+    {"name": "LED strips", "imageIdentifier": "12"},
+    {"name": "Sensors", "imageIdentifier": "13"},
+    {"name": "Sockets", "imageIdentifier": "15"},
+    {"name": "Switches", "imageIdentifier": "16"},
+    {"name": "Hubs and remotes", "imageIdentifier": "17"},
+    {"name": "Security cameras", "imageIdentifier": "19"},
+    {"name": "Televisions", "imageIdentifier": "BN_(3)"}
+  ];
+}

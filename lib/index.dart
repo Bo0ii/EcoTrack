@@ -12,7 +12,7 @@ export '/pages/gradiant_contaner/gradiant_contaner_widget.dart'
 export '/sign/pin_code_not_done/pin_code_not_done_widget.dart'
     show PinCodeNotDoneWidget;
 export '/phone_integration/startup4_pages/s1/s1_widget.dart' show S1Widget;
-export '/phone_integration/startup4_pages/s6/s6_widget.dart' show S6Widget;
+export '/phone_integration/s6/s6_widget.dart' show S6Widget;
 export '/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export '/automation/automation_widget.dart' show AutomationWidget;
 export '/detailed_device_info/detailed_device_info_widget.dart'
@@ -32,6 +32,6 @@ export '/sign/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/pages/gradiant_contaner_copy/gradiant_contaner_copy_widget.dart'
     show GradiantContanerCopyWidget;
 export '/family/family_widget.dart' show FamilyWidget;
-export '/pages/gradiant_contaner_copy_copy/gradiant_contaner_copy_copy_widget.dart'
-    show GradiantContanerCopyCopyWidget;
 export '/notifications/notifications_widget.dart' show NotificationsWidget;
+export '/carbon_emissions/carbon_emissions_widget.dart'
+    show CarbonEmissionsWidget;

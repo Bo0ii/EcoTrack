@@ -92,6 +92,18 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 1330.0.ms,
+            begin: Offset(-33.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -116,7 +128,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation2': AnimationInfo(
+      'buttonOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -601,6 +613,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                         iconColor: Colors.black,
                                         iconSize: 1.0,
                                         elevation: 3.0,
+                                        borderWidth: 2.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
@@ -648,62 +661,132 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                               ].divide(SizedBox(height: 5.0)),
                             ).animateOnPageLoad(
                                 animationsMap['columnOnPageLoadAnimation2']!),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 35.0, 0.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  FFAppState().friendlyName =
-                                      _model.plugnameTextController.text;
-                                  FFAppState().deviceLocation =
-                                      _model.pluglocationValue!;
-                                  safeSetState(() {});
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 40.0, 0.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      FFAppState().friendlyName =
+                                          _model.plugnameTextController.text;
+                                      FFAppState().deviceLocation =
+                                          _model.pluglocationValue!;
+                                      safeSetState(() {});
 
-                                  context.pushNamed(
-                                    S5NetworkWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 280),
-                                      ),
+                                      context.pushNamed(
+                                        S5NetworkWidget.routeName,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.rightToLeft,
+                                            duration:
+                                                Duration(milliseconds: 280),
+                                          ),
+                                        },
+                                      );
                                     },
-                                  );
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'fgurz041' /* Next  */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 217.98,
-                                  height: 50.0,
-                                  padding: EdgeInsets.all(8.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleSmallFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
+                                    text: FFLocalizations.of(context).getText(
+                                      '9xkzvcxr' /* Later */,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 122.57,
+                                      height: 50.0,
+                                      padding: EdgeInsets.all(8.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily:
                                                 FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily),
+                                                    .titleSmallFamily,
+                                            color: Colors.black,
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmallFamily),
+                                          ),
+                                      elevation: 2.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
                                       ),
-                                  elevation: 2.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'buttonOnPageLoadAnimation1']!),
                                 ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation1']!),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 40.0, 0.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      FFAppState().friendlyName =
+                                          _model.plugnameTextController.text;
+                                      FFAppState().deviceLocation =
+                                          _model.pluglocationValue!;
+                                      safeSetState(() {});
+
+                                      context.pushNamed(
+                                        S5NetworkWidget.routeName,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.rightToLeft,
+                                            duration:
+                                                Duration(milliseconds: 280),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'fgurz041' /* Next  */,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 203.98,
+                                      height: 50.0,
+                                      padding: EdgeInsets.all(8.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmallFamily),
+                                          ),
+                                      elevation: 2.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'buttonOnPageLoadAnimation2']!),
+                                ),
+                              ],
                             ),
                             Align(
                               alignment: AlignmentDirectional(0.0, 1.0),
@@ -714,6 +797,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                   FFLocalizations.of(context).getText(
                                     'o0c3nn63' /* Note: Once the device is saved... */,
                                   ),
+                                  textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -839,7 +923,7 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                         ).animateOnPageLoad(
-                            animationsMap['buttonOnPageLoadAnimation2']!),
+                            animationsMap['buttonOnPageLoadAnimation3']!),
                       ),
                     ),
                   ],

@@ -211,7 +211,7 @@ class _CheckEmailWidgetState extends State<CheckEmailWidget> {
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
-                                              '8j0qqe9q' /*  <  Back to Sign in */,
+                                              '8j0qqe9q' /* Back to Sign in */,
                                             ),
                                             options: FFButtonOptions(
                                               width: 230.0,

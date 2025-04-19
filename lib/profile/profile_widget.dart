@@ -17,7 +17,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -1323,21 +1322,20 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                           context,
                                                                       builder:
                                                                           (context) {
-                                                                        return WebViewAware(
+                                                                        return GestureDetector(
+                                                                          onTap:
+                                                                              () {
+                                                                            FocusScope.of(context).unfocus();
+                                                                            FocusManager.instance.primaryFocus?.unfocus();
+                                                                          },
                                                                           child:
-                                                                              GestureDetector(
-                                                                            onTap:
-                                                                                () {
-                                                                              FocusScope.of(context).unfocus();
-                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                            },
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                Padding(
-                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                              child: Container(
-                                                                                height: 550.0,
-                                                                                child: SignoutWidget(),
-                                                                              ),
+                                                                                Container(
+                                                                              height: 550.0,
+                                                                              child: SignoutWidget(),
                                                                             ),
                                                                           ),
                                                                         );

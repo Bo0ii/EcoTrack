@@ -583,7 +583,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     '8j0qqe9q': {
-      'en': ' <  Back to Sign in',
+      'en': 'Back to Sign in',
       'ar': '',
       'de': '',
       'es': '',
@@ -1102,7 +1102,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    '7neu28pk': {
+    'wfusp8x7': {
       'en': 'Power Threshold',
       'ar': '',
       'de': '',
@@ -1168,8 +1168,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'tjkkxbef': {
-      'en': '+12.4%',
+    '0o0gi6ar': {
+      'en': '%',
       'ar': '',
       'de': '',
       'es': '',
@@ -1186,8 +1186,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'vlilb47i': {
-      'en': '+8.2%',
+    'z6roqs91': {
+      'en': '%',
       'ar': '',
       'de': '',
       'es': '',
@@ -1259,7 +1259,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'xmyybe6m': {
-      'en': 'Status      ',
+      'en': 'Status   ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1270,8 +1270,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
-    'v7weflxu': {
+    'tgqtv76v': {
       'en': 'Eco-Energy Tip ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'v7weflxu': {
+      'en': 'Powered by AI',
       'ar': '',
       'de': '',
       'es': '',
@@ -1397,13 +1403,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'q3xjroai': {
-      'en': 'Select the Device that will be connected to the plug ',
+      'en':
+          'Select the Device that will be connected to the plug ( blurred devices are coming soon ! )',
       'ar': '',
       'de': '',
       'es': '',
     },
     '8o38s3x7': {
-      'en': 'Light bulbs                 ',
+      'en': 'Socket  ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1427,7 +1434,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'l0hyo863': {
-      'en': 'Sockets               ',
+      'en': 'Light bulbs             ',
       'ar': '',
       'de': '',
       'es': '',
@@ -1573,6 +1580,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    '9xkzvcxr': {
+      'en': 'Later',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'fgurz041': {
       'en': 'Next ',
       'ar': '',
@@ -1620,7 +1633,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'zm0jev5s': {
-      'en': 'Use your camera to scan the QR code found on the device label',
+      'en':
+          'EcoTrack is connecting automatically\nsit tight, it’ll be ready in a moment!',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'zdh9v0k2': {
+      'en': ' Wifi',
       'ar': '',
       'de': '',
       'es': '',
@@ -1760,112 +1780,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Family
   {
     'khx1jfms': {
-      'en': 'my fam',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'byetacbe': {
-      'en': '5',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'sufqb5ik': {
-      'en': 'Michael Smith',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'gqo8favk': {
-      'en': 'Child',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '8wkbqem3': {
-      'en': 'michael.smith@email.com',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'rsqnf5pb': {
-      'en': '12 years',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'mjok0qgh': {
-      'en': 'Middle School Student',
+      'en': 'My Family',
       'ar': '',
       'de': '',
       'es': '',
     },
     'r5vdput9': {
-      'en': 'Home',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-  },
-  // GradiantContanerCopyCopy
-  {
-    '7xwq5lsn': {
-      'en': 'Power Surge Detected',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '27zkrflr': {
-      'en':
-          'Abnormal voltage spike detected at Main Panel. Check connected devices.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '28kk87xy': {
-      'en': '10 minutes ago',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '5ysgtkgs': {
-      'en': 'High Energy Consumption',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '9unxmxte': {
-      'en': 'Your HVAC system is consuming 40% more energy than usual.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'cai6t0zl': {
-      'en': '2 hours ago',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'kr2e5kuo': {
-      'en': 'Power Outage Detected',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    'pbkzwr3m': {
-      'en': 'Brief power outage detected at 3:45 PM. Backup systems activated.',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '2v4j23fx': {
-      'en': 'Yesterday at 3:47 PM',
-      'ar': '',
-      'de': '',
-      'es': '',
-    },
-    '03995syx': {
       'en': 'Home',
       'ar': '',
       'de': '',
@@ -1935,6 +1855,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     't70yu9zt': {
+      'en': 'Home',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // CarbonEmissions
+  {
+    '2qotv0t4': {
+      'en': 'Track Your ',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '2npmpv11': {
+      'en': 'Emissions',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '9a6v0wa5': {
+      'en': 'Monitor your devices\' carbon footprints in real time',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'osrcamii': {
       'en': 'Home',
       'ar': '',
       'de': '',
