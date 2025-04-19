@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -151,7 +151,7 @@ class _CarbonEmissionsWidgetState extends State<CarbonEmissionsWidget>
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                18.0, 150.0, 18.0, 16.0),
+                                18.0, 100.0, 18.0, 16.0),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -200,7 +200,7 @@ class _CarbonEmissionsWidgetState extends State<CarbonEmissionsWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 15.0),
+                                        2.0, 0.0, 0.0, 15.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '9a6v0wa5' /* Monitor your devices' carbon f... */,
@@ -391,35 +391,17 @@ class _CarbonEmissionsWidgetState extends State<CarbonEmissionsWidget>
                                 animationsMap['columnOnPageLoadAnimation']!),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 80.0, 0.0, 5.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, -1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 50.0,
-                                        icon: Icon(
-                                          Icons.arrow_back_ios_rounded,
-                                          color: Color(0xFF373737),
-                                          size: 30.0,
-                                        ),
-                                        onPressed: () async {
-                                          context.pop();
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            alignment: AlignmentDirectional(0.0, 1.0),
+                            child: Container(
+                              width: double.infinity,
+                              height: 93.7,
+                              decoration: BoxDecoration(),
+                              child: wrapWithModel(
+                                model: _model.navBarModel,
+                                updateCallback: () => safeSetState(() {}),
+                                child: NavBarWidget(
+                                  currentpage: '1',
+                                ),
                               ),
                             ),
                           ),

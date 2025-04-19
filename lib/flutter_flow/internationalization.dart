@@ -1270,6 +1270,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'de': '',
       'es': '',
     },
+    'ebk0ft5k': {
+      'en': 'Household ID',
+      'ar': 'عنوان البريد الالكترونى',
+      'de': 'E-Mail-Addresse',
+      'es': 'Dirección de correo electrónico',
+    },
+    'p6o5a02q': {
+      'en': 'Enter your Admin\'s Household ID',
+      'ar': 'أدخل بريدك الإلكتروني ...',
+      'de': 'Geben sie ihre E-Mail Adresse ein...',
+      'es': 'Introduce tu correo electrónico...',
+    },
+    'v0s23ri5': {
+      'en': 'Please add your new household ID to continue',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    '6daj4eln': {
+      'en': 'You\'re not connected to any household',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'kzzw2gq1': {
+      'en': 'Connect',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
     'tgqtv76v': {
       'en': 'Eco-Energy Tip ',
       'ar': '',

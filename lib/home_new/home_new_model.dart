@@ -41,6 +41,12 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
   String? computeApiFilterCopy;
   // Stores action output result for [Custom Action - getPowerThresholdStartTime] action in Row widget.
   String? getPowerThresholdStartTimeCopy;
+  // State field(s) for householdId widget.
+  FocusNode? householdIdFocusNode;
+  TextEditingController? householdIdTextController;
+  String? Function(BuildContext, String?)? householdIdTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UsersRecord? foundHousehold;
   // Model for NavBar component.
   late NavBarModel navBarModel;
 
@@ -51,6 +57,9 @@ class HomeNewModel extends FlutterFlowModel<HomeNewWidget> {
 
   @override
   void dispose() {
+    householdIdFocusNode?.dispose();
+    householdIdTextController?.dispose();
+
     navBarModel.dispose();
   }
 }

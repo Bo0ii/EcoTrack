@@ -5,6 +5,7 @@ import '/components/loading/loading_widget.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -190,6 +191,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
         }
       }
     });
+
+    _model.householdIdTextController ??= TextEditingController();
+    _model.householdIdFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'rowOnPageLoadAnimation1': AnimationInfo(
@@ -1462,510 +1466,554 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            StreamBuilder<List<DevicesRecord>>(
-                                              stream: queryDevicesRecord(
-                                                queryBuilder: (devicesRecord) =>
-                                                    devicesRecord.where(
-                                                  'userView',
-                                                  arrayContains:
-                                                      currentUserEmail,
+                                            if (FFAppState()
+                                                        .adminREFappState
+                                                        ?.id !=
+                                                    null &&
+                                                FFAppState()
+                                                        .adminREFappState
+                                                        ?.id !=
+                                                    '')
+                                              StreamBuilder<
+                                                  List<DevicesRecord>>(
+                                                stream: queryDevicesRecord(
+                                                  queryBuilder:
+                                                      (devicesRecord) =>
+                                                          devicesRecord.where(
+                                                    'userView',
+                                                    arrayContains:
+                                                        currentUserEmail,
+                                                  ),
                                                 ),
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: LoadingWidget(),
-                                                  );
-                                                }
-                                                List<DevicesRecord>
-                                                    listViewDevicesRecordList =
-                                                    snapshot.data!;
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: LoadingWidget(),
+                                                    );
+                                                  }
+                                                  List<DevicesRecord>
+                                                      listViewDevicesRecordList =
+                                                      snapshot.data!;
 
-                                                return ListView.builder(
-                                                  padding: EdgeInsets.zero,
-                                                  primary: false,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  itemCount:
-                                                      listViewDevicesRecordList
-                                                          .length,
-                                                  itemBuilder:
-                                                      (context, listViewIndex) {
-                                                    final listViewDevicesRecord =
-                                                        listViewDevicesRecordList[
-                                                            listViewIndex];
-                                                    return Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  18.0,
-                                                                  0.0,
-                                                                  18.0,
-                                                                  19.0),
-                                                      child: Material(
-                                                        color:
-                                                            Colors.transparent,
-                                                        elevation: 0.0,
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        child: Container(
-                                                          width: 189.8,
-                                                          height: 274.23,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 3.0,
-                                                                color: Color(
-                                                                    0x13000000),
-                                                                offset: Offset(
-                                                                  0.0,
-                                                                  2.0,
-                                                                ),
-                                                              )
-                                                            ],
-                                                            gradient:
-                                                                LinearGradient(
-                                                              colors: [
-                                                                valueOrDefault<
-                                                                    Color>(
-                                                                  () {
-                                                                    if (valueOrDefault<
-                                                                            String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
-                                                                          'voltage',
-                                                                        ) ==
-                                                                        '0') {
-                                                                      return Color(
-                                                                          0xFFDBE4E4);
-                                                                    } else if (valueOrDefault<
-                                                                            String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
-                                                                          'voltage',
-                                                                        ) ==
-                                                                        '1') {
-                                                                      return Color(
-                                                                          0xFFE4D2CB);
-                                                                    } else if (valueOrDefault<
-                                                                            String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
-                                                                          'voltage',
-                                                                        ) ==
-                                                                        '2') {
-                                                                      return Color(
-                                                                          0xFFF6DDDD);
-                                                                    } else {
-                                                                      return Color(
-                                                                          0xFFA1A0A0);
-                                                                    }
-                                                                  }(),
-                                                                  Color(
-                                                                      0xFF737373),
-                                                                ),
-                                                                Colors.white,
-                                                                Colors.white,
-                                                                Colors.white,
-                                                                Colors.white,
-                                                                Colors.white
-                                                              ],
-                                                              stops: [
-                                                                0.0,
-                                                                0.2,
-                                                                0.3,
-                                                                0.4,
-                                                                0.5,
-                                                                1.0
-                                                              ],
-                                                              begin:
-                                                                  AlignmentDirectional(
-                                                                      0.87,
-                                                                      1.0),
-                                                              end:
-                                                                  AlignmentDirectional(
-                                                                      -0.87,
-                                                                      -1.0),
-                                                            ),
+                                                  return ListView.builder(
+                                                    padding: EdgeInsets.zero,
+                                                    primary: false,
+                                                    shrinkWrap: true,
+                                                    scrollDirection:
+                                                        Axis.vertical,
+                                                    itemCount:
+                                                        listViewDevicesRecordList
+                                                            .length,
+                                                    itemBuilder: (context,
+                                                        listViewIndex) {
+                                                      final listViewDevicesRecord =
+                                                          listViewDevicesRecordList[
+                                                              listViewIndex];
+                                                      return Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    18.0,
+                                                                    0.0,
+                                                                    18.0,
+                                                                    19.0),
+                                                        child: Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          elevation: 0.0,
+                                                          shape:
+                                                              RoundedRectangleBorder(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
                                                                         8.0),
-                                                            border: Border.all(
-                                                              color: Color(
-                                                                  0xFFEFEFEF),
-                                                              width: 0.0,
-                                                            ),
                                                           ),
-                                                          child: Stack(
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceEvenly,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 5.0),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Align(
-                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Text(
-                                                                                      valueOrDefault<String>(
-                                                                                        listViewDevicesRecord.friendlyName,
-                                                                                        'Plug',
-                                                                                      ),
-                                                                                      textAlign: TextAlign.start,
-                                                                                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
-                                                                                            color: Colors.black,
-                                                                                            fontSize: 21.0,
-                                                                                            letterSpacing: 0.0,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                    children: [
-                                                                                      Text(
-                                                                                        valueOrDefault<String>(
-                                                                                          FFAppState().deviceLocation,
-                                                                                          'Room',
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'yoov8sfe' /*  |  */,
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'se6ti893' /* Power :  */,
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        valueOrDefault<String>(
-                                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_power'),
-                                                                                          'power',
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'v5q6tb8d' /*  W */,
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        FFLocalizations.of(context).getText(
-                                                                                          'xgpwvs20' /*  |  */,
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      Text(
-                                                                                        valueOrDefault<String>(
-                                                                                          valueOrDefault<String>(
-                                                                                                    functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'relay_state_numeric'),
-                                                                                                    'voltage',
-                                                                                                  ) ==
-                                                                                                  '0'
-                                                                                              ? 'OFF'
-                                                                                              : 'ON',
-                                                                                          'Off',
-                                                                                        ),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                              color: Color(0xFF464646),
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
+                                                          child: Container(
+                                                            width: 189.8,
+                                                            height: 274.23,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              boxShadow: [
+                                                                BoxShadow(
+                                                                  blurRadius:
+                                                                      3.0,
+                                                                  color: Color(
+                                                                      0x13000000),
+                                                                  offset:
+                                                                      Offset(
+                                                                    0.0,
+                                                                    2.0,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              gradient:
+                                                                  LinearGradient(
+                                                                colors: [
+                                                                  valueOrDefault<
+                                                                      Color>(
+                                                                    () {
+                                                                      if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.getSensorState(
+                                                                                FFAppState().sensorData.toList(),
+                                                                                listViewDevicesRecord.deviceId,
+                                                                                'anomaly_status_numeric'),
+                                                                            'voltage',
+                                                                          ) ==
+                                                                          '0') {
+                                                                        return Color(
+                                                                            0xFFDBE4E4);
+                                                                      } else if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.getSensorState(
+                                                                                FFAppState().sensorData.toList(),
+                                                                                listViewDevicesRecord.deviceId,
+                                                                                'anomaly_status_numeric'),
+                                                                            'voltage',
+                                                                          ) ==
+                                                                          '1') {
+                                                                        return Color(
+                                                                            0xFFE4D2CB);
+                                                                      } else if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.getSensorState(
+                                                                                FFAppState().sensorData.toList(),
+                                                                                listViewDevicesRecord.deviceId,
+                                                                                'anomaly_status_numeric'),
+                                                                            'voltage',
+                                                                          ) ==
+                                                                          '2') {
+                                                                        return Color(
+                                                                            0xFFF6DDDD);
+                                                                      } else {
+                                                                        return Color(
+                                                                            0xFFA1A0A0);
+                                                                      }
+                                                                    }(),
+                                                                    Color(
+                                                                        0xFF737373),
+                                                                  ),
+                                                                  Colors.white,
+                                                                  Colors.white,
+                                                                  Colors.white,
+                                                                  Colors.white,
+                                                                  Colors.white
+                                                                ],
+                                                                stops: [
+                                                                  0.0,
+                                                                  0.2,
+                                                                  0.3,
+                                                                  0.4,
+                                                                  0.5,
+                                                                  1.0
+                                                                ],
+                                                                begin:
+                                                                    AlignmentDirectional(
+                                                                        0.87,
+                                                                        1.0),
+                                                                end:
+                                                                    AlignmentDirectional(
+                                                                        -0.87,
+                                                                        -1.0),
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: Color(
+                                                                    0xFFEFEFEF),
+                                                                width: 0.0,
+                                                              ),
+                                                            ),
+                                                            child: Stack(
+                                                              children: [
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Expanded(
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceEvenly,
+                                                                            children: [
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                2.0,
-                                                                                16.0,
-                                                                                0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 5.0),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Align(
+                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                      child: Text(
+                                                                                        valueOrDefault<String>(
+                                                                                          listViewDevicesRecord.friendlyName,
+                                                                                          'Plug',
+                                                                                        ),
+                                                                                        textAlign: TextAlign.start,
+                                                                                        style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                              fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
+                                                                                              color: Colors.black,
+                                                                                              fontSize: 21.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                    Row(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                      children: [
+                                                                                        Text(
+                                                                                          valueOrDefault<String>(
+                                                                                            FFAppState().deviceLocation,
+                                                                                            'Room',
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          FFLocalizations.of(context).getText(
+                                                                                            'yoov8sfe' /*  |  */,
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          FFLocalizations.of(context).getText(
+                                                                                            'se6ti893' /* Power :  */,
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          valueOrDefault<String>(
+                                                                                            functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_power'),
+                                                                                            'power',
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          FFLocalizations.of(context).getText(
+                                                                                            'v5q6tb8d' /*  W */,
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          FFLocalizations.of(context).getText(
+                                                                                            'xgpwvs20' /*  |  */,
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        Text(
+                                                                                          valueOrDefault<String>(
+                                                                                            valueOrDefault<String>(
+                                                                                                      functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'relay_state_numeric'),
+                                                                                                      'voltage',
+                                                                                                    ) ==
+                                                                                                    '0'
+                                                                                                ? 'OFF'
+                                                                                                : 'ON',
+                                                                                            'Off',
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                color: Color(0xFF464646),
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
-                                                                                InkWell(
-                                                                              splashColor: Colors.transparent,
-                                                                              focusColor: Colors.transparent,
-                                                                              hoverColor: Colors.transparent,
-                                                                              highlightColor: Colors.transparent,
-                                                                              onTap: () async {
-                                                                                FFAppState().relayStatus = functions.getRelayState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId);
-                                                                                safeSetState(() {});
-                                                                                HapticFeedback.mediumImpact();
-                                                                                if (listViewDevicesRecord.userControl.contains(currentUserEmail) == true) {
-                                                                                  if (FFAppState().relayStatus == 'off') {
-                                                                                    FFAppState().toggleBody = functions.buildToggleBody(listViewDevicesRecord.deviceId);
-                                                                                    safeSetState(() {});
-                                                                                    _model.apiResultxizCopy = await ToggleRelayOnCall.call(
-                                                                                      myEntityId: FFAppState().toggleBody,
-                                                                                    );
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 16.0, 0.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  FFAppState().relayStatus = functions.getRelayState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId);
+                                                                                  safeSetState(() {});
+                                                                                  HapticFeedback.mediumImpact();
+                                                                                  if (listViewDevicesRecord.userControl.contains(currentUserEmail) == true) {
+                                                                                    if (FFAppState().relayStatus == 'off') {
+                                                                                      FFAppState().toggleBody = functions.buildToggleBody(listViewDevicesRecord.deviceId);
+                                                                                      safeSetState(() {});
+                                                                                      _model.apiResultxizCopy = await ToggleRelayOnCall.call(
+                                                                                        myEntityId: FFAppState().toggleBody,
+                                                                                      );
+                                                                                    } else {
+                                                                                      FFAppState().toggleBody = functions.buildToggleBody(listViewDevicesRecord.deviceId);
+                                                                                      safeSetState(() {});
+                                                                                      _model.apiResultghqCopy = await ToggleRelayOFFCall.call(
+                                                                                        myEntityId: FFAppState().toggleBody,
+                                                                                      );
+                                                                                    }
                                                                                   } else {
-                                                                                    FFAppState().toggleBody = functions.buildToggleBody(listViewDevicesRecord.deviceId);
-                                                                                    safeSetState(() {});
-                                                                                    _model.apiResultghqCopy = await ToggleRelayOFFCall.call(
-                                                                                      myEntityId: FFAppState().toggleBody,
+                                                                                    ScaffoldMessenger.of(context).showSnackBar(
+                                                                                      SnackBar(
+                                                                                        content: Text(
+                                                                                          'You can\'t control the device',
+                                                                                          style: FlutterFlowTheme.of(context).headlineMedium.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                fontSize: 13.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                fontWeight: FontWeight.normal,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineMediumFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        duration: Duration(milliseconds: 4000),
+                                                                                        backgroundColor: Color(0xEECD0E32),
+                                                                                      ),
                                                                                     );
                                                                                   }
-                                                                                } else {
-                                                                                  ScaffoldMessenger.of(context).showSnackBar(
-                                                                                    SnackBar(
-                                                                                      content: Text(
-                                                                                        'You can\'t control the device',
-                                                                                        style: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
-                                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                                              fontSize: 13.0,
-                                                                                              letterSpacing: 0.0,
-                                                                                              fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineMediumFamily),
-                                                                                            ),
-                                                                                      ),
-                                                                                      duration: Duration(milliseconds: 4000),
-                                                                                      backgroundColor: Color(0xEECD0E32),
-                                                                                    ),
-                                                                                  );
-                                                                                }
 
-                                                                                safeSetState(() {});
-                                                                              },
-                                                                              child: Container(
-                                                                                width: 56.2,
-                                                                                height: 46.93,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                ),
-                                                                                alignment: AlignmentDirectional(0.0, 0.6),
-                                                                                child: Align(
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                  child: Icon(
-                                                                                    Icons.power_settings_new,
-                                                                                    color: valueOrDefault<Color>(
-                                                                                      valueOrDefault<String>(
-                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'relay_state_numeric'),
-                                                                                                'voltage',
-                                                                                              ) ==
-                                                                                              '0'
-                                                                                          ? Color(0xFF979797)
-                                                                                          : Color(0xFF00BEC8),
-                                                                                      Color(0xFF737373),
+                                                                                  safeSetState(() {});
+                                                                                },
+                                                                                child: Container(
+                                                                                  width: 56.2,
+                                                                                  height: 46.93,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                  ),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.6),
+                                                                                  child: Align(
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                    child: Icon(
+                                                                                      Icons.power_settings_new,
+                                                                                      color: valueOrDefault<Color>(
+                                                                                        valueOrDefault<String>(
+                                                                                                  functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'relay_state_numeric'),
+                                                                                                  'voltage',
+                                                                                                ) ==
+                                                                                                '0'
+                                                                                            ? Color(0xFF979797)
+                                                                                            : Color(0xFF00BEC8),
+                                                                                        Color(0xFF737373),
+                                                                                      ),
+                                                                                      size: 28.0,
                                                                                     ),
-                                                                                    size: 28.0,
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
+                                                                              ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
+                                                                            ),
                                                                           ),
-                                                                        ),
-                                                                      ],
+                                                                        ],
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      _model.computeApiFilter =
-                                                                          await actions
-                                                                              .computeApiFilter(
-                                                                        listViewDevicesRecord
-                                                                            .deviceId,
-                                                                      );
-                                                                      _model.getPowerThresholdStartTime =
-                                                                          await actions
-                                                                              .getPowerThresholdStartTime();
-                                                                      FFAppState()
-                                                                              .computeAPIfilter =
-                                                                          _model
-                                                                              .computeApiFilter!;
-                                                                      FFAppState()
-                                                                              .startTime =
-                                                                          _model
-                                                                              .getPowerThresholdStartTime!;
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        _model.computeApiFilter =
+                                                                            await actions.computeApiFilter(
+                                                                          listViewDevicesRecord
+                                                                              .deviceId,
+                                                                        );
+                                                                        _model.getPowerThresholdStartTime =
+                                                                            await actions.getPowerThresholdStartTime();
+                                                                        FFAppState().computeAPIfilter =
+                                                                            _model.computeApiFilter!;
+                                                                        FFAppState().startTime =
+                                                                            _model.getPowerThresholdStartTime!;
 
-                                                                      context
-                                                                          .pushNamed(
-                                                                        DetailedDeviceInfoWidget
-                                                                            .routeName,
-                                                                        queryParameters:
-                                                                            {
-                                                                          'deviceId':
-                                                                              serializeParam(
-                                                                            listViewDevicesRecord.deviceId,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'deviceName':
-                                                                              serializeParam(
-                                                                            listViewDevicesRecord.friendlyName,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'deviceReference':
-                                                                              serializeParam(
-                                                                            listViewDevicesRecord.reference,
-                                                                            ParamType.DocumentReference,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          kTransitionInfoKey:
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.bottomToTop,
-                                                                            duration:
-                                                                                Duration(milliseconds: 320),
-                                                                          ),
-                                                                        },
-                                                                      );
+                                                                        context
+                                                                            .pushNamed(
+                                                                          DetailedDeviceInfoWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'deviceId':
+                                                                                serializeParam(
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'deviceName':
+                                                                                serializeParam(
+                                                                              listViewDevicesRecord.friendlyName,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'deviceReference':
+                                                                                serializeParam(
+                                                                              listViewDevicesRecord.reference,
+                                                                              ParamType.DocumentReference,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                          extra: <String,
+                                                                              dynamic>{
+                                                                            kTransitionInfoKey:
+                                                                                TransitionInfo(
+                                                                              hasTransition: true,
+                                                                              transitionType: PageTransitionType.bottomToTop,
+                                                                              duration: Duration(milliseconds: 320),
+                                                                            ),
+                                                                          },
+                                                                        );
 
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    },
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Align(
-                                                                                  alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
-                                                                                    child: Column(
-                                                                                      mainAxisSize: MainAxisSize.min,
-                                                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                      children: [
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                          children: [
-                                                                                            Align(
-                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                              child: Text(
-                                                                                                FFLocalizations.of(context).getText(
-                                                                                                  'l8einlq7' /* Voltage           */,
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      },
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.center,
+                                                                        children: [
+                                                                          Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Align(
+                                                                                    alignment: AlignmentDirectional(-1.0, -1.0),
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
+                                                                                      child: Column(
+                                                                                        mainAxisSize: MainAxisSize.min,
+                                                                                        mainAxisAlignment: MainAxisAlignment.start,
+                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                        children: [
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                            children: [
+                                                                                              Align(
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                child: Text(
+                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                    'l8einlq7' /* Voltage           */,
+                                                                                                  ),
+                                                                                                  textAlign: TextAlign.start,
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: 'Plus Jakarta Sans',
+                                                                                                        color: Color(0xFF384E58),
+                                                                                                        fontSize: 14.0,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        fontWeight: FontWeight.w500,
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                        lineHeight: 0.0,
+                                                                                                      ),
                                                                                                 ),
-                                                                                                textAlign: TextAlign.start,
+                                                                                              ),
+                                                                                              Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_voltage'),
+                                                                                                  'voltage',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Plus Jakarta Sans',
+                                                                                                      color: Color(0xFF0B191E),
+                                                                                                      fontSize: 13.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                      lineHeight: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  'ynv8e713' /*  V */,
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Lexend',
+                                                                                                      fontSize: 13.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Lexend'),
+                                                                                                      lineHeight: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                            children: [
+                                                                                              Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  'pba69bju' /* Current            */,
+                                                                                                ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: 'Plus Jakarta Sans',
                                                                                                       color: Color(0xFF384E58),
@@ -1976,81 +2024,81 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                       lineHeight: 0.0,
                                                                                                     ),
                                                                                               ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_voltage'),
-                                                                                                'voltage',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF0B191E),
-                                                                                                    fontSize: 13.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
+                                                                                              AnimatedDefaultTextStyle(
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Plus Jakarta Sans',
+                                                                                                      color: Color(0xFF0B191E),
+                                                                                                      fontSize: 13.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                      lineHeight: 0.0,
+                                                                                                    ),
+                                                                                                duration: Duration(milliseconds: 600),
+                                                                                                curve: Curves.easeIn,
+                                                                                                child: Text(
+                                                                                                  valueOrDefault<String>(
+                                                                                                    functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current'),
+                                                                                                    'current',
                                                                                                   ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              FFLocalizations.of(context).getText(
-                                                                                                'ynv8e713' /*  V */,
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Lexend',
-                                                                                                    fontSize: 13.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Lexend'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              FFLocalizations.of(context).getText(
-                                                                                                'pba69bju' /* Current            */,
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF384E58),
-                                                                                                    fontSize: 14.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            AnimatedDefaultTextStyle(
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF0B191E),
-                                                                                                    fontSize: 13.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                              duration: Duration(milliseconds: 600),
-                                                                                              curve: Curves.easeIn,
-                                                                                              child: Text(
-                                                                                                valueOrDefault<String>(
-                                                                                                  functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'pzem_current'),
-                                                                                                  'current',
                                                                                                 ),
                                                                                               ),
-                                                                                            ),
-                                                                                            Align(
-                                                                                              alignment: AlignmentDirectional(0.0, 1.0),
-                                                                                              child: Text(
+                                                                                              Align(
+                                                                                                alignment: AlignmentDirectional(0.0, 1.0),
+                                                                                                child: Text(
+                                                                                                  FFLocalizations.of(context).getText(
+                                                                                                    'fj08ebdc' /*  A  */,
+                                                                                                  ),
+                                                                                                  textAlign: TextAlign.center,
+                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                        fontSize: 13.0,
+                                                                                                        letterSpacing: 0.0,
+                                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                        lineHeight: 0.0,
+                                                                                                      ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                            children: [
+                                                                                              Text(
                                                                                                 FFLocalizations.of(context).getText(
-                                                                                                  'fj08ebdc' /*  A  */,
+                                                                                                  'd0ssd8fl' /* Cost                   */,
                                                                                                 ),
-                                                                                                textAlign: TextAlign.center,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Plus Jakarta Sans',
+                                                                                                      color: Color(0xFF384E58),
+                                                                                                      fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                      lineHeight: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'current_cost'),
+                                                                                                  'cost',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Plus Jakarta Sans',
+                                                                                                      color: Color(0xFF0B191E),
+                                                                                                      fontSize: 13.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                      lineHeight: 0.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                              Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  'b497fyjw' /*  AED */,
+                                                                                                ),
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                       fontSize: 13.0,
@@ -2059,321 +2107,686 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                       lineHeight: 0.0,
                                                                                                     ),
                                                                                               ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              FFLocalizations.of(context).getText(
-                                                                                                'd0ssd8fl' /* Cost                   */,
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF384E58),
-                                                                                                    fontSize: 14.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'current_cost'),
-                                                                                                'cost',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF0B191E),
-                                                                                                    fontSize: 13.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            Text(
-                                                                                              FFLocalizations.of(context).getText(
-                                                                                                'b497fyjw' /*  AED */,
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                                    fontSize: 13.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Row(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          mainAxisAlignment: MainAxisAlignment.start,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                          children: [
-                                                                                            Text(
-                                                                                              FFLocalizations.of(context).getText(
-                                                                                                'xmyybe6m' /* Status    */,
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
-                                                                                                    color: Color(0xFF384E58),
-                                                                                                    fontSize: 14.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                    lineHeight: 0.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                            Align(
-                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                              child: Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 0.0, 0.0),
-                                                                                                child: Container(
-                                                                                                  width: 112.33,
-                                                                                                  height: 25.8,
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    color: valueOrDefault<Color>(
-                                                                                                      () {
-                                                                                                        if (valueOrDefault<String>(
-                                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
-                                                                                                              'voltage',
-                                                                                                            ) ==
-                                                                                                            '0') {
-                                                                                                          return FlutterFlowTheme.of(context).tertiary;
-                                                                                                        } else if (valueOrDefault<String>(
-                                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
-                                                                                                              'voltage',
-                                                                                                            ) ==
-                                                                                                            '1') {
-                                                                                                          return Color(0xFFEF804F);
-                                                                                                        } else if (valueOrDefault<String>(
-                                                                                                              functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
-                                                                                                              'voltage',
-                                                                                                            ) ==
-                                                                                                            '2') {
-                                                                                                          return Color(0xFFF44747);
-                                                                                                        } else {
-                                                                                                          return Color(0xFFA1A0A0);
-                                                                                                        }
-                                                                                                      }(),
-                                                                                                      Color(0xFF737373),
+                                                                                            ],
+                                                                                          ),
+                                                                                          Row(
+                                                                                            mainAxisSize: MainAxisSize.max,
+                                                                                            mainAxisAlignment: MainAxisAlignment.start,
+                                                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                            children: [
+                                                                                              Text(
+                                                                                                FFLocalizations.of(context).getText(
+                                                                                                  'xmyybe6m' /* Status    */,
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Plus Jakarta Sans',
+                                                                                                      color: Color(0xFF384E58),
+                                                                                                      fontSize: 14.0,
+                                                                                                      letterSpacing: 0.0,
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                      lineHeight: 0.0,
                                                                                                     ),
-                                                                                                    borderRadius: BorderRadius.circular(12.0),
-                                                                                                  ),
-                                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                                  child: Align(
+                                                                                              ),
+                                                                                              Align(
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                child: Padding(
+                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 0.0, 0.0),
+                                                                                                  child: Container(
+                                                                                                    width: 112.33,
+                                                                                                    height: 25.8,
+                                                                                                    decoration: BoxDecoration(
+                                                                                                      color: valueOrDefault<Color>(
+                                                                                                        () {
+                                                                                                          if (valueOrDefault<String>(
+                                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                                                                'voltage',
+                                                                                                              ) ==
+                                                                                                              '0') {
+                                                                                                            return FlutterFlowTheme.of(context).tertiary;
+                                                                                                          } else if (valueOrDefault<String>(
+                                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                                                                'voltage',
+                                                                                                              ) ==
+                                                                                                              '1') {
+                                                                                                            return Color(0xFFEF804F);
+                                                                                                          } else if (valueOrDefault<String>(
+                                                                                                                functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                                                                'voltage',
+                                                                                                              ) ==
+                                                                                                              '2') {
+                                                                                                            return Color(0xFFF44747);
+                                                                                                          } else {
+                                                                                                            return Color(0xFFA1A0A0);
+                                                                                                          }
+                                                                                                        }(),
+                                                                                                        Color(0xFF737373),
+                                                                                                      ),
+                                                                                                      borderRadius: BorderRadius.circular(12.0),
+                                                                                                    ),
                                                                                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                                                                                    child: Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 1.0, 0.0),
-                                                                                                      child: Text(
-                                                                                                        valueOrDefault<String>(
-                                                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'power_error'),
-                                                                                                          'Needs Maintenance',
+                                                                                                    child: Align(
+                                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                                      child: Padding(
+                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 1.0, 0.0),
+                                                                                                        child: Text(
+                                                                                                          valueOrDefault<String>(
+                                                                                                            functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'power_error'),
+                                                                                                            'Needs Maintenance',
+                                                                                                          ),
+                                                                                                          textAlign: TextAlign.center,
+                                                                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                                                fontFamily: 'Plus Jakarta Sans',
+                                                                                                                color: Colors.white,
+                                                                                                                fontSize: 10.0,
+                                                                                                                letterSpacing: 0.0,
+                                                                                                                fontWeight: FontWeight.w500,
+                                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                                lineHeight: 0.0,
+                                                                                                              ),
                                                                                                         ),
-                                                                                                        textAlign: TextAlign.center,
-                                                                                                        style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                              fontFamily: 'Plus Jakarta Sans',
-                                                                                                              color: Colors.white,
-                                                                                                              fontSize: 10.0,
-                                                                                                              letterSpacing: 0.0,
-                                                                                                              fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
-                                                                                                              lineHeight: 0.0,
-                                                                                                            ),
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
                                                                                               ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ].divide(SizedBox(height: 8.0)),
+                                                                                            ],
+                                                                                          ),
+                                                                                        ].divide(SizedBox(height: 8.0)),
+                                                                                      ),
                                                                                     ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                10.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Container(
+                                                                              width: 144.5,
+                                                                              height: 171.5,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Align(
+                                                                                alignment: AlignmentDirectional(1.0, 0.0),
+                                                                                child: ClipRRect(
+                                                                                  borderRadius: BorderRadius.circular(0.0),
+                                                                                  child: Image.asset(
+                                                                                    'assets/images/11.png',
+                                                                                    width: 181.1,
+                                                                                    height: 189.0,
+                                                                                    fit: BoxFit.cover,
+                                                                                    alignment: Alignment(-1.0, 0.0),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        _model.computeApiFilterCopy =
+                                                                            await actions.computeApiFilter(
+                                                                          listViewDevicesRecord
+                                                                              .deviceId,
+                                                                        );
+                                                                        _model.getPowerThresholdStartTimeCopy =
+                                                                            await actions.getPowerThresholdStartTime();
+                                                                        FFAppState().computeAPIfilter =
+                                                                            _model.computeApiFilterCopy!;
+                                                                        FFAppState().startTime =
+                                                                            _model.getPowerThresholdStartTimeCopy!;
+
+                                                                        context
+                                                                            .pushNamed(
+                                                                          DetailedDeviceInfoWidget
+                                                                              .routeName,
+                                                                          queryParameters:
+                                                                              {
+                                                                            'deviceId':
+                                                                                serializeParam(
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'deviceName':
+                                                                                serializeParam(
+                                                                              listViewDevicesRecord.friendlyName,
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'deviceReference':
+                                                                                serializeParam(
+                                                                              listViewDevicesRecord.reference,
+                                                                              ParamType.DocumentReference,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                          extra: <String,
+                                                                              dynamic>{
+                                                                            kTransitionInfoKey:
+                                                                                TransitionInfo(
+                                                                              hasTransition: true,
+                                                                              transitionType: PageTransitionType.bottomToTop,
+                                                                              duration: Duration(milliseconds: 320),
+                                                                            ),
+                                                                          },
+                                                                        );
+
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      },
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.center,
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.min,
+                                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                              children: [
+                                                                                Align(
+                                                                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                                  child: Text(
+                                                                                    FFLocalizations.of(context).getText(
+                                                                                      'vezv3vay' /* Show Details */,
+                                                                                    ),
+                                                                                    textAlign: TextAlign.center,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                          color: Color(0xF476999B),
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                                Transform.rotate(
+                                                                                  angle: 180.0 * (math.pi / 180),
+                                                                                  child: Lottie.asset(
+                                                                                    'assets/jsons/KHsdfTNZ4M.json',
+                                                                                    width: 32.0,
+                                                                                    height: 32.5,
+                                                                                    fit: BoxFit.contain,
+                                                                                    frameRate: FrameRate(60.0),
+                                                                                    animate: true,
                                                                                   ),
                                                                                 ),
                                                                               ],
                                                                             ),
-                                                                          ],
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Container(
-                                                                            width:
-                                                                                144.5,
-                                                                            height:
-                                                                                171.5,
-                                                                            decoration:
-                                                                                BoxDecoration(),
-                                                                            child:
-                                                                                Align(
-                                                                              alignment: AlignmentDirectional(1.0, 0.0),
-                                                                              child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(0.0),
-                                                                                child: Image.asset(
-                                                                                  'assets/images/11.png',
-                                                                                  width: 181.1,
-                                                                                  height: 189.0,
-                                                                                  fit: BoxFit.cover,
-                                                                                  alignment: Alignment(-1.0, 0.0),
-                                                                                ),
-                                                                              ),
-                                                                            ),
                                                                           ),
-                                                                        ),
-                                                                      ],
+                                                                        ],
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                  InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      _model.computeApiFilterCopy =
-                                                                          await actions
-                                                                              .computeApiFilter(
-                                                                        listViewDevicesRecord
-                                                                            .deviceId,
-                                                                      );
-                                                                      _model.getPowerThresholdStartTimeCopy =
-                                                                          await actions
-                                                                              .getPowerThresholdStartTime();
-                                                                      FFAppState()
-                                                                              .computeAPIfilter =
-                                                                          _model
-                                                                              .computeApiFilterCopy!;
-                                                                      FFAppState()
-                                                                              .startTime =
-                                                                          _model
-                                                                              .getPowerThresholdStartTimeCopy!;
-
-                                                                      context
-                                                                          .pushNamed(
-                                                                        DetailedDeviceInfoWidget
-                                                                            .routeName,
-                                                                        queryParameters:
-                                                                            {
-                                                                          'deviceId':
-                                                                              serializeParam(
-                                                                            listViewDevicesRecord.deviceId,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'deviceName':
-                                                                              serializeParam(
-                                                                            listViewDevicesRecord.friendlyName,
-                                                                            ParamType.String,
-                                                                          ),
-                                                                          'deviceReference':
-                                                                              serializeParam(
-                                                                            listViewDevicesRecord.reference,
-                                                                            ParamType.DocumentReference,
-                                                                          ),
-                                                                        }.withoutNulls,
-                                                                        extra: <String,
-                                                                            dynamic>{
-                                                                          kTransitionInfoKey:
-                                                                              TransitionInfo(
-                                                                            hasTransition:
-                                                                                true,
-                                                                            transitionType:
-                                                                                PageTransitionType.bottomToTop,
-                                                                            duration:
-                                                                                Duration(milliseconds: 320),
-                                                                          ),
-                                                                        },
-                                                                      );
-
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    },
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.min,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Align(
-                                                                                alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                child: Text(
-                                                                                  FFLocalizations.of(context).getText(
-                                                                                    'vezv3vay' /* Show Details */,
-                                                                                  ),
-                                                                                  textAlign: TextAlign.center,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                        color: Color(0xF476999B),
-                                                                                        fontSize: 14.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                      ),
-                                                                                ),
-                                                                              ),
-                                                                              Transform.rotate(
-                                                                                angle: 180.0 * (math.pi / 180),
-                                                                                child: Lottie.asset(
-                                                                                  'assets/jsons/KHsdfTNZ4M.json',
-                                                                                  width: 32.0,
-                                                                                  height: 32.5,
-                                                                                  fit: BoxFit.contain,
-                                                                                  frameRate: FrameRate(60.0),
-                                                                                  animate: true,
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ],
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'listViewOnPageLoadAnimation']!);
-                                              },
-                                            ),
+                                                      );
+                                                    },
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'listViewOnPageLoadAnimation']!);
+                                                },
+                                              ),
                                           ],
                                         ),
+                                        if (FFAppState().adminREFappState ==
+                                            null)
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 16.0),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.835,
+                                                height: 194.71,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16.0),
+                                                ),
+                                                child: Stack(
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Stack(
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -1.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child:
+                                                                  TextFormField(
+                                                                controller: _model
+                                                                    .householdIdTextController,
+                                                                focusNode: _model
+                                                                    .householdIdFocusNode,
+                                                                autofocus:
+                                                                    false,
+                                                                obscureText:
+                                                                    false,
+                                                                decoration:
+                                                                    InputDecoration(
+                                                                  isDense:
+                                                                      false,
+                                                                  labelText: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'ebk0ft5k' /* Household ID */,
+                                                                  ),
+                                                                  labelStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                      ),
+                                                                  hintText: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'p6o5a02q' /* Enter your Admin's Household I... */,
+                                                                  ),
+                                                                  hintStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                        fontSize:
+                                                                            11.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                      ),
+                                                                  enabledBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Color(
+                                                                          0xFFF3F3F3),
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  focusedBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Color(
+                                                                          0x6887B9BA),
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  errorBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Color(
+                                                                          0xFF744C4C),
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  focusedErrorBorder:
+                                                                      OutlineInputBorder(
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Color(
+                                                                          0xFF744C4C),
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  filled: true,
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  contentPadding:
+                                                                      EdgeInsetsDirectional.fromSTEB(
+                                                                          20.0,
+                                                                          24.0,
+                                                                          20.0,
+                                                                          24.0),
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
+                                                                validator: _model
+                                                                    .householdIdTextControllerValidator
+                                                                    .asValidator(
+                                                                        context),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -0.25,
+                                                                    -0.71),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'v0s23ri5' /* Please add your new household ... */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    color: Color(
+                                                                        0xFF757677),
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, -1.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '6daj4eln' /* You're not connected to any ho... */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 1.0),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          if (/* NOT RECOMMENDED */ _model
+                                                                  .householdIdTextController
+                                                                  .text ==
+                                                              'true') {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Please enter a household ID',
+                                                                  style: GoogleFonts
+                                                                      .getFont(
+                                                                    'Lexend',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                              ),
+                                                            );
+                                                            _model.foundHousehold =
+                                                                await queryUsersRecordOnce(
+                                                              queryBuilder:
+                                                                  (usersRecord) =>
+                                                                      usersRecord
+                                                                          .where(
+                                                                'householdId',
+                                                                isEqualTo: _model
+                                                                    .householdIdTextController
+                                                                    .text,
+                                                              ),
+                                                              singleRecord:
+                                                                  true,
+                                                            ).then((s) => s
+                                                                    .firstOrNull);
+                                                            if (_model
+                                                                    .foundHousehold !=
+                                                                null) {
+                                                              await UsersInHouseholdRecord
+                                                                      .createDoc(_model
+                                                                          .foundHousehold!
+                                                                          .reference)
+                                                                  .set(
+                                                                      createUsersInHouseholdRecordData(
+                                                                email: widget
+                                                                    .email,
+                                                                displayName:
+                                                                    FFAppState()
+                                                                        .displayName,
+                                                                nameOfHouse: _model
+                                                                    .foundHousehold
+                                                                    ?.nameOfHouse,
+                                                                title: 'user',
+                                                              ));
+                                                              FFAppState()
+                                                                      .adminREFappState =
+                                                                  _model
+                                                                      .foundHousehold
+                                                                      ?.reference;
+                                                              FFAppState()
+                                                                      .houseName =
+                                                                  _model
+                                                                      .foundHousehold!
+                                                                      .nameOfHouse;
+                                                              safeSetState(
+                                                                  () {});
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'house hold id doesnt exist',
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Lexend',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            }
+                                                          } else {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'no id was entered',
+                                                                  style: GoogleFonts
+                                                                      .getFont(
+                                                                    'Lexend',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                              ),
+                                                            );
+                                                          }
+
+                                                          safeSetState(() {});
+                                                        },
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'kzzw2gq1' /* Connect */,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width: 300.65,
+                                                          height: 40.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                  ),
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.0, 1.0),
