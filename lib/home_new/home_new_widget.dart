@@ -1502,14 +1502,12 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           
                                                                           if (newAdminUser != null) {
                                                                             // Create a new user in household record
-                                                                            final usersInHouseholdCreateData = {
-                                                                              ...createUsersInHouseholdRecordData(
-                                                                                email: currentUserEmail,
-                                                                                displayName: FFAppState().displayName,
-                                                                                nameOfHouse: newAdminUser.nameOfHouse,
-                                                                                title: 'User',
-                                                                              ),
-                                                                            };
+                                                                            final usersInHouseholdCreateData = createUsersInHouseholdRecordData(
+                                                                              email: currentUserEmail,
+                                                                              displayName: FFAppState().displayName,
+                                                                              nameOfHouse: newAdminUser.nameOfHouse,
+                                                                              title: 'User',
+                                                                            );
                                                                             
                                                                             await UsersInHouseholdRecord.createDoc(newAdminUser.reference)
                                                                                 .set(usersInHouseholdCreateData);
@@ -1567,10 +1565,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         child: Text(
                                                                           'Connect',
                                                                           style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                                color: Colors.white,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
-                                                                              ),
+                                                                            fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                            color: Colors.white,
+                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
