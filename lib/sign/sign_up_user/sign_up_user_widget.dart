@@ -2,7 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/dark_light/dark_light_widget.dart';
 import '/components/pssword_vald/pssword_vald_widget.dart';
-import '/components/succsess/succsess_widget.dart';
+import '/components/succsess_user/succsess_user_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -1150,7 +1150,7 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             child: Container(
                                                               height: 550.0,
                                                               child:
-                                                                  SuccsessWidget(),
+                                                                  SuccsessUserWidget(),
                                                             ),
                                                           ),
                                                         );

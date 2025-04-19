@@ -192,8 +192,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
       }
     });
 
-    _model.householdIdTextController ??= TextEditingController();
-    _model.householdIdFocusNode ??= FocusNode();
+    _model.householdIdnoIDTextController ??= TextEditingController();
+    _model.householdIdnoIDFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'rowOnPageLoadAnimation1': AnimationInfo(
@@ -2399,9 +2399,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               child:
                                                                   TextFormField(
                                                                 controller: _model
-                                                                    .householdIdTextController,
+                                                                    .householdIdnoIDTextController,
                                                                 focusNode: _model
-                                                                    .householdIdFocusNode,
+                                                                    .householdIdnoIDFocusNode,
                                                                 autofocus:
                                                                     false,
                                                                 obscureText:
@@ -2524,7 +2524,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                                 validator: _model
-                                                                    .householdIdTextControllerValidator
+                                                                    .householdIdnoIDTextControllerValidator
                                                                     .asValidator(
                                                                         context),
                                                               ),
@@ -2604,10 +2604,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                               0.0, 1.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
-                                                          if (/* NOT RECOMMENDED */ _model
-                                                                  .householdIdTextController
-                                                                  .text ==
-                                                              'true') {
+                                                          if (_model.householdIdnoIDTextController
+                                                                      .text !=
+                                                                  '') {
                                                             ScaffoldMessenger
                                                                     .of(context)
                                                                 .showSnackBar(
@@ -2639,7 +2638,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           .where(
                                                                 'householdId',
                                                                 isEqualTo: _model
-                                                                    .householdIdTextController
+                                                                    .householdIdnoIDTextController
                                                                     .text,
                                                               ),
                                                               singleRecord:

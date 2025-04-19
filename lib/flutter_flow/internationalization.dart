@@ -1879,7 +1879,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'lrq7otvb': {
-      'en': 'Notifications (fadi backend)',
+      'en': 'Notifications',
       'ar': '',
       'de': '',
       'es': '',
@@ -2042,6 +2042,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'njkyhfuq': {
       'en': 'Yes',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+  },
+  // succsessUser
+  {
+    '31nzucyp': {
+      'en': 'You have successfully registered and logged in.',
+      'ar': '',
+      'de': '',
+      'es': '',
+    },
+    'bll665cz': {
+      'en': 'Continue to setup',
       'ar': '',
       'de': '',
       'es': '',

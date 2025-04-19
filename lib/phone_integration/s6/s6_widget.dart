@@ -874,8 +874,8 @@ class _S6WidgetState extends State<S6Widget> {
                                                               usersInHouseholdRecord
                                                                   .where(
                                                         'email',
-                                                        isEqualTo:
-                                                            currentUserEmail,
+                                                        isEqualTo: s6UsersRecord
+                                                            ?.email,
                                                       ),
                                                       singleRecord: true,
                                                     ).then((s) =>

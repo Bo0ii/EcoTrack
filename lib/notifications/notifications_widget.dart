@@ -620,12 +620,12 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 150.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 200.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'lrq7otvb' /* Notifications (fadi backend) */,
+                          'lrq7otvb' /* Notifications */,
                         ),
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyMediumFamily,
