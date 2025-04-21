@@ -340,7 +340,7 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                         queryBuilder: (usersRecord) =>
                                             usersRecord.where(
                                           'email',
-                                          isEqualTo: currentUserEmail,
+                                          isEqualTo: FFAppState().email,
                                         ),
                                         singleRecord: true,
                                       ).then((s) => s.firstOrNull);

@@ -1469,7 +1469,7 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
-                                      PageTransitionType.leftToRight,
+                                      PageTransitionType.rightToLeft,
                                   duration: Duration(milliseconds: 300),
                                 ),
                               },
