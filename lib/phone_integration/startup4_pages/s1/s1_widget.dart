@@ -458,7 +458,7 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                         queryBuilder: (usersRecord) =>
                                             usersRecord.where(
                                           'email',
-                                          isEqualTo: currentUserEmail,
+                                          isEqualTo: FFAppState().email,
                                         ),
                                         singleRecord: true,
                                       ).then((s) => s.firstOrNull);

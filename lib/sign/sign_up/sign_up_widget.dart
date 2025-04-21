@@ -796,6 +796,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               ),
                               usersRecordReference);
                           FFAppState().isAdmin = true;
+                          FFAppState().email = _model.emailTextController.text;
                           safeSetState(() {});
                           await showModalBottomSheet(
                             isScrollControlled: true,

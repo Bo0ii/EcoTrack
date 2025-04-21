@@ -467,6 +467,12 @@ class FFAppState extends ChangeNotifier {
   set householdID(String value) {
     _householdID = value;
   }
+
+  String _email = '';
+  String get email => _email;
+  set email(String value) {
+    _email = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
