@@ -371,10 +371,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                             'textOnPageLoadAnimation1']!),
                                       ),
                                       Text(
-                                        valueOrDefault<String>(
-                                          profileUsersRecord?.email,
-                                          'email',
-                                        ),
+                                        currentUserEmail,
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(

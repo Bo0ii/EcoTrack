@@ -25,7 +25,7 @@ export '/noti_settings/noti_settings_widget.dart' show NotiSettingsWidget;
 export '/phone_integration/startup4_pages/s3/s3_widget.dart' show S3Widget;
 export '/phone_integration/startup4_pages/s4qr/s4qr_widget.dart'
     show S4qrWidget;
-export '/phone_integration/startup4_pages/s5_network/s5_network_widget.dart'
+export '/phone_integration/s5_network/s5_network_widget.dart'
     show S5NetworkWidget;
 export '/first_page/first_page_widget.dart' show FirstPageWidget;
 export '/sign/login_page/login_page_widget.dart' show LoginPageWidget;

@@ -501,6 +501,12 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
 
                                         context.pushNamed(
                                           S6Widget.routeName,
+                                          queryParameters: {
+                                            'userRef': serializeParam(
+                                              _model.userREF?.reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,

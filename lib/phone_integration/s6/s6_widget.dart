@@ -881,10 +881,29 @@ class _S6WidgetState extends State<S6Widget> {
                                                           .yourAgeTextController
                                                           .text),
                                                     ));
+                                                    FFAppState().displayName =
+                                                        _model
+                                                            .yourNameTextController
+                                                            .text;
+                                                    FFAppState().Title = _model
+                                                        .yourTitleTextController
+                                                        .text;
+                                                    FFAppState().Age =
+                                                        int.parse(_model
+                                                            .yourAgeTextController
+                                                            .text);
+                                                    safeSetState(() {});
                                                   }
 
                                                   context.pushNamed(
-                                                      HomeNewWidget.routeName);
+                                                    HomeNewWidget.routeName,
+                                                    queryParameters: {
+                                                      'email': serializeParam(
+                                                        '',
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   safeSetState(() {});
                                                 },

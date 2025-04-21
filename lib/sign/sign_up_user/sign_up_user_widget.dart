@@ -1108,6 +1108,9 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                       nameOfHouse: '',
                                                       title: '',
                                                       photoUrl: '',
+                                                      householdId: _model
+                                                          .householdIdTextController
+                                                          .text,
                                                     ));
                                                     _model.userRefFromSignup =
                                                         UsersInHouseholdRecord
@@ -1126,6 +1129,10 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                                       '',
                                                                   title: '',
                                                                   photoUrl: '',
+                                                                  householdId:
+                                                                      _model
+                                                                          .householdIdTextController
+                                                                          .text,
                                                                 ),
                                                                 usersInHouseholdRecordReference);
 

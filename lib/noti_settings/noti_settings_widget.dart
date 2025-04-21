@@ -163,7 +163,7 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                                                 .bodySmallFamily),
                                   ),
                             ),
-                            activeColor: Color(0xFF639D9F),
+                            activeColor: Color(0xFF73ACAE),
                             activeTrackColor: Color(0xFFB8D2D2),
                             dense: false,
                             controlAffinity: ListTileControlAffinity.trailing,
