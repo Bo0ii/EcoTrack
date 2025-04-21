@@ -253,9 +253,12 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                     text: TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: FFAppState().isAnimationComplete
-                                              ? 'Connected to'
-                                              : 'Connecting to',
+                                          text: valueOrDefault<String>(
+                                            FFAppState().isAnimationComplete
+                                                ? 'Connected to'
+                                                : 'Connecting to',
+                                            'Connecting to',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
