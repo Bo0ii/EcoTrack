@@ -410,8 +410,16 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF384E58),
                                                                 fontSize: 13.0,
@@ -420,10 +428,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Plus Jakarta Sans'),
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                         Text(
@@ -437,8 +445,17 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Lexend',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .lexend(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: Color(
                                                                     0xFF0B191E),
                                                                 fontSize: 23.0,
@@ -447,10 +464,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Lexend'),
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmall
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                         Column(
@@ -478,16 +495,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               context)
                                                                           .headlineSmall
                                                                           .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).headlineSmallFamily,
+                                                                            font:
+                                                                                FlutterFlowTheme.of(context).headlineSmall,
                                                                             fontSize:
                                                                                 19.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                           ),
                                                                     ),
                                                                   ].divide(SizedBox(
@@ -695,9 +710,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       .of(context)
                                                                   .headlineMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMedium,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
@@ -705,10 +720,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         17.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineMediumFamily),
                                                                   ),
                                                             ),
                                                             Align(
@@ -726,17 +737,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
                                                                       fontSize:
                                                                           9.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -806,12 +813,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .displayLarge
                                                                               .override(
-                                                                                fontFamily: 'Poppins',
+                                                                                font: GoogleFonts.poppins(
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).displayLarge.fontStyle,
+                                                                                ),
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: 70.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey('Poppins'),
+                                                                                fontStyle: FlutterFlowTheme.of(context).displayLarge.fontStyle,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -830,12 +840,11 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                 color: Colors.black,
                                                                                 fontSize: 20.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -856,9 +865,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primaryText,
@@ -869,10 +878,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -960,9 +965,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         context)
                                                                     .headlineMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .headlineMediumFamily,
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .headlineMedium,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryText,
@@ -970,10 +975,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           17.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).headlineMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -987,17 +988,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
                                                                     fontSize:
                                                                         9.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ],
@@ -1089,9 +1086,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -1099,10 +1096,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         13.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                             Row(
@@ -1124,16 +1117,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           context)
                                                                       .bodySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                        font: FlutterFlowTheme.of(context)
+                                                                            .bodySmall,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .errorRed,
                                                                         fontSize:
                                                                             11.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                       ),
                                                                 ),
                                                                 Text(
@@ -1146,16 +1137,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           context)
                                                                       .bodySmall
                                                                       .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                        font: FlutterFlowTheme.of(context)
+                                                                            .bodySmall,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .errorRed,
                                                                         fontSize:
                                                                             11.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(SizedBox(
@@ -1181,19 +1170,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       .of(context)
                                                                   .headlineMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMedium,
                                                                     color: Colors
                                                                         .black,
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineMediumFamily),
                                                                   ),
                                                             ),
                                                             Padding(
@@ -1214,9 +1199,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryText,
@@ -1224,10 +1209,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           12.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                             ),
@@ -1308,9 +1289,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryText,
@@ -1318,10 +1299,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           13.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                               Row(
@@ -1340,16 +1317,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).bodySmall,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).errorRed,
                                                                           fontSize:
                                                                               11.0,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                         ),
                                                                   ),
                                                                   Text(
@@ -1362,16 +1337,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                             context)
                                                                         .bodySmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).bodySmall,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).errorRed,
                                                                           fontSize:
                                                                               11.0,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                         ),
                                                                   ),
                                                                 ].divide(SizedBox(
@@ -1399,19 +1372,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                         context)
                                                                     .headlineMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .headlineMediumFamily,
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .headlineMedium,
                                                                       color: Colors
                                                                           .black,
                                                                       fontSize:
                                                                           16.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).headlineMediumFamily),
                                                                     ),
                                                               ),
                                                               Padding(
@@ -1432,16 +1401,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        font: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryText,
                                                                         fontSize:
                                                                             12.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -1517,7 +1484,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                         ),
                                                         child: Container(
                                                           width: 189.8,
-                                                          height: 274.23,
+                                                          height: 275.23,
                                                           decoration:
                                                               BoxDecoration(
                                                             boxShadow: [
@@ -1655,11 +1622,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                       ),
                                                                                       textAlign: TextAlign.start,
                                                                                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                            fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
+                                                                                            font: FlutterFlowTheme.of(context).titleMedium,
                                                                                             color: Colors.black,
                                                                                             fontSize: 21.0,
                                                                                             letterSpacing: 0.0,
-                                                                                            useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
                                                                                           ),
                                                                                     ),
                                                                                   ),
@@ -1673,11 +1639,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'Room',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodySmall,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Text(
@@ -1685,11 +1650,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'yoov8sfe' /*  |  */,
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Text(
@@ -1697,11 +1661,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'se6ti893' /* Power :  */,
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Text(
@@ -1710,11 +1673,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'power',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Text(
@@ -1722,11 +1684,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'v5q6tb8d' /*  W */,
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Text(
@@ -1734,11 +1695,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'xgpwvs20' /*  |  */,
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       Text(
@@ -1753,11 +1713,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                           'Off',
                                                                                         ),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                               color: Color(0xFF464646),
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                     ],
@@ -1808,12 +1767,11 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                       content: Text(
                                                                                         'You can\'t control the device',
                                                                                         style: FlutterFlowTheme.of(context).headlineMedium.override(
-                                                                                              fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                                                                                              font: FlutterFlowTheme.of(context).headlineMedium,
                                                                                               color: FlutterFlowTheme.of(context).primaryText,
                                                                                               fontSize: 13.0,
                                                                                               letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.normal,
-                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineMediumFamily),
                                                                                             ),
                                                                                       ),
                                                                                       duration: Duration(milliseconds: 4000),
@@ -1967,12 +1925,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 ),
                                                                                                 textAlign: TextAlign.start,
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Plus Jakarta Sans',
+                                                                                                      font: GoogleFonts.plusJakartaSans(
+                                                                                                        fontWeight: FontWeight.w500,
+                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                      ),
                                                                                                       color: Color(0xFF384E58),
                                                                                                       fontSize: 14.0,
                                                                                                       letterSpacing: 0.0,
                                                                                                       fontWeight: FontWeight.w500,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                       lineHeight: 0.0,
                                                                                                     ),
                                                                                               ),
@@ -1983,12 +1944,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'voltage',
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
+                                                                                                    font: GoogleFonts.plusJakartaSans(
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF0B191E),
                                                                                                     fontSize: 13.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -1997,10 +1961,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'ynv8e713' /*  V */,
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Lexend',
+                                                                                                    font: GoogleFonts.lexend(
+                                                                                                      fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     fontSize: 13.0,
                                                                                                     letterSpacing: 0.0,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Lexend'),
+                                                                                                    fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -2016,23 +1984,29 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'pba69bju' /* Current            */,
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
+                                                                                                    font: GoogleFonts.plusJakartaSans(
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF384E58),
                                                                                                     fontSize: 14.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
                                                                                             AnimatedDefaultTextStyle(
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
+                                                                                                    font: GoogleFonts.plusJakartaSans(
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF0B191E),
                                                                                                     fontSize: 13.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                               duration: Duration(milliseconds: 600),
@@ -2052,10 +2026,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 ),
                                                                                                 textAlign: TextAlign.center,
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                      font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                       fontSize: 13.0,
                                                                                                       letterSpacing: 0.0,
-                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                       lineHeight: 0.0,
                                                                                                     ),
                                                                                               ),
@@ -2072,12 +2045,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'd0ssd8fl' /* Cost                   */,
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
+                                                                                                    font: GoogleFonts.plusJakartaSans(
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF384E58),
                                                                                                     fontSize: 14.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -2087,12 +2063,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'cost',
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
+                                                                                                    font: GoogleFonts.plusJakartaSans(
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF0B191E),
                                                                                                     fontSize: 13.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -2101,10 +2080,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'b497fyjw' /*  AED */,
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                    font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                     fontSize: 13.0,
                                                                                                     letterSpacing: 0.0,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -2120,12 +2098,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                 'xmyybe6m' /* Status    */,
                                                                                               ),
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Plus Jakarta Sans',
+                                                                                                    font: GoogleFonts.plusJakartaSans(
+                                                                                                      fontWeight: FontWeight.w500,
+                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                                    ),
                                                                                                     color: Color(0xFF384E58),
                                                                                                     fontSize: 14.0,
                                                                                                     letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w500,
-                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                                                     lineHeight: 0.0,
                                                                                                   ),
                                                                                             ),
@@ -2177,12 +2158,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                                         ),
                                                                                                         textAlign: TextAlign.center,
                                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                              fontFamily: 'Plus Jakarta Sans',
+                                                                                                              font: GoogleFonts.plusJakartaSans(
+                                                                                                                fontWeight: FontWeight.w500,
+                                                                                                                fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                                                                                                              ),
                                                                                                               color: Colors.white,
                                                                                                               fontSize: 10.0,
                                                                                                               letterSpacing: 0.0,
                                                                                                               fontWeight: FontWeight.w500,
-                                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey('Plus Jakarta Sans'),
+                                                                                                              fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
                                                                                                               lineHeight: 0.0,
                                                                                                             ),
                                                                                                       ),
@@ -2335,11 +2319,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   ),
                                                                                   textAlign: TextAlign.center,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                        font: FlutterFlowTheme.of(context).bodyMedium,
                                                                                         color: Color(0xF476999B),
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
-                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -2437,9 +2420,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                     .of(context)
                                                                 .headlineSmall
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .headlineSmallFamily,
+                                                                      .headlineSmall,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
@@ -2447,11 +2430,6 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       19.0,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .headlineSmallFamily),
                                                                 ),
                                                           ),
                                                           Icon(
@@ -2481,19 +2459,15 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                       .of(context)
                                                                   .headlineSmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineSmallFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall,
                                                                     color: Color(
                                                                         0xFF909090),
                                                                     fontSize:
                                                                         11.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -2517,19 +2491,14 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 color: Color(
                                                                     0xFF76808A),
                                                                 fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),

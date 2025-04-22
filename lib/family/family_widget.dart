@@ -8,7 +8,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'family_model.dart';
 export 'family_model.dart';
@@ -200,15 +199,10 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .titleMedium,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMediumFamily),
                                           ),
                                     ),
                                     Container(
@@ -232,18 +226,12 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmallFamily,
+                                                        .bodySmall,
                                                 color: Colors.white,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmallFamily),
                                               ),
                                         ),
                                       ),
@@ -374,9 +362,9 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                                     context)
                                                                 .titleMedium
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleMediumFamily,
+                                                                      .titleMedium,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primary,
@@ -385,11 +373,6 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .titleMediumFamily),
                                                                 ),
                                                       ),
                                                       Container(
@@ -416,9 +399,9 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                                     .of(context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmallFamily,
+                                                                      .bodySmall,
                                                                   color: Colors
                                                                       .white,
                                                                   letterSpacing:
@@ -426,11 +409,6 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -445,20 +423,13 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                   Row(
@@ -485,16 +456,11 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                                     .of(context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmallFamily,
+                                                                      .bodySmall,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily),
                                                                 ),
                                                           ),
                                                         ].divide(SizedBox(
@@ -525,16 +491,11 @@ class _FamilyWidgetState extends State<FamilyWidget>
                                                                     .of(context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmallFamily,
+                                                                      .bodySmall,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily),
                                                                 ),
                                                           ),
                                                         ].divide(SizedBox(

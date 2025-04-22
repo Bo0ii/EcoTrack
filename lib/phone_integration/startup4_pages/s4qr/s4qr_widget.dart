@@ -11,7 +11,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 's4qr_model.dart';
@@ -232,16 +231,10 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .headlineMedium,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(FlutterFlowTheme
-                                                          .of(context)
-                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -256,16 +249,11 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -330,16 +318,11 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .headlineMedium,
                                             fontSize: 17.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -381,19 +364,12 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                   color: Color(0x54000000),
                                                   fontSize: 11.0,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ),
@@ -436,16 +412,11 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .headlineMedium,
                                             fontSize: 17.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -504,14 +475,10 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                         lineHeight: 1.0,
                                       ),
                                   cursorColor: Color(0x4C325B5E),
@@ -554,16 +521,11 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .headlineMedium,
                                             fontSize: 17.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -596,19 +558,12 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .info,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
                                             ),
                                         iconColor: Colors.black,
                                         iconSize: 1.0,
@@ -622,20 +577,13 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .secondaryText,
@@ -704,16 +652,11 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .titleSmall,
                                             color: Colors.black,
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily),
                                           ),
                                       elevation: 2.0,
                                       borderSide: BorderSide(
@@ -764,17 +707,12 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .titleSmall,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily),
                                           ),
                                       elevation: 2.0,
                                       borderSide: BorderSide(
@@ -801,16 +739,12 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation']!),
@@ -905,15 +839,11 @@ class _S4qrWidgetState extends State<S4qrWidget> with TickerProviderStateMixin {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleSmallFamily,
+                                  font: FlutterFlowTheme.of(context).titleSmall,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleSmallFamily),
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

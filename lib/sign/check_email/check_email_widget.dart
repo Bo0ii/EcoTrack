@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'check_email_model.dart';
 export 'check_email_model.dart';
@@ -141,17 +140,11 @@ class _CheckEmailWidgetState extends State<CheckEmailWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLargeFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineLarge,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(FlutterFlowTheme
-                                                              .of(context)
-                                                          .headlineLargeFamily),
                                                   lineHeight: 1.3,
                                                 ),
                                           ),
@@ -167,19 +160,12 @@ class _CheckEmailWidgetState extends State<CheckEmailWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                   color: Color(0xFF979494),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
                                                   lineHeight: 1.3,
                                                 ),
                                           ),
@@ -227,18 +213,12 @@ class _CheckEmailWidgetState extends State<CheckEmailWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmallFamily,
+                                                                .titleSmall,
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily),
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(

@@ -12,7 +12,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'sign_up_model.dart';
 export 'sign_up_model.dart';
@@ -246,15 +245,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .displaySmallFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .displaySmall,
                                         fontSize: 28.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .displaySmallFamily),
                                       ),
                                 ),
                               ),
@@ -272,15 +267,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .titleMedium,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMediumFamily),
                                       ),
                                 ),
                               ),
@@ -302,14 +293,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   'coon3al0' /* Enter your email... */,
@@ -317,14 +304,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -362,13 +345,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
                                   ),
                               cursorColor: Color(0x4C325B5E),
                               validator: _model.emailTextControllerValidator
@@ -390,14 +369,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   '4g3ga8aa' /* Create your Household ID */,
@@ -405,14 +380,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -450,13 +421,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
                                   ),
                               validator: _model
                                   .householdIdTextControllerValidator
@@ -482,14 +449,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   'fkxrymcx' /* Enter your password... */,
@@ -497,14 +460,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -556,13 +515,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
                                   ),
                               validator: _model.passwordTextControllerValidator
                                   .asValidator(context),
@@ -582,14 +537,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
                                   'ocps2kgq' /* Enter your password... */,
@@ -597,14 +548,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodySmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodySmall,
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmallFamily),
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -656,13 +603,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
                                   ),
                               validator: _model
                                   .passwordConfirmTextControllerValidator
@@ -836,13 +779,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
+                                font: FlutterFlowTheme.of(context).titleSmall,
                                 fontSize: 14.0,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
                               ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -884,13 +823,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
                                 ),
                           ),
                           Padding(
@@ -903,15 +838,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 13.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),

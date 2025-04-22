@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'automation_model.dart';
 export 'automation_model.dart';
@@ -158,16 +157,11 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineSmallFamily,
+                                                                    .headlineSmall,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineSmallFamily),
                                                               ),
                                                         ),
                                                         Text(
@@ -180,19 +174,14 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ],
@@ -324,16 +313,11 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineSmallFamily,
+                                                                    .headlineSmall,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineSmallFamily),
                                                               ),
                                                         ),
                                                         Text(
@@ -346,19 +330,14 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ],
@@ -510,16 +489,11 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineSmallFamily,
+                                                                    .headlineSmall,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineSmallFamily),
                                                               ),
                                                         ),
                                                         Text(
@@ -532,19 +506,14 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ],
@@ -688,16 +657,11 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .headlineSmallFamily,
+                                                                    .headlineSmall,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineSmallFamily),
                                                               ),
                                                         ),
                                                         Text(
@@ -710,19 +674,14 @@ class _AutomationWidgetState extends State<AutomationWidget> {
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ],

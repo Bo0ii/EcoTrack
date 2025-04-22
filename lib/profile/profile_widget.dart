@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'profile_model.dart';
@@ -356,16 +355,11 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .headlineSmallFamily,
+                                                        .headlineSmall,
                                                 color: Colors.black,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(FlutterFlowTheme
-                                                            .of(context)
-                                                        .headlineSmallFamily),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation1']!),
@@ -375,17 +369,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmallFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .titleSmall,
                                               color: Color(0xFF999999),
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmallFamily),
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation2']!),
@@ -448,25 +435,17 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                       ),
                                                       textAlign:
                                                           TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily,
-                                                                color: Colors
-                                                                    .black,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleSmallFamily),
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleSmall,
+                                                            color: Colors.black,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -522,25 +501,17 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                       ),
                                                       textAlign:
                                                           TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily,
-                                                                color: Colors
-                                                                    .black,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleSmallFamily),
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleSmall,
+                                                            color: Colors.black,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -586,19 +557,12 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                             context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall,
                                                           color: Colors.black,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
                                                         ),
                                                   ),
                                                 ],
@@ -692,17 +656,13 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                       .of(context)
                                                                   .headlineSmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineSmallFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall,
                                                                     fontSize:
                                                                         22.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -789,9 +749,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              font: FlutterFlowTheme.of(context).bodyMedium,
                                                                               letterSpacing: 0.0,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -862,12 +821,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            font:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -903,14 +860,12 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -950,12 +905,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                     icon: Icon(
                                                                       Icons
@@ -1051,12 +1004,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            font:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1074,14 +1025,12 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        font: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                                 Icon(
@@ -1148,12 +1097,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            font:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1221,14 +1168,12 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1289,12 +1234,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                               context)
                                                                           .bodyMedium
                                                                           .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            font:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1359,14 +1302,12 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).bodyMedium,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),

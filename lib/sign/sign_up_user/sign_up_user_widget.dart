@@ -245,15 +245,24 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                         context)
                                                     .displaySmall
                                                     .override(
-                                                      fontFamily: 'Lexend',
+                                                      font: GoogleFonts.lexend(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .displaySmall
+                                                                .fontStyle,
+                                                      ),
                                                       fontSize: 28.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
-                                                      useGoogleFonts:
-                                                          GoogleFonts.asMap()
-                                                              .containsKey(
-                                                                  'Lexend'),
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .displaySmall
+                                                              .fontStyle,
                                                     ),
                                               ),
                                             ],
@@ -270,18 +279,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -319,18 +321,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -341,18 +336,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -406,17 +394,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                               validator: _model
                                                   .emailTextControllerValidator
@@ -445,18 +427,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -467,18 +442,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -532,17 +500,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                               validator: _model
                                                   .householdIdTextControllerValidator
@@ -620,18 +582,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     hintText:
                                                         FFLocalizations.of(
@@ -643,18 +598,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -736,17 +684,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                   validator: _model
                                                       .passwordTextControllerValidator
@@ -776,18 +718,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     hintText:
                                                         FFLocalizations.of(
@@ -799,18 +734,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -892,17 +820,11 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                   validator: _model
                                                       .passwordConfirmTextControllerValidator
@@ -1211,23 +1133,16 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts: GoogleFonts
-                                                                    .asMap()
-                                                                .containsKey(
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmallFamily),
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
@@ -1275,18 +1190,12 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         fontSize: 13.0,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                                 Padding(
@@ -1302,21 +1211,14 @@ class _SignUpUserWidgetState extends State<SignUpUserWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
                                                           fontSize: 13.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),

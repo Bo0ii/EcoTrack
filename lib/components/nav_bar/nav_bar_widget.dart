@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'nav_bar_model.dart';
 export 'nav_bar_model.dart';
 
@@ -115,8 +114,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyLarge
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyLargeFamily,
+                                font: FlutterFlowTheme.of(context).bodyLarge,
                                 color: widget.currentpage == '0'
                                     ? Color(0xFF41BDBD)
                                     : FlutterFlowTheme.of(context)
@@ -124,9 +122,6 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                                 fontSize: 11.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyLargeFamily),
                               ),
                         ),
                       ),
@@ -176,8 +171,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyLarge
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyLargeFamily,
+                                font: FlutterFlowTheme.of(context).bodyLarge,
                                 color: widget.currentpage == '1'
                                     ? Color(0xFF41BDBD)
                                     : FlutterFlowTheme.of(context)
@@ -185,9 +179,6 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                                 fontSize: 11.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyLargeFamily),
                               ),
                         ),
                       ),
@@ -237,8 +228,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyLarge
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyLargeFamily,
+                                font: FlutterFlowTheme.of(context).bodyLarge,
                                 color: widget.currentpage == '2'
                                     ? Color(0xFF41BDBD)
                                     : FlutterFlowTheme.of(context)
@@ -246,9 +236,6 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                                 fontSize: 11.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyLargeFamily),
                               ),
                         ),
                       ),
@@ -298,8 +285,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyLarge
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyLargeFamily,
+                                font: FlutterFlowTheme.of(context).bodyLarge,
                                 color: widget.currentpage == '3'
                                     ? Color(0xFF41BDBD)
                                     : FlutterFlowTheme.of(context)
@@ -307,9 +293,6 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                                 fontSize: 11.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyLargeFamily),
                               ),
                         ),
                       ),

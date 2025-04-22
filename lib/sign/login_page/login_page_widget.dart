@@ -8,7 +8,6 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
@@ -216,20 +215,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             context)
                                                         .displaySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .displaySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .displaySmall,
                                                           fontSize: 28.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .displaySmallFamily),
                                                         ),
                                                   ),
                                                 ],
@@ -250,17 +242,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                   context)
                                                               .titleMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleMediumFamily,
+                                                                    .titleMedium,
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -289,18 +276,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     hintText:
                                                         FFLocalizations.of(
@@ -312,18 +292,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -385,17 +358,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
@@ -430,18 +397,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     hintText:
                                                         FFLocalizations.of(
@@ -453,18 +413,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             .of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -546,17 +499,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
@@ -613,18 +560,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmallFamily,
+                                                                      .bodySmall,
                                                                   color: Color(
                                                                       0xFF2DABB0),
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily),
                                                                 ),
                                                         elevation: 0.0,
                                                         borderSide: BorderSide(
@@ -705,16 +647,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleSmallFamily,
+                                                                    .titleSmall,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .titleSmallFamily),
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -776,16 +713,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMediumFamily,
+                                                                      .bodyMedium,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                           Padding(
@@ -806,18 +738,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ),

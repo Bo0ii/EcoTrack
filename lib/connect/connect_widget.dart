@@ -8,8 +8,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'connect_model.dart';
 export 'connect_model.dart';
 
@@ -251,27 +249,19 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                                   't1i1qr8i' /* Connect your device */,
                                                 ),
                                                 textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF566473),
-                                                          fontSize: 28.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium,
+                                                      color: Color(0xFF566473),
+                                                      fontSize: 28.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ),
                                           ),
@@ -319,20 +309,13 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           color:
                                                               Color(0xFF566473),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -393,18 +376,11 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                   Padding(
@@ -423,19 +399,14 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 color: Color(
                                                                     0xFF355F5F),
                                                                 fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -531,107 +502,67 @@ class _ConnectWidgetState extends State<ConnectWidget>
                                 ),
                               ),
                             ),
-                            FutureBuilder<List<DevicesRecord>>(
-                              future: queryDevicesRecordOnce(
-                                queryBuilder: (devicesRecord) =>
-                                    devicesRecord.where(
-                                  'userView',
-                                  arrayContains: currentUserEmail,
-                                ),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      child: SpinKitCubeGrid(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 40.0,
-                                      ),
-                                    ),
-                                  );
-                                }
-                                List<DevicesRecord> stackDevicesRecordList =
-                                    snapshot.data!;
-
-                                return Stack(
-                                  children: List.generate(
-                                      stackDevicesRecordList.length,
-                                      (stackIndex) {
-                                    final stackDevicesRecord =
-                                        stackDevicesRecordList[stackIndex];
-                                    return Align(
-                                      alignment:
-                                          AlignmentDirectional(-0.8, 0.25),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          HapticFeedback.selectionClick();
-                                        },
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Container(
-                                              width: 100.0,
-                                              height: 25.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF505365),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        200.0),
+                            Stack(
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(-0.8, 0.25),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      HapticFeedback.selectionClick();
+                                    },
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Container(
+                                          width: 100.0,
+                                          height: 25.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF505365),
+                                            borderRadius:
+                                                BorderRadius.circular(200.0),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: SelectionArea(
+                                                child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'o0tevk9p' /* ecot2 */,
                                               ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: SelectionArea(
-                                                    child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'o0tevk9p' /* ecot2 */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                                              style:
+                                                  FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         color: Colors.white,
                                                         fontSize: 10.0,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
-                                                )),
-                                              ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation4']!),
-                                            Image.asset(
-                                              'assets/images/11.png',
-                                              width: 112.4,
-                                              height: 107.6,
-                                              fit: BoxFit.cover,
-                                            ).animateOnPageLoad(animationsMap[
-                                                'imageOnPageLoadAnimation']!),
-                                          ],
-                                        ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'columnOnPageLoadAnimation']!),
-                                    );
-                                  }),
-                                );
-                              },
+                                            )),
+                                          ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation4']!),
+                                        Image.asset(
+                                          'assets/images/11.png',
+                                          width: 112.4,
+                                          height: 107.6,
+                                          fit: BoxFit.cover,
+                                        ).animateOnPageLoad(animationsMap[
+                                            'imageOnPageLoadAnimation']!),
+                                      ],
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'columnOnPageLoadAnimation']!),
+                                ),
+                              ],
                             ),
                           ],
                         ),

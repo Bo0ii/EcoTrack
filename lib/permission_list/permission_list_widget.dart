@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'permission_list_model.dart';
 export 'permission_list_model.dart';
 
@@ -199,16 +198,11 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .headlineMedium,
                                           fontSize: 24.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -222,16 +216,11 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -385,15 +374,11 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                             Row(
@@ -415,12 +400,10 @@ class _PermissionListWidgetState extends State<PermissionListWidget>
                                                                             context)
                                                                         .labelMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).labelMedium,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                         ),
                                                                   ),
                                                                 ),

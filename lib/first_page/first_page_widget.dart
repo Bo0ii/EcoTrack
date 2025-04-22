@@ -180,13 +180,10 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .displaySmallFamily,
+                                  font:
+                                      FlutterFlowTheme.of(context).displaySmall,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .displaySmallFamily),
                                 ),
                           ),
                         ),
@@ -204,12 +201,9 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
+                                  font:
+                                      FlutterFlowTheme.of(context).labelMedium,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .labelMediumFamily),
                                 ),
                           ),
                         ),
@@ -258,11 +252,25 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                              fontFamily: 'Lexend',
+                                              font: GoogleFonts.lexend(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Lexend'),
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .fontStyle,
                                             ),
                                         elevation: 0.0,
                                         borderSide: BorderSide(
@@ -312,17 +320,10 @@ class _FirstPageWidgetState extends State<FirstPageWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmallFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .titleSmall,
                                               color: Colors.white,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmallFamily),
                                             ),
                                         elevation: 1.0,
                                         borderSide: BorderSide(

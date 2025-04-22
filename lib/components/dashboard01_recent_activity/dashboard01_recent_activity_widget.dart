@@ -5,7 +5,6 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dashboard01_recent_activity_model.dart';
 export 'dashboard01_recent_activity_model.dart';
 
@@ -111,11 +110,8 @@ class _Dashboard01RecentActivityWidgetState
                     'fatcmz8i' /* Recent Activity */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).headlineSmallFamily,
+                        font: FlutterFlowTheme.of(context).headlineSmall,
                         letterSpacing: 0.0,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).headlineSmallFamily),
                       ),
                 ),
               ),
@@ -126,11 +122,8 @@ class _Dashboard01RecentActivityWidgetState
                     '5n6bg7qs' /* Below is an overview of tasks ... */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).labelMediumFamily,
+                        font: FlutterFlowTheme.of(context).labelMedium,
                         letterSpacing: 0.0,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).labelMediumFamily),
                       ),
                 ),
               ),
@@ -171,13 +164,9 @@ class _Dashboard01RecentActivityWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),
@@ -216,13 +205,9 @@ class _Dashboard01RecentActivityWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ),

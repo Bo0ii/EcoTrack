@@ -10,7 +10,6 @@ import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 's6_model.dart';
@@ -191,18 +190,11 @@ class _S6WidgetState extends State<S6Widget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -288,17 +280,11 @@ class _S6WidgetState extends State<S6Widget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineMediumFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineMedium,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(FlutterFlowTheme
-                                                              .of(context)
-                                                          .headlineMediumFamily),
                                                 ),
                                           ),
                                         ),
@@ -483,17 +469,10 @@ class _S6WidgetState extends State<S6Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -504,17 +483,10 @@ class _S6WidgetState extends State<S6Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -570,17 +542,11 @@ class _S6WidgetState extends State<S6Widget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                               validator: _model
                                                   .yourNameTextControllerValidator
@@ -607,17 +573,10 @@ class _S6WidgetState extends State<S6Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -628,17 +587,10 @@ class _S6WidgetState extends State<S6Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -694,17 +646,11 @@ class _S6WidgetState extends State<S6Widget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                               keyboardType:
                                                   TextInputType.number,
@@ -733,33 +679,19 @@ class _S6WidgetState extends State<S6Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -815,17 +747,11 @@ class _S6WidgetState extends State<S6Widget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                               validator: _model
                                                   .yourTitleTextControllerValidator
@@ -929,21 +855,15 @@ class _S6WidgetState extends State<S6Widget> {
                                                           .of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmallFamily,
+                                                                .titleSmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .textColor,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily),
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(

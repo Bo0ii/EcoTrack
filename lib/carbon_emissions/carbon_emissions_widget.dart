@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'carbon_emissions_model.dart';
 export 'carbon_emissions_model.dart';
@@ -185,16 +184,11 @@ class _CarbonEmissionsWidgetState extends State<CarbonEmissionsWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .headlineMedium,
                                             fontSize: 24.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -208,16 +202,11 @@ class _CarbonEmissionsWidgetState extends State<CarbonEmissionsWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -330,14 +319,12 @@ class _CarbonEmissionsWidgetState extends State<CarbonEmissionsWidget>
                                                                             context)
                                                                         .headlineSmall
                                                                         .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).headlineSmallFamily,
+                                                                          font:
+                                                                              FlutterFlowTheme.of(context).headlineSmall,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primary,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                         ),
                                                                   ),
                                                                 ],

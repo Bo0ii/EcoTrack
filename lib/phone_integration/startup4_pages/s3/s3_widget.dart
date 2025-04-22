@@ -6,7 +6,6 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 's3_model.dart';
@@ -203,16 +202,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -282,13 +276,10 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .headlineMediumFamily,
+                                font:
+                                    FlutterFlowTheme.of(context).headlineMedium,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .headlineMediumFamily),
                               ),
                         ),
                       ).animateOnPageLoad(
@@ -302,13 +293,9 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                           'q3xjroai' /* Select the Device that will be... */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              font: FlutterFlowTheme.of(context).bodyMedium,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
                             ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation']!),
@@ -406,17 +393,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -488,17 +469,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -570,17 +545,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -652,17 +621,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -734,17 +697,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -816,17 +773,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -896,17 +847,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -978,17 +923,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -1058,17 +997,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -1140,17 +1073,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -1222,17 +1149,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -1304,17 +1225,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -1435,15 +1350,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
                                   color: Colors.black,
                                   fontSize: 15.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(
@@ -1488,15 +1399,11 @@ class _S3WidgetState extends State<S3Widget> with TickerProviderStateMixin {
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
                                   color: Colors.white,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(

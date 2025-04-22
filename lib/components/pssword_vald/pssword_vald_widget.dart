@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'pssword_vald_model.dart';
 export 'pssword_vald_model.dart';
 
@@ -77,14 +76,12 @@ class _PsswordValdWidgetState extends State<PsswordValdWidget> {
         Expanded(
           child: AnimatedDefaultTextStyle(
             style: FlutterFlowTheme.of(context).bodySmall.override(
-                  fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
+                  font: FlutterFlowTheme.of(context).bodySmall,
                   color: widget.isValid!
                       ? FlutterFlowTheme.of(context).success
                       : FlutterFlowTheme.of(context).error,
                   fontSize: 11.0,
                   letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).bodySmallFamily),
                 ),
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,

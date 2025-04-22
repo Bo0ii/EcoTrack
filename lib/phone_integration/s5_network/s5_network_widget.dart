@@ -10,7 +10,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 's5_network_model.dart';
@@ -174,16 +173,10 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .headlineMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .headlineMedium,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(FlutterFlowTheme
-                                                          .of(context)
-                                                      .headlineMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -197,19 +190,12 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -262,17 +248,11 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                        .bodyMedium,
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                         TextSpan(
@@ -283,36 +263,25 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                        .bodyMedium,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 fontSize: 19.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
                                               ),
                                         )
                                       ],
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -404,16 +373,12 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .titleSmall,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily),
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(
@@ -439,16 +404,12 @@ class _S5NetworkWidgetState extends State<S5NetworkWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation']!),

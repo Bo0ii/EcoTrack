@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'information_dialog_model.dart';
 export 'information_dialog_model.dart';
 
@@ -89,12 +88,9 @@ class _InformationDialogWidgetState extends State<InformationDialogWidget> {
                           '/',
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              font: FlutterFlowTheme.of(context).bodyLarge,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyLargeFamily),
                             ),
                       ),
                     ),
@@ -120,16 +116,12 @@ class _InformationDialogWidgetState extends State<InformationDialogWidget> {
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).titleSmallFamily),
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: FlutterFlowTheme.of(context).titleSmall,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,

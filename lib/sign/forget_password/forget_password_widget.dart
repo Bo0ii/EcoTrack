@@ -7,7 +7,6 @@ import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'forget_password_model.dart';
 export 'forget_password_model.dart';
 
@@ -158,17 +157,11 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLargeFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineLarge,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(FlutterFlowTheme
-                                                              .of(context)
-                                                          .headlineLargeFamily),
                                                   lineHeight: 1.3,
                                                 ),
                                           ),
@@ -180,18 +173,12 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                        .bodyMedium,
                                                 color: Color(0xFF5C5C5C),
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
                                                 lineHeight: 1.3,
                                               ),
                                         ),
@@ -212,20 +199,13 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                           Padding(
@@ -261,33 +241,19 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmallFamily),
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -341,17 +307,11 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                               validator: _model
                                                   .householdIdTextControllerValidator
@@ -368,21 +328,15 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodySmallFamily,
+                                                                .bodySmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
                                                       ),
                                             ),
                                         ].divide(SizedBox(height: 4.0)),
@@ -443,14 +397,9 @@ class _ForgetPasswordWidgetState extends State<ForgetPasswordWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .titleSmall,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmallFamily),
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

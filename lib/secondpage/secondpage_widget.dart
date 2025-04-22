@@ -5,7 +5,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'secondpage_model.dart';
 export 'secondpage_model.dart';
 
@@ -182,19 +181,14 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                                     .of(context)
                                                                 .displaySmall
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .displaySmallFamily,
+                                                                      .displaySmall,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .displaySmallFamily),
                                                                 ),
                                                           ),
                                                         ),
@@ -226,15 +220,11 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodySmallFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -305,9 +295,9 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                                       .of(context)
                                                                   .displaySmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .displaySmallFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .displaySmall,
                                                                     fontSize:
                                                                         32.0,
                                                                     letterSpacing:
@@ -315,10 +305,6 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).displaySmallFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -351,15 +337,11 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                                       .of(context)
                                                                   .bodySmall
                                                                   .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodySmallFamily,
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
                                                                   ),
                                                             ),
                                                           ),
@@ -470,17 +452,11 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyLargeFamily,
+                                                                .bodyLarge,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLargeFamily),
                                                       ),
                                               elevation: 0.0,
                                               borderSide: BorderSide(
@@ -537,18 +513,12 @@ class _SecondpageWidgetState extends State<SecondpageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmallFamily,
+                                                                .titleSmall,
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily),
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(

@@ -8,8 +8,8 @@ import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 's1_model.dart';
@@ -186,16 +186,11 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
                                         ),
                                   ),
                                 ),
@@ -280,15 +275,10 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .headlineMedium,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -302,16 +292,11 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                   ),
@@ -343,19 +328,12 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLargeFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyLarge,
                                               color: Color(0xFF878787),
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeFamily),
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
@@ -364,19 +342,12 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLargeFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyLarge,
                                               color: Color(0xFFAAA9A9),
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeFamily),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -421,17 +392,12 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLargeFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .bodyLarge,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLargeFamily),
                                           ),
                                       maxLines: null,
                                       cursorColor:
@@ -439,6 +405,18 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                       validator: _model
                                           .myHomeTextControllerValidator
                                           .asValidator(context),
+                                      inputFormatters: [
+                                        if (!isAndroid && !isiOS)
+                                          TextInputFormatter.withFunction(
+                                              (oldValue, newValue) {
+                                            return TextEditingValue(
+                                              selection: newValue.selection,
+                                              text: newValue.text
+                                                  .toCapitalization(
+                                                      TextCapitalization.words),
+                                            );
+                                          }),
+                                      ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textFieldOnPageLoadAnimation']!),
@@ -537,15 +515,10 @@ class _S1WidgetState extends State<S1Widget> with TickerProviderStateMixin {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .titleSmall,
                                             color: Colors.white,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily),
                                           ),
                                       elevation: 0.0,
                                       borderRadius: BorderRadius.circular(12.0),

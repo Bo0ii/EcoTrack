@@ -5,7 +5,6 @@ import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'notifications_model.dart';
 export 'notifications_model.dart';
@@ -201,19 +200,12 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily),
                                                         ),
                                               ),
                                               Padding(
@@ -229,21 +221,15 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -260,21 +246,15 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           context)
                                                       .labelSmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmallFamily,
+                                                                .labelSmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallFamily),
                                                       ),
                                                 ),
                                               ),
@@ -349,19 +329,12 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily),
                                                         ),
                                               ),
                                               Padding(
@@ -377,21 +350,15 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -408,21 +375,15 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           context)
                                                       .labelSmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmallFamily,
+                                                                .labelSmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallFamily),
                                                       ),
                                                 ),
                                               ),
@@ -497,19 +458,12 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .titleMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleMedium,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily),
                                                         ),
                                               ),
                                               Padding(
@@ -525,21 +479,15 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -556,21 +504,15 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           context)
                                                       .labelSmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelSmallFamily,
+                                                                .labelSmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmallFamily),
                                                       ),
                                                 ),
                                               ),
@@ -627,14 +569,10 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                         ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              font: FlutterFlowTheme.of(context).bodyMedium,
                               fontSize: 19.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
                             ),
                       ),
                     ),

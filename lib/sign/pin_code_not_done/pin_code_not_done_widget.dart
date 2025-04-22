@@ -6,7 +6,6 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'pin_code_not_done_model.dart';
 export 'pin_code_not_done_model.dart';
 
@@ -161,19 +160,13 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                           context)
                                                       .headlineLarge
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .headlineLargeFamily,
+                                                                .headlineLarge,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineLargeFamily),
                                                         lineHeight: 1.3,
                                                       ),
                                                 ),
@@ -183,26 +176,18 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                     .getText(
                                                   '6r3yz9ih' /* Enter the verification code se... */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF8F8F8F),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                          lineHeight: 1.3,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium,
+                                                      color: Color(0xFF8F8F8F),
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.3,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -216,24 +201,16 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                     .getText(
                                                   'k10x2g1m' /* Enter Code */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF949494),
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium,
+                                                      color: Color(0xFF949494),
+                                                      letterSpacing: 0.0,
+                                                    ),
                                               ),
                                               PinCodeTextField(
                                                 autoDisposeControllers: false,
@@ -243,17 +220,10 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyLargeFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyLarge,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLargeFamily),
                                                         ),
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -349,20 +319,13 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           letterSpacing: 0.0,
                                                           decoration:
                                                               TextDecoration
                                                                   .underline,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 );
@@ -392,16 +355,11 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ].divide(
@@ -457,18 +415,11 @@ class _PinCodeNotDoneWidgetState extends State<PinCodeNotDoneWidget>
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall,
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(

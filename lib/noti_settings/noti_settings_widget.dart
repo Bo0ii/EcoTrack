@@ -6,7 +6,6 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'noti_settings_model.dart';
 export 'noti_settings_model.dart';
 
@@ -138,13 +137,9 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .headlineSmallFamily,
+                                    font: FlutterFlowTheme.of(context)
+                                        .headlineSmall,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .headlineSmallFamily),
                                   ),
                             ),
                             subtitle: Text(
@@ -154,13 +149,9 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodySmallFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodySmallFamily),
                                   ),
                             ),
                             activeColor: Color(0xFF73ACAE),
@@ -191,13 +182,9 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .headlineSmallFamily,
+                                    font: FlutterFlowTheme.of(context)
+                                        .headlineSmall,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .headlineSmallFamily),
                                   ),
                             ),
                             subtitle: Text(
@@ -207,13 +194,9 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodySmallFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodySmallFamily),
                                   ),
                             ),
                             activeColor: Color(0xFF639D9F),
@@ -243,13 +226,9 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .headlineSmallFamily,
+                                    font: FlutterFlowTheme.of(context)
+                                        .headlineSmall,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .headlineSmallFamily),
                                   ),
                             ),
                             subtitle: Text(
@@ -259,13 +238,9 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodySmallFamily,
+                                    font:
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodySmallFamily),
                                   ),
                             ),
                             activeColor: Color(0xFF639D9F),
@@ -300,15 +275,11 @@ class _NotiSettingsWidgetState extends State<NotiSettingsWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleSmallFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .titleSmall,
                                         color: FlutterFlowTheme.of(context)
                                             .textColor,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily),
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(

@@ -226,106 +226,91 @@ class MobileTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Poppins';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get displayLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
   String get displayMediumFamily => 'Poppins';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get displayMedium => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'Lexend';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get displaySmall => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.w300,
         fontSize: 32.0,
       );
   String get headlineLargeFamily => 'Poppins';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get headlineLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Lexend';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get headlineMedium => GoogleFonts.lexend(
         color: theme.primary,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
   String get headlineSmallFamily => 'Lexend';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get headlineSmall => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'Poppins';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get titleLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Lexend';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get titleMedium => GoogleFonts.lexend(
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
   String get titleSmallFamily => 'Lexend';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get titleSmall => GoogleFonts.lexend(
         color: theme.textColor,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Poppins';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelMediumFamily => 'Poppins';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelMedium => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get labelSmallFamily => 'Poppins';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelSmall => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
   String get bodyLargeFamily => 'Poppins';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get bodyLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Lexend';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get bodyMedium => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Lexend';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get bodySmall => GoogleFonts.lexend(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
@@ -338,106 +323,91 @@ class TabletTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Poppins';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get displayLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
   String get displayMediumFamily => 'Poppins';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get displayMedium => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'Lexend';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get displaySmall => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.w300,
         fontSize: 32.0,
       );
   String get headlineLargeFamily => 'Poppins';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get headlineLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Lexend';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get headlineMedium => GoogleFonts.lexend(
         color: theme.primary,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
   String get headlineSmallFamily => 'Lexend';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get headlineSmall => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'Poppins';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get titleLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Lexend';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get titleMedium => GoogleFonts.lexend(
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
   String get titleSmallFamily => 'Lexend';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get titleSmall => GoogleFonts.lexend(
         color: theme.textColor,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Poppins';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelMediumFamily => 'Poppins';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelMedium => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get labelSmallFamily => 'Poppins';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelSmall => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
   String get bodyLargeFamily => 'Poppins';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get bodyLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Lexend';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get bodyMedium => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Lexend';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get bodySmall => GoogleFonts.lexend(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
@@ -450,106 +420,91 @@ class DesktopTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Poppins';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get displayLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
   String get displayMediumFamily => 'Poppins';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get displayMedium => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'Lexend';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get displaySmall => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.w300,
         fontSize: 32.0,
       );
   String get headlineLargeFamily => 'Poppins';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get headlineLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Lexend';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get headlineMedium => GoogleFonts.lexend(
         color: theme.primary,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
   String get headlineSmallFamily => 'Lexend';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get headlineSmall => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'Poppins';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get titleLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Lexend';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get titleMedium => GoogleFonts.lexend(
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
   String get titleSmallFamily => 'Lexend';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get titleSmall => GoogleFonts.lexend(
         color: theme.textColor,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Poppins';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelMediumFamily => 'Poppins';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelMedium => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get labelSmallFamily => 'Poppins';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get labelSmall => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
   String get bodyLargeFamily => 'Poppins';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get bodyLarge => GoogleFonts.poppins(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'Lexend';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get bodyMedium => GoogleFonts.lexend(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Lexend';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Lexend',
+  TextStyle get bodySmall => GoogleFonts.lexend(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
@@ -593,38 +548,45 @@ class DarkModeTheme extends FlutterFlowTheme {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
+    TextStyle? font,
     String? fontFamily,
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = true,
+    bool useGoogleFonts = false,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
-  }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            )
-          : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            );
+  }) {
+    if (useGoogleFonts && fontFamily != null) {
+      font = GoogleFonts.getFont(fontFamily,
+          fontWeight: fontWeight ?? this.fontWeight,
+          fontStyle: fontStyle ?? this.fontStyle);
+    }
+
+    return font != null
+        ? font.copyWith(
+            color: color ?? this.color,
+            fontSize: fontSize ?? this.fontSize,
+            letterSpacing: letterSpacing ?? this.letterSpacing,
+            fontWeight: fontWeight ?? this.fontWeight,
+            fontStyle: fontStyle ?? this.fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          )
+        : copyWith(
+            fontFamily: fontFamily,
+            color: color,
+            fontSize: fontSize,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          );
+  }
 }

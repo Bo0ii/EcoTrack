@@ -19,7 +19,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'detailed_device_info_model.dart';
@@ -296,10 +295,10 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                           context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .headlineMediumFamily,
+                                                                .headlineMedium,
                                                         color: valueOrDefault<
                                                             Color>(
                                                           () {
@@ -357,12 +356,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineMediumFamily),
                                                       ),
                                                 ),
                                                 Row(
@@ -386,16 +379,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                     Text(
@@ -409,16 +397,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                     Text(
@@ -438,16 +421,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ]
@@ -760,21 +738,14 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
+                                                      font: FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium,
                                                       color: Colors.white,
                                                       fontSize: 13.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
-                                                      useGoogleFonts: GoogleFonts
-                                                              .asMap()
-                                                          .containsKey(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily),
                                                     ),
                                             elevation: 0.9,
                                             borderRadius:
@@ -810,26 +781,18 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                               iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color: Color(0xFF73C4C4),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color: Colors.white,
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                    color: Colors.white,
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                               elevation: 0.9,
                                               borderRadius:
                                                   BorderRadius.circular(18.0),
@@ -860,17 +823,10 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                           Align(
@@ -937,9 +893,9 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                     context)
                                                                 .headlineMedium
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                  font: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .headlineMediumFamily,
+                                                                      .headlineMedium,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText,
@@ -950,11 +906,6 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .headlineMediumFamily),
                                                                 ),
                                                       ),
                                                       duration: Duration(
@@ -1016,17 +967,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
+                                                                .bodyMedium,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ],
@@ -1045,21 +990,15 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                           context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodySmallFamily,
+                                                                .bodySmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
                                                       ),
                                                 ),
                                                 Container(
@@ -1192,16 +1131,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1217,21 +1151,15 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                           context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily:
+                                                        font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodySmallFamily,
+                                                                .bodySmall,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
                                                       ),
                                                 ),
                                                 Container(
@@ -1364,16 +1292,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
+                                                                font: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
+                                                                    .bodyMedium,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -1459,20 +1382,13 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -1491,18 +1407,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1519,18 +1428,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -1549,18 +1451,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1577,18 +1472,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -1607,18 +1495,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1635,18 +1516,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -1665,18 +1539,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1693,18 +1560,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -1723,18 +1583,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1751,18 +1604,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -1798,20 +1644,13 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -1854,18 +1693,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -1909,18 +1741,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1938,18 +1763,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -1968,18 +1786,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -1996,18 +1807,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -2026,18 +1830,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -2054,18 +1851,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -2101,20 +1891,13 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 21.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -2184,18 +1967,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -2212,18 +1988,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -2242,18 +2011,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -2270,18 +2032,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -2300,18 +2055,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               Text(
@@ -2328,18 +2076,11 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
