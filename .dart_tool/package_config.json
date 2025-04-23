@@ -111,7 +111,7 @@
     },
     {
       "name": "connectivity_plus",
-      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/connectivity_plus-6.1.3",
+      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/connectivity_plus-6.1.4",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -429,7 +429,7 @@
     },
     {
       "name": "google_identity_services_web",
-      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/google_identity_services_web-0.3.3",
+      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/google_identity_services_web-0.3.3+1",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -915,21 +915,21 @@
     },
     {
       "name": "syncfusion_flutter_charts",
-      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/syncfusion_flutter_charts-29.1.38",
+      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/syncfusion_flutter_charts-29.1.39",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "3.7"
     },
     {
       "name": "syncfusion_flutter_core",
-      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-29.1.38",
+      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-29.1.39",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "3.7"
     },
     {
       "name": "syncfusion_flutter_gauges",
-      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/syncfusion_flutter_gauges-29.1.38",
+      "rootUri": "file:///Users/bo0ii/.pub-cache/hosted/pub.dev/syncfusion_flutter_gauges-29.1.39",
       "packageUri": "lib/",
-      "languageVersion": "3.4"
+      "languageVersion": "3.7"
     },
     {
       "name": "synchronized",
@@ -1100,7 +1100,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-04-21T18:28:47.638483Z",
+  "generated": "2025-04-23T14:25:27.001172Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///Users/bo0ii/flutter",
