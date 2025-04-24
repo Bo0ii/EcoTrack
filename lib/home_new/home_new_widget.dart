@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/components/loading/loading_widget.dart';
 import '/components/nav_bar/nav_bar_widget.dart';
+import '/components/shimmer/shimmer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
@@ -23,6 +23,28 @@ import 'package:provider/provider.dart';
 import 'home_new_model.dart';
 export 'home_new_model.dart';
 
+// App lifecycle observer to suspend animations when app is not visible
+class _AppLifecycleObserver extends WidgetsBindingObserver {
+  final VoidCallback resumeCallBack;
+  final VoidCallback pauseCallBack;
+
+  _AppLifecycleObserver({
+    required this.resumeCallBack,
+    required this.pauseCallBack,
+  });
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      resumeCallBack();
+    } else if (state == AppLifecycleState.paused || 
+              state == AppLifecycleState.inactive || 
+              state == AppLifecycleState.detached) {
+      pauseCallBack();
+    }
+  }
+}
+
 class HomeNewWidget extends StatefulWidget {
   const HomeNewWidget({
     super.key,
@@ -41,6 +63,7 @@ class HomeNewWidget extends StatefulWidget {
 class _HomeNewWidgetState extends State<HomeNewWidget>
     with TickerProviderStateMixin {
   late HomeNewModel _model;
+  late _AppLifecycleObserver _lifecycleObserver;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -50,9 +73,18 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeNewModel());
+    
+    // Initialize the lifecycle observer
+    _lifecycleObserver = _AppLifecycleObserver(
+      resumeCallBack: () => setState(() => _model.isVisible = true),
+      pauseCallBack: () => setState(() => _model.isVisible = false),
+    );
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      // Add visibility observer
+      WidgetsBinding.instance.addObserver(_lifecycleObserver);
+      
       _model.adminUser = await queryUsersRecordOnce(
         queryBuilder: (usersRecord) => usersRecord.where(
           'email',
@@ -63,58 +95,22 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
       if (_model.adminUser != null) {
         FFAppState().isAdmin = true;
         FFAppState().adminREFappState = _model.adminUser?.reference;
+        safeSetState(() {});
         FFAppState().displayName = _model.adminUser!.displayName;
         FFAppState().houseName = _model.adminUser!.nameOfHouse;
+        safeSetState(() {});
         FFAppState().deviceID = FFAppState().deviceID;
         safeSetState(() {});
         _model.deviceRef = await queryDevicesRecordOnce(
           parent: _model.adminUser?.reference,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        while (FFAppState().isLooping == true) {
-          _model.sensordataAPIpageload = await GetSensorDataCall.call(
-            deviceId: _model.deviceRef?.deviceId,
-          );
-
-          FFAppState().sensorData = getJsonField(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-            r'''$''',
-            true,
-          )!
-              .toList()
-              .cast<dynamic>();
-          safeSetState(() {});
-          FFAppState().weatherTemp = GetSensorDataCall.temperature(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().humidity = GetSensorDataCall.humidity(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().weatherState = GetSensorDataCall.weatherstate(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().tips = GetSensorDataCall.tips(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tcost = GetSensorDataCall.tcost(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tenergy = GetSensorDataCall.tenergy(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().CostChange = GetSensorDataCall.costChange24h(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().energyChange = GetSensorDataCall.energyChnage24h(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          await Future.delayed(const Duration(milliseconds: 800));
-        }
+        
+        // Start the optimized polling mechanism
+        _startOptimizedPolling();
       } else {
         FFAppState().isAdmin = false;
+        safeSetState(() {});
         _model.userDirectoryEntry = await queryUserDirectoryRecordOnce(
           queryBuilder: (userDirectoryRecord) => userDirectoryRecord.where(
             'emai',
@@ -140,54 +136,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           parent: _model.userDirectoryEntry?.parentAdminRef,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        while (FFAppState().isLooping == true) {
-          _model.sensordataAPIpageload2 = await GetSensorDataCall.call(
-            deviceId: _model.deviceRef2?.deviceId,
-          );
-
-          FFAppState().sensorData = getJsonField(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            r'''$''',
-            true,
-          )!
-              .toList()
-              .cast<dynamic>();
-          safeSetState(() {});
-          FFAppState().weatherTemp = GetSensorDataCall.temperature(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().humidity = GetSensorDataCall.humidity(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().weatherState = GetSensorDataCall.weatherstate(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().tips = GetSensorDataCall.tips(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tcost = GetSensorDataCall.tcost(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tenergy = GetSensorDataCall.tenergy(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().energyChange = valueOrDefault<String>(
-            GetSensorDataCall.energyChnage24h(
-              (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            ),
-            '0.0',
-          );
-          FFAppState().CostChange = valueOrDefault<String>(
-            GetSensorDataCall.costChange24h(
-              (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            ),
-            '0.0',
-          );
-          await Future.delayed(const Duration(milliseconds: 800));
-        }
+        
+        // Start the optimized polling mechanism
+        _startOptimizedPolling();
       }
     });
 
@@ -259,6 +210,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
 
   @override
   void dispose() {
+    // Remove the lifecycle observer
+    WidgetsBinding.instance.removeObserver(_lifecycleObserver);
+
     // On page dispose action.
     () async {
       FFAppState().currentPage = 'home';
@@ -314,9 +268,19 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                               width: 787.9,
                               height: 658.3,
                               fit: BoxFit.cover,
-                              frameRate: FrameRate(60.0),
+                              frameRate: FrameRate(30.0),
                               reverse: true,
-                              animate: true,
+                              animate: _model.isVisible,
+                              controller: _model.lottieController,
+                              onLoaded: (composition) {
+                                _model.lottieController
+                                  ..duration = composition.duration
+                                  ..forward();
+                              },
+                              options: LottieOptions(
+                                enableMergePaths: true,
+                                cacheComposition: true,
+                              ),
                             ),
                           ),
                         ),
@@ -1442,12 +1406,18 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
                                                   return Center(
-                                                    child: LoadingWidget(),
+                                                    child: ShimmerWidget(),
                                                   );
                                                 }
                                                 List<DevicesRecord>
                                                     listViewDevicesRecordList =
                                                     snapshot.data!;
+                                                if (listViewDevicesRecordList
+                                                    .isEmpty) {
+                                                  return Center(
+                                                    child: ShimmerWidget(),
+                                                  );
+                                                }
 
                                                 return ListView.builder(
                                                   padding: EdgeInsets.zero,
@@ -1506,10 +1476,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   () {
                                                                     if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
+                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '0') {
@@ -1517,10 +1484,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           0xFFDBE4E4);
                                                                     } else if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
+                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '1') {
@@ -1528,10 +1492,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           0xFFE4D2CB);
                                                                     } else if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
+                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '2') {
@@ -1604,7 +1565,8 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceEvenly,
+                                                                              MainAxisAlignment
+                                                                                  .spaceEvenly,
                                                                           children: [
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 5.0),
@@ -2333,8 +2295,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                                   width: 32.0,
                                                                                   height: 32.5,
                                                                                   fit: BoxFit.contain,
-                                                                                  frameRate: FrameRate(30.0),
-                                                                                  animate: true,
+                                                                                  frameRate: FrameRate(15.0),
+                                                                                  animate: _model.isVisible,
+                                                                                  controller: _model.lottieController2,
+                                                                                  options: LottieOptions(
+                                                                                    enableMergePaths: true,
+                                                                                    cacheComposition: true,
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -2357,180 +2324,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                             ),
                                           ],
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 16.0),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height: 119.5,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 3.0,
-                                                      color: Color(0x11000000),
-                                                      offset: Offset(
-                                                        0.0,
-                                                        2.0,
-                                                      ),
-                                                    )
-                                                  ],
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(11.0, 16.0,
-                                                          11.0, 16.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'tgqtv76v' /* Eco-Energy Tip  */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .headlineSmall
-                                                                .override(
-                                                                  font: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineSmall,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      19.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                          ),
-                                                          Icon(
-                                                            Icons.eco_rounded,
-                                                            color: Color(
-                                                                0xFF6DBA6D),
-                                                            size: 24.0,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Opacity(
-                                                            opacity: 0.7,
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'v7weflxu' /* Powered by AI */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineSmall
-                                                                  .override(
-                                                                    font: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineSmall,
-                                                                    color: Color(
-                                                                        0xFF909090),
-                                                                    fontSize:
-                                                                        11.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    6.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            FFAppState().tips,
-                                                            'Unplug chargers when not in use.',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                                color: Color(
-                                                                    0xFF76808A),
-                                                                fontSize: 13.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 0.0)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 16.0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 68.5,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ].divide(SizedBox(height: 24.0)),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -2539,54 +2333,171 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 93.67,
-                            decoration: BoxDecoration(),
-                            child: wrapWithModel(
-                              model: _model.navBarModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: NavBarWidget(
-                                currentpage: '0',
+                          alignment:
+                              AlignmentDirectional(0.0, 1.0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 16.0),
+                            child: Material(
+                              color: Colors.transparent,
+                              elevation: 1.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(16.0),
+                              ),
+                              child: Container(
+                                width:
+                                    MediaQuery.sizeOf(context)
+                                            .width *
+                                        1.0,
+                                height: 119.5,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 3.0,
+                                      color: Color(0x11000000),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius:
+                                      BorderRadius.circular(
+                                          16.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional
+                                      .fromSTEB(11.0, 16.0, 11.0, 16.0),
+                                  child: Column(
+                                    mainAxisSize:
+                                        MainAxisSize.min,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisSize:
+                                            MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(
+                                                    context)
+                                                .getText(
+                                              'tgqtv76v' /* Eco-Energy Tip  */,
+                                            ),
+                                            style: FlutterFlowTheme
+                                                    .of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontSize:
+                                                      19.0,
+                                                  letterSpacing:
+                                                      0.0,
+                                                ),
+                                          ),
+                                          Icon(
+                                            Icons.eco_rounded,
+                                            color: Color(
+                                                0xFF6DBA6D),
+                                            size: 24.0,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisSize:
+                                            MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Opacity(
+                                            opacity: 0.7,
+                                            child: Text(
+                                              FFLocalizations.of(
+                                                      context)
+                                                  .getText(
+                                                'v7weflxu' /* Powered by AI */,
+                                              ),
+                                              style: FlutterFlowTheme
+                                                      .of(context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    font: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineSmall,
+                                                    color: Color(
+                                                        0xFF909090),
+                                                    fontSize:
+                                                        11.0,
+                                                    letterSpacing:
+                                                        0.0,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding:
+                                            EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                    0.0,
+                                                    6.0,
+                                                    0.0,
+                                                    0.0),
+                                        child: Text(
+                                          valueOrDefault<
+                                              String>(
+                                            FFAppState().tips,
+                                            'Unplug chargers when not in use.',
+                                          ),
+                                          style: FlutterFlowTheme
+                                                  .of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium,
+                                                color: Color(
+                                                    0xFF76808A),
+                                                fontSize: 13.0,
+                                                letterSpacing:
+                                                    0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ].divide(
+                                        SizedBox(height: 0.0)),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 90.9,
-                          decoration: BoxDecoration(),
-                          child: ClipRect(
-                            child: ImageFiltered(
-                              imageFilter: ImageFilter.blur(
-                                sigmaX: 5.0,
-                                sigmaY: 5.0,
-                              ),
-                              child: Opacity(
-                                opacity: 0.95,
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, -1.0),
-                                  child: Container(
-                                    width: 393.0,
-                                    height: 60.53,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0xFFF0FEFF),
-                                          Color(0xDFF0FEFF),
-                                          Color(0x40F0FEFF),
-                                          Color(0x00FFFFFF),
-                                          Color(0x00EBFEFF)
-                                        ],
-                                        stops: [0.0, 0.5, 0.85, 0.9, 1.0],
-                                        begin: AlignmentDirectional(0.0, -1.0),
-                                        end: AlignmentDirectional(0, 1.0),
-                                      ),
-                                    ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                  ),
-                                ),
+                        Align(
+                          alignment:
+                              AlignmentDirectional(0.0, 1.0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 16.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context)
+                                      .width *
+                                  1.0,
+                              height: 68.5,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.circular(16.0),
                               ),
                             ),
                           ),
@@ -2601,5 +2512,103 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
         ),
       ),
     );
+  }
+
+  // Optimized polling function that adjusts frequency based on app state
+  void _startOptimizedPolling() async {
+    // Define polling intervals
+    int activePollingInterval = 2000; // 2 seconds when active
+    int backgroundPollingInterval = 10000; // 10 seconds when in background
+    int inactivePollingInterval = 30000; // 30 seconds when inactive for a while
+    int inactivityThreshold = 60000; // 1 minute of no user interaction
+    
+    DateTime lastUserInteraction = DateTime.now();
+    bool isPolling = true;
+    int currentInterval = activePollingInterval;
+    
+    // Update last interaction time when user interacts
+    scaffoldKey.currentContext?.findRenderObject()?.addListener(() {
+      lastUserInteraction = DateTime.now();
+    });
+    
+    while (isPolling && FFAppState().isLooping) {
+      try {
+        // Check if app is visible
+        if (!_model.isVisible) {
+          currentInterval = backgroundPollingInterval;
+        } else {
+          // Check for inactivity
+          final inactiveDuration = DateTime.now().difference(lastUserInteraction).inMilliseconds;
+          if (inactiveDuration > inactivityThreshold) {
+            currentInterval = inactivePollingInterval;
+          } else {
+            currentInterval = activePollingInterval;
+          }
+        }
+        
+        // Perform the API call
+        final deviceId = _model.adminUser != null 
+            ? _model.deviceRef?.deviceId
+            : _model.deviceRef2?.deviceId;
+            
+        final apiResponse = await GetSensorDataCall.call(
+          deviceId: deviceId,
+        );
+        
+        if (apiResponse.succeeded) {
+          FFAppState().sensorData = getJsonField(
+            (apiResponse.jsonBody ?? ''),
+            r'''$''',
+            true,
+          )!.toList().cast<dynamic>();
+          
+          // Update app state with API response data
+          FFAppState().weatherTemp = GetSensorDataCall.temperature(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().weatherTemp;
+          
+          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().cloudCoverage;
+          
+          FFAppState().humidity = GetSensorDataCall.humidity(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().humidity;
+          
+          FFAppState().weatherState = GetSensorDataCall.weatherstate(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().weatherState;
+          
+          FFAppState().tips = GetSensorDataCall.tips(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().tips;
+          
+          FFAppState().Tcost = GetSensorDataCall.tcost(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().Tcost;
+          
+          FFAppState().Tenergy = GetSensorDataCall.tenergy(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().Tenergy;
+          
+          FFAppState().CostChange = GetSensorDataCall.costChange24h(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().CostChange;
+          
+          FFAppState().energyChange = GetSensorDataCall.energyChnage24h(
+            (apiResponse.jsonBody ?? ''),
+          ) ?? FFAppState().energyChange;
+          
+          if (mounted) {
+            safeSetState(() {});
+          }
+        }
+      } catch (e) {
+        print('Error in polling: $e');
+      }
+      
+      // Await the appropriate interval
+      await Future.delayed(Duration(milliseconds: currentInterval));
+    }
   }
 }

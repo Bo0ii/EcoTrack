@@ -44,7 +44,7 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 1060.0.ms,
-            color: Color(0x4F959595),
+            color: Color(0x4FB2B2B2),
             angle: 0.419,
           ),
         ],
@@ -71,15 +71,25 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 19.0),
           child: Material(
             color: Colors.transparent,
-            elevation: 2.0,
+            elevation: 0.0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Container(
               width: 226.9,
-              height: 245.47,
+              height: 264.53,
               decoration: BoxDecoration(
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 3.0,
+                    color: Color(0x13000000),
+                    offset: Offset(
+                      0.0,
+                      2.0,
+                    ),
+                  )
+                ],
                 borderRadius: BorderRadius.circular(8.0),
               ),
               alignment: AlignmentDirectional(0.0, 0.0),
