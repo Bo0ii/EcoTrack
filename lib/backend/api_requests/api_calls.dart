@@ -39,9 +39,6 @@ class GetSensorDataCall {
   static Future<ApiCallResponse> call({
     String? deviceId = 'ecot2',
   }) async {
-    // Create a cache key based on device ID and timestamp (cached for 30 seconds)
-    final String cacheKey = 'sensor_data_${deviceId}_${DateTime.now().millisecondsSinceEpoch ~/ 30000}';
-    
     return ApiManager.instance.makeApiCall(
       callName: 'GetSensorData',
       apiUrl: 'https://eco-track.duckdns.org/api/states',
@@ -55,13 +52,7 @@ class GetSensorDataCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
-      cache: true, // Enable caching
-      cacheKey: cacheKey, // Use custom cache key
-      cacheTtl: 30000, // Cache for 30 seconds
-      timeoutDuration: const Duration(seconds: 10), // Add timeout
-      retry: true, // Enable retry
-      maxRetries: 3, // Maximum 3 retries
-      retryDelay: const Duration(milliseconds: 500), // Delay between retries
+      cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
     );
