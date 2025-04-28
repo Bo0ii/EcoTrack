@@ -39,14 +39,26 @@ jobs:
       - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Build Android APK (release)
-        run: flutter build apk --release
+      - name: Build Android APK release (with tree shaking)
+        run: flutter build apk --release --tree-shake-icons
 
-      - name: Upload APK to GitHub Release
+      - name: Create APK output folder
+        run: mkdir APKOutput
+        working-directory: build/app/outputs/flutter-apk
+
+      - name: Move APK to APKOutput
+        run: mv app-release.apk APKOutput/
+        working-directory: build/app/outputs/flutter-apk
+
+      - name: Zip APK output
+        run: zip -qq -r -9 FlutterApkExport.zip APKOutput
+        working-directory: build/app/outputs/flutter-apk
+
+      - name: Upload APK to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/app/outputs/flutter-apk/app-release.apk
+          file: build/app/outputs/flutter-apk/FlutterApkExport.zip
           tag: v1.0
           overwrite: true
-          body: "This is the Android release"
+          body: "This is the Android APK release"
