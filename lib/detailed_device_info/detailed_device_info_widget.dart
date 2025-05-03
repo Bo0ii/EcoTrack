@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/custom_code/widgets/optimized_lottie_player.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -22,7 +23,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'detailed_device_info_model.dart';
-import 'optimized_lottie_player.dart';
 export 'detailed_device_info_model.dart';
 
 class DetailedDeviceInfoWidget extends StatefulWidget {
