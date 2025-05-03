@@ -22,6 +22,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'detailed_device_info_model.dart';
+import 'optimized_lottie_player.dart';
 export 'detailed_device_info_model.dart';
 
 class DetailedDeviceInfoWidget extends StatefulWidget {
@@ -205,12 +206,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                             ),
                             child: Opacity(
                               opacity: 0.8,
-                              child: Lottie.asset(
-                                'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                              child: OptimizedLottiePlayer(
+                                assetPath: 'assets/jsons/Main_Scene_(2)-T62Fr.json',
                                 width: 787.9,
                                 height: 658.3,
                                 fit: BoxFit.cover,
-                                frameRate: FrameRate(60.0),
+                                frameRate: 60.0,
                                 reverse: true,
                                 animate: true,
                               ),

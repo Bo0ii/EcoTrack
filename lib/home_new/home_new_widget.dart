@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'dart:math' as math;
@@ -73,48 +74,25 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           parent: _model.adminUser?.reference,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        while (FFAppState().isLooping == true) {
-          _model.sensordataAPIpageload = await GetSensorDataCall.call(
-            deviceId: _model.deviceRef?.deviceId,
-          );
-
-          FFAppState().sensorData = getJsonField(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-            r'''$''',
-            true,
-          )!
-              .toList()
-              .cast<dynamic>();
-          safeSetState(() {});
-          FFAppState().weatherTemp = GetSensorDataCall.temperature(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().humidity = GetSensorDataCall.humidity(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().weatherState = GetSensorDataCall.weatherstate(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().tips = GetSensorDataCall.tips(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tcost = GetSensorDataCall.tcost(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tenergy = GetSensorDataCall.tenergy(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().CostChange = GetSensorDataCall.costChange24h(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          FFAppState().energyChange = GetSensorDataCall.energyChnage24h(
-            (_model.sensordataAPIpageload?.jsonBody ?? ''),
-          )!;
-          await Future.delayed(const Duration(milliseconds: 800));
-        }
+        
+        // Use optimized API fetcher instead of direct polling
+        actions.startOptimizedDataPolling(
+          deviceId: _model.deviceRef?.deviceId,
+          onDataReceived: (data) {
+            // Update app state with the received data
+            FFAppState().sensorData = data['sensorData'];
+            FFAppState().weatherTemp = data['weatherTemp'];
+            FFAppState().cloudCoverage = data['cloudCoverage'];
+            FFAppState().humidity = data['humidity'];
+            FFAppState().weatherState = data['weatherState'];
+            FFAppState().tips = data['tips'];
+            FFAppState().Tcost = data['Tcost'];
+            FFAppState().Tenergy = data['Tenergy'];
+            FFAppState().CostChange = data['CostChange'];
+            FFAppState().energyChange = data['energyChange'];
+            safeSetState(() {});
+          },
+        );
       } else {
         FFAppState().isAdmin = false;
         safeSetState(() {});
@@ -143,54 +121,25 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           parent: _model.userDirectoryEntry?.parentAdminRef,
           singleRecord: true,
         ).then((s) => s.firstOrNull);
-        while (FFAppState().isLooping == true) {
-          _model.sensordataAPIpageload2 = await GetSensorDataCall.call(
-            deviceId: _model.deviceRef2?.deviceId,
-          );
-
-          FFAppState().sensorData = getJsonField(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            r'''$''',
-            true,
-          )!
-              .toList()
-              .cast<dynamic>();
-          safeSetState(() {});
-          FFAppState().weatherTemp = GetSensorDataCall.temperature(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().cloudCoverage = GetSensorDataCall.windspeed(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().humidity = GetSensorDataCall.humidity(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().weatherState = GetSensorDataCall.weatherstate(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().tips = GetSensorDataCall.tips(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tcost = GetSensorDataCall.tcost(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().Tenergy = GetSensorDataCall.tenergy(
-            (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-          )!;
-          FFAppState().energyChange = valueOrDefault<String>(
-            GetSensorDataCall.energyChnage24h(
-              (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            ),
-            '0.0',
-          );
-          FFAppState().CostChange = valueOrDefault<String>(
-            GetSensorDataCall.costChange24h(
-              (_model.sensordataAPIpageload2?.jsonBody ?? ''),
-            ),
-            '0.0',
-          );
-          await Future.delayed(const Duration(milliseconds: 800));
-        }
+        
+        // Use optimized API fetcher for non-admin users too
+        actions.startOptimizedDataPolling(
+          deviceId: _model.deviceRef2?.deviceId,
+          onDataReceived: (data) {
+            // Update app state with the received data
+            FFAppState().sensorData = data['sensorData'];
+            FFAppState().weatherTemp = data['weatherTemp'];
+            FFAppState().cloudCoverage = data['cloudCoverage'];
+            FFAppState().humidity = data['humidity'];
+            FFAppState().weatherState = data['weatherState'];
+            FFAppState().tips = data['tips'];
+            FFAppState().Tcost = data['Tcost'];
+            FFAppState().Tenergy = data['Tenergy'];
+            FFAppState().CostChange = data['CostChange'];
+            FFAppState().energyChange = data['energyChange'];
+            safeSetState(() {});
+          },
+        );
       }
     });
 
@@ -262,14 +211,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
 
   @override
   void dispose() {
-    // On page dispose action.
-    () async {
-      FFAppState().currentPage = 'home';
-      safeSetState(() {});
-    }();
-
+    // Stop API polling when the page is disposed
+    actions.stopOptimizedDataPolling();
     _model.dispose();
-
     super.dispose();
   }
 
@@ -312,12 +256,13 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                           ),
                           child: Opacity(
                             opacity: 0.8,
-                            child: Lottie.asset(
-                              'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                            // Use optimized Lottie player
+                            child: OptimizedLottiePlayer(
+                              assetPath: 'assets/jsons/Main_Scene_(2)-T62Fr.json',
                               width: 787.9,
                               height: 658.3,
                               fit: BoxFit.cover,
-                              frameRate: FrameRate(60.0),
+                              frameRate: 60.0,
                               reverse: true,
                               animate: true,
                             ),
@@ -1515,10 +1460,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   () {
                                                                     if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
+                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '0') {
@@ -1526,10 +1468,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           0xFFDBE4E4);
                                                                     } else if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
+                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '1') {
@@ -1537,10 +1476,7 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           0xFFE4D2CB);
                                                                     } else if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(
-                                                                              FFAppState().sensorData.toList(),
-                                                                              listViewDevicesRecord.deviceId,
-                                                                              'anomaly_status_numeric'),
+                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '2') {

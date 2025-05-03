@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_commons/api_requests/api_manager.dart';
+import '/custom_code/actions/index.dart' as actions;
 
 
 export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
@@ -14,6 +15,9 @@ class PowerXthreshholdCall {
     String? computedApiFilter = '',
     String? startTime = '',
   }) async {
+    // Get shared HTTP client for better performance
+    final client = actions.getSharedHttpClient();
+    
     return ApiManager.instance.makeApiCall(
       callName: 'powerXthreshhold',
       apiUrl:
@@ -31,6 +35,7 @@ class PowerXthreshholdCall {
       cache: true,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: client,
     );
   }
 }
@@ -39,6 +44,9 @@ class GetSensorDataCall {
   static Future<ApiCallResponse> call({
     String? deviceId = 'ecot2',
   }) async {
+    // Get shared HTTP client for better performance
+    final client = actions.getSharedHttpClient();
+    
     return ApiManager.instance.makeApiCall(
       callName: 'GetSensorData',
       apiUrl: 'https://eco-track.duckdns.org/api/states',
@@ -55,6 +63,7 @@ class GetSensorDataCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: client,
     );
   }
 
@@ -133,6 +142,9 @@ class ToggleRelayOFFCall {
   static Future<ApiCallResponse> call({
     String? myEntityId = '',
   }) async {
+    // Get shared HTTP client for better performance
+    final client = actions.getSharedHttpClient();
+    
     final ffApiRequestBody = '''
 {
   "entity_id": "${escapeStringForJson(myEntityId)}"
@@ -155,6 +167,7 @@ class ToggleRelayOFFCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: client,
     );
   }
 }
@@ -163,6 +176,9 @@ class ToggleRelayOnCall {
   static Future<ApiCallResponse> call({
     String? myEntityId = '',
   }) async {
+    // Get shared HTTP client for better performance
+    final client = actions.getSharedHttpClient();
+    
     final ffApiRequestBody = '''
 {
   "entity_id": "${escapeStringForJson(myEntityId)}"
@@ -185,6 +201,7 @@ class ToggleRelayOnCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: client,
     );
   }
 }
@@ -193,6 +210,9 @@ class DailyEnergyListCall {
   static Future<ApiCallResponse> call({
     String? deviceId = 'ecot2',
   }) async {
+    // Get shared HTTP client for better performance
+    final client = actions.getSharedHttpClient();
+    
     return ApiManager.instance.makeApiCall(
       callName: 'dailyEnergyList',
       apiUrl:
@@ -210,6 +230,7 @@ class DailyEnergyListCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: client,
     );
   }
 }
@@ -220,6 +241,9 @@ class WorkingScheduleCall {
     String? selectedStopTime = '',
     String? deviceId = '',
   }) async {
+    // Get shared HTTP client for better performance
+    final client = actions.getSharedHttpClient();
+    
     final ffApiRequestBody = '''
 {
   "topic": "${escapeStringForJson(deviceId)}/schedule/set",
@@ -243,6 +267,7 @@ class WorkingScheduleCall {
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
+      client: client,
     );
   }
 }
