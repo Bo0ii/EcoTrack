@@ -9,7 +9,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
-import '/custom_code/widgets/optimized_lottie_player.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -206,12 +205,12 @@ class _DetailedDeviceInfoWidgetState extends State<DetailedDeviceInfoWidget>
                             ),
                             child: Opacity(
                               opacity: 0.8,
-                              child: OptimizedLottiePlayer(
-                                assetPath: 'assets/jsons/Main_Scene_(2)-T62Fr.json',
+                              child: Lottie.asset(
+                                'assets/jsons/Main_Scene_(2)-T62Fr.json',
                                 width: 787.9,
                                 height: 658.3,
                                 fit: BoxFit.cover,
-                                frameRate: 60.0,
+                                frameRate: FrameRate(60.0),
                                 reverse: true,
                                 animate: true,
                               ),

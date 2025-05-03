@@ -65,9 +65,9 @@
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>In order to upload data, this app requires permission to access the photo library.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-    <string>In order to connect to new devices and plugs, this app requires permission to access the bluetooth</string>
-	<key>NSUserNotificationUsageDescription</key>
-    <string>In order to send alerts and power anomalies, this app requires permission to access the notifications</string>
+    <string>in order to connect to new devices and plugs, this app requries permission to access the bluetooth</string>
+	<key>PermissionGroupNotification</key>
+    <string>in order to send alerts and power anomolies, this app requries permission to access the Notfication</string>
 
 
 

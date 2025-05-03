@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
-import '/custom_code/widgets/index.dart';
+import '/custom_code/actions/api_optimizations.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'dart:math' as math;
@@ -20,6 +20,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import '/custom_code/widgets/optimized_lottie.dart';
 import 'package:provider/provider.dart';
 import 'home_new_model.dart';
 export 'home_new_model.dart';
@@ -51,6 +52,9 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeNewModel());
+    
+    // Ensure isLooping is set to true when entering this page
+    FFAppState().isLooping = true;
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -75,24 +79,32 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           singleRecord: true,
         ).then((s) => s.firstOrNull);
         
-        // Use optimized API fetcher instead of direct polling
-        actions.startOptimizedDataPolling(
-          deviceId: _model.deviceRef?.deviceId,
-          onDataReceived: (data) {
-            // Update app state with the received data
-            FFAppState().sensorData = data['sensorData'];
-            FFAppState().weatherTemp = data['weatherTemp'];
-            FFAppState().cloudCoverage = data['cloudCoverage'];
-            FFAppState().humidity = data['humidity'];
-            FFAppState().weatherState = data['weatherState'];
-            FFAppState().tips = data['tips'];
-            FFAppState().Tcost = data['Tcost'];
-            FFAppState().Tenergy = data['Tenergy'];
-            FFAppState().CostChange = data['CostChange'];
-            FFAppState().energyChange = data['energyChange'];
-            safeSetState(() {});
-          },
-        );
+        // Use optimized API fetching
+        if (_model.deviceRef?.deviceId != null) {
+          // Initial fetch
+          _model.sensordataAPIpageload = await actions.getOptimizedSensorData(
+            deviceId: _model.deviceRef?.deviceId ?? 'ecot2',
+          );
+          
+          // Update app state with initial data
+          actions.updateAppState(_model.sensordataAPIpageload!);
+          safeSetState(() {});
+          
+          // Start optimized background fetching
+          if (FFAppState().isLooping) {
+            actions.startOptimizedBackgroundFetching(
+              deviceId: _model.deviceRef?.deviceId ?? 'ecot2',
+            );
+            
+            // Setup stream listener for background updates
+            ApiCacheManager().sensorDataStream.listen((response) {
+              if (mounted) {
+                actions.updateAppState(response);
+                safeSetState(() {});
+              }
+            });
+          }
+        }
       } else {
         FFAppState().isAdmin = false;
         safeSetState(() {});
@@ -122,24 +134,32 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
           singleRecord: true,
         ).then((s) => s.firstOrNull);
         
-        // Use optimized API fetcher for non-admin users too
-        actions.startOptimizedDataPolling(
-          deviceId: _model.deviceRef2?.deviceId,
-          onDataReceived: (data) {
-            // Update app state with the received data
-            FFAppState().sensorData = data['sensorData'];
-            FFAppState().weatherTemp = data['weatherTemp'];
-            FFAppState().cloudCoverage = data['cloudCoverage'];
-            FFAppState().humidity = data['humidity'];
-            FFAppState().weatherState = data['weatherState'];
-            FFAppState().tips = data['tips'];
-            FFAppState().Tcost = data['Tcost'];
-            FFAppState().Tenergy = data['Tenergy'];
-            FFAppState().CostChange = data['CostChange'];
-            FFAppState().energyChange = data['energyChange'];
-            safeSetState(() {});
-          },
-        );
+        // Use optimized API fetching for non-admin user
+        if (_model.deviceRef2?.deviceId != null) {
+          // Initial fetch
+          _model.sensordataAPIpageload2 = await actions.getOptimizedSensorData(
+            deviceId: _model.deviceRef2?.deviceId ?? 'ecot2',
+          );
+          
+          // Update app state with initial data
+          actions.updateAppState(_model.sensordataAPIpageload2!);
+          safeSetState(() {});
+          
+          // Start optimized background fetching
+          if (FFAppState().isLooping) {
+            actions.startOptimizedBackgroundFetching(
+              deviceId: _model.deviceRef2?.deviceId ?? 'ecot2',
+            );
+            
+            // Setup stream listener for background updates
+            ApiCacheManager().sensorDataStream.listen((response) {
+              if (mounted) {
+                actions.updateAppState(response);
+                safeSetState(() {});
+              }
+            });
+          }
+        }
       }
     });
 
@@ -211,9 +231,17 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
 
   @override
   void dispose() {
-    // Stop API polling when the page is disposed
-    actions.stopOptimizedDataPolling();
+    // On page dispose action.
+    () async {
+      FFAppState().currentPage = 'home';
+      safeSetState(() {});
+    }();
+
+    // Set isLooping to false to prevent background API fetching when not on this page
+    FFAppState().isLooping = false;
+    
     _model.dispose();
+
     super.dispose();
   }
 
@@ -256,13 +284,11 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                           ),
                           child: Opacity(
                             opacity: 0.8,
-                            // Use optimized Lottie player
-                            child: OptimizedLottiePlayer(
+                            child: OptimizedLottie(
                               assetPath: 'assets/jsons/Main_Scene_(2)-T62Fr.json',
                               width: 787.9,
                               height: 658.3,
                               fit: BoxFit.cover,
-                              frameRate: 60.0,
                               reverse: true,
                               animate: true,
                             ),
@@ -1460,7 +1486,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                   () {
                                                                     if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                          functions.getSensorState(
+                                                                              FFAppState().sensorData.toList(),
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '0') {
@@ -1468,7 +1497,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           0xFFDBE4E4);
                                                                     } else if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                          functions.getSensorState(
+                                                                              FFAppState().sensorData.toList(),
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '1') {
@@ -1476,7 +1508,10 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                           0xFFE4D2CB);
                                                                     } else if (valueOrDefault<
                                                                             String>(
-                                                                          functions.getSensorState(FFAppState().sensorData.toList(), listViewDevicesRecord.deviceId, 'anomaly_status_numeric'),
+                                                                          functions.getSensorState(
+                                                                              FFAppState().sensorData.toList(),
+                                                                              listViewDevicesRecord.deviceId,
+                                                                              'anomaly_status_numeric'),
                                                                           'voltage',
                                                                         ) ==
                                                                         '2') {
@@ -2273,12 +2308,11 @@ class _HomeNewWidgetState extends State<HomeNewWidget>
                                                                               ),
                                                                               Transform.rotate(
                                                                                 angle: 180.0 * (math.pi / 180),
-                                                                                child: Lottie.asset(
-                                                                                  'assets/jsons/KHsdfTNZ4M.json',
+                                                                                child: OptimizedLottie(
+                                                                                  assetPath: 'assets/jsons/KHsdfTNZ4M.json',
                                                                                   width: 32.0,
                                                                                   height: 32.5,
                                                                                   fit: BoxFit.contain,
-                                                                                  frameRate: FrameRate(30.0),
                                                                                   animate: true,
                                                                                 ),
                                                                               ),

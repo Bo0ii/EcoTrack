@@ -10,7 +10,6 @@ import 'backend/firebase/firebase_config.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'lifecycle_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -94,40 +93,38 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return LifecycleManager(
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: 'ECOTRACK',
-        localizationsDelegates: [
-          FFLocalizationsDelegate(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          FallbackMaterialLocalizationDelegate(),
-          FallbackCupertinoLocalizationDelegate(),
-        ],
-        locale: _locale,
-        supportedLocales: const [
-          Locale('en'),
-          Locale('es'),
-          Locale('de'),
-          Locale('ar'),
-        ],
-        theme: ThemeData(
-          brightness: Brightness.light,
-          scrollbarTheme: ScrollbarThemeData(
-            interactive: true,
-          ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      title: 'ECOTRACK',
+      localizationsDelegates: [
+        FFLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        FallbackMaterialLocalizationDelegate(),
+        FallbackCupertinoLocalizationDelegate(),
+      ],
+      locale: _locale,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('es'),
+        Locale('de'),
+        Locale('ar'),
+      ],
+      theme: ThemeData(
+        brightness: Brightness.light,
+        scrollbarTheme: ScrollbarThemeData(
+          interactive: true,
         ),
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          scrollbarTheme: ScrollbarThemeData(
-            interactive: true,
-          ),
-        ),
-        themeMode: _themeMode,
-        routerConfig: _router,
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scrollbarTheme: ScrollbarThemeData(
+          interactive: true,
+        ),
+      ),
+      themeMode: _themeMode,
+      routerConfig: _router,
     );
   }
 }
